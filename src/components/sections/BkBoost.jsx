@@ -12,6 +12,15 @@ const cardVariants = {
   }),
 }
 
+const WHATSAPP_NUMBER = '243990260711'
+
+// Chaque pack ouvre WhatsApp avec un message pré-rempli identifiant le pack
+// choisi et l'intention de paiement Mobile Money, pour un suivi immédiat.
+function buildPackWhatsAppLink(pack) {
+  const message = `Bonjour Benjamin, je souhaite prendre le ${pack.name} (${pack.price} ${pack.currency}) de BK-BOOST Ltd. et payer par Mobile Money. Merci de me communiquer les modalités.`
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+}
+
 export default function BkBoost() {
   return (
     <section id="bk-boost" className="section-padding relative overflow-hidden bg-night">
@@ -62,7 +71,9 @@ export default function BkBoost() {
                 ))}
               </ul>
               <a
-                href="#contact"
+                href={buildPackWhatsAppLink(pack)}
+                target="_blank"
+                rel="noreferrer"
                 className={pack.highlight ? 'btn-primary w-full !py-3' : 'btn-secondary w-full !py-3'}
               >
                 Choisir ce pack
@@ -82,7 +93,12 @@ export default function BkBoost() {
             <p className="text-xs font-semibold uppercase tracking-widest text-gold">Nos valeurs de réussite</p>
             <p className="mt-1 text-lg font-semibold text-offwhite">Votre carrière est notre priorité absolue.</p>
           </div>
-          <a href="https://wa.me/243990260711" target="_blank" rel="noreferrer" className="btn-primary shrink-0">
+          <a
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Bonjour Benjamin, je souhaite booster ma carrière avec BK-BOOST Ltd. Pouvez-vous me conseiller sur le pack adapté ?')}`}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-primary shrink-0"
+          >
             <MessageCircle className="h-4 w-4" />
             Boostez votre carrière maintenant
           </a>

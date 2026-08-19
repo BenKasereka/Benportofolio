@@ -1,8 +1,10 @@
-// Galerie terrain — missions réelles listées au CV, associées aux photos fournies.
-export const galleryItems = [
+// Chronologie des missions terrain — mêmes données que le CV, présentées
+// sous forme de timeline textuelle (une seule photo suffit pour le site :
+// celle du Hero). Icônes Lucide au lieu de photos par mission.
+export const missions = [
   {
     id: 'tine-tchad',
-    image: '/images/terrain/terrain-01.jpg',
+    icon: 'Users',
     country: 'Tchad',
     mission: 'MSF-OCB — Tine & Ourécassoni',
     period: 'Avril 2026 — Présent',
@@ -11,7 +13,7 @@ export const galleryItems = [
   },
   {
     id: 'renk-soudan-sud',
-    image: '/images/terrain/terrain-02.jpg',
+    icon: 'HeartPulse',
     country: 'Soudan du Sud',
     mission: 'MSF-OCB — Renk',
     period: 'Août 2025 — Mars 2026',
@@ -20,7 +22,7 @@ export const galleryItems = [
   },
   {
     id: 'port-a-piment-haiti',
-    image: '/images/terrain/terrain-03.jpg',
+    icon: 'Package',
     country: 'Haïti',
     mission: 'MSF-OCB — Port-à-Piment',
     period: 'Février — Juillet 2025',
@@ -29,7 +31,7 @@ export const galleryItems = [
   },
   {
     id: 'abakaliki-nigeria',
-    image: '/images/terrain/terrain-04.jpg',
+    icon: 'Syringe',
     country: 'Nigeria',
     mission: 'MSF-OCB — Abakaliki',
     period: 'Mars — Décembre 2024',
@@ -38,7 +40,7 @@ export const galleryItems = [
   },
   {
     id: 'goma-rdc',
-    image: '/images/terrain/terrain-05.jpg',
+    icon: 'Users',
     country: 'RD Congo',
     mission: 'ACF — Goma',
     period: 'Novembre 2022 — Juin 2023',
@@ -47,7 +49,7 @@ export const galleryItems = [
   },
   {
     id: 'bukavu-rdc',
-    image: '/images/terrain/terrain-06.jpg',
+    icon: 'Syringe',
     country: 'RD Congo',
     mission: 'Mercy Corps — Bukavu',
     period: 'Juillet 2021 — Novembre 2022',
@@ -56,7 +58,7 @@ export const galleryItems = [
   },
   {
     id: 'butembo-rdc',
-    image: '/images/terrain/terrain-07.jpg',
+    icon: 'Syringe',
     country: 'RD Congo',
     mission: 'International Medical Corps — Butembo',
     period: 'Septembre 2019 — Avril 2020',
@@ -65,7 +67,7 @@ export const galleryItems = [
   },
   {
     id: 'acted-nord-equateur',
-    image: '/images/terrain/terrain-08.jpg',
+    icon: 'ClipboardCheck',
     country: 'RD Congo',
     mission: 'ACTED — Audit & Conformité',
     period: 'Juin 2023 — Février 2024',
