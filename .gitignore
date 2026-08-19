@@ -3,6 +3,7 @@ dist/
 .DS_Store
 *.log
 npm-debug.log*
+~$*.doc*
 
 # Documents source personnels (CV, manuel, photos brutes) —
 # non destinés à un dépôt public. Seules les copies utilisées
