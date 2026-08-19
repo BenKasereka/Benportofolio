@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+npm-debug.log*
+
+# Documents source personnels (CV, manuel, photos brutes) —
+# non destinés à un dépôt public. Seules les copies utilisées
+# dans public/images/ font partie du site.
+CV_Benjamin KASEREKA VINYATSI.docx
+Manuel Financier de Terrain UDC.docx
+Les Images sur le Terrain de Benjamin KASEREKA VINYATSI/
+BK-BOOSTLtd Offre de formation.png
+Logo de BK-BOOSTLtd..png
