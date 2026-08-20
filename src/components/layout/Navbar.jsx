@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { GraduationCap, Menu, X } from 'lucide-react'
+import { DollarSign, GraduationCap, Menu, X } from 'lucide-react'
 
 const PORTFOLIO_LINKS = [
   { label: 'Supply Chain', href: '/#supply-chain' },
@@ -59,6 +59,16 @@ export default function Navbar() {
             >
               <GraduationCap className="h-4 w-4" />
               Nos Formations
+            </Link>
+          </li>
+          {/* Bouton tarifs */}
+          <li>
+            <Link
+              to="/formations#tarifs"
+              className="flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-sm font-semibold text-gold transition-all duration-300 hover:border-gold/70 hover:bg-gold/20"
+            >
+              <DollarSign className="h-4 w-4" />
+              Nos Tarifs
             </Link>
           </li>
         </ul>
@@ -130,6 +140,20 @@ export default function Navbar() {
                 >
                   <GraduationCap className="h-6 w-6" />
                   Nos Formations
+                </Link>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.06 * (PORTFOLIO_LINKS.length + 1) }}
+              >
+                <Link
+                  to="/formations#tarifs"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-2 text-2xl font-semibold text-gold"
+                >
+                  <DollarSign className="h-6 w-6" />
+                  Nos Tarifs
                 </Link>
               </motion.li>
               <a href="/#contact" onClick={() => setOpen(false)} className="btn-primary mt-4 w-fit">
