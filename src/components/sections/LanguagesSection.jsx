@@ -10,13 +10,13 @@ const CODE_COLORS = {
 
 export default function LanguagesSection() {
   return (
-    <section id="languages" className="section-padding relative bg-night-soft">
+    <section id="languages" className="section-padding relative bg-violet-50">
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
           eyebrow="Pôle 05 — Interprétation & Traduction"
           title="Communication fluide,"
           highlight="en 4 langues"
-          accent="emerald"
+          accent="violet"
           description="L'interprétation entre équipes multiculturelles fait partie intégrante du travail de terrain — de la coordination logistique à la médiation communautaire."
         />
 

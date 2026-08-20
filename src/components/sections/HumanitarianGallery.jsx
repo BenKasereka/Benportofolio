@@ -16,7 +16,7 @@ const itemVariants = {
 
 export default function HumanitarianGallery() {
   return (
-    <section id="supply-chain" className="section-padding relative bg-night-soft">
+    <section id="supply-chain" className="section-padding relative bg-emerald-50">
       <div className="section-container flex flex-col gap-16">
         <SectionHeading
           eyebrow="Pôle 01 — Humanitarian Supply Chain"
@@ -59,7 +59,7 @@ export default function HumanitarianGallery() {
                       {item.role} — {item.country}
                     </p>
 
-                    <ul className="mt-3 flex flex-col gap-1.5 border-t border-white/10 pt-3">
+                    <ul className="mt-3 flex flex-col gap-1.5 border-t border-emerald-100 pt-3">
                       {item.highlights.map((point) => (
                         <li key={point} className="flex items-start gap-2 text-sm leading-snug text-muted">
                           <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald" />

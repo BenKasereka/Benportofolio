@@ -43,9 +43,9 @@ function buildPackWhatsAppLink(pack) {
 
 export default function BkBoost() {
   return (
-    <section id="bk-boost" className="section-padding relative overflow-hidden bg-night">
-      <div className="pointer-events-none absolute right-[-10%] top-1/3 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
-      <div className="pointer-events-none absolute left-[-10%] bottom-0 h-72 w-72 rounded-full bg-emerald/5 blur-3xl" />
+    <section id="bk-boost" className="section-padding relative overflow-hidden bg-amber-50">
+      <div className="pointer-events-none absolute right-[-10%] top-1/3 h-96 w-96 rounded-full bg-amber-300/20 blur-3xl" />
+      <div className="pointer-events-none absolute left-[-10%] bottom-0 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
 
       <div className="section-container flex flex-col gap-20">
         <div className="flex flex-col items-center gap-6 text-center">

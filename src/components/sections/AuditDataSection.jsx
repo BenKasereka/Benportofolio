@@ -16,7 +16,7 @@ const itemVariants = {
 
 export default function AuditSection() {
   return (
-    <section id="audit" className="section-padding relative bg-night-soft">
+    <section id="audit" className="section-padding relative bg-red-50">
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
           eyebrow="Pôle 03 — Audit Interne & Contrôles"

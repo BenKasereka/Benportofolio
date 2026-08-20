@@ -34,13 +34,13 @@ const cardVariants = {
 
 export default function ServicesHub() {
   return (
-    <section id="expertise" className="section-padding relative bg-night">
+    <section id="expertise" className="section-padding relative bg-blue-50">
       <div className="section-container flex flex-col gap-16">
         <SectionHeading
           eyebrow="5 pôles d'expertise"
           title="Un consultant, cinq leviers de"
           highlight="performance"
-          accent="emerald"
+          accent="blue"
           description="De l'urgence humanitaire à la donnée, chaque pôle s'appuie sur la même exigence : rigueur opérationnelle, conformité et résultats mesurables."
         />
 
@@ -94,7 +94,7 @@ export default function ServicesHub() {
                   ))}
                 </ul>
 
-                <div className="mt-auto grid grid-cols-3 gap-3 border-t border-white/10 pt-5">
+                <div className="mt-auto grid grid-cols-3 gap-3 border-t border-blue-100 pt-5">
                   {service.metrics.map((metric) => (
                     <div key={metric.label} className="flex flex-col">
                       <span className="font-heading text-lg font-bold text-offwhite">{metric.value}</span>

@@ -16,7 +16,7 @@ const cardVariants = {
 
 export default function DataAnalysisSection() {
   return (
-    <section id="data" className="section-padding relative overflow-hidden bg-night">
+    <section id="data" className="section-padding relative overflow-hidden bg-teal-50">
       <div className="pointer-events-none absolute right-[-10%] top-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
 
       <div className="section-container flex flex-col gap-14">
@@ -60,11 +60,11 @@ export default function DataAnalysisSection() {
                     <h3 className="font-semibold text-offwhite">{phase.title}</h3>
                     <p className="mt-1 text-xs leading-relaxed text-muted">{phase.description}</p>
                   </div>
-                  <ul className="mt-auto flex flex-col gap-1.5 border-t border-white/10 pt-4">
+                  <ul className="mt-auto flex flex-col gap-1.5 border-t border-teal-100 pt-4">
                     {phase.tools.map((tool) => (
                       <li
                         key={tool}
-                        className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-center text-[0.7rem] text-muted"
+                        className="rounded-full border border-teal-200 bg-white px-2.5 py-1 text-center text-[0.7rem] text-muted"
                       >
                         {tool}
                       </li>

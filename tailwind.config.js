@@ -6,10 +6,10 @@ export default {
       colors: {
         // --- Light Executive Design System ---
         night: {
-          DEFAULT: '#F8FAFC', // fond principal — blanc cassé
-          soft: '#EFF6FF',    // fond secondaire — bleu très clair
+          DEFAULT: '#FFFFFF', // fond principal — blanc pur
+          soft: '#F8FAFC',    // fond secondaire — très léger
           card: '#FFFFFF',    // cartes blanches
-          border: '#CBD5E1',  // bordures légères (slate-300)
+          border: '#E2E8F0',  // bordures légères (slate-200)
         },
         gold: {
           DEFAULT: '#D97706', // amber-600 — lisible sur fond clair
