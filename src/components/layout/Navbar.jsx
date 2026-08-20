@@ -26,12 +26,12 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? 'border-b border-night-border bg-white/90 backdrop-blur-lg shadow-sm' : 'bg-white/60 backdrop-blur-sm'
+        scrolled ? 'border-b border-rouge-dark bg-rouge shadow-md' : 'bg-rouge/90 backdrop-blur-sm'
       }`}
     >
       <nav className="section-container flex h-20 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 font-heading text-lg font-bold text-offwhite">
+        <Link to="/" className="flex items-center gap-2 font-heading text-lg font-bold text-white">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold-emerald text-sm font-extrabold text-night">
             BK
           </span>
@@ -42,7 +42,7 @@ export default function Navbar() {
         <ul className="hidden items-center gap-6 lg:flex">
           {PORTFOLIO_LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="text-sm font-medium text-muted transition-colors hover:text-offwhite">
+              <a href={link.href} className="text-sm font-medium text-white/80 transition-colors hover:text-white">
                 {link.label}
               </a>
             </li>
@@ -71,7 +71,7 @@ export default function Navbar() {
         {/* Hamburger mobile */}
         <button
           onClick={() => setOpen(true)}
-          className="rounded-lg border border-night-border bg-white p-2 text-offwhite lg:hidden"
+          className="rounded-lg border border-white/30 bg-rouge-dark p-2 text-white lg:hidden"
           aria-label="Ouvrir le menu"
         >
           <Menu className="h-5 w-5" />
@@ -85,13 +85,13 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-white/98 backdrop-blur-lg lg:hidden"
+            className="fixed inset-0 z-50 bg-rouge backdrop-blur-lg lg:hidden"
           >
             <div className="section-container flex h-20 items-center justify-between">
-              <span className="font-heading text-lg font-bold">Menu</span>
+              <span className="font-heading text-lg font-bold text-white">Menu</span>
               <button
                 onClick={() => setOpen(false)}
-                className="rounded-lg border border-night-border p-2 text-offwhite"
+                className="rounded-lg border border-white/30 p-2 text-white"
                 aria-label="Fermer le menu"
               >
                 <X className="h-5 w-5" />
@@ -112,7 +112,7 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="text-2xl font-semibold text-offwhite"
+                    className="text-2xl font-semibold text-white"
                   >
                     {link.label}
                   </a>
