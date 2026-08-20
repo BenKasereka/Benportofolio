@@ -165,7 +165,7 @@ export default function FormationDetailPage() {
                   <div className="flex items-center gap-2 mt-0.5">
                     <p className={`font-heading text-3xl font-extrabold ${a.text}`}>{formation.price}</p>
                     {formation.originalPrice && (
-                      <span className="rounded-full bg-gold/20 px-2.5 py-1 text-xs font-bold text-gold">-25%</span>
+                      <span className="rounded-full bg-gold/20 px-2.5 py-1 text-xs font-bold text-gold">-50%</span>
                     )}
                   </div>
                   {/* Compte à rebours */}

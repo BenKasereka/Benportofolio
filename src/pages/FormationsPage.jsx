@@ -59,7 +59,7 @@ export default function FormationsPage() {
         <div className="fixed inset-x-0 top-20 z-40 flex items-center justify-center gap-4 bg-gradient-to-r from-rouge via-rouge-bordeaux to-rouge px-4 py-2.5 shadow-lg">
           <Flame className="h-4 w-4 shrink-0 text-gold animate-pulse" />
           <span className="text-sm font-bold text-white">
-            OFFRE DE LANCEMENT — Jusqu'à <span className="text-gold">-25%</span> sur toutes les formations
+            OFFRE DE LANCEMENT — Jusqu'à <span className="text-gold">-50%</span> sur toutes les formations
           </span>
           <span className="hidden items-center gap-2 sm:flex">
             <span className="text-xs font-medium text-white/70">Expire dans :</span>
@@ -220,7 +220,7 @@ export default function FormationsPage() {
                         </span>
                         {formation.originalPrice && (
                           <span className="rounded-full bg-gold/20 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-gold">
-                            -25%
+                            -50%
                           </span>
                         )}
                       </div>
@@ -277,7 +277,7 @@ export default function FormationsPage() {
                   <CountdownTimer />
 
                   <p className="max-w-md text-sm font-medium text-white/70">
-                    Inscrivez-vous maintenant pour bénéficier de <span className="font-bold text-gold">-25%</span> sur toutes les formations.
+                    Inscrivez-vous maintenant pour bénéficier de <span className="font-bold text-gold">-50%</span> sur toutes les formations.
                     Après expiration, les tarifs reviennent au prix normal.
                   </p>
                 </div>
@@ -319,7 +319,7 @@ export default function FormationsPage() {
                       <div className="flex items-center gap-2 mt-0.5">
                         <p className={`font-heading text-2xl font-extrabold ${a.link}`}>{formation.price}</p>
                         {formation.originalPrice && (
-                          <span className="rounded-full bg-gold/25 px-2 py-0.5 text-[0.6rem] font-bold text-gold">-25%</span>
+                          <span className="rounded-full bg-gold/25 px-2 py-0.5 text-[0.6rem] font-bold text-gold">-50%</span>
                         )}
                       </div>
                       <p className="text-xs text-white/50 mt-0.5">par participant</p>
