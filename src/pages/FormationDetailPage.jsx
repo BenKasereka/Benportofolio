@@ -2,9 +2,10 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
   ArrowLeft, Bot, CheckCircle2, ChevronRight, Clock, Download,
-  Landmark, Package, ShieldCheck, Star, Target, Truck, Users,
+  Flame, Landmark, Package, ShieldCheck, Star, Target, Truck, Users,
 } from 'lucide-react'
 import { formationById } from '../data/formations'
+import CountdownTimer from '../components/ui/CountdownTimer'
 import InquiryForm from '../components/ui/InquiryForm'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
@@ -158,7 +159,23 @@ export default function FormationDetailPage() {
                 </div>
                 <div>
                   <p className="text-sm text-muted">{formation.subtitle}</p>
-                  <p className={`mt-1 font-heading text-3xl font-extrabold ${a.text}`}>{formation.price}</p>
+                  {formation.originalPrice && (
+                    <p className="mt-1 text-sm font-medium text-muted line-through">{formation.originalPrice}</p>
+                  )}
+                  <div className="flex items-center gap-2 mt-0.5">
+                    <p className={`font-heading text-3xl font-extrabold ${a.text}`}>{formation.price}</p>
+                    {formation.originalPrice && (
+                      <span className="rounded-full bg-gold/20 px-2.5 py-1 text-xs font-bold text-gold">-25%</span>
+                    )}
+                  </div>
+                  {/* Compte à rebours */}
+                  <div className="mt-3 rounded-xl border border-rouge/30 bg-rouge/10 px-3 py-2.5 flex flex-col gap-1.5">
+                    <div className="flex items-center gap-1.5 text-xs font-semibold text-rouge">
+                      <Flame className="h-3.5 w-3.5 animate-pulse" />
+                      Offre de lancement — expire dans :
+                    </div>
+                    <CountdownTimer compact />
+                  </div>
                 </div>
                 <ul className="flex flex-col gap-2 border-t border-white/10 pt-4">
                   {formation.objectives.slice(0, 4).map((obj) => (

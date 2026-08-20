@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
   ArrowUpRight, Bot, CheckCircle2, Clock, CreditCard, DollarSign,
-  Landmark, MessageCircle, Package, Phone, ShieldCheck, Star, Target, Truck, Users,
+  Flame, Landmark, MessageCircle, Package, Phone, ShieldCheck, Star, Target, Truck, Users,
 } from 'lucide-react'
 import { formations } from '../data/formations'
 import { pricingPacks } from '../data/pricingPacks'
+import CountdownTimer from '../components/ui/CountdownTimer'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 
@@ -54,8 +55,21 @@ export default function FormationsPage() {
       <Navbar />
 
       <main>
+        {/* ── Bandeau promotionnel ── */}
+        <div className="fixed inset-x-0 top-20 z-40 flex items-center justify-center gap-4 bg-gradient-to-r from-rouge via-rouge-bordeaux to-rouge px-4 py-2.5 shadow-lg">
+          <Flame className="h-4 w-4 shrink-0 text-gold animate-pulse" />
+          <span className="text-sm font-bold text-white">
+            OFFRE DE LANCEMENT — Jusqu'à <span className="text-gold">-25%</span> sur toutes les formations
+          </span>
+          <span className="hidden items-center gap-2 sm:flex">
+            <span className="text-xs font-medium text-white/70">Expire dans :</span>
+            <CountdownTimer compact />
+          </span>
+          <Flame className="h-4 w-4 shrink-0 text-gold animate-pulse" />
+        </div>
+
         {/* ── Hero formations ── */}
-        <section className="relative overflow-hidden bg-night pt-28 pb-24">
+        <section className="relative overflow-hidden bg-night pt-36 pb-24">
           {/* Halos */}
           <div className="pointer-events-none absolute -top-40 right-[-10%] h-[32rem] w-[32rem] rounded-full bg-gold/10 blur-3xl animate-pulse-slow" />
           <div className="pointer-events-none absolute bottom-0 left-[-10%] h-72 w-72 rounded-full bg-teal/10 blur-3xl animate-pulse-slow" />
@@ -194,7 +208,24 @@ export default function FormationsPage() {
                         ))}
                       </ul>
 
-                      <div className={`mt-auto flex flex-wrap items-center gap-2 border-t border-white/10 pt-4 ${a.meta}`}>
+                      {/* Prix barré + prix promo */}
+                      <div className="flex items-center gap-3 rounded-xl bg-white/10 px-3 py-2">
+                        {formation.originalPrice && (
+                          <span className="text-sm font-medium text-white/40 line-through">
+                            {formation.originalPrice}
+                          </span>
+                        )}
+                        <span className={`font-heading text-lg font-extrabold ${a.link}`}>
+                          {formation.price}
+                        </span>
+                        {formation.originalPrice && (
+                          <span className="rounded-full bg-gold/20 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-gold">
+                            -25%
+                          </span>
+                        )}
+                      </div>
+
+                      <div className={`flex flex-wrap items-center gap-2 border-t border-white/10 pt-4 ${a.meta}`}>
                         <span className="flex items-center gap-1.5 text-[0.7rem]">
                           <Clock className="h-3 w-3" />
                           {formation.duration}
@@ -215,7 +246,7 @@ export default function FormationsPage() {
         {/* ── Nos Tarifs ── */}
         <section id="tarifs" className="section-padding bg-night">
           <div className="section-container flex flex-col gap-16">
-            <div className="flex flex-col items-center gap-4 text-center">
+            <div className="flex flex-col items-center gap-6 text-center">
               <span className="eyebrow"><DollarSign className="h-3.5 w-3.5 inline mr-1" />Transparence tarifaire</span>
               <h2 className="text-3xl font-bold sm:text-4xl">
                 Nos <span className="text-gradient-gold">Tarifs</span> &amp; Options de Paiement
@@ -224,6 +255,33 @@ export default function FormationsPage() {
                 Chaque formation est accessible selon votre budget. Sélectionnez votre mode de
                 paiement préféré et contactez Benjamin directement via WhatsApp pour confirmer.
               </p>
+              {/* Compte à rebours — bloc rouge accrocheur */}
+              <div className="relative w-full overflow-hidden rounded-2xl bg-rouge px-8 py-8 text-center shadow-rouge-glow sm:px-12 sm:py-10">
+                {/* Halos décoratifs */}
+                <div className="pointer-events-none absolute -top-12 right-[-8%] h-48 w-48 rounded-full bg-white/10 blur-3xl" />
+                <div className="pointer-events-none absolute -bottom-12 left-[-8%] h-48 w-48 rounded-full bg-white/10 blur-3xl" />
+
+                <div className="relative flex flex-col items-center gap-5">
+                  <div className="flex items-center gap-2">
+                    <Flame className="h-5 w-5 animate-pulse text-gold" />
+                    <p className="text-base font-extrabold uppercase tracking-[0.2em] text-white sm:text-lg">
+                      Offre de Lancement — Tarif Réduit
+                    </p>
+                    <Flame className="h-5 w-5 animate-pulse text-gold" />
+                  </div>
+
+                  <p className="text-2xl font-bold text-white/90 sm:text-3xl">
+                    L'offre expire dans :
+                  </p>
+
+                  <CountdownTimer />
+
+                  <p className="max-w-md text-sm font-medium text-white/70">
+                    Inscrivez-vous maintenant pour bénéficier de <span className="font-bold text-gold">-25%</span> sur toutes les formations.
+                    Après expiration, les tarifs reviennent au prix normal.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Grille des prix par formation */}
@@ -255,7 +313,15 @@ export default function FormationsPage() {
                     </div>
 
                     <div className="border-t border-white/10 pt-3">
-                      <p className={`font-heading text-2xl font-extrabold ${a.link}`}>{formation.price}</p>
+                      {formation.originalPrice && (
+                        <p className="text-sm font-medium text-white/40 line-through">{formation.originalPrice}</p>
+                      )}
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <p className={`font-heading text-2xl font-extrabold ${a.link}`}>{formation.price}</p>
+                        {formation.originalPrice && (
+                          <span className="rounded-full bg-gold/25 px-2 py-0.5 text-[0.6rem] font-bold text-gold">-25%</span>
+                        )}
+                      </div>
                       <p className="text-xs text-white/50 mt-0.5">par participant</p>
                     </div>
 
