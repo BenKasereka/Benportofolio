@@ -93,7 +93,7 @@ export default function FormationDetailPage() {
           <div className="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
 
           <div className="section-container relative flex flex-col gap-10">
-            {/* Fil d'Ariane + retour */}
+            {/* Navigation: Fil d'Ariane + retour */}
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 to="/"
