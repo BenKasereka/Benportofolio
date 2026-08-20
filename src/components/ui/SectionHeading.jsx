@@ -2,29 +2,30 @@ import { motion } from 'framer-motion'
 
 const ACCENT_CLASS = {
   gold: 'text-gold',
-  emerald: 'text-emerald',
+  emerald: 'text-emerald-dark',
   rouge: 'text-rouge',
-  teal: 'text-teal',
-  blue: 'text-blue-600',
-  violet: 'text-violet-600',
+  teal: 'text-teal-dark',
+  blue: 'text-blue-700',
+  violet: 'text-violet-700',
 }
 
+// Badges avec fond blanc pour contraste maximal sur toutes les sections colorées
 const EYEBROW_CLASS = {
-  gold: 'border-gold/30 bg-gold/10 text-amber-700',
-  emerald: 'border-emerald/30 bg-emerald/10 text-emerald-dark',
-  rouge: 'border-rouge/30 bg-rouge/10 text-rouge',
-  teal: 'border-teal/30 bg-teal/10 text-teal-dark',
-  blue: 'border-blue-300 bg-blue-100 text-blue-700',
-  violet: 'border-violet-300 bg-violet-100 text-violet-700',
+  gold:    'border-gold/40 bg-white text-amber-700',
+  emerald: 'border-emerald-400 bg-white text-emerald-dark',
+  rouge:   'border-rouge/40 bg-white text-rouge',
+  teal:    'border-teal-400 bg-white text-teal-dark',
+  blue:    'border-blue-400 bg-white text-blue-700',
+  violet:  'border-violet-400 bg-white text-violet-700',
 }
 
 const BAR_CLASS = {
-  gold: 'bg-gold-emerald',
+  gold:    'bg-gold-emerald',
   emerald: 'bg-teal-emerald',
-  rouge: 'bg-rouge',
-  teal: 'bg-teal',
-  blue: 'bg-blue-500',
-  violet: 'bg-violet-500',
+  rouge:   'bg-rouge',
+  teal:    'bg-teal',
+  blue:    'bg-blue-500',
+  violet:  'bg-violet-500',
 }
 
 export default function SectionHeading({
@@ -49,11 +50,11 @@ export default function SectionHeading({
       className={`mx-auto flex max-w-2xl flex-col gap-4 ${alignClass}`}
     >
       {eyebrow && (
-        <span className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] ${eyebrowClass}`}>
+        <span className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] shadow-sm ${eyebrowClass}`}>
           {eyebrow}
         </span>
       )}
-      <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
+      <h2 className="text-3xl font-bold text-offwhite sm:text-4xl lg:text-5xl">
         {title}{' '}
         {highlight && <span className={accentClass}>{highlight}</span>}
       </h2>

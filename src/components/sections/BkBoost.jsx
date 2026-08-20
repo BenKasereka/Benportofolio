@@ -54,13 +54,14 @@ export default function BkBoost() {
             eyebrow="Pôle 02 — BK-BOOST Ltd."
             title="Passez du CV ignoré au"
             highlight="candidat recherché"
+            accent="rouge"
             description="Accélérateur de carrière pour opportunités nationales et internationales : un accompagnement pratique, porté par quelqu'un qui a lui-même traversé le parcours du recrutement humanitaire."
           />
         </div>
 
         {/* Méthode en 4 étapes */}
         <div className="flex flex-col gap-10">
-          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-gold">
+          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-amber-800">
             Notre méthode en 4 étapes
           </h3>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -92,7 +93,7 @@ export default function BkBoost() {
 
         {/* Compétences développées */}
         <div className="flex flex-col gap-10">
-          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-emerald">
+          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-emerald-dark">
             Ce que vous allez maîtriser
           </h3>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -140,7 +141,7 @@ export default function BkBoost() {
 
         {/* Pricing */}
         <div className="flex flex-col gap-10">
-          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-gold">
+          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-amber-800">
             Choisissez votre formule
           </h3>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -157,7 +158,7 @@ export default function BkBoost() {
                 }`}
               >
                 {pack.highlight && (
-                  <span className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-gold-emerald px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-night">
+                  <span className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-gold-emerald px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-slate-900">
                     <Sparkles className="h-3 w-3" /> Le plus choisi
                   </span>
                 )}
@@ -197,7 +198,7 @@ export default function BkBoost() {
           className="card-executive flex flex-col items-center gap-4 p-8 text-center sm:flex-row sm:justify-between sm:text-left"
         >
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-gold">Nos valeurs de réussite</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-amber-800">Nos valeurs de réussite</p>
             <p className="mt-1 text-lg font-semibold text-offwhite">Votre carrière est notre priorité absolue.</p>
           </div>
           <a

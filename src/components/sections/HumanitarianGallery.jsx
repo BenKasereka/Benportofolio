@@ -22,7 +22,7 @@ export default function HumanitarianGallery() {
           eyebrow="Pôle 01 — Humanitarian Supply Chain"
           title="Des opérations complexes, sur des"
           highlight="terrains à haut risque"
-          accent="emerald"
+          accent="gold"
           description="Huit missions, huit contextes de crise différents — de la réponse aux épidémies aux déplacements de populations. Chronologie exacte des postes occupés et des résultats obtenus, tels que documentés au CV."
         />
 

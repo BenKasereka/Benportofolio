@@ -32,7 +32,7 @@ export default function Navbar() {
       <nav className="section-container flex h-20 items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 font-heading text-lg font-bold text-white">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold-emerald text-sm font-extrabold text-night">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold-emerald text-sm font-extrabold text-slate-900">
             BK
           </span>
           Kasereka Vinyatsi
