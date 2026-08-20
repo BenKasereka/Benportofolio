@@ -9,8 +9,9 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <span className="font-heading text-xl font-bold text-offwhite">Benjamin Kasereka Vinyatsi</span>
           <p className="max-w-sm text-sm leading-relaxed text-muted">
-            Consultant Senior en Supply Chain Humanitaire, Audit & Data, Marchés Financiers, et
-            fondateur de BK-BOOST Ltd. Disponible pour mandats, audits et partenariats internationaux.
+            Consultant Senior en Supply Chain Humanitaire, Audit Interne et Data Analysis, et
+            fondateur de BK-BOOST Ltd. Disponible pour mandats, audits et partenariats nationaux et
+            internationaux.
           </p>
           <div className="flex items-center gap-2 text-sm text-muted">
             <Languages className="h-4 w-4 text-emerald" />
@@ -36,8 +37,9 @@ export default function Footer() {
           {[
             ['Supply Chain', '#supply-chain'],
             ['BK-BOOST Ltd.', '#bk-boost'],
-            ['Audit & Data', '#audit-data'],
-            ['Marchés Financiers', '#trading'],
+            ['Audit', '#audit'],
+            ['Data Analysis', '#data'],
+            ['Langues', '#languages'],
           ].map(([label, href]) => (
             <a key={href} href={href} className="text-sm text-muted hover:text-offwhite">
               {label}

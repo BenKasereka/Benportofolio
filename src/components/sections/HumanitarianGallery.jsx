@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ClipboardCheck, HeartPulse, Package, Syringe, TrendingUp, Users } from 'lucide-react'
+import { CheckCircle2, ClipboardCheck, HeartPulse, Package, Syringe, TrendingUp, Users } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 import { missions } from '../../data/missions'
 
@@ -23,7 +23,7 @@ export default function HumanitarianGallery() {
           title="Des opérations complexes, sur des"
           highlight="terrains à haut risque"
           accent="emerald"
-          description="Manuels de procédures, réponses aux épidémies, ouvertures et fermetures de bases : chaque mission a produit des résultats mesurables sous forte pression opérationnelle."
+          description="Huit missions, huit contextes de crise différents — de la réponse aux épidémies aux déplacements de populations. Chronologie exacte des postes occupés et des résultats obtenus, tels que documentés au CV."
         />
 
         <div className="relative mx-auto w-full max-w-3xl">
@@ -51,10 +51,23 @@ export default function HumanitarianGallery() {
                       <span className="rounded-full bg-emerald/15 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-emerald">
                         {item.context}
                       </span>
-                      <span className="text-xs text-muted">{item.period}</span>
+                      <span className="text-xs font-medium text-muted">{item.period}</span>
                     </div>
+
                     <h3 className="mt-2 text-base font-semibold text-offwhite">{item.mission}</h3>
-                    <p className="text-sm text-muted">{item.country}</p>
+                    <p className="text-sm text-muted">
+                      {item.role} — {item.country}
+                    </p>
+
+                    <ul className="mt-3 flex flex-col gap-1.5 border-t border-white/10 pt-3">
+                      {item.highlights.map((point) => (
+                        <li key={point} className="flex items-start gap-2 text-sm leading-snug text-muted">
+                          <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+
                     <p className="mt-3 flex items-center gap-2 text-sm font-medium text-gold">
                       <TrendingUp className="h-4 w-4" />
                       {item.impact}

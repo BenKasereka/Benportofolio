@@ -58,8 +58,8 @@ export default function HeroSection() {
           >
             Consultant Senior en{' '}
             <span className="text-emerald">Supply Chain Humanitaire</span>,{' '}
-            <span className="text-gold">Audit &amp; Data</span> et{' '}
-            <span className="text-gold">Marchés Financiers</span> — fondateur de{' '}
+            <span className="text-gold">Audit Interne</span> et{' '}
+            <span className="text-gold">Data Analysis</span> — fondateur de{' '}
             <span className="text-offwhite">BK-BOOST Ltd.</span>
           </motion.p>
 
@@ -74,8 +74,8 @@ export default function HeroSection() {
             hautement volatiles (RDC, Tchad, Soudan du Sud, Haïti, Nigeria, Centrafrique) et 3 ans en
             Administration, Audit et Finance. Titulaire d'un Master en Coopération Internationale et
             Aide Humanitaire (KALU Institute). Je conçois des stratégies d'approvisionnement agiles,
-            des manuels de procédures de référence et des outils d'aide à la décision — de la
-            réponse aux épidémies jusqu'à l'analyse des marchés financiers.
+            des manuels de procédures de référence et des outils d'analyse de données — de la
+            réponse aux épidémies jusqu'à l'aide à la décision pour PME et grands groupes.
           </motion.p>
 
           <motion.div

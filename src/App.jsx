@@ -4,8 +4,8 @@ import HeroSection from './components/sections/HeroSection'
 import ServicesHub from './components/sections/ServicesHub'
 import HumanitarianGallery from './components/sections/HumanitarianGallery'
 import BkBoost from './components/sections/BkBoost'
-import AuditDataSection from './components/sections/AuditDataSection'
-import TradingDashboard from './components/sections/TradingDashboard'
+import AuditSection from './components/sections/AuditDataSection'
+import DataAnalysisSection from './components/sections/DataAnalysisSection'
 import LanguagesSection from './components/sections/LanguagesSection'
 
 export default function App() {
@@ -17,8 +17,8 @@ export default function App() {
         <ServicesHub />
         <HumanitarianGallery />
         <BkBoost />
-        <AuditDataSection />
-        <TradingDashboard />
+        <AuditSection />
+        <DataAnalysisSection />
         <LanguagesSection />
       </main>
       <Footer />

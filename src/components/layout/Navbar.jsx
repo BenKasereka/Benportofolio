@@ -5,8 +5,8 @@ import { Menu, X } from 'lucide-react'
 const NAV_LINKS = [
   { label: 'Supply Chain', href: '#supply-chain' },
   { label: 'BK-BOOST', href: '#bk-boost' },
-  { label: 'Audit & Data', href: '#audit-data' },
-  { label: 'Marchés Financiers', href: '#trading' },
+  { label: 'Audit', href: '#audit' },
+  { label: 'Data', href: '#data' },
   { label: 'Langues', href: '#languages' },
 ]
 

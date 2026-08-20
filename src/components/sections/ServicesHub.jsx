@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
-import { ArrowUpRight, LineChart, Languages, Rocket, ShieldCheck, Truck } from 'lucide-react'
+import { ArrowUpRight, BarChart3, CheckCircle2, Languages, Rocket, ShieldCheck, Truck } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 import { services } from '../../data/services'
 
 // Résolution des icônes Lucide par nom (garde `services.js` libre de tout import React).
-const ICONS = { Truck, Rocket, ShieldCheck, LineChart, Languages }
+const ICONS = { Truck, Rocket, ShieldCheck, BarChart3, Languages }
 
 const ACCENT_STYLES = {
   gold: {
@@ -40,7 +40,7 @@ export default function ServicesHub() {
           eyebrow="5 pôles d'expertise"
           title="Un consultant, cinq leviers de"
           highlight="performance"
-          description="De l'urgence humanitaire aux marchés financiers, chaque pôle s'appuie sur la même exigence : rigueur opérationnelle, conformité et résultats mesurables."
+          description="De l'urgence humanitaire à la donnée, chaque pôle s'appuie sur la même exigence : rigueur opérationnelle, conformité et résultats mesurables."
         />
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -83,6 +83,15 @@ export default function ServicesHub() {
                   <h3 className="text-xl font-bold text-offwhite">{service.title}</h3>
                   <p className="text-sm leading-relaxed text-muted">{service.description}</p>
                 </div>
+
+                <ul className="flex flex-col gap-1.5">
+                  {service.highlights.map((point) => (
+                    <li key={point} className="flex items-start gap-2 text-sm leading-snug text-muted">
+                      <CheckCircle2 className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${accent.link}`} />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
 
                 <div className="mt-auto grid grid-cols-3 gap-3 border-t border-white/10 pt-5">
                   {service.metrics.map((metric) => (
