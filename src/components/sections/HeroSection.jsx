@@ -56,8 +56,11 @@ export default function HeroSection() {
             variants={fadeUp}
             className="max-w-xl text-lg font-medium text-offwhite/90 sm:text-xl"
           >
-            Consultant Senior en{' '}
-            <span className="text-emerald">Supply Chain Humanitaire</span>,{' '}
+            <span className="text-gold">Expert Certified Professional in Sourcing &amp; Procurement</span>{' '}
+            <span className="text-muted text-base">(ISCEA-USA)</span> — Expert en{' '}
+            <span className="text-emerald">Supply Chain &amp; Logistique Humanitaire</span>,{' '}
+            <span className="text-gold">Finance</span>,{' '}
+            <span className="text-gold">RH</span>,{' '}
             <span className="text-gold">Audit Interne</span> et{' '}
             <span className="text-gold">Data Analysis</span> — fondateur de{' '}
             <span className="text-offwhite">BK-BOOST Ltd.</span>

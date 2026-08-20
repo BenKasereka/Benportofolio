@@ -9,9 +9,7 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <span className="font-heading text-xl font-bold text-white">Benjamin Kasereka Vinyatsi</span>
           <p className="max-w-sm text-sm leading-relaxed text-slate-400">
-            Consultant Senior en Supply Chain Humanitaire, Audit Interne et Data Analysis, et
-            fondateur de BK-BOOST Ltd. Disponible pour mandats, audits et partenariats nationaux et
-            internationaux.
+            Expert Certified Professional in Sourcing &amp; Procurement (ISCEA-USA). Expert en Supply Chain &amp; Logistique Humanitaire, Finance, RH, Audit Interne et Data Analysis — fondateur de BK-BOOST Ltd. Disponible pour mandats, audits et partenariats nationaux et internationaux.
           </p>
           <div className="mt-2 flex flex-wrap gap-2 text-xs">
             <span className="rounded-full border border-slate-600 bg-slate-800 px-3 py-1 text-slate-300">FR · C2</span>
