@@ -54,10 +54,12 @@ export default function SectionHeading({
           {eyebrow}
         </span>
       )}
-      <h2 className="text-3xl font-bold text-offwhite sm:text-4xl lg:text-5xl">
-        {title}{' '}
-        {highlight && <span className={accentClass}>{highlight}</span>}
-      </h2>
+      <div className="w-full rounded-2xl bg-blue-600 px-8 py-5 shadow-md">
+        <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+          {title}{' '}
+          {highlight && <span className="text-yellow-300">{highlight}</span>}
+        </h2>
+      </div>
       <div className={`h-1 w-20 rounded-full ${barClass}`} />
       {description && (
         <p className="text-base leading-relaxed text-muted sm:text-lg">{description}</p>
