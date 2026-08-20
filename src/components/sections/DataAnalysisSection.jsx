@@ -14,6 +14,15 @@ const cardVariants = {
   }),
 }
 
+// Palette unique par phase — parcours chromatique cohérent avec le design system
+const PHASE_PALETTES = [
+  { bg: 'bg-teal border border-teal-300/30',           icon: 'bg-white/15 text-white',              desc: 'text-teal-100/70',    badge: 'bg-white/15 text-teal-50 ring-1 ring-white/20',              arrow: 'text-white/50' },
+  { bg: 'bg-emerald-dark border border-emerald-400/30', icon: 'bg-emerald-200/20 text-emerald-200',  desc: 'text-emerald-100/70', badge: 'bg-emerald-500/40 text-emerald-100 ring-1 ring-emerald-300/30', arrow: 'text-emerald-300/50' },
+  { bg: 'bg-gold-dark border border-amber-500/30',     icon: 'bg-amber-300/20 text-amber-200',      desc: 'text-amber-100/70',   badge: 'bg-amber-600/40 text-amber-100 ring-1 ring-amber-300/30',     arrow: 'text-amber-300/50' },
+  { bg: 'bg-rouge border border-rouge-light/20',       icon: 'bg-white/15 text-white',              desc: 'text-rouge-light/70', badge: 'bg-white/15 text-rouge-light ring-1 ring-rouge-light/30',     arrow: 'text-rouge-light/50' },
+  { bg: 'bg-rouge-bordeaux border border-rouge/30',    icon: 'bg-rouge/20 text-rouge-light',        desc: 'text-rouge-light/60', badge: 'bg-rouge/30 text-rouge-light ring-1 ring-rouge/30',           arrow: 'text-rouge-light/40' },
+]
+
 export default function DataAnalysisSection() {
   return (
     <section id="data" className="section-padding relative overflow-hidden bg-teal-50">
@@ -41,6 +50,7 @@ export default function DataAnalysisSection() {
         <div className="flex flex-col gap-4 lg:flex-row lg:items-stretch lg:gap-3">
           {dataPipeline.map((phase, index) => {
             const Icon = ICONS[phase.icon]
+            const p = PHASE_PALETTES[index] || PHASE_PALETTES[0]
             return (
               <div key={phase.phase} className="flex flex-1 items-stretch gap-3">
                 <motion.div
@@ -49,23 +59,23 @@ export default function DataAnalysisSection() {
                   whileInView="show"
                   viewport={{ once: true, margin: '-40px' }}
                   variants={cardVariants}
-                  className="relative flex flex-1 flex-col gap-4 rounded-2xl border border-teal-700/40 bg-teal-900 p-6 shadow-lg"
+                  className={`relative flex flex-1 flex-col gap-4 rounded-2xl p-6 shadow-lg ${p.bg}`}
                 >
-                  <span className="pointer-events-none absolute -right-2 -top-4 font-heading text-6xl font-extrabold text-teal-400/10">
+                  <span className="pointer-events-none absolute -right-2 -top-4 font-heading text-6xl font-extrabold text-white/8">
                     {phase.phase}
                   </span>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-400/20 text-teal-300">
+                  <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${p.icon}`}>
                     <Icon className="h-5 w-5" strokeWidth={1.75} />
                   </span>
                   <div>
                     <h3 className="font-semibold text-white">{phase.title}</h3>
-                    <p className="mt-1 text-xs leading-relaxed text-teal-200/70">{phase.description}</p>
+                    <p className={`mt-1 text-xs leading-relaxed ${p.desc}`}>{phase.description}</p>
                   </div>
-                  <ul className="mt-auto flex flex-col gap-1.5 border-t border-teal-600/40 pt-4">
+                  <ul className="mt-auto flex flex-col gap-1.5 border-t border-white/15 pt-4">
                     {phase.tools.map((tool) => (
                       <li
                         key={tool}
-                        className="rounded-full bg-teal-600/50 px-2.5 py-1 text-center text-[0.7rem] font-medium text-teal-100 ring-1 ring-teal-400/30"
+                        className={`rounded-full px-2.5 py-1 text-center text-[0.7rem] font-medium ${p.badge}`}
                       >
                         {tool}
                       </li>
@@ -75,7 +85,7 @@ export default function DataAnalysisSection() {
 
                 {index < dataPipeline.length - 1 && (
                   <div className="hidden items-center lg:flex">
-                    <ArrowRight className="h-4 w-4 shrink-0 text-teal-400/60" />
+                    <ArrowRight className={`h-4 w-4 shrink-0 ${p.arrow}`} />
                   </div>
                 )}
               </div>
