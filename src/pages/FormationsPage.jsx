@@ -10,48 +10,23 @@ import Footer from '../components/layout/Footer'
 
 const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
 
-const ACCENT = {
-  gold: {
-    bg:     'bg-amber-800 border border-amber-500/30',
-    icon:   'bg-amber-300/20 text-amber-200',
-    ring:   'group-hover:border-amber-300/60',
-    glow:   'group-hover:shadow-gold-glow',
-    link:   'text-amber-200',
-    number: 'text-amber-300/10',
-    badge:  'bg-amber-300/20 text-amber-100',
-    meta:   'text-amber-100/55',
-  },
-  emerald: {
-    bg:     'bg-emerald-900 border border-emerald-500/30',
-    icon:   'bg-emerald-300/20 text-emerald-300',
-    ring:   'group-hover:border-emerald-300/60',
-    glow:   'group-hover:shadow-emerald-glow',
-    link:   'text-emerald-300',
-    number: 'text-emerald-400/10',
-    badge:  'bg-emerald-300/20 text-emerald-100',
-    meta:   'text-emerald-100/55',
-  },
-  teal: {
-    bg:     'bg-teal-900 border border-teal-400/30',
-    icon:   'bg-teal-300/20 text-teal-300',
-    ring:   'group-hover:border-teal-300/60',
-    glow:   'group-hover:shadow-teal-glow',
-    link:   'text-teal-300',
-    number: 'text-teal-400/10',
-    badge:  'bg-teal-300/20 text-teal-100',
-    meta:   'text-teal-100/55',
-  },
-  rouge: {
-    bg:     'bg-rouge-bordeaux border border-rouge/30',
-    icon:   'bg-rouge/20 text-rouge-light',
-    ring:   'group-hover:border-rouge/60',
-    glow:   'group-hover:shadow-rouge-glow',
-    link:   'text-rouge-light',
-    number: 'text-rouge/10',
-    badge:  'bg-rouge/20 text-rouge-light',
-    meta:   'text-rouge-light/55',
-  },
-}
+// Palette unique par formation (index 0–6) — aucun doublon, tous dans le design system
+const CARD_PALETTES = [
+  // 01 — Intelligence Artificielle : teal vif (tech, innovation)
+  { bg: 'bg-teal border border-teal-300/30', icon: 'bg-white/15 text-white', ring: 'group-hover:border-white/40', glow: 'group-hover:shadow-teal-glow', link: 'text-teal-100', number: 'text-white/8', badge: 'bg-white/15 text-teal-50', meta: 'text-white/55' },
+  // 02 — Accompagnement de Carrière : cognac doré (ambition, or)
+  { bg: 'bg-gold-dark border border-amber-500/30', icon: 'bg-amber-300/20 text-amber-200', ring: 'group-hover:border-amber-300/60', glow: 'group-hover:shadow-gold-glow', link: 'text-amber-200', number: 'text-amber-300/10', badge: 'bg-amber-300/20 text-amber-100', meta: 'text-amber-100/55' },
+  // 03 — Logistique Humanitaire : forêt profonde (terrain, urgence verte)
+  { bg: 'bg-emerald-900 border border-emerald-500/30', icon: 'bg-emerald-300/20 text-emerald-300', ring: 'group-hover:border-emerald-300/60', glow: 'group-hover:shadow-emerald-glow', link: 'text-emerald-300', number: 'text-emerald-400/10', badge: 'bg-emerald-300/20 text-emerald-100', meta: 'text-emerald-100/55' },
+  // 04 — Supply Chain Humanitaire : rouge vif (urgence, chaîne critique)
+  { bg: 'bg-rouge border border-rouge-light/20', icon: 'bg-white/15 text-white', ring: 'group-hover:border-white/40', glow: 'group-hover:shadow-rouge-glow', link: 'text-rouge-light', number: 'text-white/8', badge: 'bg-white/15 text-rouge-light', meta: 'text-white/55' },
+  // 05 — Gestion Financière ONG : teal foncé (rigueur, précision)
+  { bg: 'bg-teal-dark border border-teal-300/30', icon: 'bg-teal-300/20 text-teal-200', ring: 'group-hover:border-teal-200/60', glow: 'group-hover:shadow-teal-glow', link: 'text-teal-200', number: 'text-teal-300/10', badge: 'bg-teal-300/20 text-teal-100', meta: 'text-teal-100/55' },
+  // 06 — Data Analysis : emerald foncé (données, croissance analytique)
+  { bg: 'bg-emerald-dark border border-emerald-300/30', icon: 'bg-emerald-200/20 text-emerald-200', ring: 'group-hover:border-emerald-200/60', glow: 'group-hover:shadow-emerald-glow', link: 'text-emerald-200', number: 'text-emerald-300/10', badge: 'bg-emerald-200/20 text-emerald-100', meta: 'text-emerald-100/55' },
+  // 07 — Ressources Humaines : bordeaux (profondeur, engagement humain)
+  { bg: 'bg-rouge-bordeaux border border-rouge/30', icon: 'bg-rouge/20 text-rouge-light', ring: 'group-hover:border-rouge/60', glow: 'group-hover:shadow-rouge-glow', link: 'text-rouge-light', number: 'text-rouge/10', badge: 'bg-rouge/20 text-rouge-light', meta: 'text-rouge-light/55' },
+]
 
 const cardVariants = {
   hidden: { opacity: 0, y: 32 },
@@ -148,7 +123,7 @@ export default function FormationsPage() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
               {formations.map((formation, index) => {
-                const a = ACCENT[formation.accent] || ACCENT.gold
+                const a = CARD_PALETTES[index] || CARD_PALETTES[0]
                 const Icon = ICONS[formation.icon] || Bot
 
                 return (

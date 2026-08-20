@@ -23,6 +23,7 @@ export default function AuditSection() {
           title="La rigueur du contrôle,"
           highlight="au service de la conformité"
           accent="rouge"
+          panelBg="bg-rouge-bordeaux"
           description="Rédaction de manuels de procédures, contrôles internes et audits multi-programmes — la même discipline qui a réduit le risque de non-conformité de 87,2% chez ACTED en 3 mois."
         />
 

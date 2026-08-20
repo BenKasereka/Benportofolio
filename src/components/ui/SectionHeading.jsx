@@ -45,12 +45,13 @@ export default function SectionHeading({
   description,
   align = 'center',
   accent = 'gold',
+  panelBg,
 }) {
   const alignClass = align === 'left' ? 'items-start text-left' : 'items-center text-center'
   const accentClass = ACCENT_CLASS[accent] ?? 'text-gold'
   const eyebrowClass = EYEBROW_CLASS[accent] ?? EYEBROW_CLASS.gold
   const barClass = BAR_CLASS[accent] ?? BAR_CLASS.gold
-  const panelClass = PANEL_CLASS[accent] ?? PANEL_CLASS.blue
+  const resolvedPanel = panelBg ?? PANEL_CLASS[accent] ?? 'bg-teal'
 
   return (
     <motion.div
@@ -65,7 +66,7 @@ export default function SectionHeading({
           {eyebrow}
         </span>
       )}
-      <div className={`w-full rounded-2xl ${panelClass} px-8 py-5 shadow-md`}>
+      <div className={`w-full rounded-2xl ${resolvedPanel} px-8 py-5 shadow-md`}>
         <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
           {title}{' '}
           {highlight && <span className="font-extrabold">{highlight}</span>}

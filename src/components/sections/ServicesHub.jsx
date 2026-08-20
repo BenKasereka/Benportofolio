@@ -41,6 +41,7 @@ export default function ServicesHub() {
           title="Un consultant, cinq leviers de"
           highlight="performance"
           accent="blue"
+          panelBg="bg-teal"
           description="De l'urgence humanitaire à la donnée, chaque pôle s'appuie sur la même exigence : rigueur opérationnelle, conformité et résultats mesurables."
         />
 

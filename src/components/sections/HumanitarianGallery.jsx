@@ -23,6 +23,7 @@ export default function HumanitarianGallery() {
           title="Des opérations complexes, sur des"
           highlight="terrains à haut risque"
           accent="gold"
+          panelBg="bg-rouge"
           description="Huit missions, huit contextes de crise différents — de la réponse aux épidémies aux déplacements de populations. Chronologie exacte des postes occupés et des résultats obtenus, tels que documentés au CV."
         />
 

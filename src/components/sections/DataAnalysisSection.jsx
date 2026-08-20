@@ -25,6 +25,7 @@ export default function DataAnalysisSection() {
           title="De la base de données brute à la"
           highlight="décision"
           accent="teal"
+          panelBg="bg-teal-dark"
           description="Analyse de bases de données, interprétation et visualisation — avec les outils et langages professionnels les plus puissants du marché, à chaque étape du pipeline."
         />
 

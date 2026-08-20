@@ -57,6 +57,7 @@ export default function BkBoost() {
             title="Passez du CV ignoré au"
             highlight="candidat recherché"
             accent="rouge"
+            panelBg="bg-gold-dark"
             description="Accélérateur de carrière pour opportunités nationales et internationales : un accompagnement pratique, porté par quelqu'un qui a lui-même traversé le parcours du recrutement humanitaire."
           />
         </div>
