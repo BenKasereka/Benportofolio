@@ -49,23 +49,23 @@ export default function DataAnalysisSection() {
                   whileInView="show"
                   viewport={{ once: true, margin: '-40px' }}
                   variants={cardVariants}
-                  className="card-executive relative flex flex-1 flex-col gap-4 p-6"
+                  className="relative flex flex-1 flex-col gap-4 rounded-2xl border border-teal-700/40 bg-teal-900 p-6 shadow-lg"
                 >
-                  <span className="pointer-events-none absolute -right-3 -top-5 font-heading text-6xl font-extrabold text-gold/10">
+                  <span className="pointer-events-none absolute -right-2 -top-4 font-heading text-6xl font-extrabold text-teal-400/10">
                     {phase.phase}
                   </span>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-400/20 text-teal-300">
                     <Icon className="h-5 w-5" strokeWidth={1.75} />
                   </span>
                   <div>
-                    <h3 className="font-semibold text-offwhite">{phase.title}</h3>
-                    <p className="mt-1 text-xs leading-relaxed text-muted">{phase.description}</p>
+                    <h3 className="font-semibold text-white">{phase.title}</h3>
+                    <p className="mt-1 text-xs leading-relaxed text-teal-200/70">{phase.description}</p>
                   </div>
-                  <ul className="mt-auto flex flex-col gap-1.5 border-t border-teal-100 pt-4">
+                  <ul className="mt-auto flex flex-col gap-1.5 border-t border-teal-600/40 pt-4">
                     {phase.tools.map((tool) => (
                       <li
                         key={tool}
-                        className="rounded-full border border-teal-200 bg-white px-2.5 py-1 text-center text-[0.7rem] text-muted"
+                        className="rounded-full bg-teal-600/50 px-2.5 py-1 text-center text-[0.7rem] font-medium text-teal-100 ring-1 ring-teal-400/30"
                       >
                         {tool}
                       </li>
@@ -75,7 +75,7 @@ export default function DataAnalysisSection() {
 
                 {index < dataPipeline.length - 1 && (
                   <div className="hidden items-center lg:flex">
-                    <ArrowRight className="h-4 w-4 shrink-0 text-gold/40" />
+                    <ArrowRight className="h-4 w-4 shrink-0 text-teal-400/60" />
                   </div>
                 )}
               </div>
