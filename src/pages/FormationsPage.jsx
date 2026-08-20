@@ -100,7 +100,7 @@ export default function FormationsPage() {
               className="max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
             >
               7 programmes de formation d'excellence — de l'Intelligence Artificielle à l'Audit
-              humanitaire — conçus et animés par un expert de terrain avec 5+ ans d'expérience
+              humanitaire — conçus et animés par un expert avec 10+ ans d'expérience nationale et
               internationale. Des formations pratiques, structurées et immédiatement applicables.
             </motion.p>
 
@@ -114,7 +114,7 @@ export default function FormationsPage() {
               {[
                 { value: '7', label: 'Formations certifiantes' },
                 { value: '100%', label: 'Approche pratique terrain' },
-                { value: '5+', label: "Années d'expertise" },
+                { value: '10+', label: "Années d'expertise" },
                 { value: '24h', label: 'Réponse garantie' },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col items-center gap-1">

@@ -3,10 +3,10 @@ import { ArrowRight, Download, MapPin, ShieldCheck } from 'lucide-react'
 import StatCounter from '../ui/StatCounter'
 
 const stats = [
-  { value: '5+', label: 'ans en Supply Chain d’urgence' },
-  { value: '6', label: 'pays en contexte volatile' },
-  { value: '85%', label: 'de réduction des délais' },
-  { value: '87%', label: 'de conformité en audit' },
+  { value: "7+", label: "ans en Supply Chain d’urgence" },
+  { value: "6", label: "pays en contexte volatile" },
+  { value: "85%", label: "de réduction des délais" },
+  { value: "87%", label: "de conformité en audit" },
 ]
 
 const fadeUp = {
@@ -68,9 +68,9 @@ export default function HeroSection() {
             variants={fadeUp}
             className="max-w-xl text-base leading-relaxed text-muted"
           >
-            Bilingue, expert MSF de la Supply Chain d'urgence avec 5 ans de terrain en zones
-            hautement volatiles (RDC, Tchad, Soudan du Sud, Haïti, Nigeria, Centrafrique) et 3 ans en
-            Administration, Audit et Finance. Titulaire d'un Master en Coopération Internationale et
+            Bilingue, expert MSF de la Supply Chain d'urgence avec 7+ ans de terrain en zones
+            hautement volatiles (RDC, Tchad, Soudan du Sud, Haïti, Nigeria, Centrafrique) et 3+ ans en
+            Finances, Administration, RH et Audit &amp; Compliance. Titulaire d'un Master en Coopération Internationale et
             Aide Humanitaire (KALU Institute). Je conçois des stratégies d'approvisionnement agiles,
             des manuels de procédures de référence et des outils d'analyse de données — de la
             réponse aux épidémies jusqu'à l'aide à la décision pour PME et grands groupes.

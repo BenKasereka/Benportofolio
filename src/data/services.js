@@ -17,7 +17,7 @@ export const services = [
       'Coaching et montée en compétence des équipes logistiques nationales',
     ],
     metrics: [
-      { value: '5+', label: 'ans en Supply Chain terrain' },
+      { value: '7+', label: 'ans en Supply Chain terrain' },
       { value: '85%', label: 'de réduction des délais' },
       { value: '6', label: 'pays d’intervention' },
     ],
