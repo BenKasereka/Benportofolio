@@ -1,11 +1,11 @@
-import { Languages, Mail, MapPin, Phone } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 
 export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
     <footer id="contact" className="border-t border-night-border bg-night-soft">
-      <div className="section-container section-padding grid gap-12 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
+      <div className="section-container section-padding grid gap-12 lg:grid-cols-[1.4fr_0.8fr]">
         <div className="flex flex-col gap-4">
           <span className="font-heading text-xl font-bold text-offwhite">Benjamin Kasereka Vinyatsi</span>
           <p className="max-w-sm text-sm leading-relaxed text-muted">
@@ -13,38 +13,25 @@ export default function Footer() {
             fondateur de BK-BOOST Ltd. Disponible pour mandats, audits et partenariats nationaux et
             internationaux.
           </p>
-          <div className="flex items-center gap-2 text-sm text-muted">
-            <Languages className="h-4 w-4 text-emerald" />
-            FR · EN · Swahili · Kinande · Lingala · Kinyarwanda
+          <div className="mt-2 flex flex-wrap gap-2 text-xs text-muted">
+            <span className="rounded-full border border-night-border bg-night-card px-3 py-1">FR · C2</span>
+            <span className="rounded-full border border-night-border bg-night-card px-3 py-1">EN · C2</span>
+            <span className="rounded-full border border-night-border bg-night-card px-3 py-1">Swahili · Native</span>
+            <span className="rounded-full border border-night-border bg-night-card px-3 py-1">Lingala · Native</span>
           </div>
         </div>
 
         <div className="flex flex-col gap-3">
           <span className="text-xs font-semibold uppercase tracking-widest text-gold">Contact</span>
-          <a href="mailto:kasvinyatsi7@gmail.com" className="flex items-center gap-2 text-sm text-muted hover:text-offwhite">
-            <Mail className="h-4 w-4" /> kasvinyatsi7@gmail.com
+          <a href="mailto:kasvinyatsi7@gmail.com" className="flex items-center gap-2 text-sm text-muted hover:text-offwhite transition-colors">
+            <Mail className="h-4 w-4 text-gold" /> kasvinyatsi7@gmail.com
           </a>
-          <a href="tel:+243990260711" className="flex items-center gap-2 text-sm text-muted hover:text-offwhite">
-            <Phone className="h-4 w-4" /> +243 990 260 711
+          <a href="tel:+243990260711" className="flex items-center gap-2 text-sm text-muted hover:text-offwhite transition-colors">
+            <Phone className="h-4 w-4 text-gold" /> +243 990 260 711
           </a>
           <span className="flex items-center gap-2 text-sm text-muted">
-            <MapPin className="h-4 w-4" /> Goma, RD Congo
+            <MapPin className="h-4 w-4 text-emerald" /> Goma, RD Congo
           </span>
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <span className="text-xs font-semibold uppercase tracking-widest text-gold">Navigation</span>
-          {[
-            ['Supply Chain', '#supply-chain'],
-            ['BK-BOOST Ltd.', '#bk-boost'],
-            ['Audit', '#audit'],
-            ['Data Analysis', '#data'],
-            ['Langues', '#languages'],
-          ].map(([label, href]) => (
-            <a key={href} href={href} className="text-sm text-muted hover:text-offwhite">
-              {label}
-            </a>
-          ))}
         </div>
       </div>
 

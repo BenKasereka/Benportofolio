@@ -112,7 +112,7 @@ export default function HeroSection() {
             animate="show"
             custom={0.6}
             variants={fadeUp}
-            className="mt-4 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-white/10 pt-8 sm:grid-cols-4"
+            className="mt-4 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-night-border pt-8 sm:grid-cols-4"
           >
             {stats.map((stat, i) => (
               <StatCounter key={stat.label} value={stat.value} label={stat.label} delay={0.1 * i} />
@@ -134,10 +134,10 @@ export default function HeroSection() {
               alt="Benjamin Kasereka Vinyatsi en mission humanitaire sur le terrain"
               className="h-full w-full rounded-[1.6rem] object-cover"
             />
-            <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl border border-white/10 bg-night/80 px-4 py-3 backdrop-blur-md">
+            <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 backdrop-blur-md">
               <div>
                 <p className="text-xs uppercase tracking-wide text-muted">Mission active</p>
-                <p className="text-sm font-semibold text-offwhite">MSF-OCB — Tine, Tchad</p>
+                <p className="text-sm font-semibold text-slate-800">MSF-OCB — Tine, Tchad</p>
               </div>
               <span className="h-2.5 w-2.5 animate-pulse-slow rounded-full bg-emerald shadow-emerald-glow" />
             </div>

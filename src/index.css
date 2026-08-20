@@ -19,24 +19,22 @@
   }
 
   ::selection {
-    @apply bg-gold/30 text-offwhite;
+    @apply bg-gold/20 text-offwhite;
   }
 
-  /* Scrollbar exécutive, discrète */
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #0b0f17;
+    background: #EFF6FF;
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #f59e0b, #10b981);
+    background: linear-gradient(180deg, #D97706, #059669);
     border-radius: 999px;
   }
 }
 
 @layer components {
-  /* Conteneur global cohérent sur toutes les sections */
   .section-container {
     @apply mx-auto w-full max-w-container px-6 sm:px-10 lg:px-16;
   }
@@ -45,30 +43,39 @@
     @apply py-20 sm:py-28;
   }
 
-  /* Carte "bleu nuit" du design system */
+  /* Carte blanche sur fond clair */
   .card-executive {
-    @apply relative rounded-2xl border border-night-border bg-night-card/70 backdrop-blur-sm shadow-card transition-all duration-500;
+    @apply relative rounded-2xl border border-night-border bg-night-card shadow-card transition-all duration-500;
   }
 
   .card-executive:hover {
-    @apply -translate-y-1 border-gold/40 shadow-gold-glow;
+    @apply -translate-y-1 border-gold/50 shadow-gold-glow;
   }
 
-  /* Badge de pastille pour labels de section */
+  /* Pastille section */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-night-border bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-gold;
+    @apply inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-gold-dark;
   }
 
-  /* CTA doré signature */
+  /* CTA principal */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold-emerald bg-[length:200%_auto] px-7 py-3.5 text-sm font-semibold text-night shadow-gold-glow transition-all duration-500 hover:bg-[position:100%_0] hover:scale-[1.03] active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold-emerald bg-[length:200%_auto] px-7 py-3.5 text-sm font-semibold text-white shadow-gold-glow transition-all duration-500 hover:bg-[position:100%_0] hover:scale-[1.03] active:scale-[0.98];
   }
 
+  /* CTA secondaire */
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-3.5 text-sm font-semibold text-offwhite backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/10;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold text-offwhite shadow-sm transition-all duration-300 hover:border-slate-400 hover:bg-slate-50;
   }
 
   .text-gradient-gold {
     @apply bg-gold-emerald bg-clip-text text-transparent;
+  }
+
+  .text-gradient-teal {
+    @apply bg-blue-teal bg-clip-text text-transparent;
+  }
+
+  .text-gradient-rouge {
+    @apply bg-rouge-bordeaux bg-clip-text text-transparent;
   }
 }

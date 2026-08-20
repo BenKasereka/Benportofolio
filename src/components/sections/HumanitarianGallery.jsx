@@ -27,7 +27,7 @@ export default function HumanitarianGallery() {
         />
 
         <div className="relative mx-auto w-full max-w-3xl">
-          <div className="absolute left-5 top-2 bottom-2 w-px bg-gradient-to-b from-emerald/60 via-white/10 to-transparent" />
+          <div className="absolute left-5 top-2 bottom-2 w-px bg-gradient-to-b from-emerald/60 via-emerald/10 to-transparent" />
 
           <div className="flex flex-col gap-6">
             {missions.map((item, index) => {
@@ -42,7 +42,7 @@ export default function HumanitarianGallery() {
                   variants={itemVariants}
                   className="relative flex gap-5 pl-1"
                 >
-                  <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-emerald/40 bg-night text-emerald shadow-emerald-glow">
+                  <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-emerald/40 bg-white text-emerald shadow-emerald-glow">
                     <Icon className="h-5 w-5" strokeWidth={1.75} />
                   </span>
 

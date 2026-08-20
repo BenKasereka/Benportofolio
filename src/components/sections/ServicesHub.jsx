@@ -40,6 +40,7 @@ export default function ServicesHub() {
           eyebrow="5 pôles d'expertise"
           title="Un consultant, cinq leviers de"
           highlight="performance"
+          accent="emerald"
           description="De l'urgence humanitaire à la donnée, chaque pôle s'appuie sur la même exigence : rigueur opérationnelle, conformité et résultats mesurables."
         />
 
@@ -108,7 +109,7 @@ export default function ServicesHub() {
                   {service.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[0.7rem] text-muted"
+                      className="rounded-full border border-night-border bg-night-soft px-3 py-1 text-[0.7rem] text-muted"
                     >
                       {tag}
                     </span>

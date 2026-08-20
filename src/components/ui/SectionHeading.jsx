@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion'
 
-/**
- * En-tête de section réutilisable — pastille (eyebrow), titre et sous-titre.
- * `accent` bascule l'accent colorimétrique entre l'or (finance) et l'émeraude (impact).
- */
+const ACCENT_CLASS = {
+  gold: 'text-gold',
+  emerald: 'text-emerald',
+  rouge: 'text-rouge',
+  teal: 'text-teal',
+}
+
 export default function SectionHeading({
   eyebrow,
   title,
@@ -13,7 +16,7 @@ export default function SectionHeading({
   accent = 'gold',
 }) {
   const alignClass = align === 'left' ? 'items-start text-left' : 'items-center text-center'
-  const accentClass = accent === 'emerald' ? 'text-emerald' : 'text-gold'
+  const accentClass = ACCENT_CLASS[accent] ?? 'text-gold'
 
   return (
     <motion.div

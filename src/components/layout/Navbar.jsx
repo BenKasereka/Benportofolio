@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? 'border-b border-night-border bg-night/80 backdrop-blur-lg' : 'bg-transparent'
+        scrolled ? 'border-b border-night-border bg-white/90 backdrop-blur-lg shadow-sm' : 'bg-white/60 backdrop-blur-sm'
       }`}
     >
       <nav className="section-container flex h-20 items-center justify-between">
@@ -71,7 +71,7 @@ export default function Navbar() {
         {/* Hamburger mobile */}
         <button
           onClick={() => setOpen(true)}
-          className="rounded-lg border border-white/10 p-2 text-offwhite lg:hidden"
+          className="rounded-lg border border-night-border bg-white p-2 text-offwhite lg:hidden"
           aria-label="Ouvrir le menu"
         >
           <Menu className="h-5 w-5" />
@@ -85,13 +85,13 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-night/95 backdrop-blur-lg lg:hidden"
+            className="fixed inset-0 z-50 bg-white/98 backdrop-blur-lg lg:hidden"
           >
             <div className="section-container flex h-20 items-center justify-between">
               <span className="font-heading text-lg font-bold">Menu</span>
               <button
                 onClick={() => setOpen(false)}
-                className="rounded-lg border border-white/10 p-2 text-offwhite"
+                className="rounded-lg border border-night-border p-2 text-offwhite"
                 aria-label="Fermer le menu"
               >
                 <X className="h-5 w-5" />

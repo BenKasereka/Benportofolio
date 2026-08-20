@@ -61,13 +61,20 @@ export default function FormationsPage() {
 
       <main>
         {/* ── Hero formations ── */}
-        <section className="relative overflow-hidden bg-night pt-32 pb-24">
+        <section className="relative overflow-hidden bg-night pt-28 pb-24">
           {/* Halos */}
           <div className="pointer-events-none absolute -top-40 right-[-10%] h-[32rem] w-[32rem] rounded-full bg-gold/10 blur-3xl animate-pulse-slow" />
           <div className="pointer-events-none absolute bottom-0 left-[-10%] h-72 w-72 rounded-full bg-teal/10 blur-3xl animate-pulse-slow" />
           <div className="pointer-events-none absolute inset-0 bg-grid-glow opacity-30" />
 
           <div className="section-container relative flex flex-col items-center gap-8 text-center">
+            {/* Bouton retour Accueil */}
+            <Link
+              to="/"
+              className="flex items-center gap-2 self-start rounded-full border border-night-border bg-night-card px-4 py-2 text-sm font-medium text-muted transition-all hover:border-gold/40 hover:text-offwhite"
+            >
+              ← Accueil
+            </Link>
             <motion.span
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -147,7 +154,7 @@ export default function FormationsPage() {
                   >
                     <Link
                       to={`/formations/${formation.id}`}
-                      className={`card-executive group relative flex flex-col gap-5 overflow-hidden p-7 transition-all ${a.ring} ${a.glow}`}
+                      className={`card-executive group relative flex flex-col gap-5 overflow-hidden p-7 transition-all hover:-translate-y-1 ${a.ring} ${a.glow}`}
                     >
                       {/* Numéro en fond */}
                       <span className={`pointer-events-none absolute -right-3 -top-5 font-heading text-8xl font-extrabold ${a.number}`}>

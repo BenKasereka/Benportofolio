@@ -24,6 +24,7 @@ export default function DataAnalysisSection() {
           eyebrow="Pôle 04 — Data Analysis & Business Intelligence"
           title="De la base de données brute à la"
           highlight="décision"
+          accent="teal"
           description="Analyse de bases de données, interprétation et visualisation — avec les outils et langages professionnels les plus puissants du marché, à chaque étape du pipeline."
         />
 

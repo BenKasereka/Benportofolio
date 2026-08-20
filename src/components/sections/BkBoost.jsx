@@ -106,7 +106,7 @@ export default function BkBoost() {
                   whileInView="show"
                   viewport={{ once: true, margin: '-40px' }}
                   variants={fadeUp}
-                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4"
+                  className="flex items-center gap-3 rounded-xl border border-night-border bg-night-card p-4"
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald/10 text-emerald">
                     <Icon className="h-4 w-4" strokeWidth={1.75} />

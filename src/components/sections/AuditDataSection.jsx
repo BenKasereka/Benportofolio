@@ -22,6 +22,7 @@ export default function AuditSection() {
           eyebrow="Pôle 03 — Audit Interne & Contrôles"
           title="La rigueur du contrôle,"
           highlight="au service de la conformité"
+          accent="rouge"
           description="Rédaction de manuels de procédures, contrôles internes et audits multi-programmes — la même discipline qui a réduit le risque de non-conformité de 87,2% chez ACTED en 3 mois."
         />
 
@@ -52,7 +53,7 @@ export default function AuditSection() {
                 </span>
                 <h3 className="font-semibold text-offwhite">{capability.title}</h3>
                 <p className="text-sm leading-relaxed text-muted">{capability.description}</p>
-                <ul className="mt-2 flex flex-col gap-1.5 border-t border-white/10 pt-3">
+                <ul className="mt-2 flex flex-col gap-1.5 border-t border-night-border pt-3">
                   {capability.points.map((point) => (
                     <li key={point} className="flex items-start gap-2 text-sm leading-snug text-muted">
                       <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" />

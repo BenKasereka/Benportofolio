@@ -1,38 +1,37 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        // --- Executive Luxury Design System ---
+        // --- Light Executive Design System ---
         night: {
-          DEFAULT: '#0B0F17', // fond principal
-          soft: '#0F1420',
-          card: '#1E293B', // cartes bleu nuit
-          border: '#28344A',
+          DEFAULT: '#F8FAFC', // fond principal — blanc cassé
+          soft: '#EFF6FF',    // fond secondaire — bleu très clair
+          card: '#FFFFFF',    // cartes blanches
+          border: '#CBD5E1',  // bordures légères (slate-300)
         },
         gold: {
-          DEFAULT: '#F59E0B', // accent finance / trading
-          light: '#FBBF24',
-          dark: '#B45309',
+          DEFAULT: '#D97706', // amber-600 — lisible sur fond clair
+          light: '#F59E0B',
+          dark: '#92400E',
         },
         emerald: {
-          DEFAULT: '#10B981', // accent impact humanitaire
-          light: '#34D399',
+          DEFAULT: '#059669', // emerald-600 — lisible sur fond clair
+          light: '#10B981',
           dark: '#047857',
         },
-        offwhite: '#F8FAFC', // texte principal
-        muted: '#94A3B8', // texte secondaire
+        offwhite: '#0F172A',  // texte principal — navy foncé
+        muted: '#64748B',     // texte secondaire — slate-500
         rouge: {
-          DEFAULT: '#EF4444',
-          dark: '#B91C1C',
+          DEFAULT: '#DC2626',
+          dark: '#991B1B',
           bordeaux: '#7F1D1D',
           light: '#FCA5A5',
         },
         teal: {
-          DEFAULT: '#14B8A6',
-          dark: '#0D9488',
+          DEFAULT: '#0D9488',
+          dark: '#0F766E',
           light: '#5EEAD4',
         },
       },
@@ -42,18 +41,19 @@ export default {
       },
       backgroundImage: {
         'grid-glow':
-          'radial-gradient(circle at 20% 20%, rgba(245,158,11,0.12), transparent 40%), radial-gradient(circle at 80% 0%, rgba(16,185,129,0.10), transparent 35%)',
-        'gold-emerald': 'linear-gradient(120deg, #F59E0B 0%, #10B981 100%)',
-        'gold-rouge': 'linear-gradient(120deg, #F59E0B 0%, #EF4444 100%)',
-        'teal-emerald': 'linear-gradient(120deg, #14B8A6 0%, #10B981 100%)',
-        'rouge-bordeaux': 'linear-gradient(120deg, #EF4444 0%, #7F1D1D 100%)',
+          'radial-gradient(circle at 20% 20%, rgba(217,119,6,0.08), transparent 40%), radial-gradient(circle at 80% 0%, rgba(5,150,105,0.07), transparent 35%)',
+        'gold-emerald': 'linear-gradient(120deg, #D97706 0%, #059669 100%)',
+        'gold-rouge': 'linear-gradient(120deg, #D97706 0%, #DC2626 100%)',
+        'teal-emerald': 'linear-gradient(120deg, #0D9488 0%, #059669 100%)',
+        'rouge-bordeaux': 'linear-gradient(120deg, #DC2626 0%, #7F1D1D 100%)',
+        'blue-teal': 'linear-gradient(120deg, #3B82F6 0%, #0D9488 100%)',
       },
       boxShadow: {
-        card: '0 8px 30px -10px rgba(0,0,0,0.5)',
-        'gold-glow': '0 0 40px -8px rgba(245,158,11,0.45)',
-        'emerald-glow': '0 0 40px -8px rgba(16,185,129,0.45)',
-        'rouge-glow': '0 0 40px -8px rgba(239,68,68,0.45)',
-        'teal-glow': '0 0 40px -8px rgba(20,184,166,0.45)',
+        card: '0 4px 24px -4px rgba(0,0,0,0.09), 0 2px 8px -2px rgba(0,0,0,0.05)',
+        'gold-glow': '0 0 32px -8px rgba(217,119,6,0.30)',
+        'emerald-glow': '0 0 32px -8px rgba(5,150,105,0.30)',
+        'rouge-glow': '0 0 32px -8px rgba(220,38,38,0.30)',
+        'teal-glow': '0 0 32px -8px rgba(13,148,136,0.30)',
       },
       keyframes: {
         'fade-in-up': {

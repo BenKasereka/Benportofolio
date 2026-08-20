@@ -93,14 +93,23 @@ export default function FormationDetailPage() {
           <div className="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
 
           <div className="section-container relative flex flex-col gap-10">
-            {/* Fil d'Ariane */}
-            <Link
-              to="/formations"
-              className="inline-flex w-fit items-center gap-2 text-sm text-muted transition hover:text-offwhite"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Retour aux formations
-            </Link>
+            {/* Fil d'Ariane + retour */}
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                to="/"
+                className="flex items-center gap-2 rounded-full border border-night-border bg-night-card px-4 py-2 text-sm font-medium text-muted transition-all hover:border-gold/40 hover:text-offwhite"
+              >
+                ← Accueil
+              </Link>
+              <span className="text-muted/40">·</span>
+              <Link
+                to="/formations"
+                className="inline-flex w-fit items-center gap-2 text-sm text-muted transition hover:text-offwhite"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Retour aux formations
+              </Link>
+            </div>
 
             <div className="grid gap-12 lg:grid-cols-[1fr_380px] lg:items-start">
               {/* Contenu principal */}
