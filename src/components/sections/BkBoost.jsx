@@ -43,13 +43,15 @@ function buildPackWhatsAppLink(pack) {
 
 export default function BkBoost() {
   return (
-    <section id="bk-boost" className="section-padding relative overflow-hidden bg-amber-50">
-      <div className="pointer-events-none absolute right-[-10%] top-1/3 h-96 w-96 rounded-full bg-amber-300/20 blur-3xl" />
-      <div className="pointer-events-none absolute left-[-10%] bottom-0 h-72 w-72 rounded-full bg-gold/10 blur-3xl" />
+    <section id="bk-boost" className="section-padding relative overflow-hidden bg-emerald-900">
+      <div className="pointer-events-none absolute right-[-10%] top-1/3 h-96 w-96 rounded-full bg-emerald-600/20 blur-3xl" />
+      <div className="pointer-events-none absolute left-[-10%] bottom-0 h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl" />
 
       <div className="section-container flex flex-col gap-20">
         <div className="flex flex-col items-center gap-6 text-center">
-          <img src="/images/brand/bk-boost-logo.png" alt="Logo BK-BOOST Ltd." className="h-20 w-auto" />
+          <div className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-white/20 bg-white p-3 shadow-2xl ring-4 ring-emerald-600/40">
+            <img src="/images/brand/bk-boost-logo.png" alt="Logo BK-BOOST Ltd." className="h-full w-full object-contain" />
+          </div>
           <SectionHeading
             eyebrow="Pôle 02 — BK-BOOST Ltd."
             title="Passez du CV ignoré au"
@@ -61,7 +63,7 @@ export default function BkBoost() {
 
         {/* Méthode en 4 étapes */}
         <div className="flex flex-col gap-10">
-          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-amber-800">
+          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
             Notre méthode en 4 étapes
           </h3>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -93,7 +95,7 @@ export default function BkBoost() {
 
         {/* Compétences développées */}
         <div className="flex flex-col gap-10">
-          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-emerald-dark">
+          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
             Ce que vous allez maîtriser
           </h3>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -141,7 +143,7 @@ export default function BkBoost() {
 
         {/* Pricing */}
         <div className="flex flex-col gap-10">
-          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-amber-800">
+          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
             Choisissez votre formule
           </h3>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -198,7 +200,7 @@ export default function BkBoost() {
           className="card-executive flex flex-col items-center gap-4 p-8 text-center sm:flex-row sm:justify-between sm:text-left"
         >
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-amber-800">Nos valeurs de réussite</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-emerald-300">Nos valeurs de réussite</p>
             <p className="mt-1 text-lg font-semibold text-offwhite">Votre carrière est notre priorité absolue.</p>
           </div>
           <a
