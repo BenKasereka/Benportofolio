@@ -1,12 +1,23 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
-  ArrowUpRight, Bot, CheckCircle2, Clock, Landmark, Package,
-  ShieldCheck, Star, Target, Truck, Users,
+  ArrowUpRight, Bot, CheckCircle2, Clock, CreditCard, DollarSign,
+  Landmark, MessageCircle, Package, Phone, ShieldCheck, Star, Target, Truck, Users,
 } from 'lucide-react'
 import { formations } from '../data/formations'
+import { pricingPacks } from '../data/pricingPacks'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
+
+const WA = '243990260711'
+const waLink = (msg) => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`
+
+const PAYMENT_METHODS = [
+  { icon: Phone,       label: 'Mobile Money',   detail: 'M-Pesa · Airtel Money · Orange Money', color: 'text-emerald bg-emerald/10' },
+  { icon: DollarSign,  label: 'Cash USD',        detail: 'Paiement en espèces USD', color: 'text-gold bg-gold/10' },
+  { icon: CreditCard,  label: 'Virement bancaire', detail: 'Sur demande — coordonnées fournies', color: 'text-teal bg-teal/10' },
+  { icon: MessageCircle, label: 'Western Union / MoneyGram', detail: 'Pour clients internationaux', color: 'text-rouge bg-rouge/10' },
+]
 
 const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
 
@@ -86,6 +97,21 @@ export default function FormationsPage() {
               humanitaire — conçus et animés par un expert avec 10+ ans d'expérience nationale et
               internationale. Des formations pratiques, structurées et immédiatement applicables.
             </motion.p>
+
+            {/* Bouton Nos Tarifs */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+            >
+              <a
+                href="#tarifs"
+                className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold transition-all hover:bg-gold/20 hover:border-gold/70"
+              >
+                <DollarSign className="h-4 w-4" />
+                Voir nos tarifs &amp; options de paiement
+              </a>
+            </motion.div>
 
             {/* Métriques */}
             <motion.div
@@ -186,8 +212,120 @@ export default function FormationsPage() {
           </div>
         </section>
 
+        {/* ── Nos Tarifs ── */}
+        <section id="tarifs" className="section-padding bg-night">
+          <div className="section-container flex flex-col gap-16">
+            <div className="flex flex-col items-center gap-4 text-center">
+              <span className="eyebrow"><DollarSign className="h-3.5 w-3.5 inline mr-1" />Transparence tarifaire</span>
+              <h2 className="text-3xl font-bold sm:text-4xl">
+                Nos <span className="text-gradient-gold">Tarifs</span> &amp; Options de Paiement
+              </h2>
+              <p className="max-w-xl text-muted">
+                Chaque formation est accessible selon votre budget. Sélectionnez votre mode de
+                paiement préféré et contactez Benjamin directement via WhatsApp pour confirmer.
+              </p>
+            </div>
+
+            {/* Grille des prix par formation */}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+              {formations.map((formation, index) => {
+                const a = CARD_PALETTES[index] || CARD_PALETTES[0]
+                const Icon = ICONS[formation.icon] || Bot
+                const isCoaching = formation.id === 'coaching-carriere'
+                return (
+                  <motion.div
+                    key={formation.id}
+                    custom={index * 0.06}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: '-40px' }}
+                    variants={cardVariants}
+                    className={`rounded-2xl p-6 flex flex-col gap-4 ${a.bg}`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${a.icon}`}>
+                        <Icon className="h-5 w-5" strokeWidth={1.75} />
+                      </span>
+                      <div>
+                        <p className={`text-[0.65rem] font-semibold uppercase tracking-wide ${a.badge.split(' ').filter(c => c.startsWith('text-')).join(' ')}`}>
+                          Formation {formation.number}
+                        </p>
+                        <h4 className="text-sm font-bold text-white leading-snug">{formation.title}</h4>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-white/10 pt-3">
+                      <p className={`font-heading text-2xl font-extrabold ${a.link}`}>{formation.price}</p>
+                      <p className="text-xs text-white/50 mt-0.5">par participant</p>
+                    </div>
+
+                    {isCoaching && (
+                      <div className="flex flex-col gap-2">
+                        {pricingPacks.map((pack) => (
+                          <div key={pack.id} className="flex items-center justify-between rounded-lg bg-white/10 px-3 py-1.5">
+                            <span className="text-xs font-medium text-white">{pack.name}</span>
+                            <span className={`text-xs font-bold ${a.link}`}>{pack.price} {pack.currency}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    <div className="mt-auto flex flex-col gap-2">
+                      {PAYMENT_METHODS.slice(0, 3).map((pm) => (
+                        <a
+                          key={pm.label}
+                          href={waLink(`Bonjour Benjamin, je souhaite m'inscrire à la formation "${formation.title}" et payer par ${pm.label}. Pouvez-vous me donner les modalités ?`)}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2 text-xs font-medium text-white hover:bg-white/20 transition-colors"
+                        >
+                          <pm.icon className="h-3.5 w-3.5 shrink-0" />
+                          Payer par {pm.label}
+                        </a>
+                      ))}
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </div>
+
+            {/* Modes de paiement détaillés */}
+            <div className="card-executive p-8 flex flex-col gap-8">
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-offwhite">Modes de Paiement Acceptés</h3>
+                <p className="mt-2 text-sm text-muted">Choisissez la méthode la plus adaptée à votre situation</p>
+              </div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {PAYMENT_METHODS.map((pm) => (
+                  <div key={pm.label} className="flex flex-col items-center gap-3 rounded-xl border border-night-border p-5 text-center">
+                    <span className={`flex h-12 w-12 items-center justify-center rounded-full ${pm.color}`}>
+                      <pm.icon className="h-5 w-5" strokeWidth={1.75} />
+                    </span>
+                    <div>
+                      <p className="font-semibold text-offwhite">{pm.label}</p>
+                      <p className="mt-1 text-xs text-muted">{pm.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-4 border-t border-night-border pt-6">
+                <a
+                  href={waLink("Bonjour Benjamin, je souhaite avoir des informations sur les tarifs et les options de paiement pour vos formations.")}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-primary"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  Discuter de mon financement
+                </a>
+                <p className="text-xs text-muted">Facilités de paiement disponibles · Réponse sous 24h</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── CTA contact ── */}
-        <section className="section-padding bg-night">
+        <section className="section-padding bg-night-soft">
           <div className="section-container">
             <motion.div
               initial={{ opacity: 0, y: 28 }}

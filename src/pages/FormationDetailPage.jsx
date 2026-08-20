@@ -21,6 +21,9 @@ const ACCENT = {
     number: 'text-gold/20',
     dot: 'bg-gold',
     gradient: 'from-gold/20 to-transparent',
+    modBorder: 'border-l-4 border-gold/50',
+    modNum: 'bg-gold/15 text-gold',
+    outcomeBg: 'bg-gold/5 border-gold/15',
   },
   emerald: {
     badge: 'bg-emerald/20 text-emerald border-emerald/30',
@@ -31,6 +34,9 @@ const ACCENT = {
     number: 'text-emerald/20',
     dot: 'bg-emerald',
     gradient: 'from-emerald/20 to-transparent',
+    modBorder: 'border-l-4 border-emerald/50',
+    modNum: 'bg-emerald/15 text-emerald',
+    outcomeBg: 'bg-emerald/5 border-emerald/15',
   },
   teal: {
     badge: 'bg-teal/20 text-teal border-teal/30',
@@ -41,6 +47,9 @@ const ACCENT = {
     number: 'text-teal/20',
     dot: 'bg-teal',
     gradient: 'from-teal/20 to-transparent',
+    modBorder: 'border-l-4 border-teal/50',
+    modNum: 'bg-teal/15 text-teal',
+    outcomeBg: 'bg-teal/5 border-teal/15',
   },
   rouge: {
     badge: 'bg-rouge/20 text-rouge border-rouge/30',
@@ -51,6 +60,9 @@ const ACCENT = {
     number: 'text-rouge/20',
     dot: 'bg-rouge',
     gradient: 'from-rouge/20 to-transparent',
+    modBorder: 'border-l-4 border-rouge/50',
+    modNum: 'bg-rouge/15 text-rouge',
+    outcomeBg: 'bg-rouge/5 border-rouge/15',
   },
 }
 
@@ -215,11 +227,11 @@ export default function FormationDetailPage() {
                   whileInView="show"
                   viewport={{ once: true, margin: '-40px' }}
                   variants={fadeUp}
-                  className="card-executive overflow-hidden"
+                  className={`card-executive overflow-hidden ${a.modBorder}`}
                 >
                   <div className="flex flex-col gap-4 p-6 sm:flex-row sm:gap-6">
                     {/* Numéro du module */}
-                    <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-heading text-sm font-extrabold ${a.icon} ${a.text}`}>
+                    <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-heading text-sm font-extrabold ${a.modNum}`}>
                       {mod.number}
                     </div>
 
@@ -261,7 +273,7 @@ export default function FormationDetailPage() {
                   whileInView="show"
                   viewport={{ once: true }}
                   variants={fadeUp}
-                  className="card-executive flex items-start gap-3 p-5"
+                  className={`card-executive flex items-start gap-3 border p-5 ${a.outcomeBg}`}
                 >
                   <Star className={`mt-0.5 h-5 w-5 shrink-0 ${a.text}`} />
                   <p className="text-sm leading-relaxed text-muted">{outcome}</p>

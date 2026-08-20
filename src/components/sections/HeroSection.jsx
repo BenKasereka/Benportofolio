@@ -1,6 +1,16 @@
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Download, MapPin, ShieldCheck } from 'lucide-react'
 import StatCounter from '../ui/StatCounter'
+
+// ── Photos terrain — ajouter terrain-02.jpg, terrain-03.jpg, terrain-04.jpg
+// dans public/images/terrain/ pour activer le diaporama complet
+const SLIDES = [
+  { src: '/images/terrain/terrain-01.jpg', mission: 'MSF-OCB — Tine, Tchad',     label: 'Mission active' },
+  { src: '/images/terrain/terrain-02.jpg', mission: 'Gestion de flotte terrain',  label: 'Logistique terrain' },
+  { src: '/images/terrain/terrain-03.jpg', mission: 'Coordination humanitaire',   label: 'Présence terrain' },
+  { src: '/images/terrain/terrain-04.jpg', mission: 'Opérations sur le terrain',  label: 'Mission internationale' },
+]
 
 const stats = [
   { value: "7+", label: "ans en Supply Chain d’urgence" },
@@ -19,6 +29,15 @@ const fadeUp = {
 }
 
 export default function HeroSection() {
+  const [slide, setSlide] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => setSlide((s) => (s + 1) % SLIDES.length), 5000)
+    return () => clearInterval(id)
+  }, [])
+
+  const current = SLIDES[slide]
+
   return (
     <section
       id="home"
@@ -127,17 +146,39 @@ export default function HeroSection() {
         >
           <div className="absolute inset-0 rounded-[2rem] bg-gold-emerald opacity-30 blur-2xl" />
           <div className="card-executive relative h-full w-full overflow-hidden rounded-[2rem] p-2">
-            <img
-              src="/images/terrain/terrain-01.jpg"
-              alt="Benjamin Kasereka Vinyatsi en mission humanitaire sur le terrain"
-              className="h-full w-full rounded-[1.6rem] object-cover"
-            />
+            {/* Slideshow photos terrain */}
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={slide}
+                src={current.src}
+                alt={`Benjamin Kasereka Vinyatsi — ${current.mission}`}
+                className="h-full w-full rounded-[1.6rem] object-cover"
+                onError={(e) => { e.currentTarget.src = '/images/terrain/terrain-01.jpg' }}
+                initial={{ opacity: 0, scale: 1.04 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.97 }}
+                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+              />
+            </AnimatePresence>
+
+            {/* Légende de mission */}
             <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 backdrop-blur-md">
               <div>
-                <p className="text-xs uppercase tracking-wide text-muted">Mission active</p>
-                <p className="text-sm font-semibold text-slate-800">MSF-OCB — Tine, Tchad</p>
+                <p className="text-xs uppercase tracking-wide text-muted">{current.label}</p>
+                <p className="text-sm font-semibold text-slate-800">{current.mission}</p>
               </div>
               <span className="h-2.5 w-2.5 animate-pulse-slow rounded-full bg-emerald shadow-emerald-glow" />
+            </div>
+
+            {/* Indicateurs de slide */}
+            <div className="absolute bottom-20 left-1/2 flex -translate-x-1/2 gap-1.5">
+              {SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setSlide(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${i === slide ? 'w-6 bg-white' : 'w-1.5 bg-white/40'}`}
+                />
+              ))}
             </div>
           </div>
 
