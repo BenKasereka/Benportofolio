@@ -57,7 +57,7 @@ export default function SectionHeading({
       <div className="w-full rounded-2xl bg-blue-600 px-8 py-5 shadow-md">
         <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
           {title}{' '}
-          {highlight && <span className="text-yellow-300">{highlight}</span>}
+          {highlight && <span className="font-extrabold underline decoration-white/40 decoration-2 underline-offset-4">{highlight}</span>}
         </h2>
       </div>
       <div className={`h-1 w-20 rounded-full ${barClass}`} />
