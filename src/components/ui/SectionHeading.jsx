@@ -28,6 +28,16 @@ const BAR_CLASS = {
   violet:  'bg-violet-500',
 }
 
+// Couleur de fond du panneau-titre — chaque section a sa propre teinte
+const PANEL_CLASS = {
+  gold:    'bg-blue-900',
+  emerald: 'bg-emerald-800',
+  rouge:   'bg-red-800',
+  teal:    'bg-teal-800',
+  blue:    'bg-blue-800',
+  violet:  'bg-violet-800',
+}
+
 export default function SectionHeading({
   eyebrow,
   title,
@@ -40,6 +50,7 @@ export default function SectionHeading({
   const accentClass = ACCENT_CLASS[accent] ?? 'text-gold'
   const eyebrowClass = EYEBROW_CLASS[accent] ?? EYEBROW_CLASS.gold
   const barClass = BAR_CLASS[accent] ?? BAR_CLASS.gold
+  const panelClass = PANEL_CLASS[accent] ?? PANEL_CLASS.blue
 
   return (
     <motion.div
@@ -54,7 +65,7 @@ export default function SectionHeading({
           {eyebrow}
         </span>
       )}
-      <div className="w-full rounded-2xl bg-blue-600 px-8 py-5 shadow-md">
+      <div className={`w-full rounded-2xl ${panelClass} px-8 py-5 shadow-md`}>
         <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
           {title}{' '}
           {highlight && <span className="font-extrabold underline decoration-white/40 decoration-2 underline-offset-4">{highlight}</span>}
