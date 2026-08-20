@@ -12,36 +12,44 @@ const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
 
 const ACCENT = {
   gold: {
-    icon: 'bg-gold/10 text-gold',
-    ring: 'group-hover:border-gold/50',
-    glow: 'group-hover:shadow-gold-glow',
-    link: 'text-gold',
-    number: 'text-gold/20',
-    badge: 'bg-gold/15 text-gold',
+    bg:     'bg-amber-950 border border-amber-700/40',
+    icon:   'bg-amber-400/20 text-amber-300',
+    ring:   'group-hover:border-amber-400/70',
+    glow:   'group-hover:shadow-gold-glow',
+    link:   'text-amber-300',
+    number: 'text-amber-400/10',
+    badge:  'bg-amber-400/20 text-amber-200',
+    meta:   'text-amber-200/55',
   },
   emerald: {
-    icon: 'bg-emerald/10 text-emerald',
-    ring: 'group-hover:border-emerald/50',
-    glow: 'group-hover:shadow-emerald-glow',
-    link: 'text-emerald',
-    number: 'text-emerald/20',
-    badge: 'bg-emerald/15 text-emerald',
+    bg:     'bg-emerald-950 border border-emerald-600/40',
+    icon:   'bg-emerald-400/20 text-emerald-300',
+    ring:   'group-hover:border-emerald-400/70',
+    glow:   'group-hover:shadow-emerald-glow',
+    link:   'text-emerald-300',
+    number: 'text-emerald-400/10',
+    badge:  'bg-emerald-400/20 text-emerald-200',
+    meta:   'text-emerald-200/55',
   },
   teal: {
-    icon: 'bg-teal/10 text-teal',
-    ring: 'group-hover:border-teal/50',
-    glow: 'group-hover:shadow-teal-glow',
-    link: 'text-teal',
-    number: 'text-teal/20',
-    badge: 'bg-teal/15 text-teal',
+    bg:     'bg-teal-950 border border-teal-600/40',
+    icon:   'bg-teal-300/20 text-teal-300',
+    ring:   'group-hover:border-teal-400/70',
+    glow:   'group-hover:shadow-teal-glow',
+    link:   'text-teal-300',
+    number: 'text-teal-400/10',
+    badge:  'bg-teal-400/20 text-teal-200',
+    meta:   'text-teal-200/55',
   },
   rouge: {
-    icon: 'bg-rouge/10 text-rouge',
-    ring: 'group-hover:border-rouge/50',
-    glow: 'group-hover:shadow-rouge-glow',
-    link: 'text-rouge',
-    number: 'text-rouge/20',
-    badge: 'bg-rouge/15 text-rouge',
+    bg:     'bg-rouge-bordeaux border border-rouge/30',
+    icon:   'bg-rouge/20 text-rouge-light',
+    ring:   'group-hover:border-rouge/60',
+    glow:   'group-hover:shadow-rouge-glow',
+    link:   'text-rouge-light',
+    number: 'text-rouge/10',
+    badge:  'bg-rouge/20 text-rouge-light',
+    meta:   'text-rouge-light/55',
   },
 }
 
@@ -154,7 +162,7 @@ export default function FormationsPage() {
                   >
                     <Link
                       to={`/formations/${formation.id}`}
-                      className={`card-executive group relative flex flex-col gap-5 overflow-hidden p-7 transition-all hover:-translate-y-1 ${a.ring} ${a.glow}`}
+                      className={`group relative flex flex-col gap-5 overflow-hidden rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${a.bg} ${a.ring} ${a.glow}`}
                     >
                       {/* Numéro en fond */}
                       <span className={`pointer-events-none absolute -right-3 -top-5 font-heading text-8xl font-extrabold ${a.number}`}>
@@ -165,32 +173,32 @@ export default function FormationsPage() {
                         <span className={`flex h-13 w-13 items-center justify-center rounded-2xl ${a.icon}`}>
                           <Icon className="h-6 w-6" strokeWidth={1.75} />
                         </span>
-                        <ArrowUpRight className={`h-5 w-5 text-muted transition-all group-hover:-translate-y-1 group-hover:translate-x-1 ${a.link}`} />
+                        <ArrowUpRight className={`h-5 w-5 transition-all group-hover:-translate-y-1 group-hover:translate-x-1 ${a.link}`} />
                       </div>
 
                       <div>
                         <span className={`inline-block rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide ${a.badge}`}>
                           {formation.badge}
                         </span>
-                        <h3 className="mt-2 text-lg font-bold text-offwhite leading-snug">{formation.title}</h3>
+                        <h3 className="mt-2 text-lg font-bold text-white leading-snug">{formation.title}</h3>
                         <p className={`mt-1 text-sm font-medium ${a.link}`}>{formation.tagline}</p>
                       </div>
 
                       <ul className="flex flex-col gap-1.5">
                         {formation.objectives.slice(0, 3).map((obj) => (
-                          <li key={obj} className="flex items-start gap-2 text-xs leading-snug text-muted">
+                          <li key={obj} className={`flex items-start gap-2 text-xs leading-snug ${a.meta}`}>
                             <CheckCircle2 className={`mt-0.5 h-3 w-3 shrink-0 ${a.link}`} />
                             <span>{obj}</span>
                           </li>
                         ))}
                       </ul>
 
-                      <div className="mt-auto flex flex-wrap items-center gap-2 border-t border-white/10 pt-4">
-                        <span className="flex items-center gap-1.5 text-[0.7rem] text-muted">
+                      <div className={`mt-auto flex flex-wrap items-center gap-2 border-t border-white/10 pt-4 ${a.meta}`}>
+                        <span className="flex items-center gap-1.5 text-[0.7rem]">
                           <Clock className="h-3 w-3" />
                           {formation.duration}
                         </span>
-                        <span className="flex items-center gap-1.5 text-[0.7rem] text-muted">
+                        <span className="flex items-center gap-1.5 text-[0.7rem]">
                           <Star className="h-3 w-3" />
                           {formation.level}
                         </span>

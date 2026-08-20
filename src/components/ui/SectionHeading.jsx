@@ -28,14 +28,14 @@ const BAR_CLASS = {
   violet:  'bg-violet-500',
 }
 
-// Couleur de fond du panneau-titre — chaque section a sa propre teinte
+// Couleur de fond du panneau-titre — tokens exacts du design system
 const PANEL_CLASS = {
-  gold:    'bg-blue-900',
-  emerald: 'bg-emerald-800',
-  rouge:   'bg-red-800',
-  teal:    'bg-teal-800',
-  blue:    'bg-blue-800',
-  violet:  'bg-violet-800',
+  gold:    'bg-gold-dark',
+  emerald: 'bg-emerald-dark',
+  rouge:   'bg-rouge',
+  teal:    'bg-teal-dark',
+  blue:    'bg-teal',
+  violet:  'bg-violet-700',
 }
 
 export default function SectionHeading({
@@ -68,7 +68,7 @@ export default function SectionHeading({
       <div className={`w-full rounded-2xl ${panelClass} px-8 py-5 shadow-md`}>
         <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
           {title}{' '}
-          {highlight && <span className="font-extrabold underline decoration-white/40 decoration-2 underline-offset-4">{highlight}</span>}
+          {highlight && <span className="font-extrabold">{highlight}</span>}
         </h2>
       </div>
       <div className={`h-1 w-20 rounded-full ${barClass}`} />
