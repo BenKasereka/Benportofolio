@@ -30,6 +30,7 @@ export default function CountdownTimer({ compact = false }) {
 
   useEffect(() => {
     const expiry = getExpiry()
+    let id
     const tick = () => {
       const diff = expiry - Date.now()
       if (diff <= 0) {
@@ -41,7 +42,7 @@ export default function CountdownTimer({ compact = false }) {
       }
     }
     tick()
-    const id = setInterval(tick, 1000)
+    id = setInterval(tick, 1000)
     return () => clearInterval(id)
   }, [])
 

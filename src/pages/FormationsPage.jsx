@@ -25,19 +25,19 @@ const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
 // Palette unique par formation (index 0–6) — aucun doublon, tous dans le design system
 const CARD_PALETTES = [
   // 01 — Intelligence Artificielle : teal vif (tech, innovation)
-  { bg: 'bg-teal border border-teal-300/30', icon: 'bg-white/15 text-white', ring: 'group-hover:border-white/40', glow: 'group-hover:shadow-teal-glow', link: 'text-teal-100', number: 'text-white/8', badge: 'bg-white/15 text-teal-50', meta: 'text-white/55' },
+  { bg: 'bg-teal border border-teal-300/30', icon: 'bg-white/15 text-white', ring: 'group-hover:border-white/40', glow: 'group-hover:shadow-teal-glow', link: 'text-teal-100', number: 'text-white/8', badge: 'bg-white/15 text-teal-50', badgeText: 'text-teal-50', meta: 'text-white/55' },
   // 02 — Accompagnement de Carrière : cognac doré (ambition, or)
-  { bg: 'bg-gold-dark border border-amber-500/30', icon: 'bg-amber-300/20 text-amber-200', ring: 'group-hover:border-amber-300/60', glow: 'group-hover:shadow-gold-glow', link: 'text-amber-200', number: 'text-amber-300/10', badge: 'bg-amber-300/20 text-amber-100', meta: 'text-amber-100/55' },
+  { bg: 'bg-gold-dark border border-amber-500/30', icon: 'bg-amber-300/20 text-amber-200', ring: 'group-hover:border-amber-300/60', glow: 'group-hover:shadow-gold-glow', link: 'text-amber-200', number: 'text-amber-300/10', badge: 'bg-amber-300/20 text-amber-100', badgeText: 'text-amber-100', meta: 'text-amber-100/55' },
   // 03 — Logistique Humanitaire : forêt profonde (terrain, urgence verte)
-  { bg: 'bg-emerald-900 border border-emerald-500/30', icon: 'bg-emerald-300/20 text-emerald-300', ring: 'group-hover:border-emerald-300/60', glow: 'group-hover:shadow-emerald-glow', link: 'text-emerald-300', number: 'text-emerald-400/10', badge: 'bg-emerald-300/20 text-emerald-100', meta: 'text-emerald-100/55' },
+  { bg: 'bg-emerald-900 border border-emerald-500/30', icon: 'bg-emerald-300/20 text-emerald-300', ring: 'group-hover:border-emerald-300/60', glow: 'group-hover:shadow-emerald-glow', link: 'text-emerald-300', number: 'text-emerald-400/10', badge: 'bg-emerald-300/20 text-emerald-100', badgeText: 'text-emerald-100', meta: 'text-emerald-100/55' },
   // 04 — Supply Chain Humanitaire : rouge vif (urgence, chaîne critique)
-  { bg: 'bg-rouge border border-rouge-light/20', icon: 'bg-white/15 text-white', ring: 'group-hover:border-white/40', glow: 'group-hover:shadow-rouge-glow', link: 'text-rouge-light', number: 'text-white/8', badge: 'bg-white/15 text-rouge-light', meta: 'text-white/55' },
+  { bg: 'bg-rouge border border-rouge-light/20', icon: 'bg-white/15 text-white', ring: 'group-hover:border-white/40', glow: 'group-hover:shadow-rouge-glow', link: 'text-rouge-light', number: 'text-white/8', badge: 'bg-white/15 text-rouge-light', badgeText: 'text-rouge-light', meta: 'text-white/55' },
   // 05 — Gestion Financière ONG : teal foncé (rigueur, précision)
-  { bg: 'bg-teal-dark border border-teal-300/30', icon: 'bg-teal-300/20 text-teal-200', ring: 'group-hover:border-teal-200/60', glow: 'group-hover:shadow-teal-glow', link: 'text-teal-200', number: 'text-teal-300/10', badge: 'bg-teal-300/20 text-teal-100', meta: 'text-teal-100/55' },
+  { bg: 'bg-teal-dark border border-teal-300/30', icon: 'bg-teal-300/20 text-teal-200', ring: 'group-hover:border-teal-200/60', glow: 'group-hover:shadow-teal-glow', link: 'text-teal-200', number: 'text-teal-300/10', badge: 'bg-teal-300/20 text-teal-100', badgeText: 'text-teal-100', meta: 'text-teal-100/55' },
   // 06 — Data Analysis : emerald foncé (données, croissance analytique)
-  { bg: 'bg-emerald-dark border border-emerald-300/30', icon: 'bg-emerald-200/20 text-emerald-200', ring: 'group-hover:border-emerald-200/60', glow: 'group-hover:shadow-emerald-glow', link: 'text-emerald-200', number: 'text-emerald-300/10', badge: 'bg-emerald-200/20 text-emerald-100', meta: 'text-emerald-100/55' },
+  { bg: 'bg-emerald-dark border border-emerald-300/30', icon: 'bg-emerald-200/20 text-emerald-200', ring: 'group-hover:border-emerald-200/60', glow: 'group-hover:shadow-emerald-glow', link: 'text-emerald-200', number: 'text-emerald-300/10', badge: 'bg-emerald-200/20 text-emerald-100', badgeText: 'text-emerald-100', meta: 'text-emerald-100/55' },
   // 07 — Ressources Humaines : bordeaux (profondeur, engagement humain)
-  { bg: 'bg-rouge-bordeaux border border-rouge/30', icon: 'bg-rouge/20 text-rouge-light', ring: 'group-hover:border-rouge/60', glow: 'group-hover:shadow-rouge-glow', link: 'text-rouge-light', number: 'text-rouge/10', badge: 'bg-rouge/20 text-rouge-light', meta: 'text-rouge-light/55' },
+  { bg: 'bg-rouge-bordeaux border border-rouge/30', icon: 'bg-rouge/20 text-rouge-light', ring: 'group-hover:border-rouge/60', glow: 'group-hover:shadow-rouge-glow', link: 'text-rouge-light', number: 'text-rouge/10', badge: 'bg-rouge/20 text-rouge-light', badgeText: 'text-rouge-light', meta: 'text-rouge-light/55' },
 ]
 
 const cardVariants = {
@@ -305,7 +305,7 @@ export default function FormationsPage() {
                         <Icon className="h-5 w-5" strokeWidth={1.75} />
                       </span>
                       <div>
-                        <p className={`text-[0.65rem] font-semibold uppercase tracking-wide ${a.badge.split(' ').filter(c => c.startsWith('text-')).join(' ')}`}>
+                        <p className={`text-[0.65rem] font-semibold uppercase tracking-wide ${a.badgeText}`}>
                           Formation {formation.number}
                         </p>
                         <h4 className="text-sm font-bold text-white leading-snug">{formation.title}</h4>
@@ -330,7 +330,12 @@ export default function FormationsPage() {
                         {pricingPacks.map((pack) => (
                           <div key={pack.id} className="flex items-center justify-between rounded-lg bg-white/10 px-3 py-1.5">
                             <span className="text-xs font-medium text-white">{pack.name}</span>
-                            <span className={`text-xs font-bold ${a.link}`}>{pack.price} {pack.currency}</span>
+                            <div className="flex items-center gap-1.5">
+                              {pack.originalPrice && (
+                                <span className="text-[0.6rem] text-white/40 line-through">{pack.originalPrice} {pack.currency}</span>
+                              )}
+                              <span className={`text-xs font-bold ${a.link}`}>{pack.price} {pack.currency}</span>
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -411,7 +416,7 @@ export default function FormationsPage() {
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                 <a
-                  href={`https://wa.me/243990260711?text=${encodeURIComponent('Bonjour Benjamin, je souhaite des informations sur vos formations. Pouvez-vous m\'aider à choisir ?')}`}
+                  href={waLink("Bonjour Benjamin, je souhaite des informations sur vos formations. Pouvez-vous m'aider à choisir ?")}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-primary"
