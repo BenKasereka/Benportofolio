@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { DollarSign, GraduationCap, Menu, X } from 'lucide-react'
+import { DollarSign, GraduationCap, Home, Menu, X } from 'lucide-react'
 
 const PORTFOLIO_LINKS = [
-  { label: 'Supply Chain', href: '/#supply-chain' },
   { label: 'BK-BOOST', href: '/#bk-boost' },
   { label: 'Audit', href: '/#audit' },
   { label: 'Data', href: '/#data' },
@@ -40,6 +39,15 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-6 lg:flex">
+          <li>
+            <Link
+              to="/"
+              className="flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-white"
+            >
+              <Home className="h-4 w-4" />
+              Accueil
+            </Link>
+          </li>
           {PORTFOLIO_LINKS.map((link) => (
             <li key={link.href}>
               <a href={link.href} className="text-sm font-medium text-white/80 transition-colors hover:text-white">
@@ -112,12 +120,26 @@ export default function Navbar() {
               animate="show"
               className="section-container flex flex-col gap-6 pt-8"
             >
+              <motion.li
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0 }}
+              >
+                <Link
+                  to="/"
+                  onClick={() => setOpen(false)}
+                  className="flex items-center gap-2 text-2xl font-semibold text-white"
+                >
+                  <Home className="h-6 w-6" />
+                  Accueil
+                </Link>
+              </motion.li>
               {PORTFOLIO_LINKS.map((link, i) => (
                 <motion.li
                   key={link.href}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.06 * i }}
+                  transition={{ delay: 0.06 * (i + 1) }}
                 >
                   <a
                     href={link.href}
@@ -131,7 +153,7 @@ export default function Navbar() {
               <motion.li
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.06 * PORTFOLIO_LINKS.length }}
+                transition={{ delay: 0.06 * (PORTFOLIO_LINKS.length + 1) }}
               >
                 <Link
                   to="/formations"
@@ -145,7 +167,7 @@ export default function Navbar() {
               <motion.li
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.06 * (PORTFOLIO_LINKS.length + 1) }}
+                transition={{ delay: 0.06 * (PORTFOLIO_LINKS.length + 2) }}
               >
                 <Link
                   to="/formations#tarifs"
