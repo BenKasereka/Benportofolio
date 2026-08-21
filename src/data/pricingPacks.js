@@ -6,7 +6,7 @@ export const pricingPacks = [
     price: '30',
     originalPrice: '60',
     currency: 'USD',
-    features: ['2 séances d'orientation professionnelle', 'Correction complète et optimisation du CV'],
+    features: ["2 séances d'orientation professionnelle", 'Correction complète et optimisation du CV'],
     highlight: false,
   },
   {
@@ -15,7 +15,7 @@ export const pricingPacks = [
     price: '50',
     originalPrice: '100',
     currency: 'USD',
-    features: ['Tout le Pack Essentiel', 'Préparation à 2 tests d'embauche', 'Bonus : accompagnement sur 3 mois'],
+    features: ['Tout le Pack Essentiel', "Préparation à 2 tests d'embauche", 'Bonus : accompagnement sur 3 mois'],
     highlight: false,
   },
   {
