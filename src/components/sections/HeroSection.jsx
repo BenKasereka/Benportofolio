@@ -122,7 +122,11 @@ export default function HeroSection() {
             variants={fadeUp}
             className="flex flex-wrap items-center gap-4 pt-2"
           >
-            <a href="#contact" className="btn-primary">
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+              className="btn-primary"
+            >
               Réserver une consultation
               <ArrowRight className="h-4 w-4" />
             </a>

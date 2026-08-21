@@ -20,6 +20,16 @@ export default function Navbar() {
   const { pathname } = useLocation()
   const isFormations = pathname.startsWith('/formations')
 
+  // On the home page, scroll straight to #contact — no full reload needed.
+  // From any other page, let the href do a real navigation to home + #contact,
+  // and let the browser's native on-load anchor scroll take it from there.
+  const handleContactClick = (e) => {
+    if (pathname === '/') {
+      e.preventDefault()
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     window.addEventListener('scroll', onScroll)
@@ -86,7 +96,7 @@ export default function Navbar() {
         </ul>
 
         {/* CTA desktop */}
-        <a href={`${BASE}#contact`} className="hidden btn-primary !px-5 !py-2.5 !text-xs lg:inline-flex">
+        <a href={`${BASE}#contact`} onClick={handleContactClick} className="hidden btn-primary !px-5 !py-2.5 !text-xs lg:inline-flex">
           Consultation
         </a>
 
@@ -182,7 +192,11 @@ export default function Navbar() {
                   Nos Tarifs
                 </Link>
               </motion.li>
-              <a href={`${BASE}#contact`} onClick={() => setOpen(false)} className="btn-primary mt-4 w-fit">
+              <a
+                href={`${BASE}#contact`}
+                onClick={(e) => { handleContactClick(e); setOpen(false) }}
+                className="btn-primary mt-4 w-fit"
+              >
                 Réserver une consultation
               </a>
             </motion.ul>
