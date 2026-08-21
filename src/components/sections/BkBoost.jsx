@@ -37,7 +37,7 @@ const WHATSAPP_NUMBER = '243990260711'
 // Chaque pack ouvre WhatsApp avec un message pré-rempli identifiant le pack
 // choisi et l'intention de paiement Mobile Money, pour un suivi immédiat.
 function buildPackWhatsAppLink(pack) {
-  const message = `Bonjour Benjamin, je souhaite prendre le ${pack.name} (${pack.price} ${pack.currency}) de BK-BOOST Ltd. et payer par Mobile Money. Merci de me communiquer les modalités.`
+  const message = `Bonjour Benjamin, je souhaite prendre le ${pack.name} (${pack.price} ${pack.currency}) de BK-BOOST Ltd. Pouvez-vous me donner les modalités de paiement ?`
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
 }
 
@@ -167,10 +167,20 @@ export default function BkBoost() {
                 )}
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-wide text-gold">{pack.name}</p>
-                  <p className="mt-2 font-heading text-4xl font-extrabold text-offwhite">
-                    {pack.price}
-                    <span className="ml-1 text-base font-medium text-muted">{pack.currency}</span>
-                  </p>
+                  {pack.originalPrice && (
+                    <p className="mt-2 text-sm font-medium text-muted line-through">
+                      {pack.originalPrice} {pack.currency}
+                    </p>
+                  )}
+                  <div className="flex items-center gap-2 mt-0.5">
+                    <p className="font-heading text-4xl font-extrabold text-offwhite">
+                      {pack.price}
+                      <span className="ml-1 text-base font-medium text-muted">{pack.currency}</span>
+                    </p>
+                    {pack.originalPrice && (
+                      <span className="rounded-full bg-gold/20 px-2.5 py-1 text-xs font-bold text-gold">-50%</span>
+                    )}
+                  </div>
                 </div>
                 <ul className="flex flex-1 flex-col gap-3">
                   {pack.features.map((feature) => (

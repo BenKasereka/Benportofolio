@@ -2,13 +2,16 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
   ArrowLeft, Bot, CheckCircle2, ChevronRight, Clock, Download,
-  Flame, Landmark, Package, ShieldCheck, Star, Target, Truck, Users,
+  Flame, Landmark, MessageCircle, Package, ShieldCheck, Star, Target, Truck, Users,
 } from 'lucide-react'
 import { formationById } from '../data/formations'
 import CountdownTimer from '../components/ui/CountdownTimer'
 import InquiryForm from '../components/ui/InquiryForm'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
+
+const WA = '243990260711'
+const waLink = (msg) => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`
 
 const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
 
@@ -188,6 +191,15 @@ export default function FormationDetailPage() {
                 <a href="#formulaire" className="btn-primary w-full justify-center">
                   Je m'inscris
                   <ChevronRight className="h-4 w-4" />
+                </a>
+                <a
+                  href={waLink(`Bonjour Benjamin, je souhaite des informations sur la formation "${formation.title}". Pouvez-vous me renseigner ?`)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-secondary flex w-full items-center justify-center gap-2"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  Discuter via WhatsApp
                 </a>
                 <Link
                   to={`/formations/${formation.id}/formulaire`}
