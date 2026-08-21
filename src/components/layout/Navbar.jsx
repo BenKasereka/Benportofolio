@@ -3,11 +3,15 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { DollarSign, GraduationCap, Home, Menu, X } from 'lucide-react'
 
+// Absolute paths must be prefixed with BASE_URL so they still resolve correctly
+// when the app is served from a subpath (e.g. GitHub Pages' /Benportofolio/).
+const BASE = import.meta.env.BASE_URL
+
 const PORTFOLIO_LINKS = [
-  { label: 'BK-BOOST', href: '/#bk-boost' },
-  { label: 'Audit', href: '/#audit' },
-  { label: 'Data', href: '/#data' },
-  { label: 'Langues', href: '/#languages' },
+  { label: 'BK-BOOST', href: `${BASE}#bk-boost` },
+  { label: 'Audit', href: `${BASE}#audit` },
+  { label: 'Data', href: `${BASE}#data` },
+  { label: 'Langues', href: `${BASE}#languages` },
 ]
 
 export default function Navbar() {
@@ -82,7 +86,7 @@ export default function Navbar() {
         </ul>
 
         {/* CTA desktop */}
-        <a href="/#contact" className="hidden btn-primary !px-5 !py-2.5 !text-xs lg:inline-flex">
+        <a href={`${BASE}#contact`} className="hidden btn-primary !px-5 !py-2.5 !text-xs lg:inline-flex">
           Consultation
         </a>
 
@@ -178,7 +182,7 @@ export default function Navbar() {
                   Nos Tarifs
                 </Link>
               </motion.li>
-              <a href="/#contact" onClick={() => setOpen(false)} className="btn-primary mt-4 w-fit">
+              <a href={`${BASE}#contact`} onClick={() => setOpen(false)} className="btn-primary mt-4 w-fit">
                 Réserver une consultation
               </a>
             </motion.ul>
