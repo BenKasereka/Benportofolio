@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import HeroSection from './components/sections/HeroSection'
@@ -30,13 +31,35 @@ function PortfolioPage() {
   )
 }
 
+// React Router doesn't reset scroll on route change — without this, navigating
+// to a new page keeps whatever scroll position the previous page was at.
+function ScrollToTop() {
+  const { pathname, hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      const el = document.getElementById(hash.slice(1))
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+        return
+      }
+    }
+    window.scrollTo(0, 0)
+  }, [pathname, hash])
+
+  return null
+}
+
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<PortfolioPage />} />
-      <Route path="/formations" element={<FormationsPage />} />
-      <Route path="/formations/:id" element={<FormationDetailPage />} />
-      <Route path="/formations/:id/formulaire" element={<PrintableFormPage />} />
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<PortfolioPage />} />
+        <Route path="/formations" element={<FormationsPage />} />
+        <Route path="/formations/:id" element={<FormationDetailPage />} />
+        <Route path="/formations/:id/formulaire" element={<PrintableFormPage />} />
+      </Routes>
+    </>
   )
 }
