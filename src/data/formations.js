@@ -154,7 +154,7 @@ export const formations = [
     subtitle: 'De votre CV actuel au contrat que vous méritez — national ou international',
     tagline: "De 'Votre candidature a bien été reçue' à 'Quand pouvez-vous commencer ?'",
     intro:
-      "Chaque année, des milliers de candidats excellents voient leur dossier ignoré non pas par manque de compétences, mais par manque de stratégie. BK-BOOST Ltd. transforme cette réalité. Construit sur 5+ ans d'expérience MSF, ACF et ACTED dans les recrutements humanitaires internationaux, ce programme vous donne les mêmes outils, techniques et stratégies que ceux utilisés par les candidats retenus dans les organisations les plus sélectives au monde — ONU, MSF, Mercy Corps, USAID et au-delà.",
+      "Chaque année, des milliers de candidats excellents voient leur dossier ignoré non pas par manque de compétences, mais par manque de stratégie. BK-BOOST Ltd. transforme cette réalité. Construit sur 5+ ans d'expérience dans les recrutements humanitaires internationaux, ce programme vous donne les mêmes outils, techniques et stratégies que ceux utilisés par les candidats retenus dans les organisations les plus sélectives au monde — agences onusiennes, grandes Organisations Internationales Humanitaires (ONGIs) et bailleurs internationaux.",
     audience:
       "Candidats aux postes nationaux et internationaux dans les ONG, agences onusiennes, entreprises privées et institutions publiques. Professionnels en transition de carrière, jeunes diplômés ambitieux et candidats à l'expatriation.",
     objectives: [
@@ -226,7 +226,7 @@ export const formations = [
         description:
           "Ne jamais accepter la première offre sans connaître sa valeur marché. Techniques de négociation salariale, avantages sociaux, conditions d'expatriation et gestion de contre-offres.",
         points: [
-          "Benchmarking salarial : grilles ONU, MSF, ONG et secteur privé",
+          "Benchmarking salarial : grilles ONU, ONGI et secteur privé",
           "Techniques de négociation respectueuses et efficaces",
           "Lire, comprendre et sécuriser un contrat international d'expatriation",
         ],
@@ -257,11 +257,11 @@ export const formations = [
     subtitle: "Opérer en zone de crise : maîtriser chaque maillon de la chaîne logistique terrain",
     tagline: "Livrer l'aide là où personne d'autre ne va. C'est ça, la logistique humanitaire.",
     intro:
-      "La logistique humanitaire ne ressemble à aucune autre. Elle s'opère dans des contextes de conflit armé, d'épidémie et de catastrophe naturelle, avec des délais impossibles, des ressources limitées et des vies en jeu. Cette formation — construite sur 5 ans de terrain MSF en RDC, Tchad, Soudan du Sud, Haïti et Nigeria — vous donne les outils, les réflexes et les procédures des meilleurs logisticiens humanitaires au monde. Du transport de médicaments en zone rouge à la gestion d'un entrepôt régional, vous serez opérationnel.",
+      "La logistique humanitaire ne ressemble à aucune autre. Elle s'opère dans des contextes de conflit armé, d'épidémie et de catastrophe naturelle, avec des délais impossibles, des ressources limitées et des vies en jeu. Cette formation — construite sur 5 ans de terrain humanitaire en RDC, Tchad, Soudan du Sud, Haïti et Nigeria — vous donne les outils, les réflexes et les procédures des meilleurs logisticiens humanitaires au monde. Du transport de médicaments en zone rouge à la gestion d'un entrepôt régional, vous serez opérationnel.",
     audience:
       "Logisticiens juniors et intermédiaires des ONG, candidats aux postes de Log Admin, Log Manager ou Supply Chain dans le secteur humanitaire, étudiants en gestion de crise, tout professionnel souhaitant intégrer le secteur humanitaire.",
     objectives: [
-      "Maîtriser les procédures logistiques standard des grandes ONG (MSF, ACF, IRC, CARE)",
+      "Maîtriser les procédures logistiques standard des grandes Organisations Internationales Humanitaires (ONGIs)",
       "Gérer une flotte de véhicules, un entrepôt et une chaîne du froid en contexte terrain",
       "Coordonner avec les acteurs clés : autorités, douanes, transporteurs et clusters logistiques",
       "Gérer les risques sécuritaires et les contraintes d'accès en zone de crise",
@@ -382,7 +382,7 @@ export const formations = [
     subtitle: "Maîtriser la chaîne complète : achats, stockage, distribution et transport en zones volatiles",
     tagline: "Maîtrisez la chaîne qui sauve des vies.",
     intro:
-      "La Supply Chain humanitaire est la colonne vertébrale de toute réponse efficace à une crise. Mal gérée, elle tue les projets les plus ambitieux. Bien maîtrisée, elle multiplie l'impact de chaque dollar investi par les bailleurs. Ce programme intensif — ancré sur les standards MSF-OCB, ACF et ACTED et sur 5 ans de terrain dans 6 pays — couvre la chaîne complète : du cycle d'achat à la distribution finale, en passant par la gestion des stocks, le transport international et les systèmes ERP. Vous serez le Supply Chain Manager que les organisations rechercheront.",
+      "La Supply Chain humanitaire est la colonne vertébrale de toute réponse efficace à une crise. Mal gérée, elle tue les projets les plus ambitieux. Bien maîtrisée, elle multiplie l'impact de chaque dollar investi par les bailleurs. Ce programme intensif — ancré sur les standards des grandes Organisations Internationales Humanitaires (ONGIs) et sur 5 ans de terrain dans 6 pays — couvre la chaîne complète : du cycle d'achat à la distribution finale, en passant par la gestion des stocks, le transport international et les systèmes ERP. Vous serez le Supply Chain Manager que les organisations rechercheront.",
     audience:
       "Supply Chain Officers, Procurement Officers et Log Managers en poste, candidats à des postes SCM dans les ONG internationales, professionnels de la logistique souhaitant se spécialiser dans le secteur humanitaire.",
     objectives: [
@@ -465,7 +465,7 @@ export const formations = [
         description:
           "Prise en main opérationnelle des ERP utilisés par les grandes ONG pour la gestion des achats, stocks, actifs et reporting financier de la supply chain.",
         points: [
-          "UNIFIELD (MSF) : saisie des POs, réceptions, transferts et inventaires",
+          "UNIFIELD : saisie des POs, réceptions, transferts et inventaires",
           "SAP et LINK : procédures d'achat, gestion des actifs et workflow d'approbation",
           "Extraction de données et génération de rapports SCM depuis l'ERP",
         ],
@@ -507,7 +507,7 @@ export const formations = [
     subtitle: "Comptabilité de projet, gestion budgétaire et rapportage aux bailleurs de fonds",
     tagline: "Les chiffres doivent parler pour vous, pas contre vous.",
     intro:
-      "Dans une ONG, la rigueur financière n'est pas seulement une obligation morale — c'est une question de survie. Un rapport financier défaillant peut faire perdre un financement de plusieurs millions. Cette formation — ancrée sur les standards réels des bailleurs USAID/BHA, UE/ECHO et les procédures internes d'ACTED et MSF — vous donne la maîtrise complète de la comptabilité de projet, de la gestion budgétaire multi-bailleurs et de la préparation aux audits externes. Vous serez le Finance Officer ou le Finance Manager que chaque ONG s'arrache.",
+      "Dans une ONG, la rigueur financière n'est pas seulement une obligation morale — c'est une question de survie. Un rapport financier défaillant peut faire perdre un financement de plusieurs millions. Cette formation — ancrée sur les standards réels des bailleurs USAID/BHA, UE/ECHO et les procédures internes des grandes Organisations Internationales Humanitaires (ONGIs) — vous donne la maîtrise complète de la comptabilité de projet, de la gestion budgétaire multi-bailleurs et de la préparation aux audits externes. Vous serez le Finance Officer ou le Finance Manager que chaque ONG s'arrache.",
     audience:
       "Finance Officers, Finance Managers et Admin-Finance en poste ou en recherche, comptables souhaitant intégrer le secteur humanitaire, gestionnaires de projets ayant des responsabilités budgétaires.",
     objectives: [
@@ -588,7 +588,7 @@ export const formations = [
         number: '07',
         title: "Systèmes de Gestion Financière — SAGA, LINK & Excel Avancé",
         description:
-          "Prise en main des logiciels comptables utilisés par les ONG : SAGA (ACF), LINK (ACTED), et maîtrise avancée d'Excel pour le suivi budgétaire et le reporting.",
+          "Prise en main des logiciels comptables utilisés par les ONG : SAGA, LINK, et maîtrise avancée d'Excel pour le suivi budgétaire et le reporting.",
         points: [
           "SAGA : saisie comptable, clôtures mensuelles et édition des journaux",
           "LINK : gestion financière intégrée des projets et extraction des rapports",
