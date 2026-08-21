@@ -37,14 +37,20 @@ function ScrollToTop() {
   const { pathname, hash } = useLocation()
 
   useEffect(() => {
-    if (hash) {
-      const el = document.getElementById(hash.slice(1))
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' })
-        return
+    // Defer to the next tick so the new page's layout has settled before we
+    // measure/scroll to it — scrolling synchronously on mount can target a
+    // position that then shifts under it once everything has rendered.
+    const id = setTimeout(() => {
+      if (hash) {
+        const el = document.getElementById(hash.slice(1))
+        if (el) {
+          el.scrollIntoView({ block: 'start' })
+          return
+        }
       }
-    }
-    window.scrollTo(0, 0)
+      window.scrollTo(0, 0)
+    }, 0)
+    return () => clearTimeout(id)
   }, [pathname, hash])
 
   return null
