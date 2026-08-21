@@ -173,7 +173,7 @@ export default function HeroSection() {
           >
             <div className="absolute inset-0 rounded-[2rem] bg-gold-emerald opacity-30 blur-2xl" />
             <div className="card-executive relative h-full w-full overflow-hidden rounded-[2rem] p-2">
-              {/* Slideshow photos terrain — balayage : l'entrante glisse par-dessus la sortante, jamais de vide */}
+              {/* Slideshow photos terrain — balayage net : glissement + fondu, sans filtre coûteux */}
               <div className="relative h-full w-full overflow-hidden rounded-[1.6rem]">
                 <AnimatePresence>
                   <motion.img
@@ -182,24 +182,35 @@ export default function HeroSection() {
                     alt={`Benjamin Kasereka Vinyatsi — ${current.mission}`}
                     className="absolute inset-0 h-full w-full object-cover"
                     onError={(e) => { e.currentTarget.src = '/images/terrain/terrain-01.jpg' }}
-                    initial={{ opacity: 0, x: '32%', scale: 1.06 }}
+                    initial={{ opacity: 0, x: '18%', scale: 1.12 }}
                     animate={{ opacity: 1, x: '0%', scale: 1.1 }}
-                    exit={{ opacity: 0, x: '-32%', scale: 1.02 }}
+                    exit={{ opacity: 0, x: '-18%', scale: 1.02 }}
                     transition={{
-                      opacity: { duration: 1, ease: [0.16, 1, 0.3, 1] },
-                      x: { duration: 1, ease: [0.16, 1, 0.3, 1] },
+                      opacity: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+                      x: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
                       scale: { duration: SLIDE_INTERVAL_MS / 1000, ease: 'linear' },
                     }}
                   />
                 </AnimatePresence>
+
+                {/* Voile bas pour la lisibilité de la légende */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
               </div>
 
               {/* Légende de mission */}
               <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 backdrop-blur-md">
-                <div>
-                  <p className="text-xs uppercase tracking-wide text-muted">{current.label}</p>
-                  <p className="text-sm font-semibold text-slate-800">{current.mission}</p>
-                </div>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={slide}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <p className="text-xs uppercase tracking-wide text-muted">{current.label}</p>
+                    <p className="text-sm font-semibold text-slate-800">{current.mission}</p>
+                  </motion.div>
+                </AnimatePresence>
                 <span className="h-2.5 w-2.5 animate-pulse-slow rounded-full bg-emerald shadow-emerald-glow" />
               </div>
 
