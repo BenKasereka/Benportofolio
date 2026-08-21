@@ -5,11 +5,13 @@ import StatCounter from '../ui/StatCounter'
 
 // ── Photos terrain — ajouter terrain-02.jpg, terrain-03.jpg, terrain-04.jpg
 // dans public/images/terrain/ pour activer le diaporama complet
+const ASSET_BASE = import.meta.env.BASE_URL
+
 const SLIDES = [
-  { src: '/images/terrain/terrain-01.jpg', mission: 'MSF-OCB — Tine, Tchad',     label: 'Mission active' },
-  { src: '/images/terrain/terrain-02.jpg', mission: 'Gestion de flotte terrain',  label: 'Logistique terrain' },
-  { src: '/images/terrain/terrain-03.jpg', mission: 'Coordination humanitaire',   label: 'Présence terrain' },
-  { src: '/images/terrain/terrain-04.jpg', mission: 'Opérations sur le terrain',  label: 'Mission internationale' },
+  { src: `${ASSET_BASE}images/terrain/terrain-01.jpg`, mission: 'MSF-OCB — Tine, Tchad',     label: 'Mission active' },
+  { src: `${ASSET_BASE}images/terrain/terrain-02.jpg`, mission: 'Gestion de flotte terrain',  label: 'Logistique terrain' },
+  { src: `${ASSET_BASE}images/terrain/terrain-03.jpg`, mission: 'Coordination humanitaire',   label: 'Présence terrain' },
+  { src: `${ASSET_BASE}images/terrain/terrain-04.jpg`, mission: 'Opérations sur le terrain',  label: 'Mission internationale' },
 ]
 
 const stats = [
@@ -124,7 +126,7 @@ export default function HeroSection() {
               Réserver une consultation
               <ArrowRight className="h-4 w-4" />
             </a>
-            <a href="/cv-benjamin-kasereka-vinyatsi.pdf" className="btn-secondary" download>
+            <a href={`${ASSET_BASE}cv-benjamin-kasereka-vinyatsi.pdf`} className="btn-secondary" download>
               <Download className="h-4 w-4" />
               Télécharger le CV
             </a>
@@ -181,7 +183,7 @@ export default function HeroSection() {
                     src={current.src}
                     alt={`Benjamin Kasereka Vinyatsi — ${current.mission}`}
                     className="absolute inset-0 h-full w-full object-cover"
-                    onError={(e) => { e.currentTarget.src = '/images/terrain/terrain-01.jpg' }}
+                    onError={(e) => { e.currentTarget.src = `${ASSET_BASE}images/terrain/terrain-01.jpg` }}
                     initial={{ opacity: 0, x: '18%', scale: 1.12 }}
                     animate={{ opacity: 1, x: '0%', scale: 1.1 }}
                     exit={{ opacity: 0, x: '-18%', scale: 1.02 }}

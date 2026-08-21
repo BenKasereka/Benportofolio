@@ -44,7 +44,7 @@ export default function BkBoost() {
       <div className="section-container flex flex-col gap-20">
         <div className="flex flex-col items-center gap-6 text-center">
           <div className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-white/20 bg-white p-3 shadow-2xl ring-4 ring-emerald-600/40">
-            <img src="/images/brand/bk-boost-logo.png" alt="Logo BK-BOOST Ltd." className="h-full w-full object-contain" />
+            <img src={`${import.meta.env.BASE_URL}images/brand/bk-boost-logo.png`} alt="Logo BK-BOOST Ltd." className="h-full w-full object-contain" />
           </div>
           <SectionHeading
             eyebrow="Pôle 02 — BK-BOOST Ltd."

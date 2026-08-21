@@ -32,6 +32,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          GITHUB_PAGES: 'true'
 
       # GitHub Pages has no server-side rewrites: copying index.html to 404.html
       # lets React Router handle deep links (e.g. /formations) on direct load/refresh.
