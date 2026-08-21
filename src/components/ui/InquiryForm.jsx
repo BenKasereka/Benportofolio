@@ -25,7 +25,7 @@ export default function InquiryForm({ formationTitle, formationId }) {
         <CheckCircle2 className="h-12 w-12 text-emerald" />
         <h3 className="text-xl font-bold text-offwhite">Votre messagerie s'est ouverte !</h3>
         <p className="max-w-md text-sm leading-relaxed text-muted">
-          Vérifiez votre application email pour finaliser l'envoi. Benjamin vous répondra sous 24h avec
+          Vérifiez votre application email pour finaliser l'envoi. Nous vous répondrons sous 24h avec
           les détails complets et le formulaire d'inscription pour{' '}
           <span className="font-semibold text-offwhite">{formationTitle}</span>.
         </p>

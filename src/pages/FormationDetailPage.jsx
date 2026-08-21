@@ -322,7 +322,7 @@ export default function FormationDetailPage() {
                 <span className={a.text}>cette formation</span> ?
               </h2>
               <p className="max-w-xl text-base leading-relaxed text-muted">
-                Remplissez le formulaire ci-dessous. Benjamin vous répondra sous 24h ouvrables avec
+                Remplissez le formulaire ci-dessous. Nous vous répondrons sous 24h ouvrables avec
                 tous les détails, le planning et les modalités d'inscription.
               </p>
             </div>

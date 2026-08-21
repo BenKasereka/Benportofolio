@@ -253,7 +253,7 @@ export default function FormationsPage() {
               </h2>
               <p className="max-w-xl text-muted">
                 Chaque formation est accessible selon votre budget. Sélectionnez votre mode de
-                paiement préféré et contactez Benjamin directement via WhatsApp pour confirmer.
+                paiement préféré et contactez-nous directement via WhatsApp pour confirmer.
               </p>
               {/* Compte à rebours — bloc rouge accrocheur */}
               <div className="relative w-full overflow-hidden rounded-2xl bg-rouge px-8 py-8 text-center shadow-rouge-glow sm:px-12 sm:py-10">
@@ -411,7 +411,7 @@ export default function FormationsPage() {
                 Vous ne savez pas quelle formation choisir ?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-muted">
-                Benjamin vous accompagne personnellement pour identifier la formation la plus adaptée
+                Nous vous accompagnons personnellement pour identifier la formation la plus adaptée
                 à votre profil, vos objectifs et votre budget. Réponse sous 24h.
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
