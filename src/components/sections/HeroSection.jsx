@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ArrowRight, Download, MapPin, ShieldCheck } from 'lucide-react'
 import StatCounter from '../ui/StatCounter'
 
@@ -28,15 +28,33 @@ const fadeUp = {
   }),
 }
 
+const SLIDE_INTERVAL_MS = 3200
+
 export default function HeroSection() {
   const [slide, setSlide] = useState(0)
 
   useEffect(() => {
-    const id = setInterval(() => setSlide((s) => (s + 1) % SLIDES.length), 5000)
+    const id = setInterval(() => setSlide((s) => (s + 1) % SLIDES.length), SLIDE_INTERVAL_MS)
     return () => clearInterval(id)
   }, [])
 
   const current = SLIDES[slide]
+
+  // Inclinaison 3D fluide qui suit le curseur — retour à plat à la sortie
+  const pointerX = useMotionValue(0)
+  const pointerY = useMotionValue(0)
+  const rotateX = useSpring(useTransform(pointerY, [-0.5, 0.5], [10, -10]), { stiffness: 180, damping: 18 })
+  const rotateY = useSpring(useTransform(pointerX, [-0.5, 0.5], [-10, 10]), { stiffness: 180, damping: 18 })
+
+  const handlePointerMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    pointerX.set((e.clientX - rect.left) / rect.width - 0.5)
+    pointerY.set((e.clientY - rect.top) / rect.height - 0.5)
+  }
+  const handlePointerLeave = () => {
+    pointerX.set(0)
+    pointerY.set(0)
+  }
 
   return (
     <section
@@ -144,49 +162,63 @@ export default function HeroSection() {
           transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="relative mx-auto aspect-[4/5] w-full max-w-md"
         >
-          <div className="absolute inset-0 rounded-[2rem] bg-gold-emerald opacity-30 blur-2xl" />
-          <div className="card-executive relative h-full w-full overflow-hidden rounded-[2rem] p-2">
-            {/* Slideshow photos terrain */}
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={slide}
-                src={current.src}
-                alt={`Benjamin Kasereka Vinyatsi — ${current.mission}`}
-                className="h-full w-full rounded-[1.6rem] object-cover"
-                onError={(e) => { e.currentTarget.src = '/images/terrain/terrain-01.jpg' }}
-                initial={{ opacity: 0, scale: 1.04 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.97 }}
-                transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-              />
-            </AnimatePresence>
-
-            {/* Légende de mission */}
-            <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 backdrop-blur-md">
-              <div>
-                <p className="text-xs uppercase tracking-wide text-muted">{current.label}</p>
-                <p className="text-sm font-semibold text-slate-800">{current.mission}</p>
-              </div>
-              <span className="h-2.5 w-2.5 animate-pulse-slow rounded-full bg-emerald shadow-emerald-glow" />
-            </div>
-
-            {/* Indicateurs de slide */}
-            <div className="absolute bottom-20 left-1/2 flex -translate-x-1/2 gap-1.5">
-              {SLIDES.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setSlide(i)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${i === slide ? 'w-6 bg-white' : 'w-1.5 bg-white/40'}`}
+          {/* Flottement continu + inclinaison 3D qui suit le curseur */}
+          <motion.div
+            animate={{ y: [0, -14, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+            onPointerMove={handlePointerMove}
+            onPointerLeave={handlePointerLeave}
+            style={{ rotateX, rotateY, transformPerspective: 1000 }}
+            className="relative h-full w-full [transform-style:preserve-3d] will-change-transform"
+          >
+            <div className="absolute inset-0 rounded-[2rem] bg-gold-emerald opacity-30 blur-2xl" />
+            <div className="card-executive relative h-full w-full overflow-hidden rounded-[2rem] p-2">
+              {/* Slideshow photos terrain */}
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={slide}
+                  src={current.src}
+                  alt={`Benjamin Kasereka Vinyatsi — ${current.mission}`}
+                  className="h-full w-full rounded-[1.6rem] object-cover"
+                  onError={(e) => { e.currentTarget.src = '/images/terrain/terrain-01.jpg' }}
+                  initial={{ opacity: 0, scale: 1.04 }}
+                  animate={{ opacity: 1, scale: 1.1 }}
+                  exit={{ opacity: 0, scale: 0.97 }}
+                  transition={{
+                    opacity: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+                    scale: { duration: SLIDE_INTERVAL_MS / 1000, ease: 'linear' },
+                  }}
                 />
-              ))}
+              </AnimatePresence>
+
+              {/* Légende de mission */}
+              <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl border border-slate-200 bg-white/90 px-4 py-3 backdrop-blur-md">
+                <div>
+                  <p className="text-xs uppercase tracking-wide text-muted">{current.label}</p>
+                  <p className="text-sm font-semibold text-slate-800">{current.mission}</p>
+                </div>
+                <span className="h-2.5 w-2.5 animate-pulse-slow rounded-full bg-emerald shadow-emerald-glow" />
+              </div>
+
+              {/* Indicateurs de slide */}
+              <div className="absolute bottom-20 left-1/2 flex -translate-x-1/2 gap-1.5">
+                {SLIDES.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setSlide(i)}
+                    className={`h-1.5 rounded-full transition-all duration-300 hover:scale-125 active:scale-90 ${i === slide ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'}`}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Badge flottant */}
           <motion.div
             className="card-executive absolute -left-8 top-8 hidden w-44 p-4 sm:block"
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ z: 40 }}
           >
             <p className="text-xs text-muted">Réduction des délais</p>
             <p className="font-heading text-2xl font-bold text-emerald">85%</p>
