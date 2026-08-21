@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
-  Check,
+  ArrowRight,
   Compass,
   FileEdit,
   FileText,
@@ -33,13 +34,6 @@ const fadeUp = {
 }
 
 const WHATSAPP_NUMBER = '243990260711'
-
-// Chaque pack ouvre WhatsApp avec un message pré-rempli identifiant le pack
-// choisi et l'intention de paiement Mobile Money, pour un suivi immédiat.
-function buildPackWhatsAppLink(pack) {
-  const message = `Bonjour Benjamin, je souhaite prendre le ${pack.name} (${pack.price} ${pack.currency}) de BK-BOOST Ltd. Pouvez-vous me donner les modalités de paiement ?`
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
-}
 
 export default function BkBoost() {
   return (
@@ -142,11 +136,16 @@ export default function BkBoost() {
           <p className="max-w-xl text-sm leading-relaxed text-muted sm:text-base">{flagshipBonus.description}</p>
         </motion.div>
 
-        {/* Pricing */}
+        {/* Aperçu tarifs — /formations#tarifs reste la page de référence unique pour les prix et le paiement */}
         <div className="flex flex-col gap-10">
-          <h3 className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
-            Choisissez votre formule
-          </h3>
+          <div className="flex flex-col items-center gap-2 text-center">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
+              Nos formules d'accompagnement
+            </h3>
+            <p className="text-sm text-muted">
+              Aperçu des 4 packs — tarifs détaillés et moyens de paiement sur notre page Tarifs.
+            </p>
+          </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {pricingPacks.map((pack, index) => (
               <motion.div
@@ -156,51 +155,48 @@ export default function BkBoost() {
                 whileInView="show"
                 viewport={{ once: true, margin: '-40px' }}
                 variants={fadeUp}
-                className={`card-executive relative flex flex-col gap-5 p-7 ${
-                  pack.highlight ? 'border-gold/50 shadow-gold-glow' : ''
-                }`}
               >
-                {pack.highlight && (
-                  <span className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-gold-emerald px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-slate-900">
-                    <Sparkles className="h-3 w-3" /> Le plus choisi
-                  </span>
-                )}
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-wide text-gold">{pack.name}</p>
-                  {pack.originalPrice && (
-                    <p className="mt-2 text-sm font-medium text-muted line-through">
-                      {pack.originalPrice} {pack.currency}
-                    </p>
-                  )}
-                  <div className="flex items-center gap-2 mt-0.5">
-                    <p className="font-heading text-4xl font-extrabold text-offwhite">
-                      {pack.price}
-                      <span className="ml-1 text-base font-medium text-muted">{pack.currency}</span>
-                    </p>
-                    {pack.originalPrice && (
-                      <span className="rounded-full bg-gold/20 px-2.5 py-1 text-xs font-bold text-gold">-50%</span>
-                    )}
-                  </div>
-                </div>
-                <ul className="flex flex-1 flex-col gap-3">
-                  {pack.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2 text-sm text-muted">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={buildPackWhatsAppLink(pack)}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={pack.highlight ? 'btn-primary w-full !py-3' : 'btn-secondary w-full !py-3'}
+                <Link
+                  to="/formations#tarifs"
+                  className={`card-executive group relative flex h-full flex-col gap-4 p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                    pack.highlight ? 'border-gold/50 shadow-gold-glow' : ''
+                  }`}
                 >
-                  Choisir ce pack
-                </a>
+                  {pack.highlight && (
+                    <span className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-gold-emerald px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-slate-900">
+                      <Sparkles className="h-3 w-3" /> Le plus choisi
+                    </span>
+                  )}
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-wide text-gold">{pack.name}</p>
+                    {pack.originalPrice && (
+                      <p className="mt-2 text-sm font-medium text-muted line-through">
+                        {pack.originalPrice} {pack.currency}
+                      </p>
+                    )}
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <p className="font-heading text-3xl font-extrabold text-offwhite">
+                        {pack.price}
+                        <span className="ml-1 text-base font-medium text-muted">{pack.currency}</span>
+                      </p>
+                      {pack.originalPrice && (
+                        <span className="rounded-full bg-gold/20 px-2.5 py-1 text-xs font-bold text-gold">-50%</span>
+                      )}
+                    </div>
+                  </div>
+                  <p className="text-sm leading-relaxed text-muted">{pack.features[0]}</p>
+                  <span className="mt-auto flex items-center gap-2 text-sm font-semibold text-gold transition-all group-hover:gap-3">
+                    Voir les tarifs &amp; le paiement
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Link>
               </motion.div>
             ))}
           </div>
+          <Link to="/formations#tarifs" className="btn-primary mx-auto w-fit">
+            Voir tous les tarifs &amp; options de paiement
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
 
         <motion.div
