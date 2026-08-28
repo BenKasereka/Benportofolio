@@ -193,7 +193,7 @@ export default function FormationDetailPage() {
         </section>
 
         {/* ── Public cible ── */}
-        <section className="section-padding bg-surface">
+        <section className="section-padding-tight bg-surface">
           <div className="section-container grid gap-12 lg:grid-cols-2">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="flex flex-col gap-5">
               <h2 className="text-2xl font-bold text-ink">{t('detail.audienceHeading')}</h2>
@@ -263,7 +263,7 @@ export default function FormationDetailPage() {
         </section>
 
         {/* ── Résultats obtenus ── */}
-        <section className="section-padding bg-surface">
+        <section className="section-padding-tight bg-surface">
           <div className="section-container flex flex-col gap-10">
             <div className="text-center">
               <span className="eyebrow">{t('detail.outcomesEyebrow')}</span>

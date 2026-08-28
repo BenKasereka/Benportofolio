@@ -73,6 +73,13 @@
     @apply py-20 sm:py-28;
   }
 
+  /* Variante resserrée — sections au contenu volontairement court
+     (placeholder, grille compacte) pour lesquelles le padding standard
+     laisse trop de vide autour d'un contenu réduit. */
+  .section-padding-tight {
+    @apply py-12 sm:py-16;
+  }
+
   /* Lien d'évitement — première tabulation de la page */
   .skip-link {
     @apply sr-only;

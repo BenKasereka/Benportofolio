@@ -8,8 +8,8 @@ export default function PortfolioSection() {
   const { t } = useTranslation('portfolio')
 
   return (
-    <section id="portfolio" className="section-padding relative bg-surface-white">
-      <div className="section-container flex flex-col gap-10">
+    <section id="portfolio" className="section-padding-tight relative bg-surface-white">
+      <div className="section-container flex flex-col gap-8">
         <SectionHeading
           eyebrow={t('eyebrow')}
           title={t('title')}
@@ -17,7 +17,7 @@ export default function PortfolioSection() {
           description={t('description')}
         />
 
-        <div className="card-executive mx-auto flex w-full max-w-2xl flex-col items-center gap-4 border-dashed p-12 text-center">
+        <div className="card-executive mx-auto flex w-full max-w-2xl flex-col items-center gap-4 border-dashed p-10 text-center">
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
             <Hammer className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
           </span>

@@ -9,8 +9,8 @@ export default function LanguagesSection() {
   const lang = i18n.resolvedLanguage
 
   return (
-    <section id="languages" className="section-padding relative bg-surface">
-      <div className="section-container flex flex-col gap-14">
+    <section id="languages" className="section-padding-tight relative bg-surface">
+      <div className="section-container flex flex-col gap-10">
         <SectionHeading
           eyebrow={t('eyebrow')}
           title={t('title')}

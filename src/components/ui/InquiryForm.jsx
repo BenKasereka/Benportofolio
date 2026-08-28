@@ -1,4 +1,5 @@
 import { useId, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Trans, useTranslation } from 'react-i18next'
 import { AlertTriangle, ArrowRight, CheckCircle2, Loader2, Mail, MessageCircle, Phone, User } from 'lucide-react'
 import { isMailConfigured, sendMail } from '../../lib/sendMail'
@@ -250,8 +251,8 @@ export default function InquiryForm({ subject, contextLabel }) {
             i18nKey="contact:form.footerNote"
             components={{
               a: (
-                <a
-                  href={`${import.meta.env.BASE_URL}mentions-legales`}
+                <Link
+                  to="/mentions-legales"
                   className="underline underline-offset-2 hover:text-ink"
                 />
               ),
