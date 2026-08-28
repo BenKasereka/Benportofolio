@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
-import { GraduationCap, Menu, X } from 'lucide-react'
+import { GraduationCap, Home, Menu, X } from 'lucide-react'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 
 // Absolute paths must be prefixed with BASE_URL so they still resolve correctly
@@ -59,16 +59,30 @@ export default function Navbar() {
       }`}
     >
       <nav className="section-container flex h-20 items-center justify-between gap-4">
-        {/* Logo — le vrai logo BK-BOOST Ltd., sur un fond blanc pour ressortir sur la navbar sombre */}
-        <Link to="/" className="flex min-h-tap shrink-0 items-center">
-          <span className="flex h-12 items-center rounded-lg bg-white p-1.5 shadow-sm">
-            <img
-              src={`${BASE}images/brand/bk-boost-logo.png`}
-              alt="BK-BOOST Ltd."
-              className="h-full w-auto object-contain"
-            />
-          </span>
-        </Link>
+        <div className="flex shrink-0 items-center gap-3">
+          {/* Logo — le vrai logo BK-BOOST Ltd., sur un fond blanc pour ressortir sur la navbar sombre */}
+          <Link to="/" className="flex min-h-tap shrink-0 items-center">
+            <span className="flex h-12 items-center rounded-lg bg-white p-1.5 shadow-sm">
+              <img
+                src={`${BASE}images/brand/bk-boost-logo.png`}
+                alt="BK-BOOST Ltd."
+                className="h-full w-auto object-contain"
+              />
+            </span>
+          </Link>
+
+          {/* Accueil — icône seule, ramène toujours à la page d'accueil.
+              Masqué sur la page d'accueil elle-même : y revenir n'a pas de sens. */}
+          {pathname !== '/' && (
+            <Link
+              to="/"
+              className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white transition-colors hover:bg-white/20"
+              aria-label={t('nav.home')}
+            >
+              <Home className="h-4.5 w-4.5" aria-hidden="true" />
+            </Link>
+          )}
+        </div>
 
         {/* Desktop nav — Parcours · Expertise · Portfolio · Formations */}
         <ul className="hidden items-center gap-6 lg:flex">
