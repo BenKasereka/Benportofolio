@@ -137,7 +137,10 @@
   }
 
   .card-executive:hover {
-    @apply -translate-y-1 border-primary/50 shadow-primary-glow;
+    @apply -translate-y-1;
+    border-color: transparent;
+    border-image: linear-gradient(135deg, rgba(4, 120, 87, 0.7), rgba(180, 83, 9, 0.7)) 1;
+    box-shadow: 0 0 28px -8px rgba(4, 120, 87, 0.32), 0 0 22px -6px rgba(180, 83, 9, 0.32);
   }
 
   /* Pastille / badge — fond neutre clair, texte ink, bordure et icône en or
