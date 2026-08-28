@@ -184,7 +184,7 @@ export default function FormationsPage() {
                   >
                     <Link
                       to={`/formations/${formation.id}`}
-                      className={`group relative flex flex-col gap-5 overflow-hidden rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${a.bg} ${a.ring} ${a.glow}`}
+                      className={`group relative flex h-full flex-col gap-5 overflow-hidden rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${a.bg} ${a.ring} ${a.glow}`}
                     >
                       {/* Numéro en fond */}
                       <span className={`pointer-events-none absolute -right-3 -top-5 font-heading text-8xl font-extrabold ${a.number}`}>
@@ -219,7 +219,7 @@ export default function FormationsPage() {
                       {(() => {
                         const p = pricingParts(formation, lang)
                         return (
-                          <div className="flex items-center gap-3 rounded-xl bg-white/10 px-3 py-2">
+                          <div className="mt-auto flex items-center gap-3 rounded-xl bg-white/10 px-3 py-2">
                             {p.originalAmount && (
                               <span className="text-sm font-medium text-white/40 line-through">
                                 {p.originalAmount} {p.currency}
