@@ -85,7 +85,15 @@ export default function HeroSection() {
       <div className="pointer-events-none absolute -top-40 right-[-10%] h-[32rem] w-[32rem] rounded-full bg-primary/10 blur-3xl animate-pulse-slow" />
       <div className="pointer-events-none absolute -bottom-40 left-[-10%] h-[32rem] w-[32rem] rounded-full bg-primary/[0.06] blur-3xl animate-pulse-slow" />
 
-      <div className="section-container relative grid gap-16 pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+      <div className="section-container relative grid gap-10 pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        {/* Illustration transport multimodal — pleine largeur de la section,
+            au-dessus des deux colonnes : à la largeur de la seule colonne
+            visuelle (0.85fr), le schéma et son texte (noms de hubs, sigles
+            BK sur les fanions) restaient illisibles. */}
+        <div className="lg:col-span-2">
+          <SupplyChainRouteIllustration className="mx-auto w-full" />
+        </div>
+
         {/* Colonne texte */}
         <div className="flex flex-col gap-8">
           <motion.div initial="hidden" animate="show" custom={0} variants={fadeUp}>
@@ -175,11 +183,6 @@ export default function HeroSection() {
 
         {/* Colonne visuelle */}
         <div className="mx-auto flex w-full max-w-md flex-col items-stretch">
-          {/* Illustration transport multimodal — élargie au-delà de la carte
-              photo (déborde la colonne sur grand écran, ratio 1300:400 trop
-              large pour rester lisible à la largeur de la carte seule) */}
-          <SupplyChainRouteIllustration className="mt-10 mb-8 w-full sm:mt-14 lg:-mx-14 lg:w-[calc(100%+7rem)]" />
-
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
