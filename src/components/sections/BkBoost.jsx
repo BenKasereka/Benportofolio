@@ -77,7 +77,7 @@ export default function BkBoost() {
                     <Icon className="h-5 w-5" strokeWidth={1.75} />
                   </span>
                   <h4 className="font-semibold text-ink">{item.title[lang]}</h4>
-                  <p className="text-sm leading-relaxed text-muted">{item.description[lang]}</p>
+                  <p className="text-justify text-sm leading-relaxed text-muted">{item.description[lang]}</p>
                 </motion.div>
               )
             })}

@@ -65,7 +65,7 @@ export default function ServicesHub() {
                     {service.subtitle[lang]}
                   </p>
                   <h3 className="text-xl font-bold text-ink">{service.title[lang]}</h3>
-                  <p className="text-sm leading-relaxed text-muted">{service.description[lang]}</p>
+                  <p className="text-justify text-sm leading-relaxed text-muted">{service.description[lang]}</p>
                 </div>
 
                 <ul className="flex flex-col gap-1.5">

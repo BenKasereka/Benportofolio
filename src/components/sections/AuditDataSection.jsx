@@ -64,7 +64,7 @@ export default function AuditSection() {
                   <Icon className="h-5 w-5" strokeWidth={1.75} />
                 </span>
                 <h3 className="font-semibold text-ink">{capability.title[lang]}</h3>
-                <p className="text-sm leading-relaxed text-muted">{capability.description[lang]}</p>
+                <p className="text-justify text-sm leading-relaxed text-muted">{capability.description[lang]}</p>
                 <ul className="mt-2 flex flex-col gap-1.5 border-t border-border pt-3">
                   {capability.points.map((point) => (
                     <li key={point[lang]} className="flex items-start gap-2 text-sm leading-snug text-muted">

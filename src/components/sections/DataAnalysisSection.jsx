@@ -72,7 +72,7 @@ export default function DataAnalysisSection() {
                   </span>
                   <div>
                     <h3 className="font-semibold text-white">{phase.title[lang]}</h3>
-                    <p className={`mt-1 text-xs leading-relaxed ${p.desc}`}>{phase.description[lang]}</p>
+                    <p className={`mt-1 text-justify text-xs leading-relaxed ${p.desc}`}>{phase.description[lang]}</p>
                   </div>
                   <ul className="mt-auto flex flex-col gap-1.5 border-t border-white/15 pt-4">
                     {phase.tools.map((tool) => {

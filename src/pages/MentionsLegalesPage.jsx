@@ -42,7 +42,7 @@ export default function MentionsLegalesPage() {
           <div className="mx-auto flex w-full max-w-3xl flex-col gap-10">
             <section className="card-executive flex flex-col gap-3 p-8">
               <h2 className="text-xl font-bold text-ink">{t('sections.editor.title')}</h2>
-              <p className="text-sm leading-relaxed text-muted">
+              <p className="text-justify text-sm leading-relaxed text-muted">
                 {site.name} — {site.company}
                 <br />
                 {i18n.resolvedLanguage === 'en' ? site.cityEn : site.city}
@@ -57,10 +57,10 @@ export default function MentionsLegalesPage() {
 
             <section className="card-executive flex flex-col gap-3 p-8">
               <h2 className="text-xl font-bold text-ink">{t('sections.personalData.title')}</h2>
-              <p className="text-sm leading-relaxed text-muted">
+              <p className="text-justify text-sm leading-relaxed text-muted">
                 {t('sections.personalData.body1')}
               </p>
-              <p className="text-sm leading-relaxed text-muted">
+              <p className="text-justify text-sm leading-relaxed text-muted">
                 {t('sections.personalData.body2Before')}{' '}
                 <a href={`mailto:${site.email}`} className="text-primary-dark underline underline-offset-2">{site.email}</a>
                 {t('sections.personalData.body2After')}
@@ -69,14 +69,14 @@ export default function MentionsLegalesPage() {
 
             <section className="card-executive flex flex-col gap-3 p-8">
               <h2 className="text-xl font-bold text-ink">{t('sections.cookies.title')}</h2>
-              <p className="text-sm leading-relaxed text-muted">
+              <p className="text-justify text-sm leading-relaxed text-muted">
                 {t('sections.cookies.body')}
               </p>
             </section>
 
             <section className="card-executive flex flex-col gap-3 p-8">
               <h2 className="text-xl font-bold text-ink">{t('sections.formations.title')}</h2>
-              <p className="text-sm leading-relaxed text-muted">
+              <p className="text-justify text-sm leading-relaxed text-muted">
                 {t('sections.formations.body')}
               </p>
             </section>

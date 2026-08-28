@@ -106,7 +106,7 @@ export default function CaseStudyActedPage() {
               {/* Contexte */}
               <motion.section initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="flex flex-col gap-4">
                 <h2 className="text-2xl font-bold text-ink">{t('context.heading')}</h2>
-                <p className="leading-relaxed text-muted">
+                <p className="text-justify leading-relaxed text-muted">
                   <Trans i18nKey="caseStudyActed:context.body" components={{ strong: <strong className="text-ink" /> }} />
                 </p>
               </motion.section>
@@ -133,7 +133,7 @@ export default function CaseStudyActedPage() {
               {/* Cadre méthodologique */}
               <motion.section initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.1} variants={fadeUp} className="flex flex-col gap-4">
                 <h2 className="text-2xl font-bold text-ink">{t('methodology.heading')}</h2>
-                <p className="text-sm leading-relaxed text-muted">
+                <p className="text-justify text-sm leading-relaxed text-muted">
                   <Trans
                     i18nKey="caseStudyActed:methodology.intro"
                     components={{ link: <Link to="/#audit" className="text-primary-dark underline underline-offset-2" /> }}
@@ -148,7 +148,7 @@ export default function CaseStudyActedPage() {
                           <Icon className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
                         </span>
                         <p className="text-sm font-semibold text-ink">{cap.title[lang]}</p>
-                        <p className="text-xs leading-relaxed text-muted">{cap.description[lang]}</p>
+                        <p className="text-justify text-xs leading-relaxed text-muted">{cap.description[lang]}</p>
                       </div>
                     )
                   })}
@@ -169,7 +169,7 @@ export default function CaseStudyActedPage() {
               <p className="text-lg font-semibold text-ink">
                 {t('sidebar.resultPrefix')} <span className="text-primary">{t('keyStat.value')}</span> {t('sidebar.resultSuffix')}
               </p>
-              <p className="text-sm leading-relaxed text-muted">
+              <p className="text-justify text-sm leading-relaxed text-muted">
                 {t('sidebar.body')}
               </p>
               <a

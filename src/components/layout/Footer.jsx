@@ -50,7 +50,7 @@ export default function Footer() {
         {/* Marque */}
         <div className="flex flex-col gap-4">
           <span className="font-heading text-xl font-bold text-white">{site.name}</span>
-          <p className="max-w-sm text-sm leading-relaxed text-slate-400">
+          <p className="max-w-sm text-justify text-sm leading-relaxed text-slate-400">
             <Trans i18nKey="footer:tagline" values={{ company: site.company }} />
           </p>
           <div className="mt-2 flex flex-wrap gap-2 text-xs">

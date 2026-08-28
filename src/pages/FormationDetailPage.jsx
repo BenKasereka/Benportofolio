@@ -106,7 +106,7 @@ export default function FormationDetailPage() {
                   {formation.title[lang]}
                 </h1>
                 <p className={`text-xl font-semibold ${a.text}`}>{formation.tagline[lang]}</p>
-                <p className="max-w-2xl text-base leading-relaxed text-muted">{formation.intro[lang]}</p>
+                <p className="max-w-2xl text-justify text-base leading-relaxed text-muted">{formation.intro[lang]}</p>
 
                 {/* Méta-infos */}
                 <div className="flex flex-wrap gap-3">
@@ -197,13 +197,13 @@ export default function FormationDetailPage() {
           <div className="section-container grid gap-12 lg:grid-cols-2">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="flex flex-col gap-5">
               <h2 className="text-2xl font-bold text-ink">{t('detail.audienceHeading')}</h2>
-              <p className="leading-relaxed text-muted">{formation.audience[lang]}</p>
+              <p className="text-justify leading-relaxed text-muted">{formation.audience[lang]}</p>
             </motion.div>
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.1} variants={fadeUp} className="flex flex-col gap-4">
               <h2 className="text-2xl font-bold text-ink">{t('detail.objectivesHeading')}</h2>
               <ul className="flex flex-col gap-3">
                 {formation.objectives.map((obj, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm leading-relaxed text-muted">
+                  <li key={i} className="flex items-start gap-3 text-justify text-sm leading-relaxed text-muted">
                     <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[0.6rem] font-extrabold ${a.icon} ${a.text}`}>
                       {i + 1}
                     </span>
@@ -244,7 +244,7 @@ export default function FormationDetailPage() {
 
                     <div className="flex flex-1 flex-col gap-3">
                       <h3 className="text-base font-bold text-ink">{mod.title[lang]}</h3>
-                      <p className="text-sm leading-relaxed text-muted">{mod.description[lang]}</p>
+                      <p className="text-justify text-sm leading-relaxed text-muted">{mod.description[lang]}</p>
 
                       <ul className="flex flex-col gap-1.5 border-t border-white/10 pt-3">
                         {mod.points.map((point) => (
@@ -283,7 +283,7 @@ export default function FormationDetailPage() {
                   className={`card-executive flex items-start gap-3 border p-5 ${a.outcomeBg}`}
                 >
                   <Star className={`mt-0.5 h-5 w-5 shrink-0 ${a.text}`} />
-                  <p className="text-sm leading-relaxed text-muted">{outcome[lang]}</p>
+                  <p className="text-justify text-sm leading-relaxed text-muted">{outcome[lang]}</p>
                 </motion.div>
               ))}
             </div>
