@@ -90,17 +90,19 @@ export default function HeroSection() {
         <div className="flex flex-col gap-8">
           <motion.div initial="hidden" animate="show" custom={0} variants={fadeUp}>
             <span className="eyebrow">
-              <ShieldCheck className="h-3.5 w-3.5 text-accent-gold" aria-hidden="true" />
-              {t('eyebrow.prefix')}
-              <a
-                href="https://www.iscea.org/cpsp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-secondary underline-offset-2 hover:underline"
-              >
-                {t('eyebrow.org')}
-              </a>
-              {t('eyebrow.suffix')}
+              <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-accent-gold" aria-hidden="true" />
+              <span>
+                {t('eyebrow.prefix')}
+                <a
+                  href="https://www.iscea.org/cpsp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-secondary underline-offset-2 hover:underline"
+                >
+                  {t('eyebrow.org')}
+                </a>
+                {t('eyebrow.suffix')}
+              </span>
             </span>
           </motion.div>
 
@@ -119,7 +121,7 @@ export default function HeroSection() {
             animate="show"
             custom={0.2}
             variants={fadeUp}
-            className="max-w-md text-justify text-lg font-medium text-ink/90 sm:text-xl"
+            className="text-justify text-lg font-medium text-ink/90 sm:text-xl"
           >
             <span className="font-semibold text-primary">{t('subheading.title')}</span>
             {' '}{t('subheading.body')}{' '}
@@ -131,7 +133,7 @@ export default function HeroSection() {
             animate="show"
             custom={0.3}
             variants={fadeUp}
-            className="max-w-md text-justify text-base leading-relaxed text-muted"
+            className="text-justify text-base leading-relaxed text-muted"
           >
             {t('description')}
           </motion.p>
