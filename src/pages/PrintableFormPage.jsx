@@ -252,7 +252,7 @@ export default function PrintableFormPage() {
           <Grid2>
             <Field label={t('form.sections.personal.lastName')} value={form.nom} onChange={set('nom')} />
             <Field label={t('form.sections.personal.firstName')} value={form.prenom} onChange={set('prenom')} />
-            <Field label={t('form.sections.personal.birthDate')} value={form.date_naissance} onChange={set('date_naissance')} />
+            <Field label={t('form.sections.personal.birthDate')} value={form.date_naissance} onChange={set('date_naissance')} type="date" />
             <Select
               label={t('form.sections.personal.nationality')}
               value={form.nationalite}
