@@ -176,9 +176,12 @@ export default function HeroSection() {
         {/* Colonne visuelle */}
         <div className="mx-auto flex w-full max-w-md flex-col items-stretch">
           {/* Illustration transport multimodal — au-dessus de la seule carte
-              photo (pas de la colonne texte), élargie bien au-delà de la
-              largeur de cette carte pour rester grande et lisible */}
-          <SupplyChainRouteIllustration className="mt-10 mb-8 w-full sm:mt-14 lg:-mx-28 lg:w-[calc(100%+14rem)]" />
+              photo. Les tentatives de débordement (bleed) au-delà de cette
+              colonne ont soit recouvert le texte à gauche, soit débordé du
+              viewport à droite et étaient rognées par l'overflow-hidden de
+              la section : la largeur réelle et sûre est celle de la colonne
+              elle-même, comme la carte juste en dessous. */}
+          <SupplyChainRouteIllustration className="mt-4 mb-8 w-full sm:mt-6" />
 
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
