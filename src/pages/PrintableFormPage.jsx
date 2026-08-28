@@ -99,7 +99,7 @@ export default function PrintableFormPage() {
       fait_a: form.fait_a,
       le_date: form.le_date,
       reply_to: form.email_candidat,
-    })
+    }, { dossier: true })
 
     setStatus(result.ok ? 'sent' : 'error')
   }
