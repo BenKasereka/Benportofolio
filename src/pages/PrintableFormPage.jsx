@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { formationById } from '../data/formations'
+import { countries } from '../data/countries'
 import { pricingPacks } from '../data/pricingPacks'
 import { pricingParts } from '../lib/pricing'
 import { isMailConfigured, sendMail } from '../lib/sendMail'
@@ -251,7 +252,13 @@ export default function PrintableFormPage() {
             <Field label={t('form.sections.personal.lastName')} value={form.nom} onChange={set('nom')} />
             <Field label={t('form.sections.personal.firstName')} value={form.prenom} onChange={set('prenom')} />
             <Field label={t('form.sections.personal.birthDate')} value={form.date_naissance} onChange={set('date_naissance')} />
-            <Field label={t('form.sections.personal.nationality')} value={form.nationalite} onChange={set('nationalite')} />
+            <Select
+              label={t('form.sections.personal.nationality')}
+              value={form.nationalite}
+              onChange={set('nationalite')}
+              options={countries}
+              placeholder={t('form.sections.personal.selectCountry')}
+            />
             <Field label={t('form.sections.personal.phone')} value={form.telephone} onChange={set('telephone')} />
             <Field label={t('form.sections.personal.email')} value={form.email_candidat} onChange={set('email_candidat')} />
           </Grid2>
@@ -404,7 +411,7 @@ export default function PrintableFormPage() {
           </div>
           <Grid2>
             <Field label={t('form.sections.engagement.place')} value={form.fait_a} onChange={set('fait_a')} />
-            <Field label={t('form.sections.engagement.date')} value={form.le_date} onChange={set('le_date')} />
+            <Field label={t('form.sections.engagement.date')} value={form.le_date} onChange={set('le_date')} type="date" />
           </Grid2>
           <Grid2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
@@ -454,7 +461,7 @@ function Section({ title, number, children }) {
   )
 }
 
-function Field({ label, value, onChange, multiline = false, height = 32, name }) {
+function Field({ label, value, onChange, multiline = false, height = 32, name, type = 'text' }) {
   const fieldId = `field-${name || label.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase()}`
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '12px' }}>
@@ -477,7 +484,7 @@ function Field({ label, value, onChange, multiline = false, height = 32, name })
         <input
           id={fieldId}
           name={name}
-          type="text"
+          type={type}
           className="form-input"
           value={value}
           onChange={onChange}
@@ -492,6 +499,33 @@ function Grid2({ children }) {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
       {children}
+    </div>
+  )
+}
+
+function Select({ label, value, onChange, options, name, placeholder }) {
+  const fieldId = `field-${name || label.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase()}`
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '12px' }}>
+      <label
+        htmlFor={fieldId}
+        style={{ fontSize: '10px', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.8px' }}
+      >
+        {label}
+      </label>
+      <select
+        id={fieldId}
+        name={name}
+        className="form-input"
+        value={value}
+        onChange={onChange}
+        style={{ height: '32px', cursor: 'pointer' }}
+      >
+        <option value="">{placeholder}</option>
+        {options.map((opt) => (
+          <option key={opt} value={opt}>{opt}</option>
+        ))}
+      </select>
     </div>
   )
 }

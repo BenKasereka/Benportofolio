@@ -12,7 +12,12 @@
   "description": "Multilingual expert in Logistics and Supply Chain, both emergency and non-emergency, with 7+ years of field experience in highly volatile regions (DRC, Chad, South Sudan, Haiti, Nigeria) and 3+ years in Finance, Administration, HR and Audit & Compliance. Holder of a Bachelor's + 5 years in Business and Financial Sciences / Accounting track, in addition to a Master's degree in International Cooperation and Humanitarian Aid (KALU Institute). I design agile procurement and logistics strategies, reference procedure manuals/SOPs and data management and analysis tools — from epidemic response to decision support for SMEs and International Humanitarian Organizations.",
   "cta": {
     "book": "Book a call",
-    "downloadCv": "Download CV"
+    "requestCv": "Request CV"
+  },
+  "cvModal": {
+    "title": "Request my CV",
+    "description": "Leave me your details — I'll send you the CV by email personally, usually within 24 business hours.",
+    "subject": "sending my CV"
   },
   "location": "Based in Goma, DRC — available for rapid international deployment",
   "floatingBadge": {

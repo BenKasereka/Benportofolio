@@ -51,6 +51,7 @@
         "firstName": "First name(s) *",
         "birthDate": "Date of birth *",
         "nationality": "Nationality *",
+        "selectCountry": "Select a country",
         "phone": "Primary phone *",
         "email": "Email address *",
         "address": "Full residential address *"

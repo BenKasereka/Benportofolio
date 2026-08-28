@@ -3,6 +3,8 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from
 import { useTranslation } from 'react-i18next'
 import { ArrowRight, Download, MapPin, ShieldCheck } from 'lucide-react'
 import StatCounter from '../ui/StatCounter'
+import Modal from '../ui/Modal'
+import InquiryForm from '../ui/InquiryForm'
 
 // ── Photos terrain — ajouter terrain-02.jpg, terrain-03.jpg, terrain-04.jpg
 // dans public/images/terrain/ pour activer le diaporama complet
@@ -48,6 +50,7 @@ export default function HeroSection() {
   const { t, i18n } = useTranslation('hero')
   const lang = i18n.resolvedLanguage
   const [slide, setSlide] = useState(0)
+  const [cvModalOpen, setCvModalOpen] = useState(false)
 
   useEffect(() => {
     const id = setInterval(() => setSlide((s) => (s + 1) % SLIDES.length), SLIDE_INTERVAL_MS)
@@ -138,10 +141,10 @@ export default function HeroSection() {
               {t('cta.book')}
               <ArrowRight className="h-4 w-4" />
             </a>
-            <a href={`${ASSET_BASE}cv-benjamin-kasereka-vinyatsi.pdf`} className="btn-secondary" download>
+            <button type="button" onClick={() => setCvModalOpen(true)} className="btn-secondary">
               <Download className="h-4 w-4" />
-              {t('cta.downloadCv')}
-            </a>
+              {t('cta.requestCv')}
+            </button>
           </motion.div>
 
           <motion.div
@@ -260,6 +263,11 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
+
+      <Modal open={cvModalOpen} onClose={() => setCvModalOpen(false)} title={t('cvModal.title')}>
+        <p className="mb-5 text-sm leading-relaxed text-muted">{t('cvModal.description')}</p>
+        <InquiryForm subject={t('cvModal.subject')} contextLabel={t('cvModal.subject')} />
+      </Modal>
     </section>
   )
 }

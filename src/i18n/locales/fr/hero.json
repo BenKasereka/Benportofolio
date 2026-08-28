@@ -12,7 +12,12 @@
   "description": "Multilingue, Expert  de la Logistique et Supply Chain d'urgence et non Urgence avec 7+ ans de terrain en zones hautement volatiles (RDC, Tchad, Soudan du Sud, Haïti, Nigeria) et 3+ ans en Finances, Administration, RH et Audit & Compliance. Titulaire d'un Bac + 5 en Sciences Commerciales et Financières/ Option Comptabilité. En plus d'un Master en Coopération Internationale et Aide Humanitaire (KALU Institute). Je conçois des stratégies d'approvisionnement et Logistique agiles, des manuels de procédures/SOP de référence et des outils de Gestion et d'analyse de données — de la réponse aux épidémies jusqu'à l'aide à la décision pour PME et Organisations Internationales Humanitaires.",
   "cta": {
     "book": "Réserver un appel",
-    "downloadCv": "Télécharger le CV"
+    "requestCv": "Demander le CV"
+  },
+  "cvModal": {
+    "title": "Demander mon CV",
+    "description": "Laissez-moi vos coordonnées — je vous envoie le CV par email personnellement, généralement sous 24 h ouvrables.",
+    "subject": "l'envoi de mon CV"
   },
   "location": "Basé à Goma, RDC — disponible pour déploiement rapide à l'international",
   "floatingBadge": {
