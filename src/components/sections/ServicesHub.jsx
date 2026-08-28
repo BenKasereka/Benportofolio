@@ -34,14 +34,13 @@ const cardVariants = {
 
 export default function ServicesHub() {
   return (
-    <section id="expertise" className="section-padding relative bg-blue-50">
+    <section id="expertise" className="section-padding relative bg-night-soft">
       <div className="section-container flex flex-col gap-16">
         <SectionHeading
           eyebrow="5 pôles d'expertise"
           title="Un consultant, cinq leviers de"
           highlight="performance"
           accent="blue"
-          panelBg="bg-teal"
           description="De l'urgence humanitaire à la donnée, chaque pôle s'appuie sur la même exigence : rigueur opérationnelle, conformité et résultats mesurables."
         />
 

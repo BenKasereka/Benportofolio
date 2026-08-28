@@ -1,17 +1,17 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
-  ArrowLeft, Bot, CheckCircle2, ChevronRight, Clock, Download,
-  Flame, Landmark, MessageCircle, Package, ShieldCheck, Star, Target, Truck, Users,
+  ArrowLeft, Bot, CheckCircle2, ChevronRight, Clock, FileText,
+  Landmark, MessageCircle, Package, ShieldCheck, Star, Target, Truck, Users,
 } from 'lucide-react'
 import { formationById } from '../data/formations'
-import CountdownTimer from '../components/ui/CountdownTimer'
+import { pricingParts } from '../lib/pricing'
+import SessionNotice from '../components/ui/SessionNotice'
+import SEO from '../components/ui/SEO'
 import InquiryForm from '../components/ui/InquiryForm'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
-
-const WA = '243990260711'
-const waLink = (msg) => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`
+import { waLink } from '../config/site'
 
 const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
 
@@ -100,9 +100,14 @@ export default function FormationDetailPage() {
 
   return (
     <div className="min-h-screen bg-night">
+      <SEO
+        title={formation.title}
+        description={formation.tagline || formation.subtitle}
+        image={formation.image}
+      />
       <Navbar />
 
-      <main>
+      <main id="main-content">
         {/* ── Hero de la formation ── */}
         <section className="relative overflow-hidden bg-night pt-32 pb-20">
           <div className={`pointer-events-none absolute inset-x-0 top-0 h-96 bg-gradient-to-b ${a.gradient} opacity-50`} />
@@ -162,22 +167,31 @@ export default function FormationDetailPage() {
                 </div>
                 <div>
                   <p className="text-sm text-muted">{formation.subtitle}</p>
-                  {formation.originalPrice && (
-                    <p className="mt-1 text-sm font-medium text-muted line-through">{formation.originalPrice}</p>
-                  )}
-                  <div className="flex items-center gap-2 mt-0.5">
-                    <p className={`font-heading text-3xl font-extrabold ${a.text}`}>{formation.price}</p>
-                    {formation.originalPrice && (
-                      <span className="rounded-full bg-gold/20 px-2.5 py-1 text-xs font-bold text-gold">-50%</span>
-                    )}
-                  </div>
-                  {/* Compte à rebours */}
-                  <div className="mt-3 rounded-xl border border-rouge/30 bg-rouge/10 px-3 py-2.5 flex flex-col gap-1.5">
-                    <div className="flex items-center gap-1.5 text-xs font-semibold text-rouge">
-                      <Flame className="h-3.5 w-3.5 animate-pulse" />
-                      Offre de lancement — expire dans :
-                    </div>
-                    <CountdownTimer compact />
+                  {(() => {
+                    const p = pricingParts(formation)
+                    return (
+                      <>
+                        {p.originalAmount && (
+                          <p className="mt-1 text-sm font-medium text-muted line-through">
+                            {p.originalAmount} {p.currency}
+                          </p>
+                        )}
+                        <div className="flex items-center gap-2 mt-0.5">
+                          <p className={`font-heading text-3xl font-extrabold ${a.text}`}>
+                            {p.amount} {p.currency}
+                          </p>
+                          {p.badge && (
+                            <span className="rounded-full bg-gold/20 px-2.5 py-1 text-xs font-bold text-gold-dark">
+                              {p.badge}
+                            </span>
+                          )}
+                        </div>
+                      </>
+                    )
+                  })()}
+                  {/* Échéance de session — n'apparaît que si une date réelle est configurée */}
+                  <div className="mt-3 flex flex-col gap-1.5 rounded-xl border border-night-border bg-night-soft px-3 py-2.5 empty:hidden">
+                    <SessionNotice compact />
                   </div>
                 </div>
                 <ul className="flex flex-col gap-2 border-t border-white/10 pt-4">
@@ -206,8 +220,8 @@ export default function FormationDetailPage() {
                   target="_blank"
                   className="btn-secondary flex w-full items-center justify-center gap-2"
                 >
-                  <Download className="h-4 w-4" />
-                  Télécharger le formulaire PDF
+                  <FileText className="h-4 w-4" />
+                  Remplir le formulaire de candidature
                 </Link>
               </motion.div>
             </div>
@@ -340,8 +354,8 @@ export default function FormationDetailPage() {
                 target="_blank"
                 className="btn-secondary"
               >
-                <Download className="h-4 w-4" />
-                Ouvrir le formulaire de candidature PDF
+                <FileText className="h-4 w-4" />
+                Ouvrir le formulaire de candidature
               </Link>
             </div>
           </div>

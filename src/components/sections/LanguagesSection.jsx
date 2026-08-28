@@ -10,18 +10,17 @@ const CODE_COLORS = {
 
 export default function LanguagesSection() {
   return (
-    <section id="languages" className="section-padding relative bg-teal-50">
+    <section id="languages" className="section-padding relative bg-night-soft">
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
           eyebrow="Pôle 05 — Interprétation & Traduction"
           title="Communication fluide,"
-          highlight="en 4 langues"
+          highlight="en 6 langues"
           accent="teal"
-          panelBg="bg-emerald-dark"
           description="L'interprétation entre équipes multiculturelles fait partie intégrante du travail de terrain — de la coordination logistique à la médiation communautaire."
         />
 
-        <div className="mx-auto grid w-full max-w-2xl grid-cols-1 gap-5 sm:grid-cols-2">
+        <div className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {languages.map((lang, index) => {
             const codeClass = CODE_COLORS[lang.level] ?? 'bg-gold/10 text-gold border-gold/30'
             return (

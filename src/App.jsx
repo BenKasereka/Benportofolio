@@ -1,7 +1,9 @@
-import { useEffect } from 'react'
+import { Suspense, lazy, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
+import SEO from './components/ui/SEO'
+import WhatsAppFab from './components/ui/WhatsAppFab'
 import HeroSection from './components/sections/HeroSection'
 import ServicesHub from './components/sections/ServicesHub'
 import HumanitarianGallery from './components/sections/HumanitarianGallery'
@@ -9,15 +11,22 @@ import BkBoost from './components/sections/BkBoost'
 import AuditSection from './components/sections/AuditDataSection'
 import DataAnalysisSection from './components/sections/DataAnalysisSection'
 import LanguagesSection from './components/sections/LanguagesSection'
-import FormationsPage from './pages/FormationsPage'
-import FormationDetailPage from './pages/FormationDetailPage'
-import PrintableFormPage from './pages/PrintableFormPage'
+import ContactSection from './components/sections/ContactSection'
+
+// Chargées à la demande : la plupart des visiteurs de l'accueil ne visitent
+// jamais /formations, et le formulaire de 32 champs n'a aucune raison d'alourdir
+// le chargement initial de tout le monde (FIN-08 de l'audit).
+const FormationsPage = lazy(() => import('./pages/FormationsPage'))
+const FormationDetailPage = lazy(() => import('./pages/FormationDetailPage'))
+const PrintableFormPage = lazy(() => import('./pages/PrintableFormPage'))
+const MentionsLegalesPage = lazy(() => import('./pages/MentionsLegalesPage'))
 
 function PortfolioPage() {
   return (
     <div className="min-h-screen bg-night">
+      <SEO />
       <Navbar />
-      <main>
+      <main id="main-content">
         <HeroSection />
         <ServicesHub />
         <HumanitarianGallery />
@@ -25,8 +34,10 @@ function PortfolioPage() {
         <AuditSection />
         <DataAnalysisSection />
         <LanguagesSection />
+        <ContactSection />
       </main>
       <Footer />
+      <WhatsAppFab />
     </div>
   )
 }
@@ -59,13 +70,27 @@ function ScrollToTop() {
 export default function App() {
   return (
     <>
+      <a href="#main-content" className="skip-link">
+        Aller au contenu principal
+      </a>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<PortfolioPage />} />
-        <Route path="/formations" element={<FormationsPage />} />
-        <Route path="/formations/:id" element={<FormationDetailPage />} />
-        <Route path="/formations/:id/formulaire" element={<PrintableFormPage />} />
-      </Routes>
+      <Suspense fallback={<RouteFallback />}>
+        <Routes>
+          <Route path="/" element={<PortfolioPage />} />
+          <Route path="/formations" element={<FormationsPage />} />
+          <Route path="/formations/:id" element={<FormationDetailPage />} />
+          <Route path="/formations/:id/formulaire" element={<PrintableFormPage />} />
+          <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
+        </Routes>
+      </Suspense>
     </>
+  )
+}
+
+function RouteFallback() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-night">
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-gold/30 border-t-gold" />
+    </div>
   )
 }

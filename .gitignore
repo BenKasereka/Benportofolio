@@ -13,3 +13,7 @@ Manuel Financier de Terrain UDC.docx
 Les Images sur le Terrain de Benjamin KASEREKA VINYATSI/
 BK-BOOSTLtd Offre de formation.png
 Logo de BK-BOOSTLtd..png
+
+# Variables d'environnement locales
+.env
+.env.local

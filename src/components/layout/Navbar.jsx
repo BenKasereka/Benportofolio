@@ -44,7 +44,7 @@ export default function Navbar() {
     >
       <nav className="section-container flex h-20 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 font-heading text-lg font-bold text-white">
+        <Link to="/" className="flex min-h-tap items-center gap-2 font-heading text-lg font-bold text-white">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold-emerald text-sm font-extrabold text-slate-900">
             BK
           </span>
@@ -56,7 +56,7 @@ export default function Navbar() {
           <li>
             <Link
               to="/"
-              className="flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-white"
+              className="flex items-center gap-1.5 text-sm font-medium text-white/90 transition-colors hover:text-white"
             >
               <Home className="h-4 w-4" />
               Accueil
@@ -64,7 +64,7 @@ export default function Navbar() {
           </li>
           {PORTFOLIO_LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="text-sm font-medium text-white/80 transition-colors hover:text-white">
+              <a href={link.href} className="text-sm font-medium text-white/90 transition-colors hover:text-white">
                 {link.label}
               </a>
             </li>
@@ -87,7 +87,7 @@ export default function Navbar() {
           <li>
             <Link
               to="/formations#tarifs"
-              className="flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-sm font-semibold text-gold transition-all duration-300 hover:border-gold/70 hover:bg-gold/20"
+              className="flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-sm font-semibold text-gold transition-all duration-300 hover:border-gold/[0.7] hover:bg-gold/20"
             >
               <DollarSign className="h-4 w-4" />
               Nos Tarifs
@@ -103,7 +103,7 @@ export default function Navbar() {
         {/* Hamburger mobile */}
         <button
           onClick={() => setOpen(true)}
-          className="rounded-lg border border-white/30 bg-rouge-dark p-2 text-white lg:hidden"
+          className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/30 bg-rouge-dark text-white lg:hidden"
           aria-label="Ouvrir le menu"
         >
           <Menu className="h-5 w-5" />
@@ -123,7 +123,7 @@ export default function Navbar() {
               <span className="font-heading text-lg font-bold text-white">Menu</span>
               <button
                 onClick={() => setOpen(false)}
-                className="rounded-lg border border-white/30 p-2 text-white"
+                className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/30 text-white"
                 aria-label="Fermer le menu"
               >
                 <X className="h-5 w-5" />

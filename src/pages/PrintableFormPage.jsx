@@ -1,19 +1,13 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import emailjs from '@emailjs/browser'
 import { formationById } from '../data/formations'
 import { pricingPacks } from '../data/pricingPacks'
+import { pricingParts } from '../lib/pricing'
+import { isMailConfigured, sendMail } from '../lib/sendMail'
+import { site, waLink } from '../config/site'
+import SEO from '../components/ui/SEO'
 
-// ── Configuration EmailJS ──────────────────────────────────────────
-// 1. Créez un compte sur https://dashboard.emailjs.com (gratuit)
-// 2. "Add New Service" → connectez votre Gmail → notez le Service ID
-// 3. "Email Templates" → créez un template, notez le Template ID
-// 4. "Account" → "General" → copiez votre Public Key
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY'
-const TO_EMAIL = 'kasvinyatsi7@gmail.com'
-// ──────────────────────────────────────────────────────────────────
+const TO_EMAIL = site.email
 
 const EMPTY_FORM = {
   nom: '', prenom: '', date_naissance: '', nationalite: '',
@@ -59,58 +53,64 @@ export default function PrintableFormPage() {
     })
   }
 
-  const handleSubmit = async () => {
-    if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
-      alert(
-        'Configuration requise :\nRemplacez YOUR_SERVICE_ID, YOUR_TEMPLATE_ID et YOUR_PUBLIC_KEY dans le fichier PrintableFormPage.jsx avec vos identifiants EmailJS.'
-      )
-      return
-    }
-    setStatus('sending')
-    try {
-      const packLabel = form.pack_choisi === 'autre'
-        ? `Autre : ${form.budget_autre}`
-        : form.pack_choisi || '—'
+  const packLabel = form.pack_choisi === 'autre' ? `Autre : ${form.budget_autre}` : form.pack_choisi || '—'
 
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          to_email: TO_EMAIL,
-          formation_title: formation.title,
-          formation_number: formation.number,
-          nom: form.nom,
-          prenom: form.prenom,
-          date_naissance: form.date_naissance,
-          nationalite: form.nationalite,
-          telephone: form.telephone,
-          email_candidat: form.email_candidat,
-          adresse: form.adresse,
-          organisation: form.organisation,
-          poste: form.poste,
-          annees_exp: form.annees_exp,
-          secteur: form.secteur,
-          resume_parcours: form.resume_parcours,
-          pourquoi_formation: form.pourquoi_formation,
-          resultats_attendus: form.resultats_attendus,
-          format_prefere: form.format_prefere,
-          disponibilites: form.disponibilites,
-          niveau: form.niveau || '—',
-          sources: form.sources.join(', ') || '—',
-          pack_choisi: packLabel,
-          fait_a: form.fait_a,
-          le_date: form.le_date,
-        },
-        EMAILJS_PUBLIC_KEY
-      )
-      setStatus('sent')
-    } catch {
-      setStatus('error')
-    }
+  // Résumé texte du dossier — sert de repli WhatsApp/e-mail si l'envoi échoue,
+  // pour que le candidat n'ait jamais à ressaisir 32 champs.
+  const dossierSummary = () =>
+    [
+      `Formation : ${formation.title}`,
+      `Nom : ${form.nom} ${form.prenom}`,
+      `Téléphone : ${form.telephone}`,
+      `Email : ${form.email_candidat}`,
+      `Organisation : ${form.organisation || '—'}`,
+      `Pack choisi : ${packLabel}`,
+      '',
+      'Motivation :',
+      form.pourquoi_formation || '—',
+    ].join('\n')
+
+  const handleSubmit = async () => {
+    setStatus('sending')
+
+    const result = await sendMail({
+      to_email: TO_EMAIL,
+      formation_title: formation.title,
+      formation_number: formation.number,
+      nom: form.nom,
+      prenom: form.prenom,
+      date_naissance: form.date_naissance,
+      nationalite: form.nationalite,
+      telephone: form.telephone,
+      email_candidat: form.email_candidat,
+      adresse: form.adresse,
+      organisation: form.organisation,
+      poste: form.poste,
+      annees_exp: form.annees_exp,
+      secteur: form.secteur,
+      resume_parcours: form.resume_parcours,
+      pourquoi_formation: form.pourquoi_formation,
+      resultats_attendus: form.resultats_attendus,
+      format_prefere: form.format_prefere,
+      disponibilites: form.disponibilites,
+      niveau: form.niveau || '—',
+      sources: form.sources.join(', ') || '—',
+      pack_choisi: packLabel,
+      fait_a: form.fait_a,
+      le_date: form.le_date,
+      reply_to: form.email_candidat,
+    })
+
+    setStatus(result.ok ? 'sent' : 'error')
   }
 
   return (
     <>
+      <SEO
+        title={`Candidature — ${formation.title}`}
+        description={`Formulaire d'inscription à la formation ${formation.title}.`}
+        noindex
+      />
       <style>{`
         @media print {
           .no-print { display: none !important; }
@@ -142,35 +142,60 @@ export default function PrintableFormPage() {
       `}</style>
 
       {/* Barre de contrôle (non imprimable) */}
-      <div className="no-print flex flex-wrap items-center justify-between gap-3 bg-gray-800 px-8 py-4">
-        <Link to={`/formations/${id}`} className="text-sm text-gray-300 hover:text-white">
-          ← Retour à la formation
-        </Link>
-        <div className="flex flex-wrap items-center gap-3">
-          {status === 'sent' && (
-            <span className="text-sm font-medium text-green-400">
-              ✓ Formulaire envoyé à {TO_EMAIL}
-            </span>
-          )}
-          {status === 'error' && (
-            <span className="text-sm font-medium text-red-400">
-              ✗ Erreur d'envoi — vérifiez votre connexion et réessayez.
-            </span>
-          )}
-          <button
-            onClick={handleSubmit}
-            disabled={status === 'sending' || status === 'sent'}
-            className="rounded-lg bg-green-600 px-6 py-2.5 text-sm font-bold text-white hover:bg-green-500 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {status === 'sending' ? 'Envoi en cours…' : status === 'sent' ? 'Envoyé ✓' : 'Envoyer par email'}
-          </button>
-          <button
-            onClick={() => window.print()}
-            className="rounded-lg bg-yellow-500 px-6 py-2.5 text-sm font-bold text-black hover:bg-yellow-400"
-          >
-            Imprimer / PDF
-          </button>
+      <div className="no-print flex flex-col gap-3 bg-night-deep px-8 py-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <Link to={`/formations/${id}`} className="text-sm text-slate-300 hover:text-white">
+            ← Retour à la formation
+          </Link>
+          <div className="flex flex-wrap items-center gap-3">
+            {status === 'sent' && (
+              <span className="text-sm font-medium text-emerald-light">
+                ✓ Dossier envoyé à {TO_EMAIL}
+              </span>
+            )}
+            <button
+              onClick={handleSubmit}
+              disabled={status === 'sending' || status === 'sent'}
+              className="min-h-tap rounded-lg bg-emerald px-6 py-2.5 text-sm font-bold text-white transition hover:bg-emerald-dark disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {status === 'sending' ? 'Envoi en cours…' : status === 'sent' ? 'Envoyé ✓' : 'Envoyer par email'}
+            </button>
+            <button
+              onClick={() => window.print()}
+              className="min-h-tap rounded-lg bg-gold px-6 py-2.5 text-sm font-bold text-white transition hover:bg-gold-dark"
+            >
+              Imprimer / PDF
+            </button>
+          </div>
         </div>
+
+        {/* Échec d'envoi — deux issues immédiates, le dossier n'est jamais perdu */}
+        {status === 'error' && (
+          <div role="alert" className="flex flex-col gap-2 rounded-lg border border-rouge-light/30 bg-rouge/10 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm font-medium text-rouge-light">
+              {isMailConfigured
+                ? "L'envoi n'a pas abouti — vérifiez votre connexion."
+                : "L'envoi automatique n'est pas encore activé sur ce site."}{' '}
+              Utilisez WhatsApp, l&apos;e-mail, ou imprimez le dossier.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <a
+                href={waLink(`Bonjour Benjamin, voici mon dossier de candidature :\n\n${dossierSummary()}`)}
+                target="_blank"
+                rel="noreferrer"
+                className="min-h-tap rounded-lg bg-[#1B7F4C] px-4 py-2 text-xs font-bold text-white hover:bg-[#15683D]"
+              >
+                Envoyer via WhatsApp
+              </a>
+              <a
+                href={`mailto:${TO_EMAIL}?subject=${encodeURIComponent(`Candidature — ${formation.title}`)}&body=${encodeURIComponent(dossierSummary())}`}
+                className="min-h-tap rounded-lg border border-slate-500 px-4 py-2 text-xs font-bold text-white hover:bg-white/10"
+              >
+                Ouvrir ma messagerie
+              </a>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Document imprimable */}
@@ -202,9 +227,9 @@ export default function PrintableFormPage() {
           <div style={{ fontSize: '10px', color: '#F59E0B', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>
             Formulaire de Candidature — Formation {formation.number}
           </div>
-          <div style={{ fontSize: '18px', fontWeight: '800', color: '#F8FAFC', lineHeight: '1.3' }}>
+          <h1 style={{ fontSize: '18px', fontWeight: '800', color: '#F8FAFC', lineHeight: '1.3', margin: 0 }}>
             {formation.title}
-          </div>
+          </h1>
           <div style={{ fontSize: '12px', color: '#94A3B8', marginTop: '6px' }}>
             {formation.duration} · {formation.level} · {formation.format}
           </div>
@@ -278,7 +303,8 @@ export default function PrintableFormPage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '12px' }}>
             {pricingPacks.map((pack) => {
-              const packValue = `${pack.name} — ${pack.price} ${pack.currency}`
+              const p = pricingParts(pack)
+              const packValue = `${pack.name} — ${p.amount} ${p.currency}`
               const isSelected = form.pack_choisi === packValue
               return (
                 <label
@@ -311,8 +337,8 @@ export default function PrintableFormPage() {
                         </span>
                       )}
                     </div>
-                    <div style={{ fontSize: '15px', fontWeight: '900', color: '#F59E0B', margin: '3px 0' }}>
-                      {pack.price} <span style={{ fontSize: '11px', fontWeight: '600', color: '#6B7280' }}>{pack.currency}</span>
+                    <div style={{ fontSize: '15px', fontWeight: '900', color: '#B45309', margin: '3px 0' }}>
+                      {p.amount} <span style={{ fontSize: '11px', fontWeight: '600', color: '#6B7280' }}>{p.currency}</span>
                     </div>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                       {pack.features.map((f) => (
@@ -391,10 +417,10 @@ export default function PrintableFormPage() {
 
         {/* Pied de page */}
         <div style={{ borderTop: '1px solid #E5E7EB', paddingTop: '16px', marginTop: '32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontSize: '9px', color: '#9CA3AF' }}>
+          <span style={{ fontSize: '9px', color: '#6B7280' }}>
             BK-BOOST Ltd. · Goma, RD Congo · kasvinyatsi7@gmail.com · +243 990 260 711
           </span>
-          <span style={{ fontSize: '9px', color: '#9CA3AF', fontStyle: 'italic' }}>
+          <span style={{ fontSize: '9px', color: '#6B7280', fontStyle: 'italic' }}>
             Excellence in Achievement — Formulaire confidentiel
           </span>
         </div>
@@ -421,14 +447,20 @@ function Section({ title, number, children }) {
   )
 }
 
-function Field({ label, value, onChange, multiline = false, height = 32 }) {
+function Field({ label, value, onChange, multiline = false, height = 32, name }) {
+  const fieldId = `field-${name || label.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase()}`
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '12px' }}>
-      <label style={{ fontSize: '10px', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.8px' }}>
+      <label
+        htmlFor={fieldId}
+        style={{ fontSize: '10px', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.8px' }}
+      >
         {label}
       </label>
       {multiline ? (
         <textarea
+          id={fieldId}
+          name={name}
           className="form-input"
           value={value}
           onChange={onChange}
@@ -436,6 +468,8 @@ function Field({ label, value, onChange, multiline = false, height = 32 }) {
         />
       ) : (
         <input
+          id={fieldId}
+          name={name}
           type="text"
           className="form-input"
           value={value}

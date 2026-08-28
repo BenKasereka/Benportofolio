@@ -17,6 +17,8 @@ import {
   Target,
 } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
+import { pricingParts } from '../../lib/pricing'
+import { waLink } from '../../config/site'
 import { pricingPacks } from '../../data/pricingPacks'
 import { flagshipBonus, methodSteps, skillsGained } from '../../data/coachingMethod'
 
@@ -33,11 +35,9 @@ const fadeUp = {
   }),
 }
 
-const WHATSAPP_NUMBER = '243990260711'
-
 export default function BkBoost() {
   return (
-    <section id="bk-boost" className="section-padding relative overflow-hidden bg-emerald-900">
+    <section id="bk-boost" className="surface-dark section-padding relative overflow-hidden bg-emerald-900">
       <div className="pointer-events-none absolute right-[-10%] top-1/3 h-96 w-96 rounded-full bg-emerald-600/20 blur-3xl" />
       <div className="pointer-events-none absolute left-[-10%] bottom-0 h-72 w-72 rounded-full bg-emerald-500/10 blur-3xl" />
 
@@ -51,7 +51,7 @@ export default function BkBoost() {
             title="Passez du CV ignoré au"
             highlight="candidat recherché"
             accent="rouge"
-            panelBg="bg-gold-dark"
+            tone="dark"
             description="Accélérateur de carrière pour opportunités nationales et internationales : un accompagnement pratique, porté par quelqu'un qui a lui-même traversé le parcours du recrutement humanitaire."
           />
         </div>
@@ -142,7 +142,7 @@ export default function BkBoost() {
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
               Nos formules d'accompagnement
             </h3>
-            <p className="text-sm text-muted">
+            <p className="text-sm text-muted-invert">
               Aperçu des 4 packs — tarifs détaillés et moyens de paiement sur notre page Tarifs.
             </p>
           </div>
@@ -163,26 +163,35 @@ export default function BkBoost() {
                   }`}
                 >
                   {pack.highlight && (
-                    <span className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-gold-emerald px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-slate-900">
+                    <span className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-gold-emerald px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wide text-white">
                       <Sparkles className="h-3 w-3" /> Le plus choisi
                     </span>
                   )}
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-wide text-gold">{pack.name}</p>
-                    {pack.originalPrice && (
-                      <p className="mt-2 text-sm font-medium text-muted line-through">
-                        {pack.originalPrice} {pack.currency}
-                      </p>
-                    )}
-                    <div className="flex items-center gap-2 mt-0.5">
-                      <p className="font-heading text-3xl font-extrabold text-offwhite">
-                        {pack.price}
-                        <span className="ml-1 text-base font-medium text-muted">{pack.currency}</span>
-                      </p>
-                      {pack.originalPrice && (
-                        <span className="rounded-full bg-gold/20 px-2.5 py-1 text-xs font-bold text-gold">-50%</span>
-                      )}
-                    </div>
+                    {(() => {
+                      const p = pricingParts(pack)
+                      return (
+                        <>
+                          {p.originalAmount && (
+                            <p className="mt-2 text-sm font-medium text-muted line-through">
+                              {p.originalAmount} {p.currency}
+                            </p>
+                          )}
+                          <div className="mt-0.5 flex items-center gap-2">
+                            <p className="font-heading text-3xl font-extrabold text-offwhite">
+                              {p.amount}
+                              <span className="ml-1 text-base font-medium text-muted">{p.currency}</span>
+                            </p>
+                            {p.badge && (
+                              <span className="rounded-full bg-gold/15 px-2.5 py-1 text-xs font-bold text-gold-dark">
+                                {p.badge}
+                              </span>
+                            )}
+                          </div>
+                        </>
+                      )
+                    })()}
                   </div>
                   <p className="text-sm leading-relaxed text-muted">{pack.features[0]}</p>
                   <span className="mt-auto flex items-center gap-2 text-sm font-semibold text-gold transition-all group-hover:gap-3">
@@ -207,11 +216,11 @@ export default function BkBoost() {
           className="card-executive flex flex-col items-center gap-4 p-8 text-center sm:flex-row sm:justify-between sm:text-left"
         >
           <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-emerald-300">Nos valeurs de réussite</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-emerald-dark">Nos valeurs de réussite</p>
             <p className="mt-1 text-lg font-semibold text-offwhite">Votre carrière est notre priorité absolue.</p>
           </div>
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Bonjour Benjamin, je souhaite booster ma carrière avec BK-BOOST Ltd. Pouvez-vous me conseiller sur le pack adapté ?')}`}
+            href={waLink('Bonjour Benjamin, je souhaite booster ma carrière avec BK-BOOST Ltd. Pouvez-vous me conseiller sur le pack adapté ?')}
             target="_blank"
             rel="noreferrer"
             className="btn-primary shrink-0"

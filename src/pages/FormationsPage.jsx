@@ -6,12 +6,13 @@ import {
 } from 'lucide-react'
 import { formations } from '../data/formations'
 import { pricingPacks } from '../data/pricingPacks'
-import CountdownTimer from '../components/ui/CountdownTimer'
+import { pricingParts } from '../lib/pricing'
+import { isPromoActive, promo } from '../data/sessions'
+import SessionNotice from '../components/ui/SessionNotice'
+import SEO from '../components/ui/SEO'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
-
-const WA = '243990260711'
-const waLink = (msg) => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`
+import { waLink } from '../config/site'
 
 const PAYMENT_METHODS = [
   { icon: Phone,       label: 'Mobile Money',   detail: 'M-Pesa · Airtel Money · Orange Money', color: 'text-emerald bg-emerald/10' },
@@ -22,22 +23,27 @@ const PAYMENT_METHODS = [
 
 const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
 
-// Palette unique par formation (index 0–6) — aucun doublon, tous dans le design system
+// Palette unique par formation (index 0–6) — aucun doublon, tous dans le design system.
+// `link`/`badge`/`badgeText`/`meta` sont volontairement uniformes (blanc à opacité
+// élevée, pastille à fond noir translucide) plutôt que teintés par carte : sur 7
+// fonds très saturés différents, un texte teinté à faible opacité tombait sous le
+// seuil de lisibilité WCAG AA (BLQ-04 de l'audit) — le blanc à forte opacité passe
+// de façon fiable quelle que soit la teinte de fond.
 const CARD_PALETTES = [
   // 01 — Intelligence Artificielle : teal vif (tech, innovation)
-  { bg: 'bg-teal border border-teal-300/30', icon: 'bg-white/15 text-white', ring: 'group-hover:border-white/40', glow: 'group-hover:shadow-teal-glow', link: 'text-teal-100', number: 'text-white/8', badge: 'bg-white/15 text-teal-50', badgeText: 'text-teal-50', meta: 'text-white/55' },
+  { bg: 'bg-teal border border-teal-300/30', icon: 'bg-white/15 text-white', ring: 'group-hover:border-white/[0.4]', glow: 'group-hover:shadow-teal-glow', link: 'text-white', number: 'text-white/10', badge: 'bg-black/25 text-white', badgeText: 'text-white/90', meta: 'text-white/90' },
   // 02 — Accompagnement de Carrière : cognac doré (ambition, or)
-  { bg: 'bg-gold-dark border border-amber-500/30', icon: 'bg-amber-300/20 text-amber-200', ring: 'group-hover:border-amber-300/60', glow: 'group-hover:shadow-gold-glow', link: 'text-amber-200', number: 'text-amber-300/10', badge: 'bg-amber-300/20 text-amber-100', badgeText: 'text-amber-100', meta: 'text-amber-100/55' },
+  { bg: 'bg-gold-dark border border-amber-500/30', icon: 'bg-amber-300/20 text-amber-200', ring: 'group-hover:border-amber-300/[0.6]', glow: 'group-hover:shadow-gold-glow', link: 'text-white', number: 'text-amber-300/10', badge: 'bg-black/25 text-white', badgeText: 'text-white/90', meta: 'text-white/90' },
   // 03 — Logistique Humanitaire : forêt profonde (terrain, urgence verte)
-  { bg: 'bg-emerald-900 border border-emerald-500/30', icon: 'bg-emerald-300/20 text-emerald-300', ring: 'group-hover:border-emerald-300/60', glow: 'group-hover:shadow-emerald-glow', link: 'text-emerald-300', number: 'text-emerald-400/10', badge: 'bg-emerald-300/20 text-emerald-100', badgeText: 'text-emerald-100', meta: 'text-emerald-100/55' },
+  { bg: 'bg-emerald-900 border border-emerald-500/30', icon: 'bg-emerald-300/20 text-emerald-300', ring: 'group-hover:border-emerald-300/[0.6]', glow: 'group-hover:shadow-emerald-glow', link: 'text-white', number: 'text-emerald-400/10', badge: 'bg-black/25 text-white', badgeText: 'text-white/90', meta: 'text-white/90' },
   // 04 — Supply Chain Humanitaire : rouge vif (urgence, chaîne critique)
-  { bg: 'bg-rouge border border-rouge-light/20', icon: 'bg-white/15 text-white', ring: 'group-hover:border-white/40', glow: 'group-hover:shadow-rouge-glow', link: 'text-rouge-light', number: 'text-white/8', badge: 'bg-white/15 text-rouge-light', badgeText: 'text-rouge-light', meta: 'text-white/55' },
+  { bg: 'bg-rouge border border-rouge-light/20', icon: 'bg-white/15 text-white', ring: 'group-hover:border-white/[0.4]', glow: 'group-hover:shadow-rouge-glow', link: 'text-white', number: 'text-white/10', badge: 'bg-black/25 text-white', badgeText: 'text-white/90', meta: 'text-white/90' },
   // 05 — Gestion Financière ONG : teal foncé (rigueur, précision)
-  { bg: 'bg-teal-dark border border-teal-300/30', icon: 'bg-teal-300/20 text-teal-200', ring: 'group-hover:border-teal-200/60', glow: 'group-hover:shadow-teal-glow', link: 'text-teal-200', number: 'text-teal-300/10', badge: 'bg-teal-300/20 text-teal-100', badgeText: 'text-teal-100', meta: 'text-teal-100/55' },
+  { bg: 'bg-teal-dark border border-teal-300/30', icon: 'bg-teal-300/20 text-teal-200', ring: 'group-hover:border-teal-200/[0.6]', glow: 'group-hover:shadow-teal-glow', link: 'text-white', number: 'text-teal-300/10', badge: 'bg-black/25 text-white', badgeText: 'text-white/90', meta: 'text-white/90' },
   // 06 — Data Analysis : emerald foncé (données, croissance analytique)
-  { bg: 'bg-emerald-dark border border-emerald-300/30', icon: 'bg-emerald-200/20 text-emerald-200', ring: 'group-hover:border-emerald-200/60', glow: 'group-hover:shadow-emerald-glow', link: 'text-emerald-200', number: 'text-emerald-300/10', badge: 'bg-emerald-200/20 text-emerald-100', badgeText: 'text-emerald-100', meta: 'text-emerald-100/55' },
+  { bg: 'bg-emerald-dark border border-emerald-300/30', icon: 'bg-emerald-200/20 text-emerald-200', ring: 'group-hover:border-emerald-200/[0.6]', glow: 'group-hover:shadow-emerald-glow', link: 'text-white', number: 'text-emerald-300/10', badge: 'bg-black/25 text-white', badgeText: 'text-white/90', meta: 'text-white/90' },
   // 07 — Ressources Humaines : bordeaux (profondeur, engagement humain)
-  { bg: 'bg-rouge-bordeaux border border-rouge/30', icon: 'bg-rouge/20 text-rouge-light', ring: 'group-hover:border-rouge/60', glow: 'group-hover:shadow-rouge-glow', link: 'text-rouge-light', number: 'text-rouge/10', badge: 'bg-rouge/20 text-rouge-light', badgeText: 'text-rouge-light', meta: 'text-rouge-light/55' },
+  { bg: 'bg-rouge-bordeaux border border-rouge/30', icon: 'bg-rouge/20 text-rouge-light', ring: 'group-hover:border-rouge/[0.6]', glow: 'group-hover:shadow-rouge-glow', link: 'text-white', number: 'text-rouge/10', badge: 'bg-black/25 text-white', badgeText: 'text-white/90', meta: 'text-white/90' },
 ]
 
 const cardVariants = {
@@ -52,21 +58,24 @@ const cardVariants = {
 export default function FormationsPage() {
   return (
     <div className="min-h-screen bg-night">
+      <SEO
+        title="Nos Formations"
+        description="7 programmes de formation d'excellence — de l'Intelligence Artificielle à l'Audit humanitaire — conçus et animés par un expert fort de plus de 10 ans d'expérience, dont 7 ans de terrain à l'international."
+      />
       <Navbar />
 
-      <main>
-        {/* ── Bandeau promotionnel ── */}
-        <div className="fixed inset-x-0 top-20 z-40 flex items-center justify-center gap-4 bg-gradient-to-r from-rouge via-rouge-bordeaux to-rouge px-4 py-2.5 shadow-lg">
-          <Flame className="h-4 w-4 shrink-0 text-gold animate-pulse" />
-          <span className="text-sm font-bold text-white">
-            OFFRE DE LANCEMENT — Jusqu'à <span className="text-gold">-50%</span> sur toutes les formations
-          </span>
-          <span className="hidden items-center gap-2 sm:flex">
-            <span className="text-xs font-medium text-white/70">Expire dans :</span>
-            <CountdownTimer compact />
-          </span>
-          <Flame className="h-4 w-4 shrink-0 text-gold animate-pulse" />
-        </div>
+      <main id="main-content">
+        {/* ── Bandeau promotionnel — n'apparaît que pendant une promo réelle et datée (voir src/data/sessions.js) ── */}
+        {isPromoActive() && (
+          <div className="fixed inset-x-0 top-20 z-40 flex items-center justify-center gap-4 bg-gradient-to-r from-rouge via-rouge-bordeaux to-rouge px-4 py-2.5 shadow-lg">
+            <Flame className="h-4 w-4 shrink-0 text-gold animate-pulse" />
+            <span className="text-sm font-bold text-white">
+              {promo.label.toUpperCase()} — Jusqu'à <span className="text-gold">-{promo.discountPercent}%</span> sur toutes les formations
+            </span>
+            <SessionNotice compact />
+            <Flame className="h-4 w-4 shrink-0 text-gold animate-pulse" />
+          </div>
+        )}
 
         {/* ── Hero formations ── */}
         <section className="relative overflow-hidden bg-night pt-36 pb-24">
@@ -108,8 +117,9 @@ export default function FormationsPage() {
               className="max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
             >
               7 programmes de formation d'excellence — de l'Intelligence Artificielle à l'Audit
-              humanitaire — conçus et animés par un expert avec 10+ ans d'expérience nationale et
-              internationale. Des formations pratiques, structurées et immédiatement applicables.
+              humanitaire — conçus et animés par un expert fort de plus de 10 ans d'expérience, dont
+              7 ans de terrain à l'international. Des formations pratiques, structurées et
+              immédiatement applicables.
             </motion.p>
 
             {/* Bouton Nos Tarifs */}
@@ -120,7 +130,7 @@ export default function FormationsPage() {
             >
               <a
                 href="#tarifs"
-                className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold transition-all hover:bg-gold/20 hover:border-gold/70"
+                className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold transition-all hover:bg-gold/20 hover:border-gold/[0.7]"
               >
                 <DollarSign className="h-4 w-4" />
                 Voir nos tarifs &amp; options de paiement
@@ -137,7 +147,7 @@ export default function FormationsPage() {
               {[
                 { value: '7', label: 'Formations certifiantes' },
                 { value: '100%', label: 'Approche pratique terrain' },
-                { value: '10+', label: "Années d'expertise" },
+                { value: '10+', label: "Ans d'expérience (dont 7+ de terrain)" },
                 { value: '24h', label: 'Réponse garantie' },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col items-center gap-1">
@@ -208,22 +218,27 @@ export default function FormationsPage() {
                         ))}
                       </ul>
 
-                      {/* Prix barré + prix promo */}
-                      <div className="flex items-center gap-3 rounded-xl bg-white/10 px-3 py-2">
-                        {formation.originalPrice && (
-                          <span className="text-sm font-medium text-white/40 line-through">
-                            {formation.originalPrice}
-                          </span>
-                        )}
-                        <span className={`font-heading text-lg font-extrabold ${a.link}`}>
-                          {formation.price}
-                        </span>
-                        {formation.originalPrice && (
-                          <span className="rounded-full bg-gold/20 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-gold">
-                            -50%
-                          </span>
-                        )}
-                      </div>
+                      {/* Prix — barré uniquement pendant une promotion réelle et datée */}
+                      {(() => {
+                        const p = pricingParts(formation)
+                        return (
+                          <div className="flex items-center gap-3 rounded-xl bg-white/10 px-3 py-2">
+                            {p.originalAmount && (
+                              <span className="text-sm font-medium text-white/40 line-through">
+                                {p.originalAmount} {p.currency}
+                              </span>
+                            )}
+                            <span className={`font-heading text-lg font-extrabold ${a.link}`}>
+                              {p.amount} {p.currency}
+                            </span>
+                            {p.badge && (
+                              <span className="rounded-full bg-gold/20 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-gold">
+                                {p.badge}
+                              </span>
+                            )}
+                          </div>
+                        )
+                      })()}
 
                       <div className={`flex flex-wrap items-center gap-2 border-t border-white/10 pt-4 ${a.meta}`}>
                         <span className="flex items-center gap-1.5 text-[0.7rem]">
@@ -255,33 +270,33 @@ export default function FormationsPage() {
                 Chaque formation est accessible selon votre budget. Sélectionnez votre mode de
                 paiement préféré et contactez-nous directement via WhatsApp pour confirmer.
               </p>
-              {/* Compte à rebours — bloc rouge accrocheur */}
-              <div className="relative w-full overflow-hidden rounded-2xl bg-rouge px-8 py-8 text-center shadow-rouge-glow sm:px-12 sm:py-10">
-                {/* Halos décoratifs */}
-                <div className="pointer-events-none absolute -top-12 right-[-8%] h-48 w-48 rounded-full bg-white/10 blur-3xl" />
-                <div className="pointer-events-none absolute -bottom-12 left-[-8%] h-48 w-48 rounded-full bg-white/10 blur-3xl" />
+              {/* Bandeau de session — n'apparaît que pendant une promotion réelle et datée
+                  (voir src/data/sessions.js). Remplace l'ancien compte à rebours qui repartait
+                  sur 3 jours pour chaque visiteur via le localStorage et n'expirait jamais. */}
+              {isPromoActive() && (
+                <div className="relative w-full overflow-hidden rounded-2xl bg-rouge px-8 py-8 text-center shadow-rouge-glow sm:px-12 sm:py-10">
+                  <div className="pointer-events-none absolute -top-12 right-[-8%] h-48 w-48 rounded-full bg-white/10 blur-3xl" />
+                  <div className="pointer-events-none absolute -bottom-12 left-[-8%] h-48 w-48 rounded-full bg-white/10 blur-3xl" />
 
-                <div className="relative flex flex-col items-center gap-5">
-                  <div className="flex items-center gap-2">
-                    <Flame className="h-5 w-5 animate-pulse text-gold" />
-                    <p className="text-base font-extrabold uppercase tracking-[0.2em] text-white sm:text-lg">
-                      Offre de Lancement — Tarif Réduit
+                  <div className="relative flex flex-col items-center gap-5">
+                    <div className="flex items-center gap-2">
+                      <Flame className="h-5 w-5 animate-pulse text-gold" />
+                      <p className="text-base font-extrabold uppercase tracking-[0.2em] text-white sm:text-lg">
+                        {promo.label} — Tarif réduit
+                      </p>
+                      <Flame className="h-5 w-5 animate-pulse text-gold" />
+                    </div>
+
+                    <SessionNotice />
+
+                    <p className="max-w-md text-sm font-medium text-white/70">
+                      Inscrivez-vous maintenant pour bénéficier de{' '}
+                      <span className="font-bold text-gold">-{promo.discountPercent}%</span> sur
+                      toutes les formations.
                     </p>
-                    <Flame className="h-5 w-5 animate-pulse text-gold" />
                   </div>
-
-                  <p className="text-2xl font-bold text-white/90 sm:text-3xl">
-                    L'offre expire dans :
-                  </p>
-
-                  <CountdownTimer />
-
-                  <p className="max-w-md text-sm font-medium text-white/70">
-                    Inscrivez-vous maintenant pour bénéficier de <span className="font-bold text-gold">-50%</span> sur toutes les formations.
-                    Après expiration, les tarifs reviennent au prix normal.
-                  </p>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Grille des prix par formation */}
@@ -313,16 +328,23 @@ export default function FormationsPage() {
                     </div>
 
                     <div className="border-t border-white/10 pt-3">
-                      {formation.originalPrice && (
-                        <p className="text-sm font-medium text-white/40 line-through">{formation.originalPrice}</p>
-                      )}
-                      <div className="flex items-center gap-2 mt-0.5">
-                        <p className={`font-heading text-2xl font-extrabold ${a.link}`}>{formation.price}</p>
-                        {formation.originalPrice && (
-                          <span className="rounded-full bg-gold/25 px-2 py-0.5 text-[0.6rem] font-bold text-gold">-50%</span>
-                        )}
-                      </div>
-                      <p className="text-xs text-white/50 mt-0.5">par participant</p>
+                      {(() => {
+                        const p = pricingParts(formation)
+                        return (
+                          <>
+                            {p.originalAmount && (
+                              <p className="text-sm font-medium text-white/40 line-through">{p.originalAmount} {p.currency}</p>
+                            )}
+                            <div className="flex items-center gap-2 mt-0.5">
+                              <p className={`font-heading text-2xl font-extrabold ${a.link}`}>{p.amount} {p.currency}</p>
+                              {p.badge && (
+                                <span className="rounded-full bg-gold/25 px-2 py-0.5 text-[0.6rem] font-bold text-gold">{p.badge}</span>
+                              )}
+                            </div>
+                          </>
+                        )
+                      })()}
+                      <p className="text-xs text-white/90 mt-0.5">par participant</p>
                     </div>
 
                     {isCoaching && (
@@ -331,10 +353,17 @@ export default function FormationsPage() {
                           <div key={pack.id} className="flex items-center justify-between rounded-lg bg-white/10 px-3 py-1.5">
                             <span className="text-xs font-medium text-white">{pack.name}</span>
                             <div className="flex items-center gap-1.5">
-                              {pack.originalPrice && (
-                                <span className="text-[0.6rem] text-white/40 line-through">{pack.originalPrice} {pack.currency}</span>
-                              )}
-                              <span className={`text-xs font-bold ${a.link}`}>{pack.price} {pack.currency}</span>
+                              {(() => {
+                                const p = pricingParts(pack)
+                                return (
+                                  <>
+                                    {p.originalAmount && (
+                                      <span className="text-[0.6rem] text-white/40 line-through">{p.originalAmount} {p.currency}</span>
+                                    )}
+                                    <span className={`text-xs font-bold ${a.link}`}>{p.amount} {p.currency}</span>
+                                  </>
+                                )
+                              })()}
                             </div>
                           </div>
                         ))}
