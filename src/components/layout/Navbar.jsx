@@ -30,10 +30,19 @@ export default function Navbar() {
   // needed. From any other page, let the href do a real navigation to home +
   // the anchor, and let the browser's native on-load anchor scroll take it
   // from there.
+  //
+  // Deferred by a tick and using the default (non-"smooth") scrollIntoView —
+  // same fix as ScrollToTop in App.jsx (see commit "Make post-navigation
+  // scroll-to-hash more robust"): calling scrollIntoView synchronously inside
+  // the click handler can target a position that then shifts once the rest
+  // of the page settles, so it silently lands back at the top. The global
+  // `scroll-behavior: smooth` on <html> still animates the jump either way.
   const handleAnchorClick = (hash) => (e) => {
     if (pathname === '/') {
       e.preventDefault()
-      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' })
+      setTimeout(() => {
+        document.getElementById(hash)?.scrollIntoView({ block: 'start' })
+      }, 0)
     }
   }
 
