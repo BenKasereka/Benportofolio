@@ -379,7 +379,7 @@ export const formations = [
     subtitle: "Maîtriser la chaîne complète : achats, stockage, distribution et transport en zones volatiles",
     tagline: "Maîtrisez la chaîne qui sauve des vies.",
     intro:
-      "La Supply Chain humanitaire est la colonne vertébrale de toute réponse efficace à une crise. Mal gérée, elle tue les projets les plus ambitieux. Bien maîtrisée, elle multiplie l'impact de chaque dollar investi par les bailleurs. Ce programme intensif — ancré sur les standards des grandes Organisations Internationales Humanitaires (ONGIs) et sur 5 ans de terrain dans 6 pays — couvre la chaîne complète : du cycle d'achat à la distribution finale, en passant par la gestion des stocks, le transport international et les systèmes ERP. Vous serez le Supply Chain Manager que les organisations rechercheront.",
+      "La Supply Chain humanitaire est la colonne vertébrale de toute réponse efficace à une crise. Mal gérée, elle tue les projets les plus ambitieux. Bien maîtrisée, elle multiplie l'impact de chaque dollar investi par les bailleurs. Ce programme intensif — ancré sur les standards des grandes Organisations Internationales Humanitaires (ONGIs) et sur 5 ans de terrain dans 5 pays — couvre la chaîne complète : du cycle d'achat à la distribution finale, en passant par la gestion des stocks, le transport international et les systèmes ERP. Vous serez le Supply Chain Manager que les organisations rechercheront.",
     audience:
       "Supply Chain Officers, Procurement Officers et Log Managers en poste, candidats à des postes SCM dans les ONG internationales, professionnels de la logistique souhaitant se spécialiser dans le secteur humanitaire.",
     objectives: [

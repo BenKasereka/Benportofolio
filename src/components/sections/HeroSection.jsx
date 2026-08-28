@@ -16,7 +16,7 @@ const SLIDES = [
 
 const stats = [
   { value: "7+", label: "ans en Supply Chain d’urgence" },
-  { value: "6", label: "pays en contexte volatile" },
+  { value: "5", label: "pays en contexte volatile" },
   { value: "85%", label: "de réduction des délais" },
   { value: "87%", label: "de conformité en audit" },
 ]
@@ -108,7 +108,7 @@ export default function HeroSection() {
             className="max-w-xl text-base leading-relaxed text-muted"
           >
             Multilingue, expert MSF de la Supply Chain d'urgence avec 7+ ans de terrain en zones
-            hautement volatiles (RDC, Tchad, Soudan du Sud, Haïti, Nigeria, Centrafrique) et 3+ ans en
+            hautement volatiles (RDC, Tchad, Soudan du Sud, Haïti, Nigeria) et 3+ ans en
             Finances, Administration, RH et Audit &amp; Compliance. Titulaire d'un Master en Coopération Internationale et
             Aide Humanitaire (KALU Institute). Je conçois des stratégies d'approvisionnement agiles,
             des manuels de procédures de référence et des outils d'analyse de données — de la
