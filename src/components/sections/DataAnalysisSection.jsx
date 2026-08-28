@@ -14,35 +14,33 @@ const cardVariants = {
   }),
 }
 
-// Palette unique par phase — parcours chromatique cohérent avec le design system.
-// Les opacités de texte/badge ont été relevées (ex. /70 → /90) pour rester
-// lisibles sur les fonds colorés (BLQ-04 de l'audit).
-const PHASE_PALETTES = [
-  { bg: 'bg-teal border border-teal-300/30',            icon: 'bg-white/15 text-white',             desc: 'text-teal-50/90',    badge: 'bg-black/25 text-white ring-1 ring-white/30',                  arrow: 'text-white/50' },
-  { bg: 'bg-emerald-dark border border-emerald-400/30', icon: 'bg-emerald-200/20 text-emerald-200', desc: 'text-emerald-50/90', badge: 'bg-black/30 text-white ring-1 ring-emerald-300/40',            arrow: 'text-emerald-300/50' },
-  { bg: 'bg-gold-dark border border-amber-500/30',      icon: 'bg-amber-300/20 text-amber-200',     desc: 'text-amber-50/90',   badge: 'bg-black/30 text-white ring-1 ring-amber-300/40',              arrow: 'text-amber-300/50' },
-  { bg: 'bg-rouge border border-rouge-light/20',        icon: 'bg-white/15 text-white',             desc: 'text-red-50/90',     badge: 'bg-black/25 text-white ring-1 ring-white/30',                  arrow: 'text-rouge-light/50' },
-  { bg: 'bg-rouge-bordeaux border border-rouge/30',     icon: 'bg-rouge/20 text-rouge-light',       desc: 'text-red-50/85',     badge: 'bg-black/30 text-white ring-1 ring-rouge/40',                  arrow: 'text-rouge-light/40' },
-]
+// Une seule teinte pour les 5 cartes du pipeline — la progression se lit par
+// l'ordre et les flèches de connexion, pas par un jeu de couleurs différentes.
+const PHASE_PALETTE = {
+  bg: 'bg-accent-darker border border-accent-light/20',
+  icon: 'bg-white/15 text-white',
+  desc: 'text-white/80',
+  badge: 'bg-black/25 text-white ring-1 ring-white/30',
+  arrow: 'text-white/50',
+}
 
 export default function DataAnalysisSection() {
   return (
-    <section id="data" className="section-padding relative overflow-hidden bg-white">
-      <div className="pointer-events-none absolute right-[-10%] top-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
+    <section id="data" className="section-padding relative overflow-hidden bg-surface-white">
+      <div className="pointer-events-none absolute right-[-10%] top-0 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
 
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
           eyebrow="Pôle 04 — Data Analysis & Business Intelligence"
           title="De la base de données brute à la"
           highlight="décision"
-          accent="teal"
           description="Analyse de bases de données, interprétation et visualisation — avec les outils et langages professionnels les plus puissants du marché, à chaque étape du pipeline."
         />
 
         <div className="mx-auto grid w-full max-w-2xl grid-cols-3 gap-4">
           {dataStats.map((stat) => (
             <div key={stat.label} className="card-executive p-5 text-center">
-              <p className="font-heading text-xl font-extrabold text-gold sm:text-2xl">{stat.value}</p>
+              <p className="font-heading text-xl font-extrabold text-accent sm:text-2xl">{stat.value}</p>
               <p className="mt-1 text-xs leading-snug text-muted">{stat.label}</p>
             </div>
           ))}
@@ -51,7 +49,7 @@ export default function DataAnalysisSection() {
         <div className="flex flex-col gap-4 lg:flex-row lg:items-stretch lg:gap-3">
           {dataPipeline.map((phase, index) => {
             const Icon = ICONS[phase.icon]
-            const p = PHASE_PALETTES[index] || PHASE_PALETTES[0]
+            const p = PHASE_PALETTE
             return (
               <div key={phase.phase} className="flex flex-1 items-stretch gap-3">
                 <motion.div

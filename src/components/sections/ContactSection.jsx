@@ -36,13 +36,12 @@ const DIRECT_CHANNELS = [
  */
 export default function ContactSection() {
   return (
-    <section id="contact" className="section-padding relative bg-night-soft">
+    <section id="contact" className="section-padding relative bg-surface">
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
           eyebrow="Parlons de votre besoin"
           title="Réserver une"
           highlight="consultation"
-          accent="gold"
           description="Mission de terrain, audit interne, manuel de procédures, tableau de bord data ou accompagnement de carrière — décrivez votre besoin en deux lignes. Je réponds sous 24 h ouvrables."
         />
 
@@ -70,28 +69,28 @@ export default function ContactSection() {
                 href={href}
                 target={external ? '_blank' : undefined}
                 rel={external ? 'noreferrer' : undefined}
-                className="group flex min-h-tap items-center gap-4 rounded-xl border border-night-border bg-white px-4 py-3.5 transition-all hover:border-gold/50 hover:shadow-card"
+                className="group flex min-h-tap items-center gap-4 rounded-xl border border-border bg-surface-white px-4 py-3.5 transition-all hover:border-accent/50 hover:shadow-card"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gold/10 text-gold-dark">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent-dark">
                   <Icon className="h-4.5 w-4.5" strokeWidth={1.75} aria-hidden="true" />
                 </span>
                 <span className="flex min-w-0 flex-col">
-                  <span className="flex items-center gap-2 text-sm font-semibold text-offwhite">
+                  <span className="flex items-center gap-2 text-sm font-semibold text-ink">
                     {label}
-                    {note && <span className="chip-emerald !py-0.5 !text-[0.65rem]">{note}</span>}
+                    {note && <span className="chip-accent !py-0.5 !text-[0.65rem]">{note}</span>}
                   </span>
                   <span className="truncate text-sm text-muted">{detail}</span>
                 </span>
               </a>
             ))}
 
-            <div className="mt-2 flex flex-col gap-3 rounded-xl border border-night-border bg-white p-4 text-sm text-muted">
+            <div className="mt-2 flex flex-col gap-3 rounded-xl border border-border bg-surface-white p-4 text-sm text-muted">
               <span className="flex items-center gap-3">
-                <MapPin className="h-4 w-4 shrink-0 text-emerald" aria-hidden="true" />
+                <MapPin className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                 {site.city} — disponible pour déploiement international
               </span>
               <span className="flex items-center gap-3">
-                <Clock className="h-4 w-4 shrink-0 text-emerald" aria-hidden="true" />
+                <Clock className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                 Réponse sous 24 h ouvrables
               </span>
             </div>

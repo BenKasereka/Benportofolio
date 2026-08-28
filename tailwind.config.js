@@ -1,66 +1,56 @@
+import colors from 'tailwindcss/colors'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        // --- Light Executive Design System ---
-        // Une couleur de marque (or), un accent de preuve (émeraude), des neutres.
-        // Le rouge est réservé aux alertes, erreurs et urgences — jamais décoratif.
-        night: {
-          DEFAULT: '#FFFFFF', // fond principal — blanc pur
-          soft: '#F8FAFC',    // fond secondaire — très léger
-          card: '#FFFFFF',    // cartes blanches
-          border: '#E2E8F0',  // bordures légères (slate-200)
-          deep: '#0F172A',    // fond des surfaces sombres (navbar, footer)
+        // --- Système de couleurs corporate strict ---
+        // Cinq jetons de marque, seule source de vérité pour tout le site :
+        //   ink            texte principal (#0F172A = slate-900)
+        //   surface        fond de page (#F8FAFC = slate-50)
+        //   surface-white  fond des cartes (#FFFFFF)
+        //   accent         couleur de marque unique — liens, CTA, icônes,
+        //                  bordures actives, soulignés (#047857 = emerald-700)
+        //   accent-badge   USAGE EXCLUSIF : icône des badges de certification
+        //                  (#B45309 = amber-700) — nulle part ailleurs
+        // Les teintes voisines (accent.dark, accent.light, accent.50…) restent
+        // la même couleur à une autre luminosité — pas une couleur différente.
+        //
+        // Les gris neutres (muted, border) ne sont pas des "couleurs" au sens
+        // de cette charte : ils n'ont aucune saturation et servent uniquement
+        // à la hiérarchie de texte et aux séparateurs.
+        ink: colors.slate[900],
+        surface: colors.slate[50],
+        'surface-white': '#FFFFFF',
+        accent: {
+          50: colors.emerald[50],
+          100: colors.emerald[100],
+          200: colors.emerald[200],
+          400: colors.emerald[400], // texte accent lisible sur fonds sombres (surface-dark)
+          light: colors.emerald[600],
+          DEFAULT: colors.emerald[700],
+          dark: colors.emerald[800],
+          darker: colors.emerald[900],
         },
-        gold: {
-          DEFAULT: '#B45309', // amber-700 — 5.0:1 sur blanc, 4.5:1 avec texte blanc
-          light: '#D97706',   // amber-600 — usage décoratif / grandes tailles
-          dark: '#78350F',    // amber-900 — texte sur fonds teintés clairs
-        },
-        emerald: {
-          DEFAULT: '#047857', // emerald-700 — 5.5:1 avec texte blanc
-          light: '#059669',
-          dark: '#065F46',
-        },
-        offwhite: '#0F172A',  // texte principal — navy foncé
-        muted: '#475569',     // texte secondaire — slate-600 (7.0:1 sur blanc)
-        'muted-invert': '#CBD5E1', // texte secondaire sur fond sombre (slate-300)
-        rouge: {
-          DEFAULT: '#B91C1C', // red-700 — alertes uniquement
-          dark: '#991B1B',
-          bordeaux: '#7F1D1D',
-          light: '#FCA5A5',
-        },
-        teal: {
-          DEFAULT: '#0F766E', // teal-700 — 5.3:1 avec texte blanc
-          dark: '#115E59',
-          light: '#5EEAD4',
-        },
+        'accent-badge': colors.amber[700],
+        muted: colors.slate[600],
+        'muted-invert': colors.slate[300],
+        border: colors.slate[200],
       },
       fontFamily: {
         heading: ['"Plus Jakarta Sans"', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
       },
       backgroundImage: {
+        // Halo décoratif discret — une seule teinte (accent), deux positions.
         'grid-glow':
-          'radial-gradient(circle at 20% 20%, rgba(180,83,9,0.06), transparent 40%), radial-gradient(circle at 80% 0%, rgba(4,120,87,0.05), transparent 35%)',
-        // Dégradés CTA — validés WCAG AA avec du texte blanc (5.0:1 à 5.5:1)
-        'gold-emerald': 'linear-gradient(120deg, #B45309 0%, #047857 100%)',
-        'gold-rouge': 'linear-gradient(120deg, #B45309 0%, #B91C1C 100%)',
-        'teal-emerald': 'linear-gradient(120deg, #0F766E 0%, #047857 100%)',
-        'rouge-bordeaux': 'linear-gradient(120deg, #B91C1C 0%, #7F1D1D 100%)',
-        'blue-teal': 'linear-gradient(120deg, #1D4ED8 0%, #0F766E 100%)',
-        // Dégradé décoratif clair — réservé aux titres de grande taille (>= 24px)
-        'gold-emerald-bright': 'linear-gradient(120deg, #D97706 0%, #059669 100%)',
+          'radial-gradient(circle at 20% 20%, rgba(4,120,87,0.06), transparent 40%), radial-gradient(circle at 80% 0%, rgba(4,120,87,0.05), transparent 35%)',
       },
       boxShadow: {
-        card: '0 4px 24px -4px rgba(0,0,0,0.09), 0 2px 8px -2px rgba(0,0,0,0.05)',
-        'gold-glow': '0 0 32px -8px rgba(180,83,9,0.30)',
-        'emerald-glow': '0 0 32px -8px rgba(4,120,87,0.30)',
-        'rouge-glow': '0 0 32px -8px rgba(185,28,28,0.30)',
-        'teal-glow': '0 0 32px -8px rgba(15,118,110,0.30)',
+        card: '0 4px 24px -4px rgba(15,23,42,0.09), 0 2px 8px -2px rgba(15,23,42,0.05)',
+        'accent-glow': '0 0 32px -8px rgba(4,120,87,0.30)',
       },
       keyframes: {
         'fade-in-up': {

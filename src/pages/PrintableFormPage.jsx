@@ -125,16 +125,16 @@ export default function PrintableFormPage() {
           outline: none;
           background: transparent;
           font-size: 12px;
-          color: #111827;
+          color: #0F172A;
           padding: 4px 2px;
           font-family: inherit;
           resize: none;
           line-height: 1.5;
         }
-        .form-input:focus { border-bottom-color: #F59E0B; }
+        .form-input:focus { border-bottom-color: #047857; }
         .pack-card { cursor: pointer; transition: all 0.15s; }
-        .pack-card:hover { background: #FFFBEB; }
-        .pack-card.selected { background: #FFFBEB; border-color: #F59E0B !important; }
+        .pack-card:hover { background: #ECFDF5; }
+        .pack-card.selected { background: #ECFDF5; border-color: #047857 !important; }
         @media print {
           .form-input { border-bottom: 1.5px solid #D1D5DB; }
           .pack-card { break-inside: avoid; }
@@ -142,27 +142,27 @@ export default function PrintableFormPage() {
       `}</style>
 
       {/* Barre de contrôle (non imprimable) */}
-      <div className="no-print flex flex-col gap-3 bg-night-deep px-8 py-4">
+      <div className="no-print flex flex-col gap-3 bg-ink px-8 py-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <Link to={`/formations/${id}`} className="text-sm text-slate-300 hover:text-white">
             ← Retour à la formation
           </Link>
           <div className="flex flex-wrap items-center gap-3">
             {status === 'sent' && (
-              <span className="text-sm font-medium text-emerald-light">
+              <span className="text-sm font-medium text-accent-400">
                 ✓ Dossier envoyé à {TO_EMAIL}
               </span>
             )}
             <button
               onClick={handleSubmit}
               disabled={status === 'sending' || status === 'sent'}
-              className="min-h-tap rounded-lg bg-emerald px-6 py-2.5 text-sm font-bold text-white transition hover:bg-emerald-dark disabled:cursor-not-allowed disabled:opacity-50"
+              className="min-h-tap rounded-lg bg-accent px-6 py-2.5 text-sm font-bold text-white transition hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-50"
             >
               {status === 'sending' ? 'Envoi en cours…' : status === 'sent' ? 'Envoyé ✓' : 'Envoyer par email'}
             </button>
             <button
               onClick={() => window.print()}
-              className="min-h-tap rounded-lg bg-gold px-6 py-2.5 text-sm font-bold text-white transition hover:bg-gold-dark"
+              className="min-h-tap rounded-lg border border-white/30 bg-white/10 px-6 py-2.5 text-sm font-bold text-white transition hover:bg-white/20"
             >
               Imprimer / PDF
             </button>
@@ -171,8 +171,8 @@ export default function PrintableFormPage() {
 
         {/* Échec d'envoi — deux issues immédiates, le dossier n'est jamais perdu */}
         {status === 'error' && (
-          <div role="alert" className="flex flex-col gap-2 rounded-lg border border-rouge-light/30 bg-rouge/10 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-sm font-medium text-rouge-light">
+          <div role="alert" className="flex flex-col gap-2 rounded-lg border border-white/25 bg-white/10 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm font-medium text-white">
               {isMailConfigured
                 ? "L'envoi n'a pas abouti — vérifiez votre connexion."
                 : "L'envoi automatique n'est pas encore activé sur ce site."}{' '}
@@ -183,7 +183,7 @@ export default function PrintableFormPage() {
                 href={waLink(`Bonjour Benjamin, voici mon dossier de candidature :\n\n${dossierSummary()}`)}
                 target="_blank"
                 rel="noreferrer"
-                className="min-h-tap rounded-lg bg-[#1B7F4C] px-4 py-2 text-xs font-bold text-white hover:bg-[#15683D]"
+                className="min-h-tap rounded-lg bg-accent px-4 py-2 text-xs font-bold text-white hover:bg-accent-dark"
               >
                 Envoyer via WhatsApp
               </a>
@@ -204,10 +204,10 @@ export default function PrintableFormPage() {
         style={{ minHeight: '1123px', padding: '48px' }}
       >
         {/* En-tête */}
-        <div style={{ borderBottom: '3px solid #F59E0B', paddingBottom: '24px', marginBottom: '32px' }}>
+        <div style={{ borderBottom: '3px solid #047857', paddingBottom: '24px', marginBottom: '32px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
-              <div style={{ fontSize: '22px', fontWeight: '900', color: '#0B0F17', letterSpacing: '-0.5px' }}>
+              <div style={{ fontSize: '22px', fontWeight: '900', color: '#0F172A', letterSpacing: '-0.5px' }}>
                 BK-BOOST Ltd.
               </div>
               <div style={{ fontSize: '11px', color: '#6B7280', marginTop: '2px', letterSpacing: '2px', textTransform: 'uppercase' }}>
@@ -223,8 +223,8 @@ export default function PrintableFormPage() {
         </div>
 
         {/* Titre de la formation */}
-        <div style={{ backgroundColor: '#0B0F17', padding: '20px 24px', borderRadius: '12px', marginBottom: '28px' }}>
-          <div style={{ fontSize: '10px', color: '#F59E0B', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>
+        <div style={{ backgroundColor: '#0F172A', padding: '20px 24px', borderRadius: '12px', marginBottom: '28px' }}>
+          <div style={{ fontSize: '10px', color: '#6EE7B7', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>
             Formulaire de Candidature — Formation {formation.number}
           </div>
           <h1 style={{ fontSize: '18px', fontWeight: '800', color: '#F8FAFC', lineHeight: '1.3', margin: 0 }}>
@@ -288,7 +288,7 @@ export default function PrintableFormPage() {
                 value={lvl}
                 checked={form.niveau === lvl}
                 onChange={() => setForm((prev) => ({ ...prev, niveau: lvl }))}
-                style={{ width: '16px', height: '16px', accentColor: '#F59E0B', flexShrink: 0, cursor: 'pointer' }}
+                style={{ width: '16px', height: '16px', accentColor: '#047857', flexShrink: 0, cursor: 'pointer' }}
               />
               <span style={{ fontSize: '12px', color: '#374151' }}>{lvl}</span>
             </div>
@@ -314,7 +314,7 @@ export default function PrintableFormPage() {
                     display: 'flex',
                     alignItems: 'flex-start',
                     gap: '10px',
-                    border: `1.5px solid ${isSelected ? '#F59E0B' : '#E5E7EB'}`,
+                    border: `1.5px solid ${isSelected ? '#047857' : '#E5E7EB'}`,
                     borderRadius: '8px',
                     padding: '12px',
                     cursor: 'pointer',
@@ -326,18 +326,18 @@ export default function PrintableFormPage() {
                     value={packValue}
                     checked={isSelected}
                     onChange={() => setForm((prev) => ({ ...prev, pack_choisi: packValue, budget_autre: '' }))}
-                    style={{ marginTop: '2px', accentColor: '#F59E0B', flexShrink: 0 }}
+                    style={{ marginTop: '2px', accentColor: '#047857', flexShrink: 0 }}
                   />
                   <div>
-                    <div style={{ fontSize: '12px', fontWeight: '700', color: '#0B0F17' }}>
+                    <div style={{ fontSize: '12px', fontWeight: '700', color: '#0F172A' }}>
                       {pack.name}
                       {pack.highlight && (
-                        <span style={{ marginLeft: '6px', fontSize: '9px', backgroundColor: '#F59E0B', color: '#0B0F17', padding: '1px 6px', borderRadius: '999px', fontWeight: '800' }}>
+                        <span style={{ marginLeft: '6px', fontSize: '9px', backgroundColor: '#047857', color: '#FFFFFF', padding: '1px 6px', borderRadius: '999px', fontWeight: '800' }}>
                           Le plus choisi
                         </span>
                       )}
                     </div>
-                    <div style={{ fontSize: '15px', fontWeight: '900', color: '#B45309', margin: '3px 0' }}>
+                    <div style={{ fontSize: '15px', fontWeight: '900', color: '#047857', margin: '3px 0' }}>
                       {p.amount} <span style={{ fontSize: '11px', fontWeight: '600', color: '#6B7280' }}>{p.currency}</span>
                     </div>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -360,7 +360,7 @@ export default function PrintableFormPage() {
               value="autre"
               checked={form.pack_choisi === 'autre'}
               onChange={() => setForm((prev) => ({ ...prev, pack_choisi: 'autre' }))}
-              style={{ accentColor: '#F59E0B', flexShrink: 0 }}
+              style={{ accentColor: '#047857', flexShrink: 0 }}
             />
             <span style={{ fontSize: '12px', color: '#374151' }}>Autre budget / Sur devis</span>
           </label>
@@ -378,7 +378,7 @@ export default function PrintableFormPage() {
                   type="checkbox"
                   checked={form.sources.includes(src)}
                   onChange={() => toggleSource(src)}
-                  style={{ width: '14px', height: '14px', accentColor: '#F59E0B', flexShrink: 0, cursor: 'pointer' }}
+                  style={{ width: '14px', height: '14px', accentColor: '#047857', flexShrink: 0, cursor: 'pointer' }}
                 />
                 <span style={{ fontSize: '11px', color: '#374151' }}>{src}</span>
               </div>
@@ -435,10 +435,10 @@ function Section({ title, number, children }) {
   return (
     <div style={{ marginBottom: '28px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
-        <div style={{ width: '24px', height: '24px', borderRadius: '6px', backgroundColor: '#F59E0B', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span style={{ fontSize: '10px', fontWeight: '900', color: '#0B0F17' }}>{number}</span>
+        <div style={{ width: '24px', height: '24px', borderRadius: '6px', backgroundColor: '#047857', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <span style={{ fontSize: '10px', fontWeight: '900', color: '#FFFFFF' }}>{number}</span>
         </div>
-        <h3 style={{ fontSize: '13px', fontWeight: '700', color: '#0B0F17', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+        <h3 style={{ fontSize: '13px', fontWeight: '700', color: '#0F172A', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
           {title}
         </h3>
       </div>

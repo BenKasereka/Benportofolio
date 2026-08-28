@@ -39,13 +39,13 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? 'border-b border-rouge-dark bg-rouge shadow-md' : 'bg-rouge/90 backdrop-blur-sm'
+        scrolled ? 'border-b border-slate-200 bg-surface-white shadow-md' : 'bg-surface-white/90 backdrop-blur-sm'
       }`}
     >
       <nav className="section-container flex h-20 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex min-h-tap items-center gap-2 font-heading text-lg font-bold text-white">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gold-emerald text-sm font-extrabold text-slate-900">
+        <Link to="/" className="flex min-h-tap items-center gap-2 font-heading text-lg font-bold text-ink">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent text-sm font-extrabold text-white">
             BK
           </span>
           Kasereka Vinyatsi
@@ -56,7 +56,7 @@ export default function Navbar() {
           <li>
             <Link
               to="/"
-              className="flex items-center gap-1.5 text-sm font-medium text-white/90 transition-colors hover:text-white"
+              className="flex items-center gap-1.5 text-sm font-medium text-ink/80 transition-colors hover:text-ink"
             >
               <Home className="h-4 w-4" />
               Accueil
@@ -64,7 +64,7 @@ export default function Navbar() {
           </li>
           {PORTFOLIO_LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="text-sm font-medium text-white/90 transition-colors hover:text-white">
+              <a href={link.href} className="text-sm font-medium text-ink/80 transition-colors hover:text-ink">
                 {link.label}
               </a>
             </li>
@@ -75,8 +75,8 @@ export default function Navbar() {
               to="/formations"
               className={`flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300 ${
                 isFormations
-                  ? 'border-teal/60 bg-teal/10 text-teal'
-                  : 'border-teal/30 bg-teal/5 text-teal hover:border-teal/60 hover:bg-teal/10'
+                  ? 'border-accent/60 bg-accent/10 text-accent-dark'
+                  : 'border-accent/30 bg-accent/5 text-accent-dark hover:border-accent/60 hover:bg-accent/10'
               }`}
             >
               <GraduationCap className="h-4 w-4" />
@@ -87,7 +87,7 @@ export default function Navbar() {
           <li>
             <Link
               to="/formations#tarifs"
-              className="flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-2 text-sm font-semibold text-gold transition-all duration-300 hover:border-gold/[0.7] hover:bg-gold/20"
+              className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-sm font-semibold text-ink transition-all duration-300 hover:border-slate-300 hover:bg-slate-200"
             >
               <DollarSign className="h-4 w-4" />
               Nos Tarifs
@@ -103,7 +103,7 @@ export default function Navbar() {
         {/* Hamburger mobile */}
         <button
           onClick={() => setOpen(true)}
-          className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/30 bg-rouge-dark text-white lg:hidden"
+          className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-slate-200 bg-slate-100 text-ink lg:hidden"
           aria-label="Ouvrir le menu"
         >
           <Menu className="h-5 w-5" />
@@ -117,7 +117,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-rouge backdrop-blur-lg lg:hidden"
+            className="surface-dark fixed inset-0 z-50 bg-ink backdrop-blur-lg lg:hidden"
           >
             <div className="section-container flex h-20 items-center justify-between">
               <span className="font-heading text-lg font-bold text-white">Menu</span>
@@ -172,7 +172,7 @@ export default function Navbar() {
                 <Link
                   to="/formations"
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-2 text-2xl font-semibold text-teal"
+                  className="flex items-center gap-2 text-2xl font-semibold text-accent-400"
                 >
                   <GraduationCap className="h-6 w-6" />
                   Nos Formations
@@ -186,7 +186,7 @@ export default function Navbar() {
                 <Link
                   to="/formations#tarifs"
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-2 text-2xl font-semibold text-gold"
+                  className="flex items-center gap-2 text-2xl font-semibold text-white"
                 >
                   <DollarSign className="h-6 w-6" />
                   Nos Tarifs

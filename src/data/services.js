@@ -4,7 +4,6 @@ export const services = [
   {
     id: 'humanitarian-supply-chain',
     number: '01',
-    accent: 'emerald',
     icon: 'Truck',
     title: 'Humanitarian Supply Chain & Logistics',
     subtitle: 'Senior Emergency Supply Expert',
@@ -27,7 +26,6 @@ export const services = [
   {
     id: 'bk-boost',
     number: '02',
-    accent: 'gold',
     icon: 'Rocket',
     title: 'BK-BOOST Ltd.',
     subtitle: 'Career Coaching & Recruitment Accelerator',
@@ -50,7 +48,6 @@ export const services = [
   {
     id: 'audit',
     number: '03',
-    accent: 'emerald',
     icon: 'ShieldCheck',
     title: 'Audit Interne & Contrôles',
     subtitle: 'Compliance, Contrôles & Manuels de Procédures',
@@ -73,7 +70,6 @@ export const services = [
   {
     id: 'data-analysis',
     number: '04',
-    accent: 'gold',
     icon: 'BarChart3',
     title: 'Data Analysis & Business Intelligence',
     subtitle: 'Bases de Données, Interprétation & Aide à la Décision',
@@ -96,7 +92,6 @@ export const services = [
   {
     id: 'languages',
     number: '05',
-    accent: 'emerald',
     icon: 'Languages',
     title: 'Interprétation & Traduction Multilingue',
     subtitle: '6 langues au service du terrain',

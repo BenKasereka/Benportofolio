@@ -23,7 +23,7 @@ const MentionsLegalesPage = lazy(() => import('./pages/MentionsLegalesPage'))
 
 function PortfolioPage() {
   return (
-    <div className="min-h-screen bg-night">
+    <div className="min-h-screen bg-surface">
       <SEO />
       <Navbar />
       <main id="main-content">
@@ -89,8 +89,8 @@ export default function App() {
 
 function RouteFallback() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-night">
-      <div className="h-8 w-8 animate-spin rounded-full border-2 border-gold/30 border-t-gold" />
+    <div className="flex min-h-screen items-center justify-center bg-surface">
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-accent/30 border-t-accent" />
     </div>
   )
 }

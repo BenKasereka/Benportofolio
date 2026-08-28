@@ -4,7 +4,7 @@ import { isMailConfigured, sendMail } from '../../lib/sendMail'
 import { mailLink, site, waLink } from '../../config/site'
 
 const FIELD_CLASS =
-  'w-full rounded-xl border border-night-border bg-white py-3 pl-11 pr-4 text-sm text-offwhite placeholder-slate-400 transition focus:border-gold focus:ring-2 focus:ring-gold/[0.3]'
+  'w-full rounded-xl border border-border bg-surface-white py-3 pl-11 pr-4 text-sm text-ink placeholder-slate-400 transition focus:border-accent focus:ring-2 focus:ring-accent/[0.3]'
 
 /**
  * Formulaire court de prise de contact — étape 1 du parcours.
@@ -69,13 +69,13 @@ export default function InquiryForm({ subject, contextLabel }) {
   // ── Succès confirmé par le serveur ────────────────────────────────
   if (status === 'sent') {
     return (
-      <div className="flex flex-col items-center gap-4 rounded-2xl border border-emerald/30 bg-emerald/5 p-10 text-center">
-        <CheckCircle2 className="h-12 w-12 text-emerald" aria-hidden="true" />
-        <h3 className="text-xl font-bold text-offwhite">Message bien reçu</h3>
+      <div className="flex flex-col items-center gap-4 rounded-2xl border border-accent/30 bg-accent/5 p-10 text-center">
+        <CheckCircle2 className="h-12 w-12 text-accent" aria-hidden="true" />
+        <h3 className="text-xl font-bold text-ink">Message bien reçu</h3>
         <p className="max-w-md text-sm leading-relaxed text-muted">
-          Votre demande concernant <span className="font-semibold text-offwhite">{topic}</span> est
+          Votre demande concernant <span className="font-semibold text-ink">{topic}</span> est
           arrivée. Je vous réponds sous 24 h ouvrables à l&apos;adresse{' '}
-          <span className="font-semibold text-offwhite">{fields.email}</span>.
+          <span className="font-semibold text-ink">{fields.email}</span>.
         </p>
         <a
           href={waLink(`Bonjour Benjamin, je viens de vous écrire depuis le site au sujet de : ${topic}.`)}
@@ -95,7 +95,7 @@ export default function InquiryForm({ subject, contextLabel }) {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label htmlFor={`${uid}-name`} className="text-xs font-semibold uppercase tracking-widest text-muted">
-            Nom complet <span className="text-rouge">*</span>
+            Nom complet <span className="text-accent">*</span>
           </label>
           <div className="relative">
             <User className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" aria-hidden="true" />
@@ -115,7 +115,7 @@ export default function InquiryForm({ subject, contextLabel }) {
 
         <div className="flex flex-col gap-2">
           <label htmlFor={`${uid}-email`} className="text-xs font-semibold uppercase tracking-widest text-muted">
-            Adresse email <span className="text-rouge">*</span>
+            Adresse email <span className="text-accent">*</span>
           </label>
           <div className="relative">
             <Mail className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" aria-hidden="true" />
@@ -135,7 +135,7 @@ export default function InquiryForm({ subject, contextLabel }) {
 
         <div className="flex flex-col gap-2">
           <label htmlFor={`${uid}-phone`} className="text-xs font-semibold uppercase tracking-widest text-muted">
-            Téléphone / WhatsApp <span className="text-rouge">*</span>
+            Téléphone / WhatsApp <span className="text-accent">*</span>
           </label>
           <div className="relative">
             <Phone className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" aria-hidden="true" />
@@ -189,8 +189,8 @@ export default function InquiryForm({ subject, contextLabel }) {
 
       {/* Échec d'envoi — on ne perd pas le prospect, on lui ouvre deux issues */}
       {status === 'failed' && (
-        <div role="alert" className="flex flex-col gap-3 rounded-xl border border-rouge/30 bg-rouge/5 p-4">
-          <p className="flex items-start gap-2 text-sm font-semibold text-rouge-dark">
+        <div role="alert" className="flex flex-col gap-3 rounded-xl border border-slate-300 bg-slate-100 p-4">
+          <p className="flex items-start gap-2 text-sm font-semibold text-ink">
             <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
             {errorDetail} Passez par l&apos;une de ces deux voies — votre message est prêt, rien n&apos;est perdu.
           </p>
@@ -214,7 +214,7 @@ export default function InquiryForm({ subject, contextLabel }) {
 
       {/* Rappel visible en développement uniquement */}
       {!isMailConfigured && status === 'idle' && import.meta.env.DEV && (
-        <p className="rounded-lg bg-amber-50 px-3 py-2 text-xs text-gold-dark">
+        <p className="rounded-lg bg-slate-100 px-3 py-2 text-xs text-ink">
           Développement : EmailJS n&apos;est pas configuré (voir <code>.env.example</code>). En
           production, l&apos;envoi basculera automatiquement sur WhatsApp et e-mail.
         </p>
@@ -245,7 +245,7 @@ export default function InquiryForm({ subject, contextLabel }) {
           Réponse sous 24 h ouvrables · Vos données servent uniquement à vous répondre —{' '}
           <a
             href={`${import.meta.env.BASE_URL}mentions-legales`}
-            className="underline underline-offset-2 hover:text-offwhite"
+            className="underline underline-offset-2 hover:text-ink"
           >
             en savoir plus
           </a>

@@ -15,59 +15,20 @@ import { waLink } from '../config/site'
 
 const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
 
-const ACCENT = {
-  gold: {
-    badge: 'bg-gold/20 text-gold border-gold/30',
-    icon: 'bg-gold/10 text-gold',
-    glow: 'shadow-gold-glow',
-    border: 'border-gold/40',
-    text: 'text-gold',
-    number: 'text-gold/20',
-    dot: 'bg-gold',
-    gradient: 'from-gold/20 to-transparent',
-    modBorder: 'border-l-4 border-gold/50',
-    modNum: 'bg-gold/15 text-gold',
-    outcomeBg: 'bg-gold/5 border-gold/15',
-  },
-  emerald: {
-    badge: 'bg-emerald/20 text-emerald border-emerald/30',
-    icon: 'bg-emerald/10 text-emerald',
-    glow: 'shadow-emerald-glow',
-    border: 'border-emerald/40',
-    text: 'text-emerald',
-    number: 'text-emerald/20',
-    dot: 'bg-emerald',
-    gradient: 'from-emerald/20 to-transparent',
-    modBorder: 'border-l-4 border-emerald/50',
-    modNum: 'bg-emerald/15 text-emerald',
-    outcomeBg: 'bg-emerald/5 border-emerald/15',
-  },
-  teal: {
-    badge: 'bg-teal/20 text-teal border-teal/30',
-    icon: 'bg-teal/10 text-teal',
-    glow: 'shadow-teal-glow',
-    border: 'border-teal/40',
-    text: 'text-teal',
-    number: 'text-teal/20',
-    dot: 'bg-teal',
-    gradient: 'from-teal/20 to-transparent',
-    modBorder: 'border-l-4 border-teal/50',
-    modNum: 'bg-teal/15 text-teal',
-    outcomeBg: 'bg-teal/5 border-teal/15',
-  },
-  rouge: {
-    badge: 'bg-rouge/20 text-rouge border-rouge/30',
-    icon: 'bg-rouge/10 text-rouge',
-    glow: 'shadow-rouge-glow',
-    border: 'border-rouge/40',
-    text: 'text-rouge',
-    number: 'text-rouge/20',
-    dot: 'bg-rouge',
-    gradient: 'from-rouge/20 to-transparent',
-    modBorder: 'border-l-4 border-rouge/50',
-    modNum: 'bg-rouge/15 text-rouge',
-    outcomeBg: 'bg-rouge/5 border-rouge/15',
-  },
+// Une seule couleur d'accent pour toutes les formations désormais —
+// l'objet garde les mêmes clés qu'avant pour ne pas toucher le reste du JSX.
+const A = {
+  badge: 'bg-accent/15 text-accent-dark border-accent/30',
+  icon: 'bg-accent/10 text-accent',
+  glow: 'shadow-accent-glow',
+  border: 'border-accent/40',
+  text: 'text-accent-dark',
+  number: 'text-accent/20',
+  dot: 'bg-accent',
+  gradient: 'from-accent/20 to-transparent',
+  modBorder: 'border-l-4 border-accent/50',
+  modNum: 'bg-accent/15 text-accent-dark',
+  outcomeBg: 'bg-accent/5 border-accent/15',
 }
 
 const fadeUp = {
@@ -81,12 +42,12 @@ export default function FormationDetailPage() {
 
   if (!formation) {
     return (
-      <div className="flex min-h-screen flex-col bg-night">
+      <div className="flex min-h-screen flex-col bg-surface">
         <Navbar />
         <div className="flex flex-1 items-center justify-center">
           <div className="text-center">
-            <p className="text-lg font-semibold text-offwhite">Formation introuvable.</p>
-            <Link to="/formations" className="mt-4 inline-block text-gold underline">
+            <p className="text-lg font-semibold text-ink">Formation introuvable.</p>
+            <Link to="/formations" className="mt-4 inline-block text-accent underline">
               Retour aux formations
             </Link>
           </div>
@@ -95,11 +56,11 @@ export default function FormationDetailPage() {
     )
   }
 
-  const a = ACCENT[formation.accent] || ACCENT.gold
+  const a = A
   const Icon = ICONS[formation.icon] || Bot
 
   return (
-    <div className="min-h-screen bg-night">
+    <div className="min-h-screen bg-surface">
       <SEO
         title={formation.title}
         description={formation.tagline || formation.subtitle}
@@ -109,23 +70,23 @@ export default function FormationDetailPage() {
 
       <main id="main-content">
         {/* ── Hero de la formation ── */}
-        <section className="relative overflow-hidden bg-night pt-32 pb-20">
+        <section className="relative overflow-hidden bg-surface pt-32 pb-20">
           <div className={`pointer-events-none absolute inset-x-0 top-0 h-96 bg-gradient-to-b ${a.gradient} opacity-50`} />
-          <div className="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-gold/10 blur-3xl" />
+          <div className="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-accent/10 blur-3xl" />
 
           <div className="section-container relative flex flex-col gap-10">
             {/* Navigation: Fil d'Ariane + retour */}
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 to="/"
-                className="flex items-center gap-2 rounded-full border border-night-border bg-night-card px-4 py-2 text-sm font-medium text-muted transition-all hover:border-gold/40 hover:text-offwhite"
+                className="flex items-center gap-2 rounded-full border border-border bg-surface-white px-4 py-2 text-sm font-medium text-muted transition-all hover:border-accent/40 hover:text-ink"
               >
                 ← Accueil
               </Link>
               <span className="text-muted/40">·</span>
               <Link
                 to="/formations"
-                className="inline-flex w-fit items-center gap-2 text-sm text-muted transition hover:text-offwhite"
+                className="inline-flex w-fit items-center gap-2 text-sm text-muted transition hover:text-ink"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Retour aux formations
@@ -151,7 +112,7 @@ export default function FormationDetailPage() {
                     { icon: Star, label: formation.level },
                     { icon: Target, label: formation.format },
                   ].map(({ icon: I, label }) => (
-                    <span key={label} className="flex items-center gap-2 rounded-full border border-night-border bg-night-card/60 px-4 py-2 text-xs font-medium text-muted">
+                    <span key={label} className="flex items-center gap-2 rounded-full border border-border bg-surface-white/60 px-4 py-2 text-xs font-medium text-muted">
                       <I className="h-3.5 w-3.5" />
                       {label}
                     </span>
@@ -181,7 +142,7 @@ export default function FormationDetailPage() {
                             {p.amount} {p.currency}
                           </p>
                           {p.badge && (
-                            <span className="rounded-full bg-gold/20 px-2.5 py-1 text-xs font-bold text-gold-dark">
+                            <span className="rounded-full bg-accent/20 px-2.5 py-1 text-xs font-bold text-accent-dark">
                               {p.badge}
                             </span>
                           )}
@@ -190,7 +151,7 @@ export default function FormationDetailPage() {
                     )
                   })()}
                   {/* Échéance de session — n'apparaît que si une date réelle est configurée */}
-                  <div className="mt-3 flex flex-col gap-1.5 rounded-xl border border-night-border bg-night-soft px-3 py-2.5 empty:hidden">
+                  <div className="mt-3 flex flex-col gap-1.5 rounded-xl border border-border bg-surface px-3 py-2.5 empty:hidden">
                     <SessionNotice compact />
                   </div>
                 </div>
@@ -229,14 +190,14 @@ export default function FormationDetailPage() {
         </section>
 
         {/* ── Public cible ── */}
-        <section className="section-padding bg-night-soft">
+        <section className="section-padding bg-surface">
           <div className="section-container grid gap-12 lg:grid-cols-2">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="flex flex-col gap-5">
-              <h2 className="text-2xl font-bold text-offwhite">À qui s'adresse cette formation ?</h2>
+              <h2 className="text-2xl font-bold text-ink">À qui s'adresse cette formation ?</h2>
               <p className="leading-relaxed text-muted">{formation.audience}</p>
             </motion.div>
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.1} variants={fadeUp} className="flex flex-col gap-4">
-              <h2 className="text-2xl font-bold text-offwhite">Objectifs pédagogiques</h2>
+              <h2 className="text-2xl font-bold text-ink">Objectifs pédagogiques</h2>
               <ul className="flex flex-col gap-3">
                 {formation.objectives.map((obj, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm leading-relaxed text-muted">
@@ -252,7 +213,7 @@ export default function FormationDetailPage() {
         </section>
 
         {/* ── Programme détaillé ── */}
-        <section className="section-padding bg-night">
+        <section className="section-padding bg-surface">
           <div className="section-container flex flex-col gap-14">
             <div className="text-center">
               <span className="eyebrow">Programme complet</span>
@@ -279,7 +240,7 @@ export default function FormationDetailPage() {
                     </div>
 
                     <div className="flex flex-1 flex-col gap-3">
-                      <h3 className="text-base font-bold text-offwhite">{mod.title}</h3>
+                      <h3 className="text-base font-bold text-ink">{mod.title}</h3>
                       <p className="text-sm leading-relaxed text-muted">{mod.description}</p>
 
                       <ul className="flex flex-col gap-1.5 border-t border-white/10 pt-3">
@@ -299,7 +260,7 @@ export default function FormationDetailPage() {
         </section>
 
         {/* ── Résultats obtenus ── */}
-        <section className="section-padding bg-night-soft">
+        <section className="section-padding bg-surface">
           <div className="section-container flex flex-col gap-10">
             <div className="text-center">
               <span className="eyebrow">Ce que vous obtenez</span>
@@ -327,7 +288,7 @@ export default function FormationDetailPage() {
         </section>
 
         {/* ── Formulaire de contact ── */}
-        <section id="formulaire" className="section-padding bg-night">
+        <section id="formulaire" className="section-padding bg-surface">
           <div className="section-container flex flex-col gap-12">
             <div className="flex flex-col items-center gap-4 text-center">
               <span className="eyebrow">En savoir plus</span>
