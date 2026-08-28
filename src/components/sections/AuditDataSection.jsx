@@ -21,7 +21,7 @@ export default function AuditSection() {
   const lang = i18n.resolvedLanguage
 
   return (
-    <section id="audit" className="section-padding relative border-t border-border bg-surface">
+    <section id="audit" className="section-padding relative border-t border-slate-300 bg-surface">
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
           eyebrow={t('eyebrow')}

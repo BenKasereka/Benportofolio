@@ -66,9 +66,11 @@ export default function Footer() {
               href={site.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="mt-1 flex min-h-tap w-fit items-center gap-2 text-sm text-slate-300 transition-colors hover:text-white"
+              className="mt-1 flex min-h-tap w-fit items-center gap-2.5 text-sm text-slate-300 transition-opacity hover:opacity-80"
             >
-              <Linkedin className="h-4 w-4 text-primary-400" aria-hidden="true" />
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#0A66C2]">
+                <Linkedin className="h-4.5 w-4.5 fill-white text-white" aria-hidden="true" />
+              </span>
               {t('linkedin')}
             </a>
           )}

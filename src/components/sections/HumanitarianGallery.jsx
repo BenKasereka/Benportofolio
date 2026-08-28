@@ -20,7 +20,7 @@ export default function HumanitarianGallery() {
   const lang = i18n.resolvedLanguage
 
   return (
-    <section id="supply-chain" className="section-padding relative border-t border-border bg-surface-white">
+    <section id="supply-chain" className="section-padding relative border-t border-slate-300 bg-surface-white">
       <div className="section-container flex flex-col gap-16">
         <SectionHeading
           eyebrow={t('eyebrow')}
