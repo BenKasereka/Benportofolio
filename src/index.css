@@ -80,30 +80,49 @@
     @apply py-12 sm:py-16;
   }
 
-  /* Ligne de séparation entre sections — dégradé clair primary → blanc →
-     secondary, plutôt qu'un simple gris, pour une transition de page
-     reconnaissable à la marque sans être criarde. */
+  /* Ligne de séparation entre sections — barre dégradée primary → blanc →
+     secondary avec une légère lueur, plutôt qu'un simple trait gris : se
+     voit clairement sans être criarde. */
   .divider-gradient {
-    border-top: 1px solid transparent;
-    border-image: linear-gradient(
+    position: relative;
+  }
+  .divider-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 2px;
+    background: linear-gradient(
       to right,
-      rgba(4, 120, 87, 0.4),
+      rgba(4, 120, 87, 0.9),
       rgba(255, 255, 255, 0.95) 50%,
-      rgba(30, 58, 138, 0.4)
-    ) 1;
+      rgba(30, 58, 138, 0.9)
+    );
+    box-shadow: 0 0 8px rgba(4, 120, 87, 0.45), 0 0 8px rgba(30, 58, 138, 0.45);
+    pointer-events: none;
   }
 
   /* Variante haut + bas, pour un bandeau encadré des deux côtés. */
   .divider-gradient-y {
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-    border-image: linear-gradient(
-      to right,
-      rgba(4, 120, 87, 0.4),
-      rgba(255, 255, 255, 0.95) 50%,
-      rgba(30, 58, 138, 0.4)
-    ) 1;
+    position: relative;
   }
+  .divider-gradient-y::before,
+  .divider-gradient-y::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      rgba(4, 120, 87, 0.9),
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(30, 58, 138, 0.9)
+    );
+    box-shadow: 0 0 8px rgba(4, 120, 87, 0.45), 0 0 8px rgba(30, 58, 138, 0.45);
+    pointer-events: none;
+  }
+  .divider-gradient-y::before { top: 0; }
+  .divider-gradient-y::after { bottom: 0; }
 
   /* Lien d'évitement — première tabulation de la page */
   .skip-link {
