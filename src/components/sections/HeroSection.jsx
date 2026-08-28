@@ -110,7 +110,7 @@ export default function HeroSection() {
             animate="show"
             custom={0.2}
             variants={fadeUp}
-            className="max-w-md text-lg font-medium text-ink/90 sm:text-xl"
+            className="max-w-md text-justify text-lg font-medium text-ink/90 sm:text-xl"
           >
             <span className="font-semibold text-primary">{t('subheading.title')}</span>
             {' '}{t('subheading.body')}{' '}
@@ -122,7 +122,7 @@ export default function HeroSection() {
             animate="show"
             custom={0.3}
             variants={fadeUp}
-            className="max-w-md text-base leading-relaxed text-muted"
+            className="max-w-md text-justify text-base leading-relaxed text-muted"
           >
             {t('description')}
           </motion.p>
