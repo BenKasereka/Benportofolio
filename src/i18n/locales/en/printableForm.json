@@ -104,6 +104,9 @@
         "place": "Done at (city) *",
         "date": "On (date) *",
         "candidateSignature": "Candidate's signature *",
+        "signatureConfirm": "I agree that \"{{name}}\" (entered above) serves as my electronic signature",
+        "signatureNeedsName": "Fill in your first and last name (section 1) to enable the electronic signature",
+        "signatureUnconfirmed": "Not confirmed",
         "bkSignature": "BK-BOOST stamp / signature (reserved)"
       }
     }

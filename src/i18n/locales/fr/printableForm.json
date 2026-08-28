@@ -104,6 +104,9 @@
         "place": "Fait à (ville) *",
         "date": "Le (date) *",
         "candidateSignature": "Signature du candidat *",
+        "signatureConfirm": "J'accepte que « {{name}} » (saisi ci-dessus) serve de signature électronique",
+        "signatureNeedsName": "Renseignez votre nom et prénom (section 1) pour activer la signature électronique",
+        "signatureUnconfirmed": "Non confirmée",
         "bkSignature": "Cachet / Signature BK-BOOST (réservé)"
       }
     }

@@ -21,7 +21,7 @@ const EMPTY_FORM = {
   sources: [],
   pack_choisi: '',
   budget_autre: '',
-  fait_a: '', le_date: '',
+  fait_a: '', le_date: '', signature_confirmed: false,
 }
 
 export default function PrintableFormPage() {
@@ -61,6 +61,7 @@ export default function PrintableFormPage() {
   }
 
   const packLabel = form.pack_choisi === 'autre' ? t('packLabel.autre', { value: form.budget_autre }) : form.pack_choisi || '—'
+  const fullName = `${form.prenom} ${form.nom}`.trim()
 
   // Résumé texte du dossier — sert de repli WhatsApp/e-mail si l'envoi échoue,
   // pour que le candidat n'ait jamais à ressaisir 32 champs.
@@ -105,6 +106,7 @@ export default function PrintableFormPage() {
       pack_choisi: packLabel,
       fait_a: form.fait_a,
       le_date: form.le_date,
+      signature: form.signature_confirmed && fullName ? fullName : t('form.sections.engagement.signatureUnconfirmed'),
       reply_to: form.email_candidat,
     }, { dossier: true })
 
@@ -419,7 +421,36 @@ export default function PrintableFormPage() {
               <label style={{ fontSize: '10px', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '1px' }}>
                 {t('form.sections.engagement.candidateSignature')}
               </label>
-              <div style={{ height: '60px', borderBottom: '1.5px solid #D1D5DB' }} />
+              <div style={{ height: '60px', borderBottom: '1.5px solid #D1D5DB', display: 'flex', alignItems: 'flex-end', paddingBottom: '6px' }}>
+                {form.signature_confirmed && fullName && (
+                  <span style={{ fontFamily: 'Brush Script MT, cursive', fontSize: '22px', color: '#0F172A' }}>
+                    {fullName}
+                  </span>
+                )}
+              </div>
+              <label
+                className="no-print"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontSize: '10px',
+                  color: fullName ? '#374151' : '#9CA3AF',
+                  marginTop: '4px',
+                  cursor: fullName ? 'pointer' : 'not-allowed',
+                }}
+              >
+                <input
+                  type="checkbox"
+                  checked={form.signature_confirmed}
+                  disabled={!fullName}
+                  onChange={(e) => setForm((prev) => ({ ...prev, signature_confirmed: e.target.checked }))}
+                  style={{ width: '14px', height: '14px', accentColor: '#047857', flexShrink: 0, cursor: 'inherit' }}
+                />
+                {fullName
+                  ? t('form.sections.engagement.signatureConfirm', { name: fullName })
+                  : t('form.sections.engagement.signatureNeedsName')}
+              </label>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               <label style={{ fontSize: '10px', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '1px' }}>
