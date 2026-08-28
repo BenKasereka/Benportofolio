@@ -46,7 +46,7 @@ export default function Footer() {
 
   return (
     <footer className="surface-dark border-t-4 border-primary bg-ink text-white">
-      <div className="section-container section-padding grid gap-12 lg:grid-cols-[1.2fr_0.7fr_0.9fr]">
+      <div className="section-container section-padding-tight grid gap-12 lg:grid-cols-[1.2fr_0.7fr_0.9fr]">
         {/* Marque */}
         <div className="flex flex-col gap-4">
           <span className="font-heading text-xl font-bold text-white">{site.name}</span>
