@@ -199,7 +199,7 @@ export default function HeroSection() {
                     key={slide}
                     src={current.src}
                     alt={t('slideImageAlt', { mission: current.mission[lang] })}
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover object-[center_78%]"
                     onError={(e) => { e.currentTarget.src = `${ASSET_BASE}images/terrain/terrain-01.jpg` }}
                     initial={{ opacity: 0, x: '18%', scale: 1.12 }}
                     animate={{ opacity: 1, x: '0%', scale: 1.1 }}
@@ -255,7 +255,7 @@ export default function HeroSection() {
 
           {/* Badge flottant */}
           <motion.div
-            className="card-executive absolute -left-8 top-8 hidden w-44 p-4 sm:block"
+            className="card-executive absolute -left-4 top-6 hidden w-44 p-4 sm:block"
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             style={{ z: 40 }}
