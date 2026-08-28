@@ -91,7 +91,16 @@ export default function HeroSection() {
           <motion.div initial="hidden" animate="show" custom={0} variants={fadeUp}>
             <span className="eyebrow">
               <ShieldCheck className="h-3.5 w-3.5 text-accent-gold" aria-hidden="true" />
-              {t('eyebrow')}
+              {t('eyebrow.prefix')}
+              <a
+                href="https://www.iscea.org/cpsp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary underline-offset-2 hover:underline"
+              >
+                {t('eyebrow.org')}
+              </a>
+              {t('eyebrow.suffix')}
             </span>
           </motion.div>
 

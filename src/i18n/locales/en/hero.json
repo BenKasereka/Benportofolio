@@ -1,5 +1,9 @@
 {
-  "eyebrow": "Certified Professional in Sourcing & Procurement — CPSP (USA)",
+  "eyebrow": {
+    "prefix": "Certified Professional in Sourcing & Procurement — CPSP (",
+    "org": "ISCEA",
+    "suffix": " - USA)"
+  },
   "heading": {
     "firstName": "Benjamin",
     "lastName": "Kasereka Vinyatsi"
