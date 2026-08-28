@@ -80,9 +80,8 @@
     @apply py-12 sm:py-16;
   }
 
-  /* Ligne de séparation entre sections — barre dégradée en primary (vert),
-     avec une lueur bleue (secondary) en effet brillant plutôt qu'en couleur
-     pleine sur la barre elle-même. */
+  /* Ligne de séparation entre sections — barre bleue (secondary) avec une
+     lueur bleu vif en effet lumineux : propre et bien visible. */
   .divider-gradient {
     position: relative;
   }
@@ -93,11 +92,11 @@
     height: 2px;
     background: linear-gradient(
       to right,
-      rgba(4, 120, 87, 0.9),
+      rgba(30, 58, 138, 0.9),
       rgba(255, 255, 255, 0.95) 50%,
-      rgba(4, 120, 87, 0.9)
+      rgba(30, 58, 138, 0.9)
     );
-    box-shadow: 0 0 10px rgba(30, 58, 138, 0.5);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
     pointer-events: none;
   }
 
@@ -114,11 +113,11 @@
     height: 2px;
     background: linear-gradient(
       to right,
-      rgba(4, 120, 87, 0.9),
+      rgba(30, 58, 138, 0.9),
       rgba(255, 255, 255, 0.95) 50%,
-      rgba(4, 120, 87, 0.9)
+      rgba(30, 58, 138, 0.9)
     );
-    box-shadow: 0 0 10px rgba(30, 58, 138, 0.5);
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
     pointer-events: none;
   }
   .divider-gradient-y::before { top: 0; }
