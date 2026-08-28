@@ -13,9 +13,7 @@ export const site = {
   phoneRaw: '+243990260711',
   whatsapp: '243990260711',
 
-  // ⚠️ À COMPLÉTER — remplacez par l'URL réelle de votre profil.
-  // Laissez la chaîne vide pour masquer automatiquement le lien partout.
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/benjamin-kasereka-vinyatsi-57557b2aa/',
 
   // URL canonique de production (utilisée pour les balises Open Graph et le sitemap)
   url: 'https://benkasereka.github.io/Benportofolio',
