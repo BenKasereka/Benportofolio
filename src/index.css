@@ -80,48 +80,26 @@
     @apply py-12 sm:py-16;
   }
 
-  /* Ligne de séparation entre sections — barre bleue (secondary) avec une
-     lueur bleu vif en effet lumineux : propre et bien visible. */
+  /* Ligne de séparation entre sections — un simple trait fin et net,
+     sans couleur ni lueur : c'est ce qui se fait sur un site corporate/
+     conseil senior. Les tentatives dégradé + lueur (vert, puis bleu)
+     lisaient comme un site produit grand public, pas comme un cabinet
+     de conseil. */
   .divider-gradient {
-    position: relative;
-  }
-  .divider-gradient::before {
-    content: '';
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 2px;
-    background: linear-gradient(
-      to right,
-      rgba(30, 58, 138, 0.9),
-      rgba(255, 255, 255, 0.95) 50%,
-      rgba(30, 58, 138, 0.9)
-    );
-    box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
-    pointer-events: none;
+    border-top: 1px solid rgba(15, 23, 42, 0.12);
   }
 
-  /* Variante haut + bas, pour un bandeau encadré des deux côtés. */
+  /* Même trait, pensé pour une section à fond sombre (BK-BOOST). */
+  .divider-gradient-dark {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  /* Variante haut + bas, pour un bandeau encadré des deux côtés sur fond
+     sombre (bandeau de confiance). */
   .divider-gradient-y {
-    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   }
-  .divider-gradient-y::before,
-  .divider-gradient-y::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(
-      to right,
-      rgba(30, 58, 138, 0.9),
-      rgba(255, 255, 255, 0.95) 50%,
-      rgba(30, 58, 138, 0.9)
-    );
-    box-shadow: 0 0 10px rgba(37, 99, 235, 0.6);
-    pointer-events: none;
-  }
-  .divider-gradient-y::before { top: 0; }
-  .divider-gradient-y::after { bottom: 0; }
 
   /* Lien d'évitement — première tabulation de la page */
   .skip-link {

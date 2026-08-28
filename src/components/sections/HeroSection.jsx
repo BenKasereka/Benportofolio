@@ -15,9 +15,9 @@ const SLIDES = [
     label: { fr: 'Mission active', en: 'Active mission' },
   },
   {
-    src: `${ASSET_BASE}images/terrain/terrain-03.jpg`,
-    mission: { fr: 'Coordination humanitaire', en: 'Humanitarian coordination' },
-    label: { fr: 'Présence terrain', en: 'Field presence' },
+    src: `${ASSET_BASE}images/terrain/terrain-02.jpg`,
+    mission: { fr: 'Gestion de flotte terrain', en: 'Field fleet management' },
+    label: { fr: 'Logistique terrain', en: 'Field logistics' },
   },
   {
     src: `${ASSET_BASE}images/terrain/terrain-04.jpg`,
