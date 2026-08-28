@@ -99,11 +99,11 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-4 lg:flex">
           <LanguageSwitcher />
-          {/* CTA desktop — un seul, une seule couleur (primary) */}
+          {/* CTA desktop — pilule sombre distincte, comme sur la maquette de référence */}
           <a
             href={`${BASE}#contact`}
             onClick={handleAnchorClick('contact')}
-            className="btn-primary !px-5 !py-2.5 !text-xs"
+            className="rounded-full bg-ink px-5 py-2.5 text-xs font-semibold text-white transition-colors duration-300 hover:bg-ink/90"
           >
             {t('nav.cta')}
           </a>
@@ -193,7 +193,7 @@ export default function Navbar() {
               <a
                 href={`${BASE}#contact`}
                 onClick={(e) => { handleAnchorClick('contact')(e); setOpen(false) }}
-                className="btn-primary mt-2 w-fit"
+                className="mt-2 w-fit rounded-full bg-ink px-6 py-3 text-lg font-semibold text-white transition-colors duration-300 hover:bg-ink/90"
               >
                 {t('nav.cta')}
               </a>
