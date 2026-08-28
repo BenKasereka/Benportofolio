@@ -20,7 +20,7 @@ export default function TrustedBySection() {
   const { t } = useTranslation('trustedBy')
 
   return (
-    <section className="surface-dark border-y border-white/10 bg-secondary py-8">
+    <section className="surface-dark divider-gradient-y bg-secondary py-8">
       <div className="section-container flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
         <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
           {t('label')}

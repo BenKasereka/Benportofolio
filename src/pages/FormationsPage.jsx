@@ -157,7 +157,7 @@ export default function FormationsPage() {
         </section>
 
         {/* ── Grille des formations ── */}
-        <section className="section-padding border-t border-slate-300 bg-surface">
+        <section className="section-padding divider-gradient bg-surface">
           <div className="section-container flex flex-col gap-16">
             <div className="text-center">
               <h2 className="text-3xl font-bold sm:text-4xl">
@@ -256,7 +256,7 @@ export default function FormationsPage() {
         </section>
 
         {/* ── Nos Tarifs ── */}
-        <section id="tarifs" className="section-padding border-t border-slate-300 bg-surface">
+        <section id="tarifs" className="section-padding divider-gradient bg-surface">
           <div className="section-container flex flex-col gap-16">
             <div className="flex flex-col items-center gap-6 text-center">
               <span className="eyebrow"><DollarSign className="h-3.5 w-3.5 inline mr-1" />{t('pricing.eyebrow')}</span>
@@ -423,7 +423,7 @@ export default function FormationsPage() {
         </section>
 
         {/* ── CTA contact ── */}
-        <section className="section-padding border-t border-slate-300 bg-surface">
+        <section className="section-padding divider-gradient bg-surface">
           <div className="section-container">
             <motion.div
               initial={{ opacity: 0, y: 28 }}

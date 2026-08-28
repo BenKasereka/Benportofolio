@@ -24,7 +24,7 @@ export default function ParcoursSection() {
   const lang = i18n.resolvedLanguage
 
   return (
-    <section id="parcours" className="section-padding relative border-t border-slate-300 bg-surface">
+    <section id="parcours" className="section-padding relative divider-gradient bg-surface">
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
           eyebrow={t('eyebrow')}

@@ -193,7 +193,7 @@ export default function FormationDetailPage() {
         </section>
 
         {/* ── Public cible ── */}
-        <section className="section-padding-tight border-t border-slate-300 bg-surface">
+        <section className="section-padding-tight divider-gradient bg-surface">
           <div className="section-container grid gap-12 lg:grid-cols-2">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="flex flex-col gap-5">
               <h2 className="text-2xl font-bold text-ink">{t('detail.audienceHeading')}</h2>
@@ -216,7 +216,7 @@ export default function FormationDetailPage() {
         </section>
 
         {/* ── Programme détaillé ── */}
-        <section className="section-padding border-t border-slate-300 bg-surface">
+        <section className="section-padding divider-gradient bg-surface">
           <div className="section-container flex flex-col gap-14">
             <div className="text-center">
               <span className="eyebrow">{t('detail.programEyebrow')}</span>
@@ -263,7 +263,7 @@ export default function FormationDetailPage() {
         </section>
 
         {/* ── Résultats obtenus ── */}
-        <section className="section-padding-tight border-t border-slate-300 bg-surface">
+        <section className="section-padding-tight divider-gradient bg-surface">
           <div className="section-container flex flex-col gap-10">
             <div className="text-center">
               <span className="eyebrow">{t('detail.outcomesEyebrow')}</span>
@@ -291,7 +291,7 @@ export default function FormationDetailPage() {
         </section>
 
         {/* ── Formulaire de contact ── */}
-        <section id="formulaire" className="section-padding border-t border-slate-300 bg-surface">
+        <section id="formulaire" className="section-padding divider-gradient bg-surface">
           <div className="section-container flex flex-col gap-12">
             <div className="flex flex-col items-center gap-4 text-center">
               <span className="eyebrow">{t('detail.formEyebrow')}</span>

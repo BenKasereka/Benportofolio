@@ -39,7 +39,7 @@ export default function ContactSection() {
   ]
 
   return (
-    <section id="contact" className="section-padding relative border-t border-slate-300 bg-surface">
+    <section id="contact" className="section-padding relative divider-gradient bg-surface">
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
           eyebrow={t('section.eyebrow')}

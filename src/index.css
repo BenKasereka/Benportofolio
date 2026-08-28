@@ -80,6 +80,31 @@
     @apply py-12 sm:py-16;
   }
 
+  /* Ligne de séparation entre sections — dégradé clair primary → blanc →
+     secondary, plutôt qu'un simple gris, pour une transition de page
+     reconnaissable à la marque sans être criarde. */
+  .divider-gradient {
+    border-top: 1px solid transparent;
+    border-image: linear-gradient(
+      to right,
+      rgba(4, 120, 87, 0.4),
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(30, 58, 138, 0.4)
+    ) 1;
+  }
+
+  /* Variante haut + bas, pour un bandeau encadré des deux côtés. */
+  .divider-gradient-y {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(
+      to right,
+      rgba(4, 120, 87, 0.4),
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(30, 58, 138, 0.4)
+    ) 1;
+  }
+
   /* Lien d'évitement — première tabulation de la page */
   .skip-link {
     @apply sr-only;
