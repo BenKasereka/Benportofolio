@@ -1,43 +1,32 @@
 import { motion } from 'framer-motion'
 
-const ACCENT_CLASS = {
-  gold: 'text-gold',
-  emerald: 'text-emerald-dark',
-  rouge: 'text-rouge',
-  teal: 'text-teal-dark',
-  blue: 'text-blue-700',
-  violet: 'text-violet-700',
+// Accent de l'intitulé (pastille + trait). L'or reste la couleur de marque ;
+// les autres teintes servent à distinguer les pôles, jamais à décorer.
+const ACCENT = {
+  gold: { text: 'text-gold-dark', bar: 'bg-gold', chip: 'border-gold/30 bg-gold/10 text-gold-dark' },
+  emerald: { text: 'text-emerald-dark', bar: 'bg-emerald', chip: 'border-emerald/30 bg-emerald/10 text-emerald-dark' },
+  rouge: { text: 'text-rouge-dark', bar: 'bg-rouge', chip: 'border-rouge/30 bg-rouge/10 text-rouge-dark' },
+  teal: { text: 'text-teal-dark', bar: 'bg-teal', chip: 'border-teal/30 bg-teal/10 text-teal-dark' },
+  blue: { text: 'text-blue-800', bar: 'bg-blue-700', chip: 'border-blue-300 bg-blue-50 text-blue-800' },
+  violet: { text: 'text-violet-800', bar: 'bg-violet-700', chip: 'border-violet-300 bg-violet-50 text-violet-800' },
 }
 
-// Badges avec fond blanc pour contraste maximal sur toutes les sections colorées
-const EYEBROW_CLASS = {
-  gold:    'border-gold/40 bg-white text-amber-700',
-  emerald: 'border-emerald-400 bg-white text-emerald-dark',
-  rouge:   'border-rouge/40 bg-white text-rouge',
-  teal:    'border-teal-400 bg-white text-teal-dark',
-  blue:    'border-blue-400 bg-white text-blue-700',
-  violet:  'border-violet-400 bg-white text-violet-700',
-}
-
-const BAR_CLASS = {
-  gold:    'bg-gold-emerald',
-  emerald: 'bg-teal-emerald',
-  rouge:   'bg-rouge',
-  teal:    'bg-teal',
-  blue:    'bg-blue-500',
-  violet:  'bg-violet-500',
-}
-
-// Couleur de fond du panneau-titre — tokens exacts du design system
-const PANEL_CLASS = {
-  gold:    'bg-gold-dark',
-  emerald: 'bg-emerald-dark',
-  rouge:   'bg-rouge',
-  teal:    'bg-teal-dark',
-  blue:    'bg-teal',
-  violet:  'bg-violet-700',
-}
-
+/**
+ * Intitulé de section.
+ *
+ * Deux corrections par rapport à la version précédente :
+ *
+ *  1. `tone` — la description utilisait toujours `text-muted` (gris ardoise,
+ *     pensé pour fond clair), y compris dans les sections à fond sombre où le
+ *     contraste tombait à 2,04:1. La tonalité choisit désormais la bonne
+ *     famille de couleurs.
+ *
+ *  2. Le titre n'est plus enfermé dans un pavé de couleur pleine. Répété sept
+ *     fois avec sept teintes, l'effet évoquait une succession de bandeaux
+ *     publicitaires. La pastille et le trait suffisent à identifier le pôle ;
+ *     `panel` permet de retrouver le pavé pour une section unique, mise en
+ *     avant délibérément.
+ */
 export default function SectionHeading({
   eyebrow,
   title,
@@ -45,13 +34,32 @@ export default function SectionHeading({
   description,
   align = 'center',
   accent = 'gold',
+  tone = 'light',
+  panel = false,
   panelBg,
 }) {
+  const isDark = tone === 'dark'
+  const a = ACCENT[accent] ?? ACCENT.gold
   const alignClass = align === 'left' ? 'items-start text-left' : 'items-center text-center'
-  const accentClass = ACCENT_CLASS[accent] ?? 'text-gold'
-  const eyebrowClass = EYEBROW_CLASS[accent] ?? EYEBROW_CLASS.gold
-  const barClass = BAR_CLASS[accent] ?? BAR_CLASS.gold
-  const resolvedPanel = panelBg ?? PANEL_CLASS[accent] ?? 'bg-teal'
+
+  const chipClass = isDark
+    ? 'border-white/25 bg-white/15 text-white'
+    : `${a.chip} shadow-sm`
+
+  const titleClass = isDark ? 'text-white' : 'text-offwhite'
+  const descClass = isDark ? 'text-muted-invert' : 'text-muted'
+  const barClass = isDark ? 'bg-white/50' : a.bar
+
+  const heading = (
+    <h2 className={`text-3xl font-bold sm:text-4xl lg:text-5xl ${panel ? 'text-white' : titleClass}`}>
+      {title}{' '}
+      {highlight && (
+        <span className={panel || isDark ? 'font-extrabold' : `font-extrabold ${a.text}`}>
+          {highlight}
+        </span>
+      )}
+    </h2>
+  )
 
   return (
     <motion.div
@@ -62,19 +70,25 @@ export default function SectionHeading({
       className={`mx-auto flex max-w-2xl flex-col gap-4 ${alignClass}`}
     >
       {eyebrow && (
-        <span className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] shadow-sm ${eyebrowClass}`}>
+        <span
+          className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] ${chipClass}`}
+        >
           {eyebrow}
         </span>
       )}
-      <div className={`w-full rounded-2xl ${resolvedPanel} px-8 py-5 shadow-md`}>
-        <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-          {title}{' '}
-          {highlight && <span className="font-extrabold">{highlight}</span>}
-        </h2>
-      </div>
+
+      {panel ? (
+        <div className={`w-full rounded-2xl px-8 py-5 shadow-md ${panelBg ?? 'bg-night-deep'}`}>
+          {heading}
+        </div>
+      ) : (
+        heading
+      )}
+
       <div className={`h-1 w-20 rounded-full ${barClass}`} />
+
       {description && (
-        <p className="text-base leading-relaxed text-muted sm:text-lg">{description}</p>
+        <p className={`text-base leading-relaxed sm:text-lg ${descClass}`}>{description}</p>
       )}
     </motion.div>
   )

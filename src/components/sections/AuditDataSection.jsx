@@ -16,14 +16,13 @@ const itemVariants = {
 
 export default function AuditSection() {
   return (
-    <section id="audit" className="section-padding relative bg-red-50">
+    <section id="audit" className="section-padding relative bg-night-soft">
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
           eyebrow="Pôle 03 — Audit Interne & Contrôles"
           title="La rigueur du contrôle,"
           highlight="au service de la conformité"
           accent="rouge"
-          panelBg="bg-rouge-bordeaux"
           description="Rédaction de manuels de procédures, contrôles internes et audits multi-programmes — la même discipline qui a réduit le risque de non-conformité de 87,2% chez ACTED en 3 mois."
         />
 

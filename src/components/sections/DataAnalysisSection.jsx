@@ -14,18 +14,20 @@ const cardVariants = {
   }),
 }
 
-// Palette unique par phase — parcours chromatique cohérent avec le design system
+// Palette unique par phase — parcours chromatique cohérent avec le design system.
+// Les opacités de texte/badge ont été relevées (ex. /70 → /90) pour rester
+// lisibles sur les fonds colorés (BLQ-04 de l'audit).
 const PHASE_PALETTES = [
-  { bg: 'bg-teal border border-teal-300/30',           icon: 'bg-white/15 text-white',              desc: 'text-teal-100/70',    badge: 'bg-white/15 text-teal-50 ring-1 ring-white/20',              arrow: 'text-white/50' },
-  { bg: 'bg-emerald-dark border border-emerald-400/30', icon: 'bg-emerald-200/20 text-emerald-200',  desc: 'text-emerald-100/70', badge: 'bg-emerald-500/40 text-emerald-100 ring-1 ring-emerald-300/30', arrow: 'text-emerald-300/50' },
-  { bg: 'bg-gold-dark border border-amber-500/30',     icon: 'bg-amber-300/20 text-amber-200',      desc: 'text-amber-100/70',   badge: 'bg-amber-600/40 text-amber-100 ring-1 ring-amber-300/30',     arrow: 'text-amber-300/50' },
-  { bg: 'bg-rouge border border-rouge-light/20',       icon: 'bg-white/15 text-white',              desc: 'text-rouge-light/70', badge: 'bg-white/15 text-rouge-light ring-1 ring-rouge-light/30',     arrow: 'text-rouge-light/50' },
-  { bg: 'bg-rouge-bordeaux border border-rouge/30',    icon: 'bg-rouge/20 text-rouge-light',        desc: 'text-rouge-light/60', badge: 'bg-rouge/30 text-rouge-light ring-1 ring-rouge/30',           arrow: 'text-rouge-light/40' },
+  { bg: 'bg-teal border border-teal-300/30',            icon: 'bg-white/15 text-white',             desc: 'text-teal-50/90',    badge: 'bg-black/25 text-white ring-1 ring-white/30',                  arrow: 'text-white/50' },
+  { bg: 'bg-emerald-dark border border-emerald-400/30', icon: 'bg-emerald-200/20 text-emerald-200', desc: 'text-emerald-50/90', badge: 'bg-black/30 text-white ring-1 ring-emerald-300/40',            arrow: 'text-emerald-300/50' },
+  { bg: 'bg-gold-dark border border-amber-500/30',      icon: 'bg-amber-300/20 text-amber-200',     desc: 'text-amber-50/90',   badge: 'bg-black/30 text-white ring-1 ring-amber-300/40',              arrow: 'text-amber-300/50' },
+  { bg: 'bg-rouge border border-rouge-light/20',        icon: 'bg-white/15 text-white',             desc: 'text-red-50/90',     badge: 'bg-black/25 text-white ring-1 ring-white/30',                  arrow: 'text-rouge-light/50' },
+  { bg: 'bg-rouge-bordeaux border border-rouge/30',     icon: 'bg-rouge/20 text-rouge-light',       desc: 'text-red-50/85',     badge: 'bg-black/30 text-white ring-1 ring-rouge/40',                  arrow: 'text-rouge-light/40' },
 ]
 
 export default function DataAnalysisSection() {
   return (
-    <section id="data" className="section-padding relative overflow-hidden bg-teal-50">
+    <section id="data" className="section-padding relative overflow-hidden bg-white">
       <div className="pointer-events-none absolute right-[-10%] top-0 h-96 w-96 rounded-full bg-gold/10 blur-3xl" />
 
       <div className="section-container flex flex-col gap-14">
@@ -34,7 +36,6 @@ export default function DataAnalysisSection() {
           title="De la base de données brute à la"
           highlight="décision"
           accent="teal"
-          panelBg="bg-teal-dark"
           description="Analyse de bases de données, interprétation et visualisation — avec les outils et langages professionnels les plus puissants du marché, à chaque étape du pipeline."
         />
 
@@ -61,7 +62,7 @@ export default function DataAnalysisSection() {
                   variants={cardVariants}
                   className={`relative flex flex-1 flex-col gap-4 rounded-2xl p-6 shadow-lg ${p.bg}`}
                 >
-                  <span className="pointer-events-none absolute -right-2 -top-4 font-heading text-6xl font-extrabold text-white/8">
+                  <span className="pointer-events-none absolute -right-2 -top-4 font-heading text-6xl font-extrabold text-white/10">
                     {phase.phase}
                   </span>
                   <span className={`flex h-11 w-11 items-center justify-center rounded-xl ${p.icon}`}>

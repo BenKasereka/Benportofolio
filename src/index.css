@@ -5,6 +5,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Compense la navbar fixe lors des sauts d'ancre (#audit, #contact…) */
+    scroll-padding-top: 6rem;
   }
 
   body {
@@ -16,6 +18,18 @@
   h3,
   h4 {
     @apply font-heading text-offwhite tracking-tight;
+    text-wrap: balance;
+  }
+
+  /* Focus clavier visible sur l'ensemble du site (FIN-04) */
+  :focus-visible {
+    outline: 2px solid #B45309;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  /* Sur les surfaces sombres, l'anneau doit rester lisible */
+  .surface-dark :focus-visible {
+    outline-color: #FCD34D;
   }
 
   ::selection {
@@ -26,11 +40,27 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #EFF6FF;
+    background: #F1F5F9;
   }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #D97706, #059669);
+    background: linear-gradient(180deg, #B45309, #047857);
     border-radius: 999px;
+  }
+
+  /* Respect de prefers-reduced-motion (MAJ-08) —
+     neutralise animations CSS, transitions et défilement fluide. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
@@ -43,6 +73,14 @@
     @apply py-20 sm:py-28;
   }
 
+  /* Lien d'évitement — première tabulation de la page */
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus {
+    @apply not-sr-only fixed left-4 top-4 z-[100] rounded-lg bg-night-deep px-4 py-2.5 text-sm font-semibold text-white shadow-lg;
+  }
+
   /* Carte blanche sur fond clair */
   .card-executive {
     @apply relative rounded-2xl border border-night-border bg-night-card shadow-card transition-all duration-500;
@@ -52,23 +90,52 @@
     @apply -translate-y-1 border-gold/50 shadow-gold-glow;
   }
 
-  /* Pastille section */
+  /* Pastille section — texte ambre foncé sur fond ambre très clair (8:1) */
   .eyebrow {
     @apply inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-gold-dark;
   }
 
-  /* CTA principal */
+  /* CTA principal — dégradé #B45309 → #047857 : 5.0:1 à 5.5:1 avec du blanc */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold-emerald bg-[length:200%_auto] px-7 py-3.5 text-sm font-semibold text-white shadow-gold-glow transition-all duration-500 hover:bg-[position:100%_0] hover:scale-[1.03] active:scale-[0.98];
+    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-full bg-gold-emerald bg-[length:200%_auto] px-7 py-3.5 text-sm font-semibold text-white shadow-gold-glow transition-all duration-500 hover:bg-[position:100%_0] hover:scale-[1.03] active:scale-[0.98];
   }
 
   /* CTA secondaire */
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold text-offwhite shadow-sm transition-all duration-300 hover:border-slate-400 hover:bg-slate-50;
+    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-semibold text-offwhite shadow-sm transition-all duration-300 hover:border-slate-400 hover:bg-slate-50;
   }
 
+  /* CTA sur fond sombre */
+  .btn-on-dark {
+    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white/[0.6] hover:bg-white/20;
+  }
+
+  /* WhatsApp — vert officiel, texte blanc (4.6:1) */
+  .btn-whatsapp {
+    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-full bg-[#1B7F4C] px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-[#15683D];
+  }
+
+  /* Pastilles teinte-sur-teinte — variante foncée pour rester lisibles (BLQ-04) */
+  .chip-gold {
+    @apply rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs font-semibold text-gold-dark;
+  }
+  .chip-emerald {
+    @apply rounded-full border border-emerald/30 bg-emerald/10 px-3 py-1 text-xs font-semibold text-emerald-dark;
+  }
+  .chip-teal {
+    @apply rounded-full border border-teal/30 bg-teal/10 px-3 py-1 text-xs font-semibold text-teal-dark;
+  }
+  .chip-rouge {
+    @apply rounded-full border border-rouge/30 bg-rouge/10 px-3 py-1 text-xs font-semibold text-rouge-dark;
+  }
+  /* Sur fond sombre : fond blanc translucide, texte blanc plein */
+  .chip-on-dark {
+    @apply rounded-full border border-white/25 bg-white/15 px-3 py-1 text-xs font-semibold text-white;
+  }
+
+  /* Le dégradé clair reste réservé aux titres >= 24px (seuil AA large : 3:1) */
   .text-gradient-gold {
-    @apply bg-gold-emerald bg-clip-text text-transparent;
+    @apply bg-gold-emerald-bright bg-clip-text text-transparent;
   }
 
   .text-gradient-teal {
@@ -77,5 +144,14 @@
 
   .text-gradient-rouge {
     @apply bg-rouge-bordeaux bg-clip-text text-transparent;
+  }
+
+  /* Zone cliquable de 44px minimum sans agrandir le visuel (MAJ-09) */
+  .tap-target {
+    @apply relative;
+  }
+  .tap-target::after {
+    content: '';
+    @apply absolute left-1/2 top-1/2 h-11 w-11 -translate-x-1/2 -translate-y-1/2;
   }
 }

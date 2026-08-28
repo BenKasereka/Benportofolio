@@ -19,7 +19,7 @@ export const services = [
     metrics: [
       { value: '7+', label: 'ans en Supply Chain terrain' },
       { value: '85%', label: 'de réduction des délais' },
-      { value: '6', label: 'pays d’intervention' },
+      { value: '5', label: 'pays d’intervention' },
     ],
     tags: ['MSF-OCB', 'Cold Chain', 'RFQ / RFP / ITB', 'UNIFIELD & SAP'],
     anchor: '#supply-chain',

@@ -16,14 +16,13 @@ const itemVariants = {
 
 export default function HumanitarianGallery() {
   return (
-    <section id="supply-chain" className="section-padding relative bg-emerald-50">
+    <section id="supply-chain" className="section-padding relative bg-white">
       <div className="section-container flex flex-col gap-16">
         <SectionHeading
           eyebrow="Pôle 01 — Humanitarian Supply Chain"
           title="Des opérations complexes, sur des"
           highlight="terrains à haut risque"
           accent="gold"
-          panelBg="bg-rouge"
           description="Huit missions, huit contextes de crise différents — de la réponse aux épidémies aux déplacements de populations. Chronologie exacte des postes occupés et des résultats obtenus, tels que documentés au CV."
         />
 
@@ -49,7 +48,7 @@ export default function HumanitarianGallery() {
 
                   <div className="card-executive flex-1 p-5">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="rounded-full bg-emerald/15 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-emerald">
+                      <span className="rounded-full bg-emerald/15 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-emerald-dark">
                         {item.context}
                       </span>
                       <span className="text-xs font-medium text-muted">{item.period}</span>

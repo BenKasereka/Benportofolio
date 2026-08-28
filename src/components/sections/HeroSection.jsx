@@ -16,7 +16,7 @@ const SLIDES = [
 
 const stats = [
   { value: "7+", label: "ans en Supply Chain d’urgence" },
-  { value: "6", label: "pays en contexte volatile" },
+  { value: "5", label: "pays en contexte volatile" },
   { value: "85%", label: "de réduction des délais" },
   { value: "87%", label: "de conformité en audit" },
 ]
@@ -107,8 +107,8 @@ export default function HeroSection() {
             variants={fadeUp}
             className="max-w-xl text-base leading-relaxed text-muted"
           >
-            Bilingue, expert MSF de la Supply Chain d'urgence avec 7+ ans de terrain en zones
-            hautement volatiles (RDC, Tchad, Soudan du Sud, Haïti, Nigeria, Centrafrique) et 3+ ans en
+            Multilingue, expert MSF de la Supply Chain d'urgence avec 7+ ans de terrain en zones
+            hautement volatiles (RDC, Tchad, Soudan du Sud, Haïti, Nigeria) et 3+ ans en
             Finances, Administration, RH et Audit &amp; Compliance. Titulaire d'un Master en Coopération Internationale et
             Aide Humanitaire (KALU Institute). Je conçois des stratégies d'approvisionnement agiles,
             des manuels de procédures de référence et des outils d'analyse de données — de la
@@ -220,14 +220,21 @@ export default function HeroSection() {
                 <span className="h-2.5 w-2.5 animate-pulse-slow rounded-full bg-emerald shadow-emerald-glow" />
               </div>
 
-              {/* Indicateurs de slide */}
+              {/* Indicateurs de slide — la pastille reste fine visuellement,
+                  mais la zone cliquable est portée à 44px (MAJ-09 de l'audit) */}
               <div className="absolute bottom-20 left-1/2 flex -translate-x-1/2 gap-1.5">
-                {SLIDES.map((_, i) => (
+                {SLIDES.map((s, i) => (
                   <button
                     key={i}
                     onClick={() => setSlide(i)}
-                    className={`h-1.5 rounded-full transition-all duration-300 hover:scale-125 active:scale-90 ${i === slide ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/70'}`}
-                  />
+                    aria-label={`Voir la photo ${i + 1} — ${s.mission}`}
+                    aria-current={i === slide}
+                    className="tap-target relative flex items-center justify-center"
+                  >
+                    <span
+                      className={`h-1.5 rounded-full transition-all duration-300 hover:scale-125 ${i === slide ? 'w-6 bg-white' : 'w-1.5 bg-white/40 hover:bg-white/[0.7]'}`}
+                    />
+                  </button>
                 ))}
               </div>
             </div>
