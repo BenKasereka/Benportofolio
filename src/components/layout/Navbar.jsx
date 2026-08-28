@@ -46,6 +46,17 @@ export default function Navbar() {
     }
   }
 
+  // Déjà sur l'accueil : react-router ne déclenche aucun changement de route
+  // (même pathname), donc le ScrollToTop de App.jsx ne se relance pas — sans
+  // ceci, cliquer sur Accueil depuis un point déjà descendu de la page ne
+  // fait strictement rien, ce qui se lit comme un bouton cassé.
+  const handleHomeClick = (e) => {
+    if (pathname === '/') {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     window.addEventListener('scroll', onScroll)
@@ -59,57 +70,63 @@ export default function Navbar() {
       }`}
     >
       <nav className="section-container flex h-20 items-center justify-between gap-4">
-        <div className="flex shrink-0 items-center gap-3">
-          {/* Logo — le vrai logo BK-BOOST Ltd., sur un fond blanc pour ressortir sur la navbar sombre */}
-          <Link to="/" className="flex min-h-tap shrink-0 items-center">
-            <span className="flex h-12 items-center rounded-lg bg-white p-1.5 shadow-sm">
-              <img
-                src={`${BASE}images/brand/bk-boost-logo.png`}
-                alt="BK-BOOST Ltd."
-                className="h-full w-auto object-contain"
-              />
-            </span>
-          </Link>
-
-          {/* Accueil — icône seule, ramène toujours à la page d'accueil, sur
-              toutes les pages y compris la page d'accueil elle-même. */}
-          <Link
-            to="/"
-            className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white transition-colors hover:bg-white/20"
-            aria-label={t('nav.home')}
-          >
-            <Home className="h-5 w-5" aria-hidden="true" />
-          </Link>
-        </div>
-
-        {/* Desktop nav — Parcours · Expertise · Portfolio · Formations */}
-        <ul className="hidden items-center gap-6 lg:flex">
-          {anchorLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={handleAnchorClick(link.href.split('#')[1])}
-                className="text-sm font-medium text-white/85 transition-colors hover:text-white"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-          {/* Formations — primary (vert), action de navigation standard */}
-          <li>
-            <Link
-              to="/formations"
-              className={`flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300 ${
-                isFormations
-                  ? 'border-primary-400/60 bg-primary/20 text-primary-400'
-                  : 'border-primary-400/30 bg-primary/10 text-primary-400 hover:border-primary-400/60 hover:bg-primary/20'
-              }`}
-            >
-              <GraduationCap className="h-4 w-4" />
-              {t('nav.formations')}
+        <div className="flex items-center gap-10">
+          <div className="flex shrink-0 items-center gap-3">
+            {/* Logo — le vrai logo BK-BOOST Ltd., sur un fond blanc pour ressortir sur la navbar sombre */}
+            <Link to="/" className="flex min-h-tap shrink-0 items-center">
+              <span className="flex h-12 items-center rounded-lg bg-white p-1.5 shadow-sm">
+                <img
+                  src={`${BASE}images/brand/bk-boost-logo.png`}
+                  alt="BK-BOOST Ltd."
+                  className="h-full w-auto object-contain"
+                />
+              </span>
             </Link>
-          </li>
-        </ul>
+
+            {/* Accueil — icône seule, ramène toujours à la page d'accueil, sur
+                toutes les pages y compris la page d'accueil elle-même. */}
+            <Link
+              to="/"
+              onClick={handleHomeClick}
+              className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white transition-colors hover:bg-white/20"
+              aria-label={t('nav.home')}
+            >
+              <Home className="h-5 w-5" aria-hidden="true" />
+            </Link>
+          </div>
+
+          {/* Desktop nav — Parcours · Expertise · Portfolio · Formations —
+              regroupé avec le logo/Accueil (au lieu d'être écarté à l'autre
+              bout de la barre par justify-between) pour que la nav se lise
+              comme un seul bloc cohérent à gauche. */}
+          <ul className="hidden items-center gap-6 lg:flex">
+            {anchorLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={handleAnchorClick(link.href.split('#')[1])}
+                  className="text-sm font-medium text-white/85 transition-colors hover:text-white"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+            {/* Formations — primary (vert), action de navigation standard */}
+            <li>
+              <Link
+                to="/formations"
+                className={`flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300 ${
+                  isFormations
+                    ? 'border-primary-400/60 bg-primary/20 text-primary-400'
+                    : 'border-primary-400/30 bg-primary/10 text-primary-400 hover:border-primary-400/60 hover:bg-primary/20'
+                }`}
+              >
+                <GraduationCap className="h-4 w-4" />
+                {t('nav.formations')}
+              </Link>
+            </li>
+          </ul>
+        </div>
 
         <div className="hidden items-center gap-4 lg:flex">
           <LanguageSwitcher />
