@@ -70,35 +70,32 @@ export default function Navbar() {
       }`}
     >
       <nav className="section-container flex h-20 items-center justify-between gap-4">
-        <div className="flex items-center gap-10">
-          <div className="flex shrink-0 items-center gap-3">
-            {/* Logo — le vrai logo BK-BOOST Ltd., sur un fond blanc pour ressortir sur la navbar sombre */}
-            <Link to="/" className="flex min-h-tap shrink-0 items-center">
-              <span className="flex h-12 items-center rounded-lg bg-white p-1.5 shadow-sm">
-                <img
-                  src={`${BASE}images/brand/bk-boost-logo.png`}
-                  alt="BK-BOOST Ltd."
-                  className="h-full w-auto object-contain"
-                />
-              </span>
-            </Link>
+        {/* Logo seul — le vrai logo BK-BOOST Ltd., sur un fond blanc pour ressortir sur la navbar sombre */}
+        <Link to="/" className="flex min-h-tap shrink-0 items-center">
+          <span className="flex h-12 items-center rounded-lg bg-white p-1.5 shadow-sm">
+            <img
+              src={`${BASE}images/brand/bk-boost-logo.png`}
+              alt="BK-BOOST Ltd."
+              className="h-full w-auto object-contain"
+            />
+          </span>
+        </Link>
 
-            {/* Accueil — icône seule, ramène toujours à la page d'accueil, sur
-                toutes les pages y compris la page d'accueil elle-même. */}
-            <Link
-              to="/"
-              onClick={handleHomeClick}
-              className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white transition-colors hover:bg-white/20"
-              aria-label={t('nav.home')}
-            >
-              <Home className="h-5 w-5" aria-hidden="true" />
-            </Link>
-          </div>
+        {/* Tout le reste — Accueil, nav desktop, langue/CTA, hamburger — group
+            à droite, séparé du logo. */}
+        <div className="flex items-center gap-6">
+          {/* Accueil — icône seule, ramène toujours à la page d'accueil, sur
+              toutes les pages y compris la page d'accueil elle-même. */}
+          <Link
+            to="/"
+            onClick={handleHomeClick}
+            className="flex min-h-tap min-w-tap items-center justify-center rounded-lg bg-white/10 text-white transition-colors hover:bg-white/20"
+            aria-label={t('nav.home')}
+          >
+            <Home className="h-5 w-5" aria-hidden="true" />
+          </Link>
 
-          {/* Desktop nav — Parcours · Expertise · Portfolio · Formations —
-              regroupé avec le logo/Accueil (au lieu d'être écarté à l'autre
-              bout de la barre par justify-between) pour que la nav se lise
-              comme un seul bloc cohérent à gauche. */}
+          {/* Desktop nav — Parcours · Expertise · Portfolio · Formations */}
           <ul className="hidden items-center gap-6 lg:flex">
             {anchorLinks.map((link) => (
               <li key={link.href}>
@@ -126,24 +123,24 @@ export default function Navbar() {
               </Link>
             </li>
           </ul>
-        </div>
 
-        <div className="hidden items-center gap-4 lg:flex">
-          <LanguageSwitcher />
-          {/* CTA desktop — un seul, une seule couleur (primary) — mène aux offres de formations disponibles */}
-          <Link to="/formations" className="btn-primary !px-5 !py-2.5 !text-xs">
-            {t('nav.cta')}
-          </Link>
-        </div>
+          <div className="hidden items-center gap-4 lg:flex">
+            <LanguageSwitcher />
+            {/* CTA desktop — un seul, une seule couleur (primary) — mène aux offres de formations disponibles */}
+            <Link to="/formations" className="btn-primary !px-5 !py-2.5 !text-xs">
+              {t('nav.cta')}
+            </Link>
+          </div>
 
-        {/* Hamburger mobile */}
-        <button
-          onClick={() => setOpen(true)}
-          className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white lg:hidden"
-          aria-label={t('nav.openMenu')}
-        >
-          <Menu className="h-5 w-5" />
-        </button>
+          {/* Hamburger mobile */}
+          <button
+            onClick={() => setOpen(true)}
+            className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white lg:hidden"
+            aria-label={t('nav.openMenu')}
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+        </div>
       </nav>
 
       {/* Menu mobile — mêmes éléments, en pleine hauteur */}
