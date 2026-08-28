@@ -85,7 +85,7 @@ export default function HeroSection() {
       <div className="pointer-events-none absolute -top-40 right-[-10%] h-[32rem] w-[32rem] rounded-full bg-primary/10 blur-3xl animate-pulse-slow" />
       <div className="pointer-events-none absolute -bottom-40 left-[-10%] h-[32rem] w-[32rem] rounded-full bg-primary/[0.06] blur-3xl animate-pulse-slow" />
 
-      <div className="section-container relative grid gap-16 pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+      <div className="section-container relative grid gap-16 pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
         {/* Colonne texte */}
         <div className="flex flex-col gap-8">
           <motion.div initial="hidden" animate="show" custom={0} variants={fadeUp}>
@@ -181,7 +181,7 @@ export default function HeroSection() {
               viewport à droite et étaient rognées par l'overflow-hidden de
               la section : la largeur réelle et sûre est celle de la colonne
               elle-même, comme la carte juste en dessous. */}
-          <SupplyChainRouteIllustration className="mt-4 mb-8 w-full sm:mt-6" />
+          <SupplyChainRouteIllustration className="mb-8 mt-7 w-full" />
 
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
