@@ -23,6 +23,7 @@ export default function Navbar() {
     { label: t('nav.parcours'), href: `${BASE}#parcours` },
     { label: t('nav.expertise'), href: `${BASE}#expertise` },
     { label: t('nav.portfolio'), href: `${BASE}#portfolio` },
+    { label: t('nav.contact'), href: `${BASE}#contact` },
   ]
 
   // On the home page, scroll straight to the target section — no full reload
