@@ -30,6 +30,7 @@ export default function PrintableFormPage() {
   const { id } = useParams()
   const formation = formationById(id)
   const formationTitle = formation?.title[lang]
+  const countryNames = [...countries].map((c) => c[lang]).sort((a, b) => a.localeCompare(b, lang))
 
   const [form, setForm] = useState(EMPTY_FORM)
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
@@ -256,7 +257,7 @@ export default function PrintableFormPage() {
               label={t('form.sections.personal.nationality')}
               value={form.nationalite}
               onChange={set('nationalite')}
-              options={countries}
+              options={countryNames}
               placeholder={t('form.sections.personal.selectCountry')}
             />
             <Field label={t('form.sections.personal.phone')} value={form.telephone} onChange={set('telephone')} />
