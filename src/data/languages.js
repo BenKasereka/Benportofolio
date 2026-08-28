@@ -6,7 +6,7 @@ export const languages = [
   { name: { fr: 'Français', en: 'French' }, level: { fr: 'C2 · Courant', en: 'C2 · Fluent' }, proficiency: 100 },
   { name: { fr: 'Anglais', en: 'English' }, level: { fr: 'C2 · Courant', en: 'C2 · Fluent' }, proficiency: 95 },
   { name: { fr: 'Swahili', en: 'Swahili' }, level: { fr: 'Native', en: 'Native' }, proficiency: 100 },
-  { name: { fr: 'Lingala', en: 'Lingala' }, level: { fr: 'Native', en: 'Native' }, proficiency: 100 },
+  { name: { fr: 'Lingala', en: 'Lingala' }, level: { fr: 'Courant', en: 'Fluent' }, proficiency: 100 },
   { name: { fr: 'Kinande', en: 'Kinande' }, level: { fr: 'Native', en: 'Native' }, proficiency: 100 },
-  { name: { fr: 'Kinyarwanda', en: 'Kinyarwanda' }, level: { fr: 'Native', en: 'Native' }, proficiency: 90 },
+  { name: { fr: 'Kinyarwanda', en: 'Kinyarwanda' }, level: { fr: 'Courant', en: 'Fluent' }, proficiency: 90 },
 ]
