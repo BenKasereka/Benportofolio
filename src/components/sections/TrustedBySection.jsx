@@ -8,14 +8,20 @@ import { missions } from '../../data/missions'
 // donc sur la valeur fr sans perte.
 const ORGANIZATIONS = [...new Set(missions.map((m) => m.mission.fr.split(' — ')[0]))]
 
-/**
- * Bande de confiance sobre — texte seul, pas de logo.
- *
- * Un logo affiché ici pourrait laisser croire à un partenariat ou à une
- * approbation de l'organisation elle-même ; le nom en texte reste factuel :
- * Benjamin a occupé un poste dans ces organisations, ce que la chronologie
- * du pôle 01 documente avec dates et intitulé de poste.
- */
+const ASSET_BASE = import.meta.env.BASE_URL
+
+// Petit logo officiel à côté de chaque nom — identification factuelle d'un
+// poste occupé (documenté avec dates et intitulé dans le pôle 01), pas une
+// affirmation de partenariat. Logos issus de sources publiques (Wikimedia
+// Commons — licences PD-textlogo / CC-BY-SA — et le site officiel pour IMC).
+const ORG_LOGOS = {
+  'MSF-OCB': `${ASSET_BASE}images/partners/msf.svg`,
+  ACTED: `${ASSET_BASE}images/partners/acted.png`,
+  ACF: `${ASSET_BASE}images/partners/acf.svg`,
+  'Mercy Corps': `${ASSET_BASE}images/partners/mercy-corps.png`,
+  'International Medical Corps': `${ASSET_BASE}images/partners/international-medical-corps.png`,
+}
+
 export default function TrustedBySection() {
   const { t } = useTranslation('trustedBy')
 
@@ -25,9 +31,18 @@ export default function TrustedBySection() {
         <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
           {t('label')}
         </p>
-        <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 sm:justify-end">
+        <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 sm:justify-end">
           {ORGANIZATIONS.map((name) => (
-            <li key={name} className="text-sm font-semibold text-white/90">
+            <li key={name} className="flex items-center gap-2 text-sm font-semibold text-white/90">
+              {ORG_LOGOS[name] && (
+                <img
+                  src={ORG_LOGOS[name]}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-4 w-auto max-w-[1.5rem] shrink-0 rounded-sm bg-white/95 object-contain p-0.5"
+                  loading="lazy"
+                />
+              )}
               {name}
             </li>
           ))}

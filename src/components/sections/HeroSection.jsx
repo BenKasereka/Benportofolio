@@ -110,7 +110,7 @@ export default function HeroSection() {
             animate="show"
             custom={0.2}
             variants={fadeUp}
-            className="max-w-xl text-lg font-medium text-ink/90 sm:text-xl"
+            className="max-w-md text-lg font-medium text-ink/90 sm:text-xl"
           >
             <span className="font-semibold text-primary">{t('subheading.title')}</span>
             {' '}{t('subheading.body')}{' '}
@@ -122,7 +122,7 @@ export default function HeroSection() {
             animate="show"
             custom={0.3}
             variants={fadeUp}
-            className="max-w-xl text-base leading-relaxed text-muted"
+            className="max-w-md text-base leading-relaxed text-muted"
           >
             {t('description')}
           </motion.p>
@@ -176,12 +176,10 @@ export default function HeroSection() {
         {/* Colonne visuelle */}
         <div className="mx-auto flex w-full max-w-md flex-col items-stretch">
           {/* Illustration transport multimodal — au-dessus de la seule carte
-              photo. Les tentatives de débordement (bleed) au-delà de cette
-              colonne ont soit recouvert le texte à gauche, soit débordé du
-              viewport à droite et étaient rognées par l'overflow-hidden de
-              la section : la largeur réelle et sûre est celle de la colonne
-              elle-même, comme la carte juste en dessous. */}
-          <SupplyChainRouteIllustration className="mb-8 mt-7 w-full" />
+              photo. Le texte du Hero (ci-contre) est passé de max-w-xl à
+              max-w-md pour libérer de la place à droite, permettant ce
+              débordement mesuré sans recouvrir le texte. */}
+          <SupplyChainRouteIllustration className="mb-8 mt-7 w-full lg:-mx-16 lg:w-[calc(100%+8rem)]" />
 
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
