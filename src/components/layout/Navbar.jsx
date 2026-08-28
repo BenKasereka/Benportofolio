@@ -99,14 +99,10 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-4 lg:flex">
           <LanguageSwitcher />
-          {/* CTA desktop — un seul, une seule couleur (primary) */}
-          <a
-            href={`${BASE}#contact`}
-            onClick={handleAnchorClick('contact')}
-            className="btn-primary !px-5 !py-2.5 !text-xs"
-          >
+          {/* CTA desktop — un seul, une seule couleur (primary) — mène aux offres de formations disponibles */}
+          <Link to="/formations" className="btn-primary !px-5 !py-2.5 !text-xs">
             {t('nav.cta')}
-          </a>
+          </Link>
         </div>
 
         {/* Hamburger mobile */}
@@ -190,13 +186,9 @@ export default function Navbar() {
               <div className="mt-2 flex items-center gap-4">
                 <LanguageSwitcher />
               </div>
-              <a
-                href={`${BASE}#contact`}
-                onClick={(e) => { handleAnchorClick('contact')(e); setOpen(false) }}
-                className="btn-primary mt-2 w-fit"
-              >
+              <Link to="/formations" onClick={() => setOpen(false)} className="btn-primary mt-2 w-fit">
                 {t('nav.cta')}
-              </a>
+              </Link>
             </motion.ul>
           </motion.div>
         )}
