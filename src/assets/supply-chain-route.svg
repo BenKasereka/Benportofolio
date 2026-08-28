@@ -93,13 +93,13 @@
       <mpath href="#trainPath"/>
     </animateMotion>
     <g transform="translate(-39,-20)">
-      <rect x="2" y="6" width="28" height="14" fill="#B45309"/>
+      <rect x="2" y="6" width="28" height="14" fill="#0F172A"/>
       <line x1="10" y1="6" x2="10" y2="20" stroke="#FFFFFF" stroke-width="0.6" opacity="0.25"/>
       <line x1="20" y1="6" x2="20" y2="20" stroke="#FFFFFF" stroke-width="0.6" opacity="0.25"/>
       <line x1="30" y1="16" x2="34" y2="16" stroke="#475569" stroke-width="1.6"/>
-      <rect x="34" y="4" width="30" height="16" rx="4" fill="#047857"/>
-      <rect x="52" y="7" width="8" height="6" rx="1" fill="#F8FAFC" opacity="0.9"/>
-      <path d="M64,4 L74,10 L64,20 Z" fill="#047857"/>
+      <rect x="34" y="4" width="30" height="16" rx="4" fill="#0F172A"/>
+      <rect x="52" y="7" width="8" height="6" rx="1" fill="#FFFFFF"/>
+      <path d="M64,4 L74,10 L64,20 Z" fill="#0F172A"/>
       <line x1="48" y1="4" x2="48" y2="-16" stroke="#475569" stroke-width="1.4"/>
       <path d="M48,-16 L76,-9 L48,-2 Z" fill="#B45309"/>
       <text x="51" y="-7" font-size="9.5" font-weight="800" fill="#FFFFFF">BK</text>
