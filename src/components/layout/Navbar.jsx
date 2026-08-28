@@ -50,12 +50,15 @@ export default function Navbar() {
       }`}
     >
       <nav className="section-container flex h-20 items-center justify-between gap-4">
-        {/* Logo — la touche d'or de la marque, réservée à ce badge */}
-        <Link to="/" className="flex min-h-tap shrink-0 items-center gap-2 font-heading text-lg font-bold text-white">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-gold text-sm font-extrabold text-white">
-            BK
+        {/* Logo — le vrai logo BK-BOOST Ltd., sur un fond blanc pour ressortir sur la navbar sombre */}
+        <Link to="/" className="flex min-h-tap shrink-0 items-center">
+          <span className="flex h-12 items-center rounded-lg bg-white p-1.5 shadow-sm">
+            <img
+              src={`${BASE}images/brand/bk-boost-logo.png`}
+              alt="BK-BOOST Ltd."
+              className="h-full w-auto object-contain"
+            />
           </span>
-          Kasereka Vinyatsi
         </Link>
 
         {/* Desktop nav — Parcours · Expertise · Portfolio · Formations */}
