@@ -80,6 +80,15 @@
     @apply py-12 sm:py-16;
   }
 
+  /* Le SVG source (supply-chain-route.svg) n'a pas de width/height propre —
+     seulement un viewBox — donc il retombe sur une taille intrinsèque du
+     navigateur sans cette règle. */
+  .supply-chain-route-illustration svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
   /* Ligne de séparation entre sections — un simple trait fin et net,
      sans couleur ni lueur : c'est ce qui se fait sur un site corporate/
      conseil senior. Les tentatives dégradé + lueur (vert, puis bleu)

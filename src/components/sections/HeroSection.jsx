@@ -5,6 +5,7 @@ import { ArrowRight, Download, MapPin, ShieldCheck } from 'lucide-react'
 import StatCounter from '../ui/StatCounter'
 import Modal from '../ui/Modal'
 import InquiryForm from '../ui/InquiryForm'
+import SupplyChainRouteIllustration from '../ui/SupplyChainRouteIllustration'
 
 // ── Photos terrain — ajouter terrain-02.jpg, terrain-03.jpg, terrain-04.jpg
 // dans public/images/terrain/ pour activer le diaporama complet
@@ -173,12 +174,18 @@ export default function HeroSection() {
         </div>
 
         {/* Colonne visuelle */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mx-auto aspect-[4/5] w-full max-w-md"
-        >
+        <div className="mx-auto flex w-full max-w-md flex-col items-stretch">
+          {/* Illustration transport multimodal — élargie au-delà de la carte
+              photo (déborde la colonne sur grand écran, ratio 1300:400 trop
+              large pour rester lisible à la largeur de la carte seule) */}
+          <SupplyChainRouteIllustration className="mt-10 mb-8 w-full sm:mt-14 lg:-mx-14 lg:w-[calc(100%+7rem)]" />
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="relative aspect-[4/5] w-full"
+          >
           {/* Flottement continu + inclinaison 3D qui suit le curseur */}
           <motion.div
             animate={{ y: [0, -14, 0] }}
@@ -261,7 +268,8 @@ export default function HeroSection() {
             <p className="text-xs text-muted">{t('floatingBadge.label')}</p>
             <p className="font-heading text-2xl font-bold text-primary">{t('floatingBadge.value')}</p>
           </motion.div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
 
       <Modal open={cvModalOpen} onClose={() => setCvModalOpen(false)} title={t('cvModal.title')}>
