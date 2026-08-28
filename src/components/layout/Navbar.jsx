@@ -71,17 +71,15 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Accueil — icône seule, ramène toujours à la page d'accueil.
-              Masqué sur la page d'accueil elle-même : y revenir n'a pas de sens. */}
-          {pathname !== '/' && (
-            <Link
-              to="/"
-              className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white transition-colors hover:bg-white/20"
-              aria-label={t('nav.home')}
-            >
-              <Home className="h-4.5 w-4.5" aria-hidden="true" />
-            </Link>
-          )}
+          {/* Accueil — icône seule, ramène toujours à la page d'accueil, sur
+              toutes les pages y compris la page d'accueil elle-même. */}
+          <Link
+            to="/"
+            className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white transition-colors hover:bg-white/20"
+            aria-label={t('nav.home')}
+          >
+            <Home className="h-5 w-5" aria-hidden="true" />
+          </Link>
         </div>
 
         {/* Desktop nav — Parcours · Expertise · Portfolio · Formations */}
