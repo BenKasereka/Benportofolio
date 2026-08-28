@@ -15,22 +15,22 @@ import Footer from '../components/layout/Footer'
 import { waLink } from '../config/site'
 
 const PAYMENT_METHODS = [
-  { icon: Phone,       label: 'Mobile Money',   detail: 'M-Pesa · Airtel Money · Orange Money', color: 'text-accent bg-accent/10' },
-  { icon: DollarSign,  label: 'Cash USD',        detail: 'Paiement en espèces USD', color: 'text-accent bg-accent/10' },
-  { icon: CreditCard,  label: 'Virement bancaire', detail: 'Sur demande — coordonnées fournies', color: 'text-accent bg-accent/10' },
-  { icon: MessageCircle, label: 'Western Union / MoneyGram', detail: 'Pour clients internationaux', color: 'text-accent bg-accent/10' },
+  { icon: Phone,       label: 'Mobile Money',   detail: 'M-Pesa · Airtel Money · Orange Money', color: 'text-primary bg-primary/10' },
+  { icon: DollarSign,  label: 'Cash USD',        detail: 'Paiement en espèces USD', color: 'text-primary bg-primary/10' },
+  { icon: CreditCard,  label: 'Virement bancaire', detail: 'Sur demande — coordonnées fournies', color: 'text-primary bg-primary/10' },
+  { icon: MessageCircle, label: 'Western Union / MoneyGram', detail: 'Pour clients internationaux', color: 'text-primary bg-primary/10' },
 ]
 
 const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
 
 // Une seule palette pour les 7 formations désormais (plus de teinte par carte) —
 // texte blanc à forte opacité, lisible quel que soit le fond, cohérent avec
-// l'accent unique du site.
+// l'accent primary du site.
 const CARD_PALETTE = {
-  bg: 'bg-accent-darker border border-accent-light/20',
+  bg: 'bg-primary-darker border border-primary-light/20',
   icon: 'bg-white/15 text-white',
   ring: 'group-hover:border-white/[0.4]',
-  glow: 'group-hover:shadow-accent-glow',
+  glow: 'group-hover:shadow-primary-glow',
   link: 'text-white',
   number: 'text-white/10',
   badge: 'bg-black/25 text-white',
@@ -59,7 +59,7 @@ export default function FormationsPage() {
       <main id="main-content">
         {/* ── Bandeau promotionnel — n'apparaît que pendant une promo réelle et datée (voir src/data/sessions.js) ── */}
         {isPromoActive() && (
-          <div className="fixed inset-x-0 top-20 z-40 flex items-center justify-center gap-4 bg-gradient-to-r from-accent-dark via-accent-darker to-accent-dark px-4 py-2.5 shadow-lg">
+          <div className="fixed inset-x-0 top-20 z-40 flex items-center justify-center gap-4 bg-primary-secondary px-4 py-2.5 shadow-lg">
             <Flame className="h-4 w-4 shrink-0 text-white animate-pulse" />
             <span className="text-sm font-bold text-white">
               {promo.label.toUpperCase()} — Jusqu'à <span className="text-white underline">-{promo.discountPercent}%</span> sur toutes les formations
@@ -72,15 +72,15 @@ export default function FormationsPage() {
         {/* ── Hero formations ── */}
         <section className="relative overflow-hidden bg-surface pt-36 pb-24">
           {/* Halos */}
-          <div className="pointer-events-none absolute -top-40 right-[-10%] h-[32rem] w-[32rem] rounded-full bg-accent/10 blur-3xl animate-pulse-slow" />
-          <div className="pointer-events-none absolute bottom-0 left-[-10%] h-72 w-72 rounded-full bg-accent/[0.06] blur-3xl animate-pulse-slow" />
+          <div className="pointer-events-none absolute -top-40 right-[-10%] h-[32rem] w-[32rem] rounded-full bg-primary/10 blur-3xl animate-pulse-slow" />
+          <div className="pointer-events-none absolute bottom-0 left-[-10%] h-72 w-72 rounded-full bg-primary/[0.06] blur-3xl animate-pulse-slow" />
           <div className="pointer-events-none absolute inset-0 bg-grid-glow opacity-30" />
 
           <div className="section-container relative flex flex-col items-center gap-8 text-center">
             {/* Bouton retour Accueil */}
             <Link
               to="/"
-              className="flex items-center gap-2 self-start rounded-full border border-border bg-surface-card px-4 py-2 text-sm font-medium text-muted transition-all hover:border-accent/40 hover:text-ink"
+              className="flex items-center gap-2 self-start rounded-full border border-border bg-surface-card px-4 py-2 text-sm font-medium text-muted transition-all hover:border-primary/40 hover:text-ink"
             >
               ← Accueil
             </Link>
@@ -99,7 +99,7 @@ export default function FormationsPage() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl"
             >
-              Nos <span className="text-accent">Formations</span>
+              Nos <span className="text-primary">Formations</span>
             </motion.h1>
 
             <motion.p
@@ -122,7 +122,7 @@ export default function FormationsPage() {
             >
               <a
                 href="#tarifs"
-                className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-5 py-2.5 text-sm font-semibold text-accent-dark transition-all hover:bg-accent/20 hover:border-accent/[0.7]"
+                className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2.5 text-sm font-semibold text-primary-dark transition-all hover:bg-primary/20 hover:border-primary/[0.7]"
               >
                 <DollarSign className="h-4 w-4" />
                 Voir nos tarifs &amp; options de paiement
@@ -143,7 +143,7 @@ export default function FormationsPage() {
                 { value: '24h', label: 'Réponse garantie' },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col items-center gap-1">
-                  <span className="font-heading text-3xl font-extrabold text-accent-dark">{stat.value}</span>
+                  <span className="font-heading text-3xl font-extrabold text-primary-dark">{stat.value}</span>
                   <span className="text-xs uppercase tracking-wide text-muted">{stat.label}</span>
                 </div>
               ))}
@@ -156,7 +156,7 @@ export default function FormationsPage() {
           <div className="section-container flex flex-col gap-16">
             <div className="text-center">
               <h2 className="text-3xl font-bold sm:text-4xl">
-                Choisissez votre <span className="text-accent-dark">programme</span>
+                Choisissez votre <span className="text-primary-dark">programme</span>
               </h2>
               <p className="mt-4 text-muted">
                 Cliquez sur une formation pour accéder au programme complet, aux objectifs et au formulaire d'inscription.
@@ -256,7 +256,7 @@ export default function FormationsPage() {
             <div className="flex flex-col items-center gap-6 text-center">
               <span className="eyebrow"><DollarSign className="h-3.5 w-3.5 inline mr-1" />Transparence tarifaire</span>
               <h2 className="text-3xl font-bold sm:text-4xl">
-                Nos <span className="text-accent">Tarifs</span> &amp; Options de Paiement
+                Nos <span className="text-primary">Tarifs</span> &amp; Options de Paiement
               </h2>
               <p className="max-w-xl text-muted">
                 Chaque formation est accessible selon votre budget. Sélectionnez votre mode de
@@ -266,7 +266,7 @@ export default function FormationsPage() {
                   (voir src/data/sessions.js). Remplace l'ancien compte à rebours qui repartait
                   sur 3 jours pour chaque visiteur via le localStorage et n'expirait jamais. */}
               {isPromoActive() && (
-                <div className="relative w-full overflow-hidden rounded-2xl bg-accent-darker px-8 py-8 text-center shadow-accent-glow sm:px-12 sm:py-10">
+                <div className="relative w-full overflow-hidden rounded-2xl bg-primary-darker px-8 py-8 text-center shadow-primary-glow sm:px-12 sm:py-10">
                   <div className="pointer-events-none absolute -top-12 right-[-8%] h-48 w-48 rounded-full bg-white/10 blur-3xl" />
                   <div className="pointer-events-none absolute -bottom-12 left-[-8%] h-48 w-48 rounded-full bg-white/10 blur-3xl" />
 
@@ -426,7 +426,7 @@ export default function FormationsPage() {
               transition={{ duration: 0.7 }}
               className="card-executive relative overflow-hidden p-10 text-center sm:p-16"
             >
-              <div className="pointer-events-none absolute inset-0 bg-accent opacity-[0.06]" />
+              <div className="pointer-events-none absolute inset-0 bg-primary opacity-[0.06]" />
               <span className="eyebrow">Une question ?</span>
               <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
                 Vous ne savez pas quelle formation choisir ?

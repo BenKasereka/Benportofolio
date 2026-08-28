@@ -26,10 +26,10 @@ export default function LanguagesSection() {
             >
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-2 font-semibold text-ink">
-                  <LanguagesIcon className="h-4 w-4 text-accent" aria-hidden="true" />
+                  <LanguagesIcon className="h-4 w-4 text-primary" aria-hidden="true" />
                   {lang.name}
                 </span>
-                <span className="rounded-full border border-accent/30 bg-accent/10 px-3 py-0.5 text-xs font-semibold text-accent-dark">
+                <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary-dark">
                   {lang.level}
                 </span>
               </div>
@@ -39,7 +39,7 @@ export default function LanguagesSection() {
                   whileInView={{ width: `${lang.proficiency}%` }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, delay: index * 0.08 + 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="h-full rounded-full bg-accent"
+                  className="h-full rounded-full bg-primary"
                 />
               </div>
             </motion.div>

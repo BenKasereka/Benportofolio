@@ -38,14 +38,14 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? 'border-b border-slate-200 bg-surface-white shadow-md' : 'bg-surface-white/90 backdrop-blur-sm'
+      className={`surface-dark fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled ? 'bg-secondary shadow-md' : 'bg-secondary/95 backdrop-blur-sm'
       }`}
     >
       <nav className="section-container flex h-20 items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex min-h-tap items-center gap-2 font-heading text-lg font-bold text-ink">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent text-sm font-extrabold text-white">
+        {/* Logo — la touche d'or de la marque, réservée à ce badge */}
+        <Link to="/" className="flex min-h-tap items-center gap-2 font-heading text-lg font-bold text-white">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-gold text-sm font-extrabold text-white">
             BK
           </span>
           Kasereka Vinyatsi
@@ -56,7 +56,7 @@ export default function Navbar() {
           <li>
             <Link
               to="/"
-              className="flex items-center gap-1.5 text-sm font-medium text-ink/80 transition-colors hover:text-ink"
+              className="flex items-center gap-1.5 text-sm font-medium text-white/85 transition-colors hover:text-white"
             >
               <Home className="h-4 w-4" />
               Accueil
@@ -64,30 +64,30 @@ export default function Navbar() {
           </li>
           {PORTFOLIO_LINKS.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="text-sm font-medium text-ink/80 transition-colors hover:text-ink">
+              <a href={link.href} className="text-sm font-medium text-white/85 transition-colors hover:text-white">
                 {link.label}
               </a>
             </li>
           ))}
-          {/* Bouton formations */}
+          {/* Bouton formations — primary (vert), action de navigation standard */}
           <li>
             <Link
               to="/formations"
               className={`flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition-all duration-300 ${
                 isFormations
-                  ? 'border-accent/60 bg-accent/10 text-accent-dark'
-                  : 'border-accent/30 bg-accent/5 text-accent-dark hover:border-accent/60 hover:bg-accent/10'
+                  ? 'border-primary-400/60 bg-primary/20 text-primary-400'
+                  : 'border-primary-400/30 bg-primary/10 text-primary-400 hover:border-primary-400/60 hover:bg-primary/20'
               }`}
             >
               <GraduationCap className="h-4 w-4" />
               Nos Formations
             </Link>
           </li>
-          {/* Bouton tarifs */}
+          {/* Bouton tarifs — seul bouton en or de la navbar : mis en avant comme action premium */}
           <li>
             <Link
               to="/formations#tarifs"
-              className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 px-4 py-2 text-sm font-semibold text-ink transition-all duration-300 hover:border-slate-300 hover:bg-slate-200"
+              className="flex items-center gap-2 rounded-full bg-accent-gold px-4 py-2 text-sm font-semibold text-white shadow-gold-glow transition-all duration-300 hover:bg-accent-gold-dark"
             >
               <DollarSign className="h-4 w-4" />
               Nos Tarifs
@@ -95,7 +95,7 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* CTA desktop */}
+        {/* CTA desktop — une seule couleur (primary), jamais combinée à l'or sur le même bouton */}
         <a href={`${BASE}#contact`} onClick={handleContactClick} className="hidden btn-primary !px-5 !py-2.5 !text-xs lg:inline-flex">
           Consultation
         </a>
@@ -103,7 +103,7 @@ export default function Navbar() {
         {/* Hamburger mobile */}
         <button
           onClick={() => setOpen(true)}
-          className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-slate-200 bg-slate-100 text-ink lg:hidden"
+          className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white lg:hidden"
           aria-label="Ouvrir le menu"
         >
           <Menu className="h-5 w-5" />
@@ -117,7 +117,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="surface-dark fixed inset-0 z-50 bg-ink backdrop-blur-lg lg:hidden"
+            className="surface-dark fixed inset-0 z-50 bg-secondary backdrop-blur-lg lg:hidden"
           >
             <div className="section-container flex h-20 items-center justify-between">
               <span className="font-heading text-lg font-bold text-white">Menu</span>
@@ -172,7 +172,7 @@ export default function Navbar() {
                 <Link
                   to="/formations"
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-2 text-2xl font-semibold text-accent-400"
+                  className="flex items-center gap-2 text-2xl font-semibold text-primary-400"
                 >
                   <GraduationCap className="h-6 w-6" />
                   Nos Formations
@@ -186,7 +186,7 @@ export default function Navbar() {
                 <Link
                   to="/formations#tarifs"
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-2 text-2xl font-semibold text-white"
+                  className="flex items-center gap-2 text-2xl font-semibold text-accent-gold-light"
                 >
                   <DollarSign className="h-6 w-6" />
                   Nos Tarifs

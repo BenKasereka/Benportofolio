@@ -17,7 +17,7 @@ const cardVariants = {
 // Une seule teinte pour les 5 cartes du pipeline — la progression se lit par
 // l'ordre et les flèches de connexion, pas par un jeu de couleurs différentes.
 const PHASE_PALETTE = {
-  bg: 'bg-accent-darker border border-accent-light/20',
+  bg: 'bg-primary-darker border border-primary-light/20',
   icon: 'bg-white/15 text-white',
   desc: 'text-white/80',
   badge: 'bg-black/25 text-white ring-1 ring-white/30',
@@ -27,7 +27,7 @@ const PHASE_PALETTE = {
 export default function DataAnalysisSection() {
   return (
     <section id="data" className="section-padding relative overflow-hidden bg-surface-white">
-      <div className="pointer-events-none absolute right-[-10%] top-0 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
+      <div className="pointer-events-none absolute right-[-10%] top-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
 
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
@@ -40,7 +40,7 @@ export default function DataAnalysisSection() {
         <div className="mx-auto grid w-full max-w-2xl grid-cols-3 gap-4">
           {dataStats.map((stat) => (
             <div key={stat.label} className="card-executive p-5 text-center">
-              <p className="font-heading text-xl font-extrabold text-accent sm:text-2xl">{stat.value}</p>
+              <p className="font-heading text-xl font-extrabold text-primary sm:text-2xl">{stat.value}</p>
               <p className="mt-1 text-xs leading-snug text-muted">{stat.label}</p>
             </div>
           ))}

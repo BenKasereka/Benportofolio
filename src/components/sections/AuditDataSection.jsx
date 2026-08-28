@@ -28,7 +28,7 @@ export default function AuditSection() {
         <div className="mx-auto grid w-full max-w-2xl grid-cols-3 gap-4">
           {auditStats.map((stat) => (
             <div key={stat.label} className="card-executive p-5 text-center">
-              <p className="font-heading text-2xl font-extrabold text-accent sm:text-3xl">{stat.value}</p>
+              <p className="font-heading text-2xl font-extrabold text-primary sm:text-3xl">{stat.value}</p>
               <p className="mt-1 text-xs leading-snug text-muted">{stat.label}</p>
             </div>
           ))}
@@ -47,7 +47,7 @@ export default function AuditSection() {
                 variants={itemVariants}
                 className="card-executive flex flex-col gap-3 p-6"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" strokeWidth={1.75} />
                 </span>
                 <h3 className="font-semibold text-ink">{capability.title}</h3>
@@ -55,7 +55,7 @@ export default function AuditSection() {
                 <ul className="mt-2 flex flex-col gap-1.5 border-t border-border pt-3">
                   {capability.points.map((point) => (
                     <li key={point} className="flex items-start gap-2 text-sm leading-snug text-muted">
-                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />
+                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
                       <span>{point}</span>
                     </li>
                   ))}

@@ -90,7 +90,7 @@ export default function App() {
 function RouteFallback() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-surface">
-      <div className="h-8 w-8 animate-spin rounded-full border-2 border-accent/30 border-t-accent" />
+      <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary/30 border-t-primary" />
     </div>
   )
 }

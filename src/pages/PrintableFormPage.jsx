@@ -149,14 +149,14 @@ export default function PrintableFormPage() {
           </Link>
           <div className="flex flex-wrap items-center gap-3">
             {status === 'sent' && (
-              <span className="text-sm font-medium text-accent-400">
+              <span className="text-sm font-medium text-primary-400">
                 ✓ Dossier envoyé à {TO_EMAIL}
               </span>
             )}
             <button
               onClick={handleSubmit}
               disabled={status === 'sending' || status === 'sent'}
-              className="min-h-tap rounded-lg bg-accent px-6 py-2.5 text-sm font-bold text-white transition hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-50"
+              className="min-h-tap rounded-lg bg-primary px-6 py-2.5 text-sm font-bold text-white transition hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-50"
             >
               {status === 'sending' ? 'Envoi en cours…' : status === 'sent' ? 'Envoyé ✓' : 'Envoyer par email'}
             </button>
@@ -183,7 +183,7 @@ export default function PrintableFormPage() {
                 href={waLink(`Bonjour Benjamin, voici mon dossier de candidature :\n\n${dossierSummary()}`)}
                 target="_blank"
                 rel="noreferrer"
-                className="min-h-tap rounded-lg bg-accent px-4 py-2 text-xs font-bold text-white hover:bg-accent-dark"
+                className="min-h-tap rounded-lg bg-primary px-4 py-2 text-xs font-bold text-white hover:bg-primary-dark"
               >
                 Envoyer via WhatsApp
               </a>

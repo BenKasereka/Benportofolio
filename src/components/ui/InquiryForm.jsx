@@ -4,7 +4,7 @@ import { isMailConfigured, sendMail } from '../../lib/sendMail'
 import { mailLink, site, waLink } from '../../config/site'
 
 const FIELD_CLASS =
-  'w-full rounded-xl border border-border bg-surface-white py-3 pl-11 pr-4 text-sm text-ink placeholder-slate-400 transition focus:border-accent focus:ring-2 focus:ring-accent/[0.3]'
+  'w-full rounded-xl border border-border bg-surface-white py-3 pl-11 pr-4 text-sm text-ink placeholder-slate-400 transition focus:border-primary focus:ring-2 focus:ring-primary/[0.3]'
 
 /**
  * Formulaire court de prise de contact — étape 1 du parcours.
@@ -69,8 +69,8 @@ export default function InquiryForm({ subject, contextLabel }) {
   // ── Succès confirmé par le serveur ────────────────────────────────
   if (status === 'sent') {
     return (
-      <div className="flex flex-col items-center gap-4 rounded-2xl border border-accent/30 bg-accent/5 p-10 text-center">
-        <CheckCircle2 className="h-12 w-12 text-accent" aria-hidden="true" />
+      <div className="flex flex-col items-center gap-4 rounded-2xl border border-primary/30 bg-primary/5 p-10 text-center">
+        <CheckCircle2 className="h-12 w-12 text-primary" aria-hidden="true" />
         <h3 className="text-xl font-bold text-ink">Message bien reçu</h3>
         <p className="max-w-md text-sm leading-relaxed text-muted">
           Votre demande concernant <span className="font-semibold text-ink">{topic}</span> est
@@ -95,7 +95,7 @@ export default function InquiryForm({ subject, contextLabel }) {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label htmlFor={`${uid}-name`} className="text-xs font-semibold uppercase tracking-widest text-muted">
-            Nom complet <span className="text-accent">*</span>
+            Nom complet <span className="text-primary">*</span>
           </label>
           <div className="relative">
             <User className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" aria-hidden="true" />
@@ -115,7 +115,7 @@ export default function InquiryForm({ subject, contextLabel }) {
 
         <div className="flex flex-col gap-2">
           <label htmlFor={`${uid}-email`} className="text-xs font-semibold uppercase tracking-widest text-muted">
-            Adresse email <span className="text-accent">*</span>
+            Adresse email <span className="text-primary">*</span>
           </label>
           <div className="relative">
             <Mail className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" aria-hidden="true" />
@@ -135,7 +135,7 @@ export default function InquiryForm({ subject, contextLabel }) {
 
         <div className="flex flex-col gap-2">
           <label htmlFor={`${uid}-phone`} className="text-xs font-semibold uppercase tracking-widest text-muted">
-            Téléphone / WhatsApp <span className="text-accent">*</span>
+            Téléphone / WhatsApp <span className="text-primary">*</span>
           </label>
           <div className="relative">
             <Phone className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" aria-hidden="true" />

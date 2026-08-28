@@ -39,25 +39,25 @@ export default function ServicesHub() {
                 whileInView="show"
                 viewport={{ once: true, margin: '-60px' }}
                 variants={cardVariants}
-                className={`card-executive group relative flex flex-col gap-6 overflow-hidden p-8 group-hover:border-accent/50 group-hover:shadow-accent-glow ${
+                className={`card-executive group relative flex flex-col gap-6 overflow-hidden p-8 group-hover:border-primary/50 group-hover:shadow-primary-glow ${
                   index === 0 ? 'md:col-span-2 xl:col-span-1' : ''
                 }`}
               >
-                <span className="pointer-events-none absolute -right-4 -top-6 font-heading text-8xl font-extrabold text-accent/[0.12]">
+                <span className="pointer-events-none absolute -right-4 -top-6 font-heading text-8xl font-extrabold text-primary/[0.12]">
                   {service.number}
                 </span>
 
                 <div className="flex items-center justify-between">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/10 text-accent">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                     <Icon className="h-6 w-6" strokeWidth={1.75} />
                   </span>
                   <ArrowUpRight
-                    className="h-5 w-5 text-muted transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent"
+                    className="h-5 w-5 text-muted transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-primary"
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <p className="text-xs font-semibold uppercase tracking-[0.15em] text-accent-dark">
+                  <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary-dark">
                     {service.subtitle}
                   </p>
                   <h3 className="text-xl font-bold text-ink">{service.title}</h3>
@@ -67,7 +67,7 @@ export default function ServicesHub() {
                 <ul className="flex flex-col gap-1.5">
                   {service.highlights.map((point) => (
                     <li key={point} className="flex items-start gap-2 text-sm leading-snug text-muted">
-                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" aria-hidden="true" />
+                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
                       <span>{point}</span>
                     </li>
                   ))}

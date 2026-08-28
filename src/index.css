@@ -23,17 +23,17 @@
 
   /* Focus clavier visible sur l'ensemble du site (FIN-04) */
   :focus-visible {
-    outline: 2px solid theme('colors.accent.DEFAULT');
+    outline: 2px solid theme('colors.primary.DEFAULT');
     outline-offset: 2px;
     border-radius: 4px;
   }
   /* Sur les surfaces sombres (footer, sections dark), teinte plus claire pour rester lisible */
   .surface-dark :focus-visible {
-    outline-color: theme('colors.accent.200');
+    outline-color: theme('colors.primary.200');
   }
 
   ::selection {
-    @apply bg-accent/20 text-ink;
+    @apply bg-primary/20 text-ink;
   }
 
   ::-webkit-scrollbar {
@@ -43,7 +43,7 @@
     background: #F1F5F9;
   }
   ::-webkit-scrollbar-thumb {
-    background: theme('colors.accent.DEFAULT');
+    background: theme('colors.primary.DEFAULT');
     border-radius: 999px;
   }
 
@@ -87,19 +87,22 @@
   }
 
   .card-executive:hover {
-    @apply -translate-y-1 border-accent/50 shadow-accent-glow;
+    @apply -translate-y-1 border-primary/50 shadow-primary-glow;
   }
 
-  /* Pastille / badge — fond neutre, texte ink. L'icône (colorée en
-     accent-badge) se règle au cas par cas sur les badges de certification
-     uniquement — voir HeroSection. */
+  /* Pastille / badge — fond neutre clair, texte ink, bordure et icône en or
+     (accent-gold). L'or reste rare (ce composant n'apparaît qu'une poignée
+     de fois par page) — c'est précisément ce qui lui garde son effet premium. */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-ink;
+    @apply inline-flex items-center gap-2 rounded-full border border-accent-gold/[0.4] bg-slate-100 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-ink;
+  }
+  .eyebrow svg {
+    @apply text-accent-gold;
   }
 
-  /* CTA principal — accent plein, pas de dégradé multi-teinte */
+  /* CTA principal — primary plein, pas de dégradé multi-teinte */
   .btn-primary {
-    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white shadow-accent-glow transition-all duration-300 hover:bg-accent-dark hover:scale-[1.03] active:scale-[0.98];
+    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-primary-glow transition-all duration-300 hover:bg-primary-dark hover:scale-[1.03] active:scale-[0.98];
   }
 
   /* CTA secondaire */
@@ -112,14 +115,14 @@
     @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white/[0.6] hover:bg-white/20;
   }
 
-  /* WhatsApp — aligné sur l'accent unique du site plutôt que le vert de marque WhatsApp */
+  /* WhatsApp — aligné sur l'accent primary du site plutôt que le vert de marque WhatsApp */
   .btn-whatsapp {
-    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-accent-dark;
+    @apply inline-flex min-h-tap items-center justify-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-primary-dark;
   }
 
-  /* Pastille teintée — une seule variante, sur l'accent unique */
-  .chip-accent {
-    @apply rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent-dark;
+  /* Pastille teintée — une seule variante, sur l'accent primary */
+  .chip-primary {
+    @apply rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary-dark;
   }
   /* Sur fond sombre : fond blanc translucide, texte blanc plein */
   .chip-on-dark {

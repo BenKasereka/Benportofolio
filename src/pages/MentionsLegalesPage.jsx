@@ -26,7 +26,7 @@ export default function MentionsLegalesPage() {
           <div className="flex flex-col gap-4">
             <Link
               to="/"
-              className="flex w-fit items-center gap-2 rounded-full border border-border bg-surface-white px-4 py-2 text-sm font-medium text-muted transition-all hover:border-accent/40 hover:text-ink"
+              className="flex w-fit items-center gap-2 rounded-full border border-border bg-surface-white px-4 py-2 text-sm font-medium text-muted transition-all hover:border-primary/40 hover:text-ink"
             >
               ← Accueil
             </Link>
@@ -45,9 +45,9 @@ export default function MentionsLegalesPage() {
                 <br />
                 {site.city}
                 <br />
-                Email : <a href={`mailto:${site.email}`} className="text-accent-dark underline underline-offset-2">{site.email}</a>
+                Email : <a href={`mailto:${site.email}`} className="text-primary-dark underline underline-offset-2">{site.email}</a>
                 <br />
-                Téléphone : <a href={`tel:${site.phoneRaw}`} className="text-accent-dark underline underline-offset-2">{site.phoneDisplay}</a>
+                Téléphone : <a href={`tel:${site.phoneRaw}`} className="text-primary-dark underline underline-offset-2">{site.phoneDisplay}</a>
               </p>
             </section>
 
@@ -63,7 +63,7 @@ export default function MentionsLegalesPage() {
                 Ces données sont conservées le temps nécessaire au traitement de votre demande, puis
                 supprimées. Vous pouvez à tout moment demander l&apos;accès, la rectification ou la
                 suppression de vos données en écrivant à{' '}
-                <a href={`mailto:${site.email}`} className="text-accent-dark underline underline-offset-2">{site.email}</a>.
+                <a href={`mailto:${site.email}`} className="text-primary-dark underline underline-offset-2">{site.email}</a>.
               </p>
             </section>
 

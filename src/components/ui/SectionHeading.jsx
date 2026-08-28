@@ -3,9 +3,10 @@ import { motion } from 'framer-motion'
 /**
  * Intitulé de section.
  *
- * Une seule couleur d'accent dans tout le site désormais — le prop `accent`
- * historique (qui sélectionnait une teinte différente par pôle : or, émeraude,
- * rouge, teal…) a été retiré : chaque section utilise le même accent de marque.
+ * Le mot mis en avant (`highlight`) et le trait de soulignement restent en
+ * `primary` — « soulignés de titres » fait explicitement partie de son usage.
+ * `secondary` (bleu marine) est réservé aux sous-titres structurels de niveau
+ * inférieur (voir les micro-titres de BkBoost) et au fond de la navbar.
  *
  * `tone="dark"` adapte le texte aux sections à fond sombre (BkBoost, etc.).
  * `panel` retrouve le pavé de couleur pleine pour une section mise en avant
@@ -24,21 +25,21 @@ export default function SectionHeading({
   const isDark = tone === 'dark'
   const alignClass = align === 'left' ? 'items-start text-left' : 'items-center text-center'
 
-  // Fond neutre (gris clair) pour les pastilles — pas de teinte d'accent en fond,
-  // qui lirait comme une couleur décorative supplémentaire.
+  // Fond neutre (gris clair) pour les pastilles — la couleur ne vient que de
+  // la bordure/icône (voir .eyebrow dans index.css), jamais du fond.
   const chipClass = isDark
     ? 'border-white/25 bg-white/15 text-white'
     : 'border-slate-200 bg-slate-100 text-ink shadow-sm'
 
   const titleClass = isDark ? 'text-white' : 'text-ink'
   const descClass = isDark ? 'text-muted-invert' : 'text-muted'
-  const barClass = isDark ? 'bg-white/50' : 'bg-accent'
+  const barClass = isDark ? 'bg-white/50' : 'bg-primary'
 
   const heading = (
     <h2 className={`text-3xl font-bold sm:text-4xl lg:text-5xl ${panel ? 'text-white' : titleClass}`}>
       {title}{' '}
       {highlight && (
-        <span className={panel || isDark ? 'font-extrabold' : 'font-extrabold text-accent-dark'}>
+        <span className={panel || isDark ? 'font-extrabold' : 'font-extrabold text-primary-dark'}>
           {highlight}
         </span>
       )}

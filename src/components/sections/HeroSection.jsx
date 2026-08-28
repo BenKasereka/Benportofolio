@@ -63,16 +63,16 @@ export default function HeroSection() {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden bg-surface bg-grid-glow pt-28"
     >
-      {/* Halos décoratifs animés — une seule teinte (accent) */}
-      <div className="pointer-events-none absolute -top-40 right-[-10%] h-[32rem] w-[32rem] rounded-full bg-accent/10 blur-3xl animate-pulse-slow" />
-      <div className="pointer-events-none absolute -bottom-40 left-[-10%] h-[32rem] w-[32rem] rounded-full bg-accent/[0.06] blur-3xl animate-pulse-slow" />
+      {/* Halos décoratifs animés — une seule teinte (primary) */}
+      <div className="pointer-events-none absolute -top-40 right-[-10%] h-[32rem] w-[32rem] rounded-full bg-primary/10 blur-3xl animate-pulse-slow" />
+      <div className="pointer-events-none absolute -bottom-40 left-[-10%] h-[32rem] w-[32rem] rounded-full bg-primary/[0.06] blur-3xl animate-pulse-slow" />
 
       <div className="section-container relative grid gap-16 pb-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
         {/* Colonne texte */}
         <div className="flex flex-col gap-8">
           <motion.div initial="hidden" animate="show" custom={0} variants={fadeUp}>
             <span className="eyebrow">
-              <ShieldCheck className="h-3.5 w-3.5 text-accent-badge" aria-hidden="true" />
+              <ShieldCheck className="h-3.5 w-3.5 text-accent-gold" aria-hidden="true" />
               Certified Professional in Sourcing & Procurement — CPSP (USA)
             </span>
           </motion.div>
@@ -84,7 +84,7 @@ export default function HeroSection() {
             variants={fadeUp}
             className="text-4xl font-extrabold leading-[1.08] text-ink sm:text-5xl lg:text-6xl"
           >
-            Benjamin <span className="text-accent">Kasereka Vinyatsi</span>
+            Benjamin <span className="text-primary">Kasereka Vinyatsi</span>
           </motion.h1>
 
           <motion.p
@@ -94,9 +94,9 @@ export default function HeroSection() {
             variants={fadeUp}
             className="max-w-xl text-lg font-medium text-ink/90 sm:text-xl"
           >
-            <span className="font-semibold text-accent">Expert Certified Professional in Sourcing &amp; Procurement (ISCEA-USA)</span>
+            <span className="font-semibold text-primary">Expert Certified Professional in Sourcing &amp; Procurement (ISCEA-USA)</span>
             {' '}— Expert en Supply Chain &amp; Logistique Humanitaire, Finance, RH, Audit Interne et Data Analysis — fondateur de{' '}
-            <span className="font-semibold text-accent">BK-BOOST Ltd.</span>
+            <span className="font-semibold text-primary">BK-BOOST Ltd.</span>
           </motion.p>
 
           <motion.p
@@ -142,7 +142,7 @@ export default function HeroSection() {
             variants={fadeUp}
             className="flex items-center gap-2 pt-2 text-sm text-muted"
           >
-            <MapPin className="h-4 w-4 text-accent" aria-hidden="true" />
+            <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
             Basé à Goma, RDC — disponible pour déploiement rapide à l'international
           </motion.div>
 
@@ -176,7 +176,7 @@ export default function HeroSection() {
             style={{ rotateX, rotateY, transformPerspective: 1000 }}
             className="relative h-full w-full [transform-style:preserve-3d] will-change-transform"
           >
-            <div className="absolute inset-0 rounded-[2rem] bg-accent opacity-30 blur-2xl" />
+            <div className="absolute inset-0 rounded-[2rem] bg-primary opacity-30 blur-2xl" />
             <div className="card-executive relative h-full w-full overflow-hidden rounded-[2rem] p-2">
               {/* Slideshow photos terrain — balayage net : glissement + fondu, sans filtre coûteux */}
               <div className="relative h-full w-full overflow-hidden rounded-[1.6rem]">
@@ -216,7 +216,7 @@ export default function HeroSection() {
                     <p className="text-sm font-semibold text-slate-800">{current.mission}</p>
                   </motion.div>
                 </AnimatePresence>
-                <span className="h-2.5 w-2.5 animate-pulse-slow rounded-full bg-accent shadow-accent-glow" />
+                <span className="h-2.5 w-2.5 animate-pulse-slow rounded-full bg-primary shadow-primary-glow" />
               </div>
 
               {/* Indicateurs de slide — la pastille reste fine visuellement,
@@ -247,7 +247,7 @@ export default function HeroSection() {
             style={{ z: 40 }}
           >
             <p className="text-xs text-muted">Réduction des délais</p>
-            <p className="font-heading text-2xl font-bold text-accent">85%</p>
+            <p className="font-heading text-2xl font-bold text-primary">85%</p>
           </motion.div>
         </motion.div>
       </div>

@@ -15,20 +15,20 @@ import { waLink } from '../config/site'
 
 const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
 
-// Une seule couleur d'accent pour toutes les formations désormais —
+// Une seule couleur d'primary pour toutes les formations désormais —
 // l'objet garde les mêmes clés qu'avant pour ne pas toucher le reste du JSX.
 const A = {
-  badge: 'bg-accent/15 text-accent-dark border-accent/30',
-  icon: 'bg-accent/10 text-accent',
-  glow: 'shadow-accent-glow',
-  border: 'border-accent/40',
-  text: 'text-accent-dark',
-  number: 'text-accent/20',
-  dot: 'bg-accent',
-  gradient: 'from-accent/20 to-transparent',
-  modBorder: 'border-l-4 border-accent/50',
-  modNum: 'bg-accent/15 text-accent-dark',
-  outcomeBg: 'bg-accent/5 border-accent/15',
+  badge: 'bg-primary/15 text-primary-dark border-primary/30',
+  icon: 'bg-primary/10 text-primary',
+  glow: 'shadow-primary-glow',
+  border: 'border-primary/40',
+  text: 'text-primary-dark',
+  number: 'text-primary/20',
+  dot: 'bg-primary',
+  gradient: 'from-primary/20 to-transparent',
+  modBorder: 'border-l-4 border-primary/50',
+  modNum: 'bg-primary/15 text-primary-dark',
+  outcomeBg: 'bg-primary/5 border-primary/15',
 }
 
 const fadeUp = {
@@ -47,7 +47,7 @@ export default function FormationDetailPage() {
         <div className="flex flex-1 items-center justify-center">
           <div className="text-center">
             <p className="text-lg font-semibold text-ink">Formation introuvable.</p>
-            <Link to="/formations" className="mt-4 inline-block text-accent underline">
+            <Link to="/formations" className="mt-4 inline-block text-primary underline">
               Retour aux formations
             </Link>
           </div>
@@ -72,14 +72,14 @@ export default function FormationDetailPage() {
         {/* ── Hero de la formation ── */}
         <section className="relative overflow-hidden bg-surface pt-32 pb-20">
           <div className={`pointer-events-none absolute inset-x-0 top-0 h-96 bg-gradient-to-b ${a.gradient} opacity-50`} />
-          <div className="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-accent/10 blur-3xl" />
+          <div className="pointer-events-none absolute -right-32 top-20 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
 
           <div className="section-container relative flex flex-col gap-10">
             {/* Navigation: Fil d'Ariane + retour */}
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 to="/"
-                className="flex items-center gap-2 rounded-full border border-border bg-surface-white px-4 py-2 text-sm font-medium text-muted transition-all hover:border-accent/40 hover:text-ink"
+                className="flex items-center gap-2 rounded-full border border-border bg-surface-white px-4 py-2 text-sm font-medium text-muted transition-all hover:border-primary/40 hover:text-ink"
               >
                 ← Accueil
               </Link>
@@ -142,7 +142,7 @@ export default function FormationDetailPage() {
                             {p.amount} {p.currency}
                           </p>
                           {p.badge && (
-                            <span className="rounded-full bg-accent/20 px-2.5 py-1 text-xs font-bold text-accent-dark">
+                            <span className="rounded-full bg-primary/20 px-2.5 py-1 text-xs font-bold text-primary-dark">
                               {p.badge}
                             </span>
                           )}

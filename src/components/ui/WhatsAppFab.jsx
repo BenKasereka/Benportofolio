@@ -27,7 +27,7 @@ export default function WhatsAppFab({
       target="_blank"
       rel="noreferrer"
       aria-label="Discuter sur WhatsApp"
-      className={`fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-white shadow-lg transition-all duration-300 hover:bg-accent-dark hover:scale-105 sm:bottom-7 sm:right-7 ${
+      className={`fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-all duration-300 hover:bg-primary-dark hover:scale-105 sm:bottom-7 sm:right-7 ${
         visible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'
       }`}
     >
