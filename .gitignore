@@ -14,6 +14,7 @@ Les Images sur le Terrain de Benjamin KASEREKA VINYATSI/
 BK-BOOSTLtd Offre de formation.png
 Logo de BK-BOOSTLtd..png
 
-# Variables d'environnement locales
-.env
+# .env est committé (voir sa propre en-tête : ses valeurs ne sont pas des
+# secrets). .env.local reste ignoré pour d'éventuelles surcharges locales
+# qui ne devraient jamais être partagées.
 .env.local
