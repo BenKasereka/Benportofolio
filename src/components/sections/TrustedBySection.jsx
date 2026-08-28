@@ -20,14 +20,14 @@ export default function TrustedBySection() {
   const { t } = useTranslation('trustedBy')
 
   return (
-    <section className="border-y border-border bg-surface-white py-8">
+    <section className="surface-dark border-y border-white/10 bg-secondary py-8">
       <div className="section-container flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-        <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+        <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
           {t('label')}
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 sm:justify-end">
           {ORGANIZATIONS.map((name) => (
-            <li key={name} className="text-sm font-semibold text-ink/70">
+            <li key={name} className="text-sm font-semibold text-white/90">
               {name}
             </li>
           ))}

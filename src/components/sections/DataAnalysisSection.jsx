@@ -30,7 +30,7 @@ export default function DataAnalysisSection() {
   const lang = i18n.resolvedLanguage
 
   return (
-    <section id="data" className="section-padding relative overflow-hidden bg-surface-white">
+    <section id="data" className="section-padding relative overflow-hidden border-t border-border bg-surface-white">
       <div className="pointer-events-none absolute right-[-10%] top-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
 
       <div className="section-container flex flex-col gap-14">

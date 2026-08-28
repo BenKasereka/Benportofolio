@@ -19,7 +19,7 @@ export default function PricingSection() {
   const lang = i18n.resolvedLanguage
 
   return (
-    <section id="tarifs" className="section-padding relative bg-surface-white">
+    <section id="tarifs" className="section-padding relative border-t border-border bg-surface-white">
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
           eyebrow={t('eyebrow')}

@@ -8,7 +8,7 @@ export default function PortfolioSection() {
   const { t } = useTranslation('portfolio')
 
   return (
-    <section id="portfolio" className="section-padding-tight relative bg-surface-white">
+    <section id="portfolio" className="section-padding-tight relative border-t border-border bg-surface-white">
       <div className="section-container flex flex-col gap-8">
         <SectionHeading
           eyebrow={t('eyebrow')}
