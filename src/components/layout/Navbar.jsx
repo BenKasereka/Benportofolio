@@ -70,13 +70,14 @@ export default function Navbar() {
       }`}
     >
       <nav className="section-container flex h-20 items-center justify-between gap-4">
-        {/* Logo seul — le vrai logo BK-BOOST Ltd., sur un fond blanc pour ressortir sur la navbar sombre */}
+        {/* Logo seul — badge rond (pas une forme de bouton comme les pills
+            de la nav), sur un fond blanc pour ressortir sur la navbar sombre */}
         <Link to="/" className="flex min-h-tap shrink-0 items-center">
-          <span className="flex h-12 items-center rounded-lg bg-white p-1.5 shadow-sm">
+          <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white p-2 shadow-sm">
             <img
               src={`${BASE}images/brand/bk-boost-logo.png`}
               alt="BK-BOOST Ltd."
-              className="h-full w-auto object-contain"
+              className="h-full w-full object-contain"
             />
           </span>
         </Link>
