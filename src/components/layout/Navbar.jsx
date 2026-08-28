@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
-import { DollarSign, GraduationCap, Menu, X } from 'lucide-react'
+import { GraduationCap, Menu, X } from 'lucide-react'
 import LanguageSwitcher from '../ui/LanguageSwitcher'
 
 // Absolute paths must be prefixed with BASE_URL so they still resolve correctly
@@ -57,7 +57,7 @@ export default function Navbar() {
           Kasereka Vinyatsi
         </Link>
 
-        {/* Desktop nav — Parcours · Expertise · Portfolio · Formations · Tarifs */}
+        {/* Desktop nav — Parcours · Expertise · Portfolio · Formations */}
         <ul className="hidden items-center gap-6 lg:flex">
           {anchorLinks.map((link) => (
             <li key={link.href}>
@@ -83,17 +83,6 @@ export default function Navbar() {
               <GraduationCap className="h-4 w-4" />
               {t('nav.formations')}
             </Link>
-          </li>
-          {/* Tarifs — seul élément en or de la navbar : mis en avant comme action premium */}
-          <li>
-            <a
-              href={`${BASE}#tarifs`}
-              onClick={handleAnchorClick('tarifs')}
-              className="flex items-center gap-2 rounded-full bg-accent-gold px-4 py-2 text-sm font-semibold text-white shadow-gold-glow transition-all duration-300 hover:bg-accent-gold-dark"
-            >
-              <DollarSign className="h-4 w-4" />
-              {t('nav.tarifs')}
-            </a>
           </li>
         </ul>
 
@@ -168,20 +157,6 @@ export default function Navbar() {
                   <GraduationCap className="h-6 w-6" />
                   {t('nav.formations')}
                 </Link>
-              </motion.li>
-              <motion.li
-                initial={{ opacity: 0, x: -16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.06 * (anchorLinks.length + 2) }}
-              >
-                <a
-                  href={`${BASE}#tarifs`}
-                  onClick={(e) => { handleAnchorClick('tarifs')(e); setOpen(false) }}
-                  className="flex items-center gap-2 text-2xl font-semibold text-accent-gold-light"
-                >
-                  <DollarSign className="h-6 w-6" />
-                  {t('nav.tarifs')}
-                </a>
               </motion.li>
               <div className="mt-2 flex items-center gap-4">
                 <LanguageSwitcher />

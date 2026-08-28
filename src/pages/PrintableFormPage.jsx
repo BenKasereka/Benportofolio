@@ -9,6 +9,7 @@ import { site, waLink } from '../config/site'
 import SEO from '../components/ui/SEO'
 
 const TO_EMAIL = site.email
+const ASSET_BASE = import.meta.env.BASE_URL
 
 const EMPTY_FORM = {
   nom: '', prenom: '', date_naissance: '', nationalite: '',
@@ -23,9 +24,11 @@ const EMPTY_FORM = {
 }
 
 export default function PrintableFormPage() {
-  const { t } = useTranslation('printableForm')
+  const { t, i18n } = useTranslation('printableForm')
+  const lang = i18n.resolvedLanguage
   const { id } = useParams()
   const formation = formationById(id)
+  const formationTitle = formation?.title[lang]
 
   const [form, setForm] = useState(EMPTY_FORM)
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
@@ -61,7 +64,7 @@ export default function PrintableFormPage() {
   // pour que le candidat n'ait jamais à ressaisir 32 champs.
   const dossierSummary = () =>
     [
-      t('summary.formation', { value: formation.title }),
+      t('summary.formation', { value: formationTitle }),
       t('summary.name', { value: `${form.nom} ${form.prenom}` }),
       t('summary.phone', { value: form.telephone }),
       t('summary.email', { value: form.email_candidat }),
@@ -77,7 +80,7 @@ export default function PrintableFormPage() {
 
     const result = await sendMail({
       to_email: TO_EMAIL,
-      formation_title: formation.title,
+      formation_title: formationTitle,
       formation_number: formation.number,
       nom: form.nom,
       prenom: form.prenom,
@@ -109,8 +112,8 @@ export default function PrintableFormPage() {
   return (
     <>
       <SEO
-        title={t('seo.title', { title: formation.title })}
-        description={t('seo.description', { title: formation.title })}
+        title={t('seo.title', { title: formationTitle })}
+        description={t('seo.description', { title: formationTitle })}
         noindex
       />
       <style>{`
@@ -188,7 +191,7 @@ export default function PrintableFormPage() {
                 {t('error.sendWhatsapp')}
               </a>
               <a
-                href={`mailto:${TO_EMAIL}?subject=${encodeURIComponent(t('seo.title', { title: formation.title }))}&body=${encodeURIComponent(dossierSummary())}`}
+                href={`mailto:${TO_EMAIL}?subject=${encodeURIComponent(t('seo.title', { title: formationTitle }))}&body=${encodeURIComponent(dossierSummary())}`}
                 className="min-h-tap rounded-lg border border-slate-500 px-4 py-2 text-xs font-bold text-white hover:bg-white/10"
               >
                 {t('error.openMail')}
@@ -206,12 +209,19 @@ export default function PrintableFormPage() {
         {/* En-tête */}
         <div style={{ borderBottom: '3px solid #047857', paddingBottom: '24px', marginBottom: '32px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <div>
-              <div style={{ fontSize: '22px', fontWeight: '900', color: '#0F172A', letterSpacing: '-0.5px' }}>
-                BK-BOOST Ltd.
-              </div>
-              <div style={{ fontSize: '11px', color: '#6B7280', marginTop: '2px', letterSpacing: '2px', textTransform: 'uppercase' }}>
-                {t('header.motto')}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <img
+                src={`${ASSET_BASE}images/brand/bk-boost-logo.png`}
+                alt="BK-BOOST Ltd."
+                style={{ height: '52px', width: '52px', objectFit: 'contain' }}
+              />
+              <div>
+                <div style={{ fontSize: '22px', fontWeight: '900', color: '#0F172A', letterSpacing: '-0.5px' }}>
+                  BK-BOOST Ltd.
+                </div>
+                <div style={{ fontSize: '11px', color: '#6B7280', marginTop: '2px', letterSpacing: '2px', textTransform: 'uppercase' }}>
+                  {t('header.motto')}
+                </div>
               </div>
             </div>
             <div style={{ textAlign: 'right' }}>
@@ -228,10 +238,10 @@ export default function PrintableFormPage() {
             {t('form.eyebrow', { number: formation.number })}
           </div>
           <h1 style={{ fontSize: '18px', fontWeight: '800', color: '#F8FAFC', lineHeight: '1.3', margin: 0 }}>
-            {formation.title}
+            {formationTitle}
           </h1>
           <div style={{ fontSize: '12px', color: '#94A3B8', marginTop: '6px' }}>
-            {formation.duration} · {formation.level} · {formation.format}
+            {formation.duration[lang]} · {formation.level[lang]} · {formation.format[lang]}
           </div>
         </div>
 
@@ -262,7 +272,7 @@ export default function PrintableFormPage() {
         {/* Section 3 — Objectifs */}
         <Section title={t('form.sections.objectives.title')} number="03">
           <Field
-            label={t('form.sections.objectives.why', { title: formation.title })}
+            label={t('form.sections.objectives.why', { title: formationTitle })}
             value={form.pourquoi_formation}
             onChange={set('pourquoi_formation')}
             multiline
@@ -302,8 +312,8 @@ export default function PrintableFormPage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '12px' }}>
             {pricingPacks.map((pack) => {
-              const p = pricingParts(pack)
-              const packValue = `${pack.name} — ${p.amount} ${p.currency}`
+              const p = pricingParts(pack, lang)
+              const packValue = `${pack.name[lang]} — ${p.amount} ${p.currency}`
               const isSelected = form.pack_choisi === packValue
               return (
                 <label
@@ -329,7 +339,7 @@ export default function PrintableFormPage() {
                   />
                   <div>
                     <div style={{ fontSize: '12px', fontWeight: '700', color: '#0F172A' }}>
-                      {pack.name}
+                      {pack.name[lang]}
                       {pack.highlight && (
                         <span style={{ marginLeft: '6px', fontSize: '9px', backgroundColor: '#047857', color: '#FFFFFF', padding: '1px 6px', borderRadius: '999px', fontWeight: '800' }}>
                           {t('form.sections.pack.mostChosen')}
@@ -341,8 +351,8 @@ export default function PrintableFormPage() {
                     </div>
                     <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                       {pack.features.map((f) => (
-                        <li key={f} style={{ fontSize: '10px', color: '#6B7280', lineHeight: '1.6' }}>
-                          • {f}
+                        <li key={f[lang]} style={{ fontSize: '10px', color: '#6B7280', lineHeight: '1.6' }}>
+                          • {f[lang]}
                         </li>
                       ))}
                     </ul>
