@@ -1,0 +1,30 @@
+{
+  "seo": {
+    "title": "Legal Notice",
+    "description": "Legal notice, personal data processing, and terms of enrollment for BK-BOOST Ltd. training programs."
+  },
+  "backLink": "← Home",
+  "heading": "Legal Notice",
+  "intro": "Site publisher, personal data processing, and terms applicable to the training programs and consultations offered by {{company}}",
+  "sections": {
+    "editor": {
+      "title": "Site Publisher",
+      "emailLabel": "Email:",
+      "phoneLabel": "Phone:"
+    },
+    "personalData": {
+      "title": "Personal Data",
+      "body1": "Information submitted through this site's forms (name, email, phone number, organization, message, application file) is used exclusively to respond to your request and to follow up on any enrollment. It is never sold, transferred, or disclosed to third parties for commercial purposes.",
+      "body2Before": "This data is retained for as long as necessary to process your request, then deleted. You may at any time request access to, correction of, or deletion of your data by writing to",
+      "body2After": "."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "body": "This site uses your browser's local storage solely for technical purposes (remembering display preferences). No advertising or third-party tracking cookies are used."
+    },
+    "formations": {
+      "title": "Training Programs — Enrollment Terms",
+      "body": "Enrollment is confirmed upon receipt of payment through one of the methods indicated on the Pricing page. Any request for cancellation or rescheduling must be submitted in writing; it will be reviewed on a case-by-case basis depending on the time remaining before the session begins."
+    }
+  }
+}

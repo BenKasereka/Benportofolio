@@ -1,0 +1,30 @@
+{
+  "seo": {
+    "title": "Mentions légales",
+    "description": "Mentions légales, traitement des données personnelles et conditions d'inscription aux formations BK-BOOST Ltd."
+  },
+  "backLink": "← Accueil",
+  "heading": "Mentions légales",
+  "intro": "Éditeur du site, traitement des données personnelles et conditions applicables aux formations et consultations proposées par {{company}}",
+  "sections": {
+    "editor": {
+      "title": "Éditeur du site",
+      "emailLabel": "Email :",
+      "phoneLabel": "Téléphone :"
+    },
+    "personalData": {
+      "title": "Données personnelles",
+      "body1": "Les informations transmises via les formulaires de ce site (nom, email, téléphone, organisation, message, dossier de candidature) sont utilisées exclusivement pour répondre à votre demande et assurer le suivi d'une éventuelle inscription. Elles ne sont ni vendues, ni cédées, ni transmises à des tiers à des fins commerciales.",
+      "body2Before": "Ces données sont conservées le temps nécessaire au traitement de votre demande, puis supprimées. Vous pouvez à tout moment demander l'accès, la rectification ou la suppression de vos données en écrivant à",
+      "body2After": "."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "body": "Ce site utilise le stockage local de votre navigateur uniquement à des fins techniques (mémorisation de préférences d'affichage). Aucun cookie publicitaire ou de suivi tiers n'est déposé."
+    },
+    "formations": {
+      "title": "Formations — conditions d'inscription",
+      "body": "Une inscription est confirmée à réception du paiement selon l'un des moyens indiqués sur la page Tarifs. Toute demande d'annulation ou de report doit être adressée par écrit ; elle est étudiée au cas par cas selon le délai restant avant le début de la session."
+    }
+  }
+}

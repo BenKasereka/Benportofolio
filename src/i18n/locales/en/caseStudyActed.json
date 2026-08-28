@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "Case Study — ACTED",
+    "description": "How an internal audit assignment at ACTED (DR Congo) reduced non-compliance risk by 87.2% in 3 months."
+  },
+  "breadcrumb": "Back to the Audit practice",
+  "eyebrow": "Case study — Internal audit",
+  "heading": {
+    "prefix": "Reducing non-compliance risk by",
+    "stat": "87.2%",
+    "suffix": "in 3 months"
+  },
+  "chips": {
+    "org": "ACTED — Audit, Transparency & Compliance",
+    "location": "DR Congo — North Équateur",
+    "dates": "June 2023 — February 2024"
+  },
+  "keyStat": {
+    "value": "87.2%",
+    "caption": "reduction in non-compliance risk, in 3 months — figure as documented on the CV."
+  },
+  "context": {
+    "heading": "Context",
+    "body": "From June 2023 to February 2024, Benjamin served as <strong>Area Manager</strong>, Audit, Transparency & Compliance, at <strong>ACTED</strong> in the DR Congo. The assignment covered North Équateur, on the <strong>FLZ</strong> and <strong>EKU</strong> programs, funded by donor <strong>BHA</strong> (Bureau for Humanitarian Assistance)."
+  },
+  "scope": {
+    "heading": "Assignment scope",
+    "item1": "Cross-functional internal audits across four areas: <strong>Supply Chain, Finance, HR and Programs</strong>.",
+    "item2": "Preparation of external audit files for donor <strong>BHA</strong>, on the FLZ and EKU programs (North Équateur)."
+  },
+  "methodology": {
+    "heading": "Methodological framework",
+    "intro": "The same framework Benjamin applies to every internal audit assignment — presented in detail in the <link>Internal Audit & Controls practice</link> of this site."
+  },
+  "sidebar": {
+    "resultLabel": "Result",
+    "resultPrefix": "Non-compliance risk reduced by",
+    "resultSuffix": "in 3 months.",
+    "body": "Have a similar field assignment to run? Describe your need — internal audit, procedures manual, preparation of a donor file.",
+    "cta": "Request an audit"
+  },
+  "whatsappMessage": "Hello Benjamin, I'm interested in your ACTED case study — I'd like to discuss an internal audit assignment."
+}

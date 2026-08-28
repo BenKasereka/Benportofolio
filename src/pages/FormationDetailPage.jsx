@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import {
   ArrowLeft, Bot, CheckCircle2, ChevronRight, Clock, FileText,
   Landmark, MessageCircle, Package, ShieldCheck, Star, Target, Truck, Users,
@@ -37,6 +38,8 @@ const fadeUp = {
 }
 
 export default function FormationDetailPage() {
+  const { t, i18n } = useTranslation('formations')
+  const lang = i18n.resolvedLanguage
   const { id } = useParams()
   const formation = formationById(id)
 
@@ -46,9 +49,9 @@ export default function FormationDetailPage() {
         <Navbar />
         <div className="flex flex-1 items-center justify-center">
           <div className="text-center">
-            <p className="text-lg font-semibold text-ink">Formation introuvable.</p>
+            <p className="text-lg font-semibold text-ink">{t('detail.notFound.title')}</p>
             <Link to="/formations" className="mt-4 inline-block text-primary underline">
-              Retour aux formations
+              {t('detail.notFound.backLink')}
             </Link>
           </div>
         </div>
@@ -62,8 +65,8 @@ export default function FormationDetailPage() {
   return (
     <div className="min-h-screen bg-surface">
       <SEO
-        title={formation.title}
-        description={formation.tagline || formation.subtitle}
+        title={formation.title[lang]}
+        description={formation.tagline?.[lang] || formation.subtitle?.[lang]}
         image={formation.image}
       />
       <Navbar />
@@ -81,7 +84,7 @@ export default function FormationDetailPage() {
                 to="/"
                 className="flex items-center gap-2 rounded-full border border-border bg-surface-white px-4 py-2 text-sm font-medium text-muted transition-all hover:border-primary/40 hover:text-ink"
               >
-                ← Accueil
+                {t('detail.backHome')}
               </Link>
               <span className="text-muted/40">·</span>
               <Link
@@ -89,7 +92,7 @@ export default function FormationDetailPage() {
                 className="inline-flex w-fit items-center gap-2 text-sm text-muted transition hover:text-ink"
               >
                 <ArrowLeft className="h-4 w-4" />
-                Retour aux formations
+                {t('detail.backToList')}
               </Link>
             </div>
 
@@ -97,20 +100,20 @@ export default function FormationDetailPage() {
               {/* Contenu principal */}
               <motion.div initial="hidden" animate="show" custom={0} variants={fadeUp} className="flex flex-col gap-6">
                 <span className={`inline-flex w-fit items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-widest ${a.badge}`}>
-                  Formation {formation.number} · {formation.badge}
+                  {t('detail.formationBadge', { number: formation.number, badge: formation.badge[lang] })}
                 </span>
                 <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl">
-                  {formation.title}
+                  {formation.title[lang]}
                 </h1>
-                <p className={`text-xl font-semibold ${a.text}`}>{formation.tagline}</p>
-                <p className="max-w-2xl text-base leading-relaxed text-muted">{formation.intro}</p>
+                <p className={`text-xl font-semibold ${a.text}`}>{formation.tagline[lang]}</p>
+                <p className="max-w-2xl text-base leading-relaxed text-muted">{formation.intro[lang]}</p>
 
                 {/* Méta-infos */}
                 <div className="flex flex-wrap gap-3">
                   {[
-                    { icon: Clock, label: formation.duration },
-                    { icon: Star, label: formation.level },
-                    { icon: Target, label: formation.format },
+                    { icon: Clock, label: formation.duration[lang] },
+                    { icon: Star, label: formation.level[lang] },
+                    { icon: Target, label: formation.format[lang] },
                   ].map(({ icon: I, label }) => (
                     <span key={label} className="flex items-center gap-2 rounded-full border border-border bg-surface-white/60 px-4 py-2 text-xs font-medium text-muted">
                       <I className="h-3.5 w-3.5" />
@@ -127,9 +130,9 @@ export default function FormationDetailPage() {
                   <Icon className="h-6 w-6" strokeWidth={1.75} />
                 </div>
                 <div>
-                  <p className="text-sm text-muted">{formation.subtitle}</p>
+                  <p className="text-sm text-muted">{formation.subtitle[lang]}</p>
                   {(() => {
-                    const p = pricingParts(formation)
+                    const p = pricingParts(formation, lang)
                     return (
                       <>
                         {p.originalAmount && (
@@ -157,24 +160,24 @@ export default function FormationDetailPage() {
                 </div>
                 <ul className="flex flex-col gap-2 border-t border-white/10 pt-4">
                   {formation.objectives.slice(0, 4).map((obj) => (
-                    <li key={obj} className="flex items-start gap-2 text-sm text-muted">
+                    <li key={obj[lang]} className="flex items-start gap-2 text-sm text-muted">
                       <CheckCircle2 className={`mt-0.5 h-4 w-4 shrink-0 ${a.text}`} />
-                      {obj}
+                      {obj[lang]}
                     </li>
                   ))}
                 </ul>
                 <a href="#formulaire" className="btn-primary w-full justify-center">
-                  Je m'inscris
+                  {t('detail.enrollCta')}
                   <ChevronRight className="h-4 w-4" />
                 </a>
                 <a
-                  href={waLink(`Bonjour Benjamin, je souhaite des informations sur la formation "${formation.title}". Pouvez-vous me renseigner ?`)}
+                  href={waLink(t('detail.whatsappMessage', { title: formation.title[lang] }))}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-secondary flex w-full items-center justify-center gap-2"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  Discuter via WhatsApp
+                  {t('detail.whatsappCta')}
                 </a>
                 <Link
                   to={`/formations/${formation.id}/formulaire`}
@@ -182,7 +185,7 @@ export default function FormationDetailPage() {
                   className="btn-secondary flex w-full items-center justify-center gap-2"
                 >
                   <FileText className="h-4 w-4" />
-                  Remplir le formulaire de candidature
+                  {t('detail.applicationFormCta')}
                 </Link>
               </motion.div>
             </div>
@@ -193,18 +196,18 @@ export default function FormationDetailPage() {
         <section className="section-padding bg-surface">
           <div className="section-container grid gap-12 lg:grid-cols-2">
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="flex flex-col gap-5">
-              <h2 className="text-2xl font-bold text-ink">À qui s'adresse cette formation ?</h2>
-              <p className="leading-relaxed text-muted">{formation.audience}</p>
+              <h2 className="text-2xl font-bold text-ink">{t('detail.audienceHeading')}</h2>
+              <p className="leading-relaxed text-muted">{formation.audience[lang]}</p>
             </motion.div>
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.1} variants={fadeUp} className="flex flex-col gap-4">
-              <h2 className="text-2xl font-bold text-ink">Objectifs pédagogiques</h2>
+              <h2 className="text-2xl font-bold text-ink">{t('detail.objectivesHeading')}</h2>
               <ul className="flex flex-col gap-3">
                 {formation.objectives.map((obj, i) => (
                   <li key={i} className="flex items-start gap-3 text-sm leading-relaxed text-muted">
                     <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-[0.6rem] font-extrabold ${a.icon} ${a.text}`}>
                       {i + 1}
                     </span>
-                    {obj}
+                    {obj[lang]}
                   </li>
                 ))}
               </ul>
@@ -216,9 +219,9 @@ export default function FormationDetailPage() {
         <section className="section-padding bg-surface">
           <div className="section-container flex flex-col gap-14">
             <div className="text-center">
-              <span className="eyebrow">Programme complet</span>
+              <span className="eyebrow">{t('detail.programEyebrow')}</span>
               <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-                {formation.modules.length} modules · du fondamental à l'opérationnel
+                {t('detail.programHeading', { count: formation.modules.length })}
               </h2>
             </div>
 
@@ -240,14 +243,14 @@ export default function FormationDetailPage() {
                     </div>
 
                     <div className="flex flex-1 flex-col gap-3">
-                      <h3 className="text-base font-bold text-ink">{mod.title}</h3>
-                      <p className="text-sm leading-relaxed text-muted">{mod.description}</p>
+                      <h3 className="text-base font-bold text-ink">{mod.title[lang]}</h3>
+                      <p className="text-sm leading-relaxed text-muted">{mod.description[lang]}</p>
 
                       <ul className="flex flex-col gap-1.5 border-t border-white/10 pt-3">
                         {mod.points.map((point) => (
-                          <li key={point} className="flex items-start gap-2 text-sm leading-snug text-muted">
+                          <li key={point[lang]} className="flex items-start gap-2 text-sm leading-snug text-muted">
                             <CheckCircle2 className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${a.text}`} />
-                            <span>{point}</span>
+                            <span>{point[lang]}</span>
                           </li>
                         ))}
                       </ul>
@@ -263,9 +266,9 @@ export default function FormationDetailPage() {
         <section className="section-padding bg-surface">
           <div className="section-container flex flex-col gap-10">
             <div className="text-center">
-              <span className="eyebrow">Ce que vous obtenez</span>
+              <span className="eyebrow">{t('detail.outcomesEyebrow')}</span>
               <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-                À la fin de cette formation, vous aurez…
+                {t('detail.outcomesHeading')}
               </h2>
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -280,7 +283,7 @@ export default function FormationDetailPage() {
                   className={`card-executive flex items-start gap-3 border p-5 ${a.outcomeBg}`}
                 >
                   <Star className={`mt-0.5 h-5 w-5 shrink-0 ${a.text}`} />
-                  <p className="text-sm leading-relaxed text-muted">{outcome}</p>
+                  <p className="text-sm leading-relaxed text-muted">{outcome[lang]}</p>
                 </motion.div>
               ))}
             </div>
@@ -291,24 +294,23 @@ export default function FormationDetailPage() {
         <section id="formulaire" className="section-padding bg-surface">
           <div className="section-container flex flex-col gap-12">
             <div className="flex flex-col items-center gap-4 text-center">
-              <span className="eyebrow">En savoir plus</span>
+              <span className="eyebrow">{t('detail.formEyebrow')}</span>
               <h2 className="text-3xl font-bold sm:text-4xl">
-                Intéressé(e) par{' '}
-                <span className={a.text}>cette formation</span> ?
+                {t('detail.formHeading.prefix')}{' '}
+                <span className={a.text}>{t('detail.formHeading.highlight')}</span> {t('detail.formHeading.suffix')}
               </h2>
               <p className="max-w-xl text-base leading-relaxed text-muted">
-                Remplissez le formulaire ci-dessous. Nous vous répondrons sous 24h ouvrables avec
-                tous les détails, le planning et les modalités d'inscription.
+                {t('detail.formDescription')}
               </p>
             </div>
 
             <div className={`card-executive mx-auto w-full max-w-2xl p-8 ${a.border}`}>
-              <InquiryForm formationTitle={formation.title} formationId={formation.id} />
+              <InquiryForm formationTitle={formation.title[lang]} formationId={formation.id} />
             </div>
 
             <div className="flex flex-col items-center gap-4 text-center">
               <p className="text-sm text-muted">
-                Préférez-vous recevoir le formulaire complet d'inscription ?
+                {t('detail.formAltPrompt')}
               </p>
               <Link
                 to={`/formations/${formation.id}/formulaire`}
@@ -316,7 +318,7 @@ export default function FormationDetailPage() {
                 className="btn-secondary"
               >
                 <FileText className="h-4 w-4" />
-                Ouvrir le formulaire de candidature
+                {t('detail.openApplicationForm')}
               </Link>
             </div>
           </div>

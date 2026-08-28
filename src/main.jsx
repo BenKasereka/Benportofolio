@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
+import './i18n'
 
 // Strip the trailing slash Vite adds to BASE_URL ("/" -> "", "/Benportofolio/" -> "/Benportofolio")
 // so the app's routes still match when served from a subpath (e.g. GitHub Pages).

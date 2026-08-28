@@ -6,6 +6,7 @@ export const site = {
   company: 'BK-BOOST Ltd.',
   tagline: 'Humanitarian Supply Chain · Audit · Data · Coaching de carrière',
   city: 'Goma, RD Congo',
+  cityEn: 'Goma, DR Congo',
 
   email: 'kasvinyatsi7@gmail.com',
   phoneDisplay: '+243 990 260 711',

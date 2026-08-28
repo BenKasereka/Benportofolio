@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { Trans, useTranslation } from 'react-i18next'
 import {
   ArrowUpRight, Bot, CheckCircle2, Clock, CreditCard, DollarSign,
   Flame, Landmark, MessageCircle, Package, Phone, ShieldCheck, Star, Target, Truck, Users,
@@ -15,10 +16,10 @@ import Footer from '../components/layout/Footer'
 import { waLink } from '../config/site'
 
 const PAYMENT_METHODS = [
-  { icon: Phone,       label: 'Mobile Money',   detail: 'M-Pesa · Airtel Money · Orange Money', color: 'text-primary bg-primary/10' },
-  { icon: DollarSign,  label: 'Cash USD',        detail: 'Paiement en espèces USD', color: 'text-primary bg-primary/10' },
-  { icon: CreditCard,  label: 'Virement bancaire', detail: 'Sur demande — coordonnées fournies', color: 'text-primary bg-primary/10' },
-  { icon: MessageCircle, label: 'Western Union / MoneyGram', detail: 'Pour clients internationaux', color: 'text-primary bg-primary/10' },
+  { icon: Phone,       labelKey: 'pricing.paymentMethods.mobileMoney.label',   detailKey: 'pricing.paymentMethods.mobileMoney.detail',   color: 'text-primary bg-primary/10' },
+  { icon: DollarSign,  labelKey: 'pricing.paymentMethods.cashUsd.label',        detailKey: 'pricing.paymentMethods.cashUsd.detail',        color: 'text-primary bg-primary/10' },
+  { icon: CreditCard,  labelKey: 'pricing.paymentMethods.bankTransfer.label',   detailKey: 'pricing.paymentMethods.bankTransfer.detail',   color: 'text-primary bg-primary/10' },
+  { icon: MessageCircle, labelKey: 'pricing.paymentMethods.westernUnion.label', detailKey: 'pricing.paymentMethods.westernUnion.detail', color: 'text-primary bg-primary/10' },
 ]
 
 const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
@@ -48,11 +49,14 @@ const cardVariants = {
 }
 
 export default function FormationsPage() {
+  const { t, i18n } = useTranslation('formations')
+  const lang = i18n.resolvedLanguage
+
   return (
     <div className="min-h-screen bg-surface">
       <SEO
-        title="Nos Formations"
-        description="7 programmes de formation d'excellence — de l'Intelligence Artificielle à l'Audit humanitaire — conçus et animés par un expert fort de plus de 10 ans d'expérience, dont 7 ans de terrain à l'international."
+        title={t('list.seo.title')}
+        description={t('list.seo.description')}
       />
       <Navbar />
 
@@ -62,7 +66,11 @@ export default function FormationsPage() {
           <div className="fixed inset-x-0 top-20 z-40 flex items-center justify-center gap-4 bg-primary-secondary px-4 py-2.5 shadow-lg">
             <Flame className="h-4 w-4 shrink-0 text-white animate-pulse" />
             <span className="text-sm font-bold text-white">
-              {promo.label.toUpperCase()} — Jusqu'à <span className="text-white underline">-{promo.discountPercent}%</span> sur toutes les formations
+              <Trans
+                i18nKey="formations:list.promoBanner.text"
+                values={{ label: promo.label.toUpperCase(), discount: promo.discountPercent }}
+                components={{ em: <span className="text-white underline" /> }}
+              />
             </span>
             <SessionNotice compact />
             <Flame className="h-4 w-4 shrink-0 text-white animate-pulse" />
@@ -82,7 +90,7 @@ export default function FormationsPage() {
               to="/"
               className="flex items-center gap-2 self-start rounded-full border border-border bg-surface-card px-4 py-2 text-sm font-medium text-muted transition-all hover:border-primary/40 hover:text-ink"
             >
-              ← Accueil
+              {t('list.backHome')}
             </Link>
             <motion.span
               initial={{ opacity: 0, y: 16 }}
@@ -90,7 +98,7 @@ export default function FormationsPage() {
               transition={{ duration: 0.6 }}
               className="eyebrow"
             >
-              BK-BOOST Ltd. · Centre de Formation
+              {t('list.eyebrow')}
             </motion.span>
 
             <motion.h1
@@ -99,7 +107,7 @@ export default function FormationsPage() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl"
             >
-              Nos <span className="text-primary">Formations</span>
+              {t('list.heading.prefix')} <span className="text-primary">{t('list.heading.highlight')}</span>
             </motion.h1>
 
             <motion.p
@@ -108,10 +116,7 @@ export default function FormationsPage() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
             >
-              7 programmes de formation d'excellence — de l'Intelligence Artificielle à l'Audit
-              humanitaire — conçus et animés par un expert fort de plus de 10 ans d'expérience, dont
-              7 ans de terrain à l'international. Des formations pratiques, structurées et
-              immédiatement applicables.
+              {t('list.heroDescription')}
             </motion.p>
 
             {/* Bouton Nos Tarifs */}
@@ -125,7 +130,7 @@ export default function FormationsPage() {
                 className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2.5 text-sm font-semibold text-primary-dark transition-all hover:bg-primary/20 hover:border-primary/[0.7]"
               >
                 <DollarSign className="h-4 w-4" />
-                Voir nos tarifs &amp; options de paiement
+                {t('list.viewPricingCta')}
               </a>
             </motion.div>
 
@@ -137,10 +142,10 @@ export default function FormationsPage() {
               className="flex flex-wrap items-center justify-center gap-8 border-t border-white/10 pt-8"
             >
               {[
-                { value: '7', label: 'Formations certifiantes' },
-                { value: '100%', label: 'Approche pratique terrain' },
-                { value: '10+', label: "Ans d'expérience (dont 7+ de terrain)" },
-                { value: '24h', label: 'Réponse garantie' },
+                { value: '7', label: t('list.stats.certified') },
+                { value: '100%', label: t('list.stats.practical') },
+                { value: '10+', label: t('list.stats.experience') },
+                { value: '24h', label: t('list.stats.response') },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col items-center gap-1">
                   <span className="font-heading text-3xl font-extrabold text-primary-dark">{stat.value}</span>
@@ -156,10 +161,10 @@ export default function FormationsPage() {
           <div className="section-container flex flex-col gap-16">
             <div className="text-center">
               <h2 className="text-3xl font-bold sm:text-4xl">
-                Choisissez votre <span className="text-primary-dark">programme</span>
+                {t('list.chooseProgram.prefix')} <span className="text-primary-dark">{t('list.chooseProgram.highlight')}</span>
               </h2>
               <p className="mt-4 text-muted">
-                Cliquez sur une formation pour accéder au programme complet, aux objectifs et au formulaire d'inscription.
+                {t('list.chooseProgramDescription')}
               </p>
             </div>
 
@@ -195,24 +200,24 @@ export default function FormationsPage() {
 
                       <div>
                         <span className={`inline-block rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide ${a.badge}`}>
-                          {formation.badge}
+                          {formation.badge[lang]}
                         </span>
-                        <h3 className="mt-2 text-lg font-bold text-white leading-snug">{formation.title}</h3>
-                        <p className={`mt-1 text-sm font-medium ${a.link}`}>{formation.tagline}</p>
+                        <h3 className="mt-2 text-lg font-bold text-white leading-snug">{formation.title[lang]}</h3>
+                        <p className={`mt-1 text-sm font-medium ${a.link}`}>{formation.tagline[lang]}</p>
                       </div>
 
                       <ul className="flex flex-col gap-1.5">
                         {formation.objectives.slice(0, 3).map((obj) => (
-                          <li key={obj} className={`flex items-start gap-2 text-xs leading-snug ${a.meta}`}>
+                          <li key={obj[lang]} className={`flex items-start gap-2 text-xs leading-snug ${a.meta}`}>
                             <CheckCircle2 className={`mt-0.5 h-3 w-3 shrink-0 ${a.link}`} />
-                            <span>{obj}</span>
+                            <span>{obj[lang]}</span>
                           </li>
                         ))}
                       </ul>
 
                       {/* Prix — barré uniquement pendant une promotion réelle et datée */}
                       {(() => {
-                        const p = pricingParts(formation)
+                        const p = pricingParts(formation, lang)
                         return (
                           <div className="flex items-center gap-3 rounded-xl bg-white/10 px-3 py-2">
                             {p.originalAmount && (
@@ -235,11 +240,11 @@ export default function FormationsPage() {
                       <div className={`flex flex-wrap items-center gap-2 border-t border-white/10 pt-4 ${a.meta}`}>
                         <span className="flex items-center gap-1.5 text-[0.7rem]">
                           <Clock className="h-3 w-3" />
-                          {formation.duration}
+                          {formation.duration[lang]}
                         </span>
                         <span className="flex items-center gap-1.5 text-[0.7rem]">
                           <Star className="h-3 w-3" />
-                          {formation.level}
+                          {formation.level[lang]}
                         </span>
                       </div>
                     </Link>
@@ -254,13 +259,12 @@ export default function FormationsPage() {
         <section id="tarifs" className="section-padding bg-surface">
           <div className="section-container flex flex-col gap-16">
             <div className="flex flex-col items-center gap-6 text-center">
-              <span className="eyebrow"><DollarSign className="h-3.5 w-3.5 inline mr-1" />Transparence tarifaire</span>
+              <span className="eyebrow"><DollarSign className="h-3.5 w-3.5 inline mr-1" />{t('pricing.eyebrow')}</span>
               <h2 className="text-3xl font-bold sm:text-4xl">
-                Nos <span className="text-primary">Tarifs</span> &amp; Options de Paiement
+                {t('pricing.heading.prefix')} <span className="text-primary">{t('pricing.heading.highlight')}</span> {t('pricing.heading.suffix')}
               </h2>
               <p className="max-w-xl text-muted">
-                Chaque formation est accessible selon votre budget. Sélectionnez votre mode de
-                paiement préféré et contactez-nous directement via WhatsApp pour confirmer.
+                {t('pricing.description')}
               </p>
               {/* Bandeau de session — n'apparaît que pendant une promotion réelle et datée
                   (voir src/data/sessions.js). Remplace l'ancien compte à rebours qui repartait
@@ -274,7 +278,7 @@ export default function FormationsPage() {
                     <div className="flex items-center gap-2">
                       <Flame className="h-5 w-5 animate-pulse text-white" />
                       <p className="text-base font-extrabold uppercase tracking-[0.2em] text-white sm:text-lg">
-                        {promo.label} — Tarif réduit
+                        {t('pricing.promoActive', { label: promo.label })}
                       </p>
                       <Flame className="h-5 w-5 animate-pulse text-white" />
                     </div>
@@ -282,9 +286,11 @@ export default function FormationsPage() {
                     <SessionNotice />
 
                     <p className="max-w-md text-sm font-medium text-white/70">
-                      Inscrivez-vous maintenant pour bénéficier de{' '}
-                      <span className="font-bold text-white underline">-{promo.discountPercent}%</span> sur
-                      toutes les formations.
+                      <Trans
+                        i18nKey="formations:pricing.promoBody"
+                        values={{ discount: promo.discountPercent }}
+                        components={{ em: <span className="font-bold text-white underline" /> }}
+                      />
                     </p>
                   </div>
                 </div>
@@ -313,15 +319,15 @@ export default function FormationsPage() {
                       </span>
                       <div>
                         <p className={`text-[0.65rem] font-semibold uppercase tracking-wide ${a.badgeText}`}>
-                          Formation {formation.number}
+                          {t('pricing.formationLabel', { number: formation.number })}
                         </p>
-                        <h4 className="text-sm font-bold text-white leading-snug">{formation.title}</h4>
+                        <h4 className="text-sm font-bold text-white leading-snug">{formation.title[lang]}</h4>
                       </div>
                     </div>
 
                     <div className="border-t border-white/10 pt-3">
                       {(() => {
-                        const p = pricingParts(formation)
+                        const p = pricingParts(formation, lang)
                         return (
                           <>
                             {p.originalAmount && (
@@ -336,14 +342,14 @@ export default function FormationsPage() {
                           </>
                         )
                       })()}
-                      <p className="text-xs text-white/90 mt-0.5">par participant</p>
+                      <p className="text-xs text-white/90 mt-0.5">{t('pricing.perParticipant')}</p>
                     </div>
 
                     {isCoaching && (
                       <div className="flex flex-col gap-2">
                         {pricingPacks.map((pack) => (
                           <div key={pack.id} className="flex items-center justify-between rounded-lg bg-white/10 px-3 py-1.5">
-                            <span className="text-xs font-medium text-white">{pack.name}</span>
+                            <span className="text-xs font-medium text-white">{pack.name[lang]}</span>
                             <div className="flex items-center gap-1.5">
                               {(() => {
                                 const p = pricingParts(pack)
@@ -365,14 +371,14 @@ export default function FormationsPage() {
                     <div className="mt-auto flex flex-col gap-2">
                       {PAYMENT_METHODS.slice(0, 3).map((pm) => (
                         <a
-                          key={pm.label}
-                          href={waLink(`Bonjour Benjamin, je souhaite m'inscrire à la formation "${formation.title}" et payer par ${pm.label}. Pouvez-vous me donner les modalités ?`)}
+                          key={pm.labelKey}
+                          href={waLink(t('pricing.paymentInquiryMessage', { title: formation.title[lang], method: t(pm.labelKey) }))}
                           target="_blank"
                           rel="noreferrer"
                           className="flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2 text-xs font-medium text-white hover:bg-white/20 transition-colors"
                         >
                           <pm.icon className="h-3.5 w-3.5 shrink-0" />
-                          Payer par {pm.label}
+                          {t('pricing.payVia', { method: t(pm.labelKey) })}
                         </a>
                       ))}
                     </div>
@@ -384,33 +390,33 @@ export default function FormationsPage() {
             {/* Modes de paiement détaillés */}
             <div className="card-executive p-8 flex flex-col gap-8">
               <div className="text-center">
-                <h3 className="text-xl font-bold text-ink">Modes de Paiement Acceptés</h3>
-                <p className="mt-2 text-sm text-muted">Choisissez la méthode la plus adaptée à votre situation</p>
+                <h3 className="text-xl font-bold text-ink">{t('pricing.paymentSection.heading')}</h3>
+                <p className="mt-2 text-sm text-muted">{t('pricing.paymentSection.description')}</p>
               </div>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {PAYMENT_METHODS.map((pm) => (
-                  <div key={pm.label} className="flex flex-col items-center gap-3 rounded-xl border border-border p-5 text-center">
+                  <div key={pm.labelKey} className="flex flex-col items-center gap-3 rounded-xl border border-border p-5 text-center">
                     <span className={`flex h-12 w-12 items-center justify-center rounded-full ${pm.color}`}>
                       <pm.icon className="h-5 w-5" strokeWidth={1.75} />
                     </span>
                     <div>
-                      <p className="font-semibold text-ink">{pm.label}</p>
-                      <p className="mt-1 text-xs text-muted">{pm.detail}</p>
+                      <p className="font-semibold text-ink">{t(pm.labelKey)}</p>
+                      <p className="mt-1 text-xs text-muted">{t(pm.detailKey)}</p>
                     </div>
                   </div>
                 ))}
               </div>
               <div className="flex flex-wrap items-center justify-center gap-4 border-t border-border pt-6">
                 <a
-                  href={waLink("Bonjour Benjamin, je souhaite avoir des informations sur les tarifs et les options de paiement pour vos formations.")}
+                  href={waLink(t('pricing.financingMessage'))}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-primary"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  Discuter de mon financement
+                  {t('pricing.financingCta')}
                 </a>
-                <p className="text-xs text-muted">Facilités de paiement disponibles · Réponse sous 24h</p>
+                <p className="text-xs text-muted">{t('pricing.financingNote')}</p>
               </div>
             </div>
           </div>
@@ -427,25 +433,24 @@ export default function FormationsPage() {
               className="card-executive relative overflow-hidden p-10 text-center sm:p-16"
             >
               <div className="pointer-events-none absolute inset-0 bg-primary opacity-[0.06]" />
-              <span className="eyebrow">Une question ?</span>
+              <span className="eyebrow">{t('list.finalCta.eyebrow')}</span>
               <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-                Vous ne savez pas quelle formation choisir ?
+                {t('list.finalCta.heading')}
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-muted">
-                Nous vous accompagnons personnellement pour identifier la formation la plus adaptée
-                à votre profil, vos objectifs et votre budget. Réponse sous 24h.
+                {t('list.finalCta.description')}
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                 <a
-                  href={waLink("Bonjour Benjamin, je souhaite des informations sur vos formations. Pouvez-vous m'aider à choisir ?")}
+                  href={waLink(t('list.finalCta.whatsappMessage'))}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-primary"
                 >
-                  Me conseiller via WhatsApp
+                  {t('list.finalCta.whatsappCta')}
                 </a>
                 <a href="mailto:kasvinyatsi7@gmail.com" className="btn-secondary">
-                  Écrire un email
+                  {t('list.finalCta.emailCta')}
                 </a>
               </div>
             </motion.div>

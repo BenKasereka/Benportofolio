@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { ArrowUpRight, BarChart3, CheckCircle2, Languages, Rocket, ShieldCheck, Truck } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 import { services } from '../../data/services'
@@ -16,14 +17,17 @@ const cardVariants = {
 }
 
 export default function ServicesHub() {
+  const { t, i18n } = useTranslation('servicesHub')
+  const lang = i18n.resolvedLanguage
+
   return (
     <section id="expertise" className="section-padding relative bg-surface">
       <div className="section-container flex flex-col gap-16">
         <SectionHeading
-          eyebrow="5 pôles d'expertise"
-          title="Un consultant, cinq leviers de"
-          highlight="performance"
-          description="De l'urgence humanitaire à la donnée, chaque pôle s'appuie sur la même exigence : rigueur opérationnelle, conformité et résultats mesurables."
+          eyebrow={t('eyebrow')}
+          title={t('title')}
+          highlight={t('highlight')}
+          description={t('description')}
         />
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -58,27 +62,29 @@ export default function ServicesHub() {
 
                 <div className="flex flex-col gap-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary-dark">
-                    {service.subtitle}
+                    {service.subtitle[lang]}
                   </p>
-                  <h3 className="text-xl font-bold text-ink">{service.title}</h3>
-                  <p className="text-sm leading-relaxed text-muted">{service.description}</p>
+                  <h3 className="text-xl font-bold text-ink">{service.title[lang]}</h3>
+                  <p className="text-sm leading-relaxed text-muted">{service.description[lang]}</p>
                 </div>
 
                 <ul className="flex flex-col gap-1.5">
                   {service.highlights.map((point) => (
-                    <li key={point} className="flex items-start gap-2 text-sm leading-snug text-muted">
+                    <li key={point[lang]} className="flex items-start gap-2 text-sm leading-snug text-muted">
                       <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
-                      <span>{point}</span>
+                      <span>{point[lang]}</span>
                     </li>
                   ))}
                 </ul>
 
                 <div className="mt-auto grid grid-cols-3 gap-3 border-t border-border pt-5">
                   {service.metrics.map((metric) => (
-                    <div key={metric.label} className="flex flex-col">
-                      <span className="font-heading text-lg font-bold text-ink">{metric.value}</span>
+                    <div key={metric.label[lang]} className="flex flex-col">
+                      <span className="font-heading text-lg font-bold text-ink">
+                        {typeof metric.value === 'object' ? metric.value[lang] : metric.value}
+                      </span>
                       <span className="text-[0.65rem] uppercase leading-tight tracking-wide text-muted">
-                        {metric.label}
+                        {metric.label[lang]}
                       </span>
                     </div>
                   ))}
@@ -87,10 +93,10 @@ export default function ServicesHub() {
                 <div className="flex flex-wrap gap-2">
                   {service.tags.map((tag) => (
                     <span
-                      key={tag}
+                      key={tag[lang]}
                       className="rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-[0.7rem] text-muted"
                     >
-                      {tag}
+                      {tag[lang]}
                     </span>
                   ))}
                 </div>

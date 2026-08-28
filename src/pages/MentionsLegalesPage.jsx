@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import SEO from '../components/ui/SEO'
@@ -13,11 +14,13 @@ import { site } from '../config/site'
  * européennes soumises au RGPD.
  */
 export default function MentionsLegalesPage() {
+  const { t, i18n } = useTranslation('mentionsLegales')
+
   return (
     <div className="min-h-screen bg-surface">
       <SEO
-        title="Mentions légales"
-        description="Mentions légales, traitement des données personnelles et conditions d'inscription aux formations BK-BOOST Ltd."
+        title={t('seo.title')}
+        description={t('seo.description')}
       />
       <Navbar />
 
@@ -28,61 +31,53 @@ export default function MentionsLegalesPage() {
               to="/"
               className="flex w-fit items-center gap-2 rounded-full border border-border bg-surface-white px-4 py-2 text-sm font-medium text-muted transition-all hover:border-primary/40 hover:text-ink"
             >
-              ← Accueil
+              {t('backLink')}
             </Link>
-            <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl">Mentions légales</h1>
+            <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl">{t('heading')}</h1>
             <p className="max-w-2xl text-base text-muted">
-              Éditeur du site, traitement des données personnelles et conditions applicables aux
-              formations et consultations proposées par {site.company}
+              {t('intro', { company: site.company })}
             </p>
           </div>
 
           <div className="mx-auto flex w-full max-w-3xl flex-col gap-10">
             <section className="card-executive flex flex-col gap-3 p-8">
-              <h2 className="text-xl font-bold text-ink">Éditeur du site</h2>
+              <h2 className="text-xl font-bold text-ink">{t('sections.editor.title')}</h2>
               <p className="text-sm leading-relaxed text-muted">
                 {site.name} — {site.company}
                 <br />
-                {site.city}
+                {i18n.resolvedLanguage === 'en' ? site.cityEn : site.city}
                 <br />
-                Email : <a href={`mailto:${site.email}`} className="text-primary-dark underline underline-offset-2">{site.email}</a>
+                {t('sections.editor.emailLabel')}{' '}
+                <a href={`mailto:${site.email}`} className="text-primary-dark underline underline-offset-2">{site.email}</a>
                 <br />
-                Téléphone : <a href={`tel:${site.phoneRaw}`} className="text-primary-dark underline underline-offset-2">{site.phoneDisplay}</a>
+                {t('sections.editor.phoneLabel')}{' '}
+                <a href={`tel:${site.phoneRaw}`} className="text-primary-dark underline underline-offset-2">{site.phoneDisplay}</a>
               </p>
             </section>
 
             <section className="card-executive flex flex-col gap-3 p-8">
-              <h2 className="text-xl font-bold text-ink">Données personnelles</h2>
+              <h2 className="text-xl font-bold text-ink">{t('sections.personalData.title')}</h2>
               <p className="text-sm leading-relaxed text-muted">
-                Les informations transmises via les formulaires de ce site (nom, email, téléphone,
-                organisation, message, dossier de candidature) sont utilisées exclusivement pour
-                répondre à votre demande et assurer le suivi d&apos;une éventuelle inscription. Elles
-                ne sont ni vendues, ni cédées, ni transmises à des tiers à des fins commerciales.
+                {t('sections.personalData.body1')}
               </p>
               <p className="text-sm leading-relaxed text-muted">
-                Ces données sont conservées le temps nécessaire au traitement de votre demande, puis
-                supprimées. Vous pouvez à tout moment demander l&apos;accès, la rectification ou la
-                suppression de vos données en écrivant à{' '}
-                <a href={`mailto:${site.email}`} className="text-primary-dark underline underline-offset-2">{site.email}</a>.
+                {t('sections.personalData.body2Before')}{' '}
+                <a href={`mailto:${site.email}`} className="text-primary-dark underline underline-offset-2">{site.email}</a>
+                {t('sections.personalData.body2After')}
               </p>
             </section>
 
             <section className="card-executive flex flex-col gap-3 p-8">
-              <h2 className="text-xl font-bold text-ink">Cookies</h2>
+              <h2 className="text-xl font-bold text-ink">{t('sections.cookies.title')}</h2>
               <p className="text-sm leading-relaxed text-muted">
-                Ce site utilise le stockage local de votre navigateur uniquement à des fins
-                techniques (mémorisation de préférences d&apos;affichage). Aucun cookie publicitaire
-                ou de suivi tiers n&apos;est déposé.
+                {t('sections.cookies.body')}
               </p>
             </section>
 
             <section className="card-executive flex flex-col gap-3 p-8">
-              <h2 className="text-xl font-bold text-ink">Formations — conditions d&apos;inscription</h2>
+              <h2 className="text-xl font-bold text-ink">{t('sections.formations.title')}</h2>
               <p className="text-sm leading-relaxed text-muted">
-                Une inscription est confirmée à réception du paiement selon l&apos;un des moyens
-                indiqués sur la page Tarifs. Toute demande d&apos;annulation ou de report doit être
-                adressée par écrit ; elle est étudiée au cas par cas selon le délai restant avant le
-                début de la session.
+                {t('sections.formations.body')}
               </p>
             </section>
           </div>

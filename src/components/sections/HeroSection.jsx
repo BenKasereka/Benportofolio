@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { ArrowRight, Download, MapPin, ShieldCheck } from 'lucide-react'
 import StatCounter from '../ui/StatCounter'
 
@@ -8,17 +9,33 @@ import StatCounter from '../ui/StatCounter'
 const ASSET_BASE = import.meta.env.BASE_URL
 
 const SLIDES = [
-  { src: `${ASSET_BASE}images/terrain/terrain-01.jpg`, mission: 'MSF-OCB — Tine, Tchad',     label: 'Mission active' },
-  { src: `${ASSET_BASE}images/terrain/terrain-02.jpg`, mission: 'Gestion de flotte terrain',  label: 'Logistique terrain' },
-  { src: `${ASSET_BASE}images/terrain/terrain-03.jpg`, mission: 'Coordination humanitaire',   label: 'Présence terrain' },
-  { src: `${ASSET_BASE}images/terrain/terrain-04.jpg`, mission: 'Opérations sur le terrain',  label: 'Mission internationale' },
+  {
+    src: `${ASSET_BASE}images/terrain/terrain-01.jpg`,
+    mission: { fr: 'MSF-OCB — Tine, Tchad', en: 'MSF-OCB — Tine, Chad' },
+    label: { fr: 'Mission active', en: 'Active mission' },
+  },
+  {
+    src: `${ASSET_BASE}images/terrain/terrain-02.jpg`,
+    mission: { fr: 'Gestion de flotte terrain', en: 'Field fleet management' },
+    label: { fr: 'Logistique terrain', en: 'Field logistics' },
+  },
+  {
+    src: `${ASSET_BASE}images/terrain/terrain-03.jpg`,
+    mission: { fr: 'Coordination humanitaire', en: 'Humanitarian coordination' },
+    label: { fr: 'Présence terrain', en: 'Field presence' },
+  },
+  {
+    src: `${ASSET_BASE}images/terrain/terrain-04.jpg`,
+    mission: { fr: 'Opérations sur le terrain', en: 'Field operations' },
+    label: { fr: 'Mission internationale', en: 'International mission' },
+  },
 ]
 
 const stats = [
-  { value: "7+", label: "ans en Supply Chain d’urgence" },
-  { value: "5", label: "pays en contexte volatile" },
-  { value: "85%", label: "de réduction des délais" },
-  { value: "87%", label: "de conformité en audit" },
+  { value: "7+", label: { fr: "ans en Supply Chain d’urgence", en: "years in emergency Supply Chain" } },
+  { value: "5", label: { fr: "pays en contexte volatile", en: "countries in volatile contexts" } },
+  { value: "85%", label: { fr: "de réduction des délais", en: "reduction in lead times" } },
+  { value: "87%", label: { fr: "de conformité en audit", en: "audit compliance" } },
 ]
 
 const fadeUp = {
@@ -33,6 +50,8 @@ const fadeUp = {
 const SLIDE_INTERVAL_MS = 3200
 
 export default function HeroSection() {
+  const { t, i18n } = useTranslation('hero')
+  const lang = i18n.resolvedLanguage
   const [slide, setSlide] = useState(0)
 
   useEffect(() => {
@@ -73,7 +92,7 @@ export default function HeroSection() {
           <motion.div initial="hidden" animate="show" custom={0} variants={fadeUp}>
             <span className="eyebrow">
               <ShieldCheck className="h-3.5 w-3.5 text-accent-gold" aria-hidden="true" />
-              Certified Professional in Sourcing & Procurement — CPSP (USA)
+              {t('eyebrow')}
             </span>
           </motion.div>
 
@@ -84,7 +103,7 @@ export default function HeroSection() {
             variants={fadeUp}
             className="text-4xl font-extrabold leading-[1.08] text-ink sm:text-5xl lg:text-6xl"
           >
-            Benjamin <span className="text-primary">Kasereka Vinyatsi</span>
+            {t('heading.firstName')} <span className="text-primary">{t('heading.lastName')}</span>
           </motion.h1>
 
           <motion.p
@@ -94,9 +113,9 @@ export default function HeroSection() {
             variants={fadeUp}
             className="max-w-xl text-lg font-medium text-ink/90 sm:text-xl"
           >
-            <span className="font-semibold text-primary">Expert Certified Professional in Sourcing &amp; Procurement (ISCEA-USA)</span>
-            {' '}— Expert en Supply Chain &amp; Logistique Humanitaire, Finance, RH, Audit Interne et Data Analysis — fondateur de{' '}
-            <span className="font-semibold text-primary">BK-BOOST Ltd.</span>
+            <span className="font-semibold text-primary">{t('subheading.title')}</span>
+            {' '}{t('subheading.body')}{' '}
+            <span className="font-semibold text-primary">{t('subheading.company')}</span>
           </motion.p>
 
           <motion.p
@@ -106,12 +125,7 @@ export default function HeroSection() {
             variants={fadeUp}
             className="max-w-xl text-base leading-relaxed text-muted"
           >
-            Multilingue, expert MSF de la Supply Chain d'urgence avec 7+ ans de terrain en zones
-            hautement volatiles (RDC, Tchad, Soudan du Sud, Haïti, Nigeria) et 3+ ans en
-            Finances, Administration, RH et Audit &amp; Compliance. Titulaire d'un Master en Coopération Internationale et
-            Aide Humanitaire (KALU Institute). Je conçois des stratégies d'approvisionnement agiles,
-            des manuels de procédures de référence et des outils d'analyse de données — de la
-            réponse aux épidémies jusqu'à l'aide à la décision pour PME et grands groupes.
+            {t('description')}
           </motion.p>
 
           <motion.div
@@ -126,12 +140,12 @@ export default function HeroSection() {
               onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
               className="btn-primary"
             >
-              Réserver une consultation
+              {t('cta.book')}
               <ArrowRight className="h-4 w-4" />
             </a>
             <a href={`${ASSET_BASE}cv-benjamin-kasereka-vinyatsi.pdf`} className="btn-secondary" download>
               <Download className="h-4 w-4" />
-              Télécharger le CV
+              {t('cta.downloadCv')}
             </a>
           </motion.div>
 
@@ -143,7 +157,7 @@ export default function HeroSection() {
             className="flex items-center gap-2 pt-2 text-sm text-muted"
           >
             <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
-            Basé à Goma, RDC — disponible pour déploiement rapide à l'international
+            {t('location')}
           </motion.div>
 
           {/* Bandeau de métriques */}
@@ -155,7 +169,7 @@ export default function HeroSection() {
             className="mt-4 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-border pt-8 sm:grid-cols-4"
           >
             {stats.map((stat, i) => (
-              <StatCounter key={stat.label} value={stat.value} label={stat.label} delay={0.1 * i} />
+              <StatCounter key={stat.value} value={stat.value} label={stat.label[lang]} delay={0.1 * i} />
             ))}
           </motion.div>
         </div>
@@ -184,7 +198,7 @@ export default function HeroSection() {
                   <motion.img
                     key={slide}
                     src={current.src}
-                    alt={`Benjamin Kasereka Vinyatsi — ${current.mission}`}
+                    alt={t('slideImageAlt', { mission: current.mission[lang] })}
                     className="absolute inset-0 h-full w-full object-cover"
                     onError={(e) => { e.currentTarget.src = `${ASSET_BASE}images/terrain/terrain-01.jpg` }}
                     initial={{ opacity: 0, x: '18%', scale: 1.12 }}
@@ -212,8 +226,8 @@ export default function HeroSection() {
                     exit={{ opacity: 0, y: -6 }}
                     transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                   >
-                    <p className="text-xs uppercase tracking-wide text-muted">{current.label}</p>
-                    <p className="text-sm font-semibold text-slate-800">{current.mission}</p>
+                    <p className="text-xs uppercase tracking-wide text-muted">{current.label[lang]}</p>
+                    <p className="text-sm font-semibold text-slate-800">{current.mission[lang]}</p>
                   </motion.div>
                 </AnimatePresence>
                 <span className="h-2.5 w-2.5 animate-pulse-slow rounded-full bg-primary shadow-primary-glow" />
@@ -226,7 +240,7 @@ export default function HeroSection() {
                   <button
                     key={i}
                     onClick={() => setSlide(i)}
-                    aria-label={`Voir la photo ${i + 1} — ${s.mission}`}
+                    aria-label={t('slideAriaLabel', { index: i + 1, mission: s.mission[lang] })}
                     aria-current={i === slide}
                     className="tap-target relative flex items-center justify-center"
                   >
@@ -246,8 +260,8 @@ export default function HeroSection() {
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             style={{ z: 40 }}
           >
-            <p className="text-xs text-muted">Réduction des délais</p>
-            <p className="font-heading text-2xl font-bold text-primary">85%</p>
+            <p className="text-xs text-muted">{t('floatingBadge.label')}</p>
+            <p className="font-heading text-2xl font-bold text-primary">{t('floatingBadge.value')}</p>
           </motion.div>
         </motion.div>
       </div>

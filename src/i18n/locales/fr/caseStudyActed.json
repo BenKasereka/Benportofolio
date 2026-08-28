@@ -1,0 +1,43 @@
+{
+  "seo": {
+    "title": "Étude de cas — ACTED",
+    "description": "Comment une mission d'audit interne chez ACTED (RD Congo) a réduit le risque de non-conformité de 87,2% en 3 mois."
+  },
+  "breadcrumb": "Retour au pôle Audit",
+  "eyebrow": "Étude de cas — Audit interne",
+  "heading": {
+    "prefix": "Réduire le risque de non-conformité de",
+    "stat": "87,2%",
+    "suffix": "en 3 mois"
+  },
+  "chips": {
+    "org": "ACTED — Audit, Transparency & Compliance",
+    "location": "RD Congo — Nord Équateur",
+    "dates": "Juin 2023 — Février 2024"
+  },
+  "keyStat": {
+    "value": "87,2%",
+    "caption": "de réduction du risque de non-conformité, en 3 mois — chiffre tel que documenté au CV."
+  },
+  "context": {
+    "heading": "Contexte",
+    "body": "De juin 2023 à février 2024, Benjamin a occupé le poste d'<strong>Area Manager</strong>, volet Audit, Transparency & Compliance, chez <strong>ACTED</strong> en RD Congo. La mission couvrait le Nord Équateur, sur les programmes <strong>FLZ</strong> et <strong>EKU</strong>, financés par le bailleur <strong>BHA</strong> (Bureau for Humanitarian Assistance)."
+  },
+  "scope": {
+    "heading": "Périmètre de la mission",
+    "item1": "Audits internes transverses sur quatre volets : <strong>Supply Chain, Finance, RH et Programmes</strong>.",
+    "item2": "Préparation des dossiers d'audit externe pour le bailleur <strong>BHA</strong>, sur les programmes FLZ et EKU (Nord Équateur)."
+  },
+  "methodology": {
+    "heading": "Cadre méthodologique",
+    "intro": "Le même cadre que Benjamin applique à chaque mission d'audit interne — présenté en détail dans le <link>pôle Audit Interne & Contrôles</link> de ce site."
+  },
+  "sidebar": {
+    "resultLabel": "Résultat",
+    "resultPrefix": "Risque de non-conformité réduit de",
+    "resultSuffix": "en 3 mois.",
+    "body": "Une mission de terrain similaire à mener chez vous ? Décrivez votre besoin — audit interne, manuel de procédures, préparation d'un dossier bailleur.",
+    "cta": "Demander un audit"
+  },
+  "whatsappMessage": "Bonjour Benjamin, votre étude de cas ACTED m’intéresse — je souhaite discuter d’une mission d’audit interne."
+}

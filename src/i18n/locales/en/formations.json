@@ -1,0 +1,106 @@
+{
+  "list": {
+    "seo": {
+      "title": "Our Trainings",
+      "description": "7 world-class training programs — from Artificial Intelligence to Humanitarian Audit — designed and delivered by an expert with over 10 years of experience, including 7 years of international fieldwork."
+    },
+    "promoBanner": {
+      "text": "{{label}} — Up to <em>-{{discount}}%</em> off all trainings"
+    },
+    "backHome": "← Home",
+    "eyebrow": "BK-BOOST Ltd. · Training Center",
+    "heading": {
+      "prefix": "Our",
+      "highlight": "Trainings"
+    },
+    "heroDescription": "7 world-class training programs — from Artificial Intelligence to Humanitarian Audit — designed and delivered by an expert with over 10 years of experience, including 7 years of international fieldwork. Practical, structured trainings you can apply immediately.",
+    "viewPricingCta": "See our pricing & payment options",
+    "stats": {
+      "certified": "Certifying trainings",
+      "practical": "Practical field-based approach",
+      "experience": "Years of experience (7+ in the field)",
+      "response": "Guaranteed response"
+    },
+    "chooseProgram": {
+      "prefix": "Choose your",
+      "highlight": "program"
+    },
+    "chooseProgramDescription": "Click on a training to access the full curriculum, objectives and application form.",
+    "finalCta": {
+      "eyebrow": "Have a question?",
+      "heading": "Not sure which training to choose?",
+      "description": "We'll personally help you identify the training best suited to your profile, your goals and your budget. Response within 24h.",
+      "whatsappCta": "Get advice via WhatsApp",
+      "whatsappMessage": "Hello Benjamin, I'd like information about your trainings. Can you help me choose?",
+      "emailCta": "Write an email"
+    }
+  },
+  "detail": {
+    "notFound": {
+      "title": "Training not found.",
+      "backLink": "Back to trainings"
+    },
+    "backHome": "← Home",
+    "backToList": "Back to trainings",
+    "formationBadge": "Training {{number}} · {{badge}}",
+    "enrollCta": "Enroll now",
+    "whatsappCta": "Chat via WhatsApp",
+    "whatsappMessage": "Hello Benjamin, I'd like information about the \"{{title}}\" training. Can you tell me more?",
+    "applicationFormCta": "Fill out the application form",
+    "audienceHeading": "Who is this training for?",
+    "objectivesHeading": "Learning objectives",
+    "programEyebrow": "Full program",
+    "programHeading": "{{count}} modules · from fundamentals to hands-on practice",
+    "outcomesEyebrow": "What you'll get",
+    "outcomesHeading": "By the end of this training, you will have…",
+    "formEyebrow": "Learn more",
+    "formHeading": {
+      "prefix": "Interested in",
+      "highlight": "this training",
+      "suffix": "?"
+    },
+    "formDescription": "Fill out the form below. We'll respond within 24 business hours with all the details, the schedule and enrollment terms.",
+    "formAltPrompt": "Would you rather receive the full application form?",
+    "openApplicationForm": "Open the application form"
+  },
+  "pricing": {
+    "eyebrow": "Transparent pricing",
+    "heading": {
+      "prefix": "Our",
+      "highlight": "Pricing",
+      "suffix": "& Payment Options"
+    },
+    "description": "Every training is accessible within your budget. Select your preferred payment method and contact us directly via WhatsApp to confirm.",
+    "promoActive": "{{label}} — Reduced rate",
+    "promoBody": "Enroll now to get <em>-{{discount}}%</em> off all trainings.",
+    "formationLabel": "Training {{number}}",
+    "perParticipant": "per participant",
+    "paymentMethods": {
+      "mobileMoney": {
+        "label": "Mobile Money",
+        "detail": "M-Pesa · Airtel Money · Orange Money"
+      },
+      "cashUsd": {
+        "label": "Cash USD",
+        "detail": "Cash payment in USD"
+      },
+      "bankTransfer": {
+        "label": "Bank transfer",
+        "detail": "On request — details provided"
+      },
+      "westernUnion": {
+        "label": "Western Union / MoneyGram",
+        "detail": "For international clients"
+      }
+    },
+    "payVia": "Pay via {{method}}",
+    "paymentInquiryMessage": "Hello Benjamin, I'd like to enroll in the \"{{title}}\" training and pay via {{method}}. Could you give me the details?",
+    "paymentSection": {
+      "heading": "Accepted Payment Methods",
+      "description": "Choose the method that best suits your situation"
+    },
+    "financingCta": "Discuss my financing",
+    "financingMessage": "Hello Benjamin, I'd like information about pricing and payment options for your trainings.",
+    "financingNote": "Payment plans available · Response within 24h"
+  }
+}

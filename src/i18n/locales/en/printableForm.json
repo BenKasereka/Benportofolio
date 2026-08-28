@@ -1,0 +1,113 @@
+{
+  "seo": {
+    "title": "Application — {{title}}",
+    "description": "Application form for the {{title}} training."
+  },
+  "notFound": {
+    "message": "Training not found.",
+    "back": "Back to trainings"
+  },
+  "nav": {
+    "backToFormation": "Back to the training"
+  },
+  "status": {
+    "sentTo": "Application sent to {{email}}"
+  },
+  "buttons": {
+    "sending": "Sending…",
+    "sent": "Sent ✓",
+    "sendEmail": "Send by email",
+    "print": "Print / PDF"
+  },
+  "error": {
+    "notSent": "The submission did not go through — check your connection.",
+    "notConfigured": "Automatic sending is not yet enabled on this site.",
+    "fallbackHint": "Use WhatsApp, email, or print the application.",
+    "sendWhatsapp": "Send via WhatsApp",
+    "openMail": "Open my mail client"
+  },
+  "whatsappGreeting": "Hello Benjamin, here is my application file:",
+  "summary": {
+    "formation": "Training: {{value}}",
+    "name": "Name: {{value}}",
+    "phone": "Phone: {{value}}",
+    "email": "Email: {{value}}",
+    "organisation": "Organisation: {{value}}",
+    "pack": "Pack chosen: {{value}}",
+    "motivationLabel": "Motivation:"
+  },
+  "packLabel": {
+    "autre": "Other: {{value}}"
+  },
+  "header": {
+    "motto": "Excellence in Achievement"
+  },
+  "form": {
+    "eyebrow": "Application Form — Training {{number}}",
+    "sections": {
+      "personal": {
+        "title": "1. Personal Information",
+        "lastName": "Last name *",
+        "firstName": "First name(s) *",
+        "birthDate": "Date of birth *",
+        "nationality": "Nationality *",
+        "phone": "Primary phone *",
+        "email": "Email address *",
+        "address": "Full residential address *"
+      },
+      "professional": {
+        "title": "2. Current Professional Profile",
+        "organisation": "Organisation / Current employer",
+        "position": "Position / Current title",
+        "experience": "Years of professional experience",
+        "sector": "Main sector of activity",
+        "summary": "Brief summary of your professional background (3-5 lines) *"
+      },
+      "objectives": {
+        "title": "3. Objectives & Motivations",
+        "why": "Why do you want to take \"{{title}}\"? *",
+        "results": "What concrete results do you expect from this training? *",
+        "format": "Preferred format (Online / In-person / Hybrid)",
+        "availability": "Availability (days/hours)"
+      },
+      "level": {
+        "title": "4. Current Level of Knowledge",
+        "intro": "Rate your current level in the areas related to this training:",
+        "options": [
+          "Beginner (never covered this area)",
+          "Intermediate (basic concepts acquired)",
+          "Advanced (existing professional practice)"
+        ]
+      },
+      "pack": {
+        "title": "5. Pack & Budget Selection",
+        "intro": "Select the pack that matches your budget. This choice reflects a transparent approach — BK-BOOST Ltd. adapts to your situation.",
+        "mostChosen": "Most chosen",
+        "other": "Other budget / Custom quote",
+        "otherPlaceholder": "Specify your budget or conditions"
+      },
+      "source": {
+        "title": "6. How You Heard About Us",
+        "options": [
+          "Word of mouth",
+          "LinkedIn / Social media",
+          "WhatsApp",
+          "BK-BOOST website",
+          "Colleague recommendation",
+          "Other"
+        ]
+      },
+      "engagement": {
+        "title": "7. Commitment & Terms",
+        "text": "I, the undersigned, confirm the accuracy of the information provided in this form. I commit to diligently attending the chosen training and to honoring the payment and participation commitments agreed with BK-BOOST Ltd. I certify that I have read the training program and the general terms and conditions.",
+        "place": "Done at (city) *",
+        "date": "On (date) *",
+        "candidateSignature": "Candidate's signature *",
+        "bkSignature": "BK-BOOST stamp / signature (reserved)"
+      }
+    }
+  },
+  "footer": {
+    "confidential": "Excellence in Achievement — Confidential form"
+  }
+}

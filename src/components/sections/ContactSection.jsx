@@ -1,31 +1,9 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { Clock, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 import InquiryForm from '../ui/InquiryForm'
 import { site, waLink } from '../../config/site'
-
-const DIRECT_CHANNELS = [
-  {
-    icon: MessageCircle,
-    label: 'WhatsApp',
-    detail: site.phoneDisplay,
-    href: waLink('Bonjour Benjamin, je souhaite échanger avec vous au sujet d’une mission.'),
-    external: true,
-    note: 'Le plus rapide',
-  },
-  {
-    icon: Mail,
-    label: 'Email',
-    detail: site.email,
-    href: `mailto:${site.email}`,
-  },
-  {
-    icon: Phone,
-    label: 'Téléphone',
-    detail: site.phoneDisplay,
-    href: `tel:${site.phoneRaw}`,
-  },
-]
 
 /**
  * Section contact de la page d'accueil.
@@ -35,20 +13,45 @@ const DIRECT_CHANNELS = [
  * cul-de-sac. C'est ici qu'il aboutit désormais.
  */
 export default function ContactSection() {
+  const { t, i18n } = useTranslation('contact')
+
+  const DIRECT_CHANNELS = [
+    {
+      icon: MessageCircle,
+      label: t('section.channels.whatsapp.label'),
+      detail: site.phoneDisplay,
+      href: waLink(t('section.channels.whatsapp.message')),
+      external: true,
+      note: t('section.channels.whatsapp.note'),
+    },
+    {
+      icon: Mail,
+      label: t('section.channels.email.label'),
+      detail: site.email,
+      href: `mailto:${site.email}`,
+    },
+    {
+      icon: Phone,
+      label: t('section.channels.phone.label'),
+      detail: site.phoneDisplay,
+      href: `tel:${site.phoneRaw}`,
+    },
+  ]
+
   return (
     <section id="contact" className="section-padding relative bg-surface">
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
-          eyebrow="Parlons de votre besoin"
-          title="Réserver une"
-          highlight="consultation"
-          description="Mission de terrain, audit interne, manuel de procédures, tableau de bord data ou accompagnement de carrière — décrivez votre besoin en deux lignes. Je réponds sous 24 h ouvrables."
+          eyebrow={t('section.eyebrow')}
+          title={t('section.title')}
+          highlight={t('section.highlight')}
+          description={t('section.description')}
         />
 
         <div className="grid gap-10 lg:grid-cols-[1fr_0.62fr] lg:items-start">
           {/* Formulaire */}
           <div className="card-executive p-8 sm:p-10">
-            <InquiryForm subject="Consultation" contextLabel="Page d’accueil — consultation" />
+            <InquiryForm subject={t('section.formSubject')} contextLabel={t('section.formContextLabel')} />
           </div>
 
           {/* Canaux directs */}
@@ -60,7 +63,7 @@ export default function ContactSection() {
             className="flex flex-col gap-4"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-              Ou directement
+              {t('section.orDirectly')}
             </p>
 
             {DIRECT_CHANNELS.map(({ icon: Icon, label, detail, href, external, note }) => (
@@ -87,11 +90,11 @@ export default function ContactSection() {
             <div className="mt-2 flex flex-col gap-3 rounded-xl border border-border bg-surface-white p-4 text-sm text-muted">
               <span className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                {site.city} — disponible pour déploiement international
+                {t('section.location', { city: i18n.resolvedLanguage === 'en' ? site.cityEn : site.city })}
               </span>
               <span className="flex items-center gap-3">
                 <Clock className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                Réponse sous 24 h ouvrables
+                {t('section.responseTime')}
               </span>
             </div>
           </motion.div>

@@ -11,10 +11,11 @@ export function formatUsd(amount, prefix = '') {
  * Hors période promotionnelle, `original` et `badge` valent null : les
  * composants n'affichent alors ni prix barré ni pastille de remise.
  *
- * @param {{ priceUsd: number, pricePrefix?: string }} item
+ * @param {{ priceUsd: number, pricePrefix?: string | { fr: string, en: string } }} item
+ * @param {string} lang 'fr' ou 'en' — utilisé seulement si `pricePrefix` est bilingue.
  */
-export function pricing(item) {
-  const prefix = item.pricePrefix ?? ''
+export function pricing(item, lang = 'fr') {
+  const prefix = resolvePrefix(item.pricePrefix, lang)
   const standard = formatUsd(item.priceUsd, prefix)
 
   if (!isPromoActive()) {
@@ -30,10 +31,16 @@ export function pricing(item) {
   }
 }
 
+/** Résout `pricePrefix`, qu'il soit une simple chaîne ou un objet { fr, en }. */
+function resolvePrefix(pricePrefix, lang) {
+  if (!pricePrefix) return ''
+  return typeof pricePrefix === 'object' ? (pricePrefix[lang] ?? pricePrefix.fr ?? '') : pricePrefix
+}
+
 /** Variante sans suffixe « USD », pour les grilles compactes. */
-export function pricingParts(item) {
-  const p = pricing(item)
-  const prefix = item.pricePrefix ?? ''
+export function pricingParts(item, lang = 'fr') {
+  const p = pricing(item, lang)
+  const prefix = resolvePrefix(item.pricePrefix, lang)
   const discounted = p.discounted
     ? Math.round(item.priceUsd * (1 - promo.discountPercent / 100))
     : item.priceUsd

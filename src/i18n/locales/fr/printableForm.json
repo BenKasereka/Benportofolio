@@ -1,0 +1,113 @@
+{
+  "seo": {
+    "title": "Candidature — {{title}}",
+    "description": "Formulaire d'inscription à la formation {{title}}."
+  },
+  "notFound": {
+    "message": "Formation introuvable.",
+    "back": "Retour aux formations"
+  },
+  "nav": {
+    "backToFormation": "Retour à la formation"
+  },
+  "status": {
+    "sentTo": "Dossier envoyé à {{email}}"
+  },
+  "buttons": {
+    "sending": "Envoi en cours…",
+    "sent": "Envoyé ✓",
+    "sendEmail": "Envoyer par email",
+    "print": "Imprimer / PDF"
+  },
+  "error": {
+    "notSent": "L'envoi n'a pas abouti — vérifiez votre connexion.",
+    "notConfigured": "L'envoi automatique n'est pas encore activé sur ce site.",
+    "fallbackHint": "Utilisez WhatsApp, l'e-mail, ou imprimez le dossier.",
+    "sendWhatsapp": "Envoyer via WhatsApp",
+    "openMail": "Ouvrir ma messagerie"
+  },
+  "whatsappGreeting": "Bonjour Benjamin, voici mon dossier de candidature :",
+  "summary": {
+    "formation": "Formation : {{value}}",
+    "name": "Nom : {{value}}",
+    "phone": "Téléphone : {{value}}",
+    "email": "Email : {{value}}",
+    "organisation": "Organisation : {{value}}",
+    "pack": "Pack choisi : {{value}}",
+    "motivationLabel": "Motivation :"
+  },
+  "packLabel": {
+    "autre": "Autre : {{value}}"
+  },
+  "header": {
+    "motto": "Excellence in Achievement"
+  },
+  "form": {
+    "eyebrow": "Formulaire de Candidature — Formation {{number}}",
+    "sections": {
+      "personal": {
+        "title": "1. Informations Personnelles",
+        "lastName": "Nom de famille *",
+        "firstName": "Prénom(s) *",
+        "birthDate": "Date de naissance *",
+        "nationality": "Nationalité *",
+        "phone": "Téléphone principal *",
+        "email": "Adresse email *",
+        "address": "Adresse de résidence complète *"
+      },
+      "professional": {
+        "title": "2. Profil Professionnel Actuel",
+        "organisation": "Organisation / Employeur actuel",
+        "position": "Poste / Titre actuel",
+        "experience": "Années d'expérience professionnelle",
+        "sector": "Secteur d'activité principal",
+        "summary": "Bref résumé de votre parcours professionnel (3-5 lignes) *"
+      },
+      "objectives": {
+        "title": "3. Objectifs & Motivations",
+        "why": "Pourquoi souhaitez-vous suivre \"{{title}}\" ? *",
+        "results": "Quels résultats concrets attendez-vous à l'issue de cette formation ? *",
+        "format": "Format préféré (En ligne / Présentiel / Hybride)",
+        "availability": "Disponibilités (jours/horaires)"
+      },
+      "level": {
+        "title": "4. Niveau de Connaissance Actuel",
+        "intro": "Évaluez votre niveau actuel dans les domaines liés à cette formation :",
+        "options": [
+          "Débutant (jamais abordé ce domaine)",
+          "Intermédiaire (notions de base acquises)",
+          "Avancé (pratique professionnelle existante)"
+        ]
+      },
+      "pack": {
+        "title": "5. Choix du Pack & Budget",
+        "intro": "Sélectionnez le pack qui correspond à votre budget. Ce choix vous engage dans une démarche transparente — BK-BOOST Ltd. s'adapte à votre situation.",
+        "mostChosen": "Le plus choisi",
+        "other": "Autre budget / Sur devis",
+        "otherPlaceholder": "Précisez votre budget ou vos conditions"
+      },
+      "source": {
+        "title": "6. Source d'Information",
+        "options": [
+          "Bouche à oreille",
+          "LinkedIn / Réseaux sociaux",
+          "WhatsApp",
+          "Site web BK-BOOST",
+          "Recommandation d'un collègue",
+          "Autre"
+        ]
+      },
+      "engagement": {
+        "title": "7. Engagement & Conditions",
+        "text": "Je soussigné(e) confirme l'exactitude des informations fournies dans ce formulaire. Je m'engage à suivre assidûment la formation choisie et à respecter les engagements de paiement et de participation convenus avec BK-BOOST Ltd. Je certifie avoir pris connaissance du programme de formation et des conditions générales.",
+        "place": "Fait à (ville) *",
+        "date": "Le (date) *",
+        "candidateSignature": "Signature du candidat *",
+        "bkSignature": "Cachet / Signature BK-BOOST (réservé)"
+      }
+    }
+  },
+  "footer": {
+    "confidential": "Excellence in Achievement — Formulaire confidentiel"
+  }
+}

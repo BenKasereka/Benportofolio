@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { formationById } from '../data/formations'
 import { pricingPacks } from '../data/pricingPacks'
 import { pricingParts } from '../lib/pricing'
@@ -22,6 +23,7 @@ const EMPTY_FORM = {
 }
 
 export default function PrintableFormPage() {
+  const { t } = useTranslation('printableForm')
   const { id } = useParams()
   const formation = formationById(id)
 
@@ -32,9 +34,9 @@ export default function PrintableFormPage() {
     return (
       <div className="flex min-h-screen items-center justify-center bg-white text-gray-800">
         <div className="text-center">
-          <p className="text-lg font-semibold">Formation introuvable.</p>
+          <p className="text-lg font-semibold">{t('notFound.message')}</p>
           <Link to="/formations" className="mt-4 inline-block text-blue-600 underline">
-            Retour aux formations
+            {t('notFound.back')}
           </Link>
         </div>
       </div>
@@ -53,20 +55,20 @@ export default function PrintableFormPage() {
     })
   }
 
-  const packLabel = form.pack_choisi === 'autre' ? `Autre : ${form.budget_autre}` : form.pack_choisi || '—'
+  const packLabel = form.pack_choisi === 'autre' ? t('packLabel.autre', { value: form.budget_autre }) : form.pack_choisi || '—'
 
   // Résumé texte du dossier — sert de repli WhatsApp/e-mail si l'envoi échoue,
   // pour que le candidat n'ait jamais à ressaisir 32 champs.
   const dossierSummary = () =>
     [
-      `Formation : ${formation.title}`,
-      `Nom : ${form.nom} ${form.prenom}`,
-      `Téléphone : ${form.telephone}`,
-      `Email : ${form.email_candidat}`,
-      `Organisation : ${form.organisation || '—'}`,
-      `Pack choisi : ${packLabel}`,
+      t('summary.formation', { value: formation.title }),
+      t('summary.name', { value: `${form.nom} ${form.prenom}` }),
+      t('summary.phone', { value: form.telephone }),
+      t('summary.email', { value: form.email_candidat }),
+      t('summary.organisation', { value: form.organisation || '—' }),
+      t('summary.pack', { value: packLabel }),
       '',
-      'Motivation :',
+      t('summary.motivationLabel'),
       form.pourquoi_formation || '—',
     ].join('\n')
 
@@ -107,8 +109,8 @@ export default function PrintableFormPage() {
   return (
     <>
       <SEO
-        title={`Candidature — ${formation.title}`}
-        description={`Formulaire d'inscription à la formation ${formation.title}.`}
+        title={t('seo.title', { title: formation.title })}
+        description={t('seo.description', { title: formation.title })}
         noindex
       />
       <style>{`
@@ -145,12 +147,12 @@ export default function PrintableFormPage() {
       <div className="no-print flex flex-col gap-3 bg-ink px-8 py-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <Link to={`/formations/${id}`} className="text-sm text-slate-300 hover:text-white">
-            ← Retour à la formation
+            ← {t('nav.backToFormation')}
           </Link>
           <div className="flex flex-wrap items-center gap-3">
             {status === 'sent' && (
               <span className="text-sm font-medium text-primary-400">
-                ✓ Dossier envoyé à {TO_EMAIL}
+                ✓ {t('status.sentTo', { email: TO_EMAIL })}
               </span>
             )}
             <button
@@ -158,13 +160,13 @@ export default function PrintableFormPage() {
               disabled={status === 'sending' || status === 'sent'}
               className="min-h-tap rounded-lg bg-primary px-6 py-2.5 text-sm font-bold text-white transition hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {status === 'sending' ? 'Envoi en cours…' : status === 'sent' ? 'Envoyé ✓' : 'Envoyer par email'}
+              {status === 'sending' ? t('buttons.sending') : status === 'sent' ? t('buttons.sent') : t('buttons.sendEmail')}
             </button>
             <button
               onClick={() => window.print()}
               className="min-h-tap rounded-lg border border-white/30 bg-white/10 px-6 py-2.5 text-sm font-bold text-white transition hover:bg-white/20"
             >
-              Imprimer / PDF
+              {t('buttons.print')}
             </button>
           </div>
         </div>
@@ -173,25 +175,23 @@ export default function PrintableFormPage() {
         {status === 'error' && (
           <div role="alert" className="flex flex-col gap-2 rounded-lg border border-white/25 bg-white/10 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm font-medium text-white">
-              {isMailConfigured
-                ? "L'envoi n'a pas abouti — vérifiez votre connexion."
-                : "L'envoi automatique n'est pas encore activé sur ce site."}{' '}
-              Utilisez WhatsApp, l&apos;e-mail, ou imprimez le dossier.
+              {isMailConfigured ? t('error.notSent') : t('error.notConfigured')}{' '}
+              {t('error.fallbackHint')}
             </p>
             <div className="flex flex-wrap gap-2">
               <a
-                href={waLink(`Bonjour Benjamin, voici mon dossier de candidature :\n\n${dossierSummary()}`)}
+                href={waLink(`${t('whatsappGreeting')}\n\n${dossierSummary()}`)}
                 target="_blank"
                 rel="noreferrer"
                 className="min-h-tap rounded-lg bg-primary px-4 py-2 text-xs font-bold text-white hover:bg-primary-dark"
               >
-                Envoyer via WhatsApp
+                {t('error.sendWhatsapp')}
               </a>
               <a
-                href={`mailto:${TO_EMAIL}?subject=${encodeURIComponent(`Candidature — ${formation.title}`)}&body=${encodeURIComponent(dossierSummary())}`}
+                href={`mailto:${TO_EMAIL}?subject=${encodeURIComponent(t('seo.title', { title: formation.title }))}&body=${encodeURIComponent(dossierSummary())}`}
                 className="min-h-tap rounded-lg border border-slate-500 px-4 py-2 text-xs font-bold text-white hover:bg-white/10"
               >
-                Ouvrir ma messagerie
+                {t('error.openMail')}
               </a>
             </div>
           </div>
@@ -211,7 +211,7 @@ export default function PrintableFormPage() {
                 BK-BOOST Ltd.
               </div>
               <div style={{ fontSize: '11px', color: '#6B7280', marginTop: '2px', letterSpacing: '2px', textTransform: 'uppercase' }}>
-                Excellence in Achievement
+                {t('header.motto')}
               </div>
             </div>
             <div style={{ textAlign: 'right' }}>
@@ -225,7 +225,7 @@ export default function PrintableFormPage() {
         {/* Titre de la formation */}
         <div style={{ backgroundColor: '#0F172A', padding: '20px 24px', borderRadius: '12px', marginBottom: '28px' }}>
           <div style={{ fontSize: '10px', color: '#6EE7B7', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>
-            Formulaire de Candidature — Formation {formation.number}
+            {t('form.eyebrow', { number: formation.number })}
           </div>
           <h1 style={{ fontSize: '18px', fontWeight: '800', color: '#F8FAFC', lineHeight: '1.3', margin: 0 }}>
             {formation.title}
@@ -236,51 +236,51 @@ export default function PrintableFormPage() {
         </div>
 
         {/* Section 1 — Informations personnelles */}
-        <Section title="1. Informations Personnelles" number="01">
+        <Section title={t('form.sections.personal.title')} number="01">
           <Grid2>
-            <Field label="Nom de famille *" value={form.nom} onChange={set('nom')} />
-            <Field label="Prénom(s) *" value={form.prenom} onChange={set('prenom')} />
-            <Field label="Date de naissance *" value={form.date_naissance} onChange={set('date_naissance')} />
-            <Field label="Nationalité *" value={form.nationalite} onChange={set('nationalite')} />
-            <Field label="Téléphone principal *" value={form.telephone} onChange={set('telephone')} />
-            <Field label="Adresse email *" value={form.email_candidat} onChange={set('email_candidat')} />
+            <Field label={t('form.sections.personal.lastName')} value={form.nom} onChange={set('nom')} />
+            <Field label={t('form.sections.personal.firstName')} value={form.prenom} onChange={set('prenom')} />
+            <Field label={t('form.sections.personal.birthDate')} value={form.date_naissance} onChange={set('date_naissance')} />
+            <Field label={t('form.sections.personal.nationality')} value={form.nationalite} onChange={set('nationalite')} />
+            <Field label={t('form.sections.personal.phone')} value={form.telephone} onChange={set('telephone')} />
+            <Field label={t('form.sections.personal.email')} value={form.email_candidat} onChange={set('email_candidat')} />
           </Grid2>
-          <Field label="Adresse de résidence complète *" value={form.adresse} onChange={set('adresse')} multiline height={48} />
+          <Field label={t('form.sections.personal.address')} value={form.adresse} onChange={set('adresse')} multiline height={48} />
         </Section>
 
         {/* Section 2 — Profil professionnel */}
-        <Section title="2. Profil Professionnel Actuel" number="02">
+        <Section title={t('form.sections.professional.title')} number="02">
           <Grid2>
-            <Field label="Organisation / Employeur actuel" value={form.organisation} onChange={set('organisation')} />
-            <Field label="Poste / Titre actuel" value={form.poste} onChange={set('poste')} />
-            <Field label="Années d'expérience professionnelle" value={form.annees_exp} onChange={set('annees_exp')} />
-            <Field label="Secteur d'activité principal" value={form.secteur} onChange={set('secteur')} />
+            <Field label={t('form.sections.professional.organisation')} value={form.organisation} onChange={set('organisation')} />
+            <Field label={t('form.sections.professional.position')} value={form.poste} onChange={set('poste')} />
+            <Field label={t('form.sections.professional.experience')} value={form.annees_exp} onChange={set('annees_exp')} />
+            <Field label={t('form.sections.professional.sector')} value={form.secteur} onChange={set('secteur')} />
           </Grid2>
-          <Field label="Bref résumé de votre parcours professionnel (3-5 lignes) *" value={form.resume_parcours} onChange={set('resume_parcours')} multiline height={72} />
+          <Field label={t('form.sections.professional.summary')} value={form.resume_parcours} onChange={set('resume_parcours')} multiline height={72} />
         </Section>
 
         {/* Section 3 — Objectifs */}
-        <Section title="3. Objectifs & Motivations" number="03">
+        <Section title={t('form.sections.objectives.title')} number="03">
           <Field
-            label={`Pourquoi souhaitez-vous suivre "${formation.title}" ? *`}
+            label={t('form.sections.objectives.why', { title: formation.title })}
             value={form.pourquoi_formation}
             onChange={set('pourquoi_formation')}
             multiline
             height={72}
           />
-          <Field label="Quels résultats concrets attendez-vous à l'issue de cette formation ? *" value={form.resultats_attendus} onChange={set('resultats_attendus')} multiline height={72} />
+          <Field label={t('form.sections.objectives.results')} value={form.resultats_attendus} onChange={set('resultats_attendus')} multiline height={72} />
           <Grid2>
-            <Field label="Format préféré (En ligne / Présentiel / Hybride)" value={form.format_prefere} onChange={set('format_prefere')} />
-            <Field label="Disponibilités (jours/horaires)" value={form.disponibilites} onChange={set('disponibilites')} />
+            <Field label={t('form.sections.objectives.format')} value={form.format_prefere} onChange={set('format_prefere')} />
+            <Field label={t('form.sections.objectives.availability')} value={form.disponibilites} onChange={set('disponibilites')} />
           </Grid2>
         </Section>
 
         {/* Section 4 — Niveau */}
-        <Section title="4. Niveau de Connaissance Actuel" number="04">
+        <Section title={t('form.sections.level.title')} number="04">
           <div style={{ fontSize: '11px', color: '#374151', marginBottom: '12px' }}>
-            Évaluez votre niveau actuel dans les domaines liés à cette formation :
+            {t('form.sections.level.intro')}
           </div>
-          {['Débutant (jamais abordé ce domaine)', 'Intermédiaire (notions de base acquises)', 'Avancé (pratique professionnelle existante)'].map((lvl) => (
+          {t('form.sections.level.options', { returnObjects: true }).map((lvl) => (
             <div key={lvl} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
               <input
                 type="radio"
@@ -296,10 +296,9 @@ export default function PrintableFormPage() {
         </Section>
 
         {/* Section 5 — Pack & Budget */}
-        <Section title="5. Choix du Pack & Budget" number="05">
+        <Section title={t('form.sections.pack.title')} number="05">
           <div style={{ fontSize: '11px', color: '#374151', marginBottom: '14px' }}>
-            Sélectionnez le pack qui correspond à votre budget. Ce choix vous engage dans une démarche transparente —
-            BK-BOOST Ltd. s'adapte à votre situation.
+            {t('form.sections.pack.intro')}
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '12px' }}>
             {pricingPacks.map((pack) => {
@@ -333,7 +332,7 @@ export default function PrintableFormPage() {
                       {pack.name}
                       {pack.highlight && (
                         <span style={{ marginLeft: '6px', fontSize: '9px', backgroundColor: '#047857', color: '#FFFFFF', padding: '1px 6px', borderRadius: '999px', fontWeight: '800' }}>
-                          Le plus choisi
+                          {t('form.sections.pack.mostChosen')}
                         </span>
                       )}
                     </div>
@@ -362,17 +361,17 @@ export default function PrintableFormPage() {
               onChange={() => setForm((prev) => ({ ...prev, pack_choisi: 'autre' }))}
               style={{ accentColor: '#047857', flexShrink: 0 }}
             />
-            <span style={{ fontSize: '12px', color: '#374151' }}>Autre budget / Sur devis</span>
+            <span style={{ fontSize: '12px', color: '#374151' }}>{t('form.sections.pack.other')}</span>
           </label>
           {form.pack_choisi === 'autre' && (
-            <Field label="Précisez votre budget ou vos conditions" value={form.budget_autre} onChange={set('budget_autre')} />
+            <Field label={t('form.sections.pack.otherPlaceholder')} value={form.budget_autre} onChange={set('budget_autre')} />
           )}
         </Section>
 
         {/* Section 6 — Source d'information */}
-        <Section title="6. Source d'Information" number="06">
+        <Section title={t('form.sections.source.title')} number="06">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '8px' }}>
-            {["Bouche à oreille", "LinkedIn / Réseaux sociaux", "WhatsApp", "Site web BK-BOOST", "Recommandation d'un collègue", "Autre"].map((src) => (
+            {t('form.sections.source.options', { returnObjects: true }).map((src) => (
               <div key={src} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <input
                   type="checkbox"
@@ -387,28 +386,26 @@ export default function PrintableFormPage() {
         </Section>
 
         {/* Section 7 — Engagement */}
-        <Section title="7. Engagement & Conditions" number="07">
+        <Section title={t('form.sections.engagement.title')} number="07">
           <div style={{ backgroundColor: '#F9FAFB', border: '1px solid #E5E7EB', borderRadius: '8px', padding: '16px', marginBottom: '16px' }}>
             <p style={{ fontSize: '11px', color: '#374151', lineHeight: '1.7' }}>
-              Je soussigné(e) confirme l'exactitude des informations fournies dans ce formulaire. Je m'engage à suivre
-              assidûment la formation choisie et à respecter les engagements de paiement et de participation convenus
-              avec BK-BOOST Ltd. Je certifie avoir pris connaissance du programme de formation et des conditions générales.
+              {t('form.sections.engagement.text')}
             </p>
           </div>
           <Grid2>
-            <Field label="Fait à (ville) *" value={form.fait_a} onChange={set('fait_a')} />
-            <Field label="Le (date) *" value={form.le_date} onChange={set('le_date')} />
+            <Field label={t('form.sections.engagement.place')} value={form.fait_a} onChange={set('fait_a')} />
+            <Field label={t('form.sections.engagement.date')} value={form.le_date} onChange={set('le_date')} />
           </Grid2>
           <Grid2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               <label style={{ fontSize: '10px', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                Signature du candidat *
+                {t('form.sections.engagement.candidateSignature')}
               </label>
               <div style={{ height: '60px', borderBottom: '1.5px solid #D1D5DB' }} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               <label style={{ fontSize: '10px', color: '#6B7280', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                Cachet / Signature BK-BOOST (réservé)
+                {t('form.sections.engagement.bkSignature')}
               </label>
               <div style={{ height: '60px', borderBottom: '1.5px solid #D1D5DB' }} />
             </div>
@@ -421,7 +418,7 @@ export default function PrintableFormPage() {
             BK-BOOST Ltd. · Goma, RD Congo · kasvinyatsi7@gmail.com · +243 990 260 711
           </span>
           <span style={{ fontSize: '9px', color: '#6B7280', fontStyle: 'italic' }}>
-            Excellence in Achievement — Formulaire confidentiel
+            {t('footer.confidential')}
           </span>
         </div>
       </div>

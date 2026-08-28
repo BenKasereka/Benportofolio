@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "parcours": "Parcours",
+    "expertise": "Expertise",
+    "portfolio": "Portfolio",
+    "formations": "Formations",
+    "tarifs": "Tarifs",
+    "cta": "Réserver un appel",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "menu": "Menu"
+  },
+  "whatsapp": {
+    "ariaLabel": "Discuter sur WhatsApp",
+    "defaultMessage": "Bonjour Benjamin, je vous contacte depuis votre site."
+  },
+  "session": {
+    "startsOn": "Début le",
+    "enrollUntil": "inscriptions jusqu'au",
+    "seatLeft": "place restante",
+    "seatsLeft": "places restantes",
+    "enrollOpenUntil": "Les inscriptions sont ouvertes jusqu'au",
+    "daysLeft": "soit {{count}} jour restant",
+    "daysLeft_other": "soit {{count}} jours restants",
+    "nextSessionNotice": "Passé cette date, la prochaine session sera annoncée ici."
+  }
+}

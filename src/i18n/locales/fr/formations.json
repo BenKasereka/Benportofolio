@@ -1,0 +1,106 @@
+{
+  "list": {
+    "seo": {
+      "title": "Nos Formations",
+      "description": "7 programmes de formation d'excellence — de l'Intelligence Artificielle à l'Audit humanitaire — conçus et animés par un expert fort de plus de 10 ans d'expérience, dont 7 ans de terrain à l'international."
+    },
+    "promoBanner": {
+      "text": "{{label}} — Jusqu'à <em>-{{discount}}%</em> sur toutes les formations"
+    },
+    "backHome": "← Accueil",
+    "eyebrow": "BK-BOOST Ltd. · Centre de Formation",
+    "heading": {
+      "prefix": "Nos",
+      "highlight": "Formations"
+    },
+    "heroDescription": "7 programmes de formation d'excellence — de l'Intelligence Artificielle à l'Audit humanitaire — conçus et animés par un expert fort de plus de 10 ans d'expérience, dont 7 ans de terrain à l'international. Des formations pratiques, structurées et immédiatement applicables.",
+    "viewPricingCta": "Voir nos tarifs & options de paiement",
+    "stats": {
+      "certified": "Formations certifiantes",
+      "practical": "Approche pratique terrain",
+      "experience": "Ans d'expérience (dont 7+ de terrain)",
+      "response": "Réponse garantie"
+    },
+    "chooseProgram": {
+      "prefix": "Choisissez votre",
+      "highlight": "programme"
+    },
+    "chooseProgramDescription": "Cliquez sur une formation pour accéder au programme complet, aux objectifs et au formulaire d'inscription.",
+    "finalCta": {
+      "eyebrow": "Une question ?",
+      "heading": "Vous ne savez pas quelle formation choisir ?",
+      "description": "Nous vous accompagnons personnellement pour identifier la formation la plus adaptée à votre profil, vos objectifs et votre budget. Réponse sous 24h.",
+      "whatsappCta": "Me conseiller via WhatsApp",
+      "whatsappMessage": "Bonjour Benjamin, je souhaite des informations sur vos formations. Pouvez-vous m'aider à choisir ?",
+      "emailCta": "Écrire un email"
+    }
+  },
+  "detail": {
+    "notFound": {
+      "title": "Formation introuvable.",
+      "backLink": "Retour aux formations"
+    },
+    "backHome": "← Accueil",
+    "backToList": "Retour aux formations",
+    "formationBadge": "Formation {{number}} · {{badge}}",
+    "enrollCta": "Je m'inscris",
+    "whatsappCta": "Discuter via WhatsApp",
+    "whatsappMessage": "Bonjour Benjamin, je souhaite des informations sur la formation \"{{title}}\". Pouvez-vous me renseigner ?",
+    "applicationFormCta": "Remplir le formulaire de candidature",
+    "audienceHeading": "À qui s'adresse cette formation ?",
+    "objectivesHeading": "Objectifs pédagogiques",
+    "programEyebrow": "Programme complet",
+    "programHeading": "{{count}} modules · du fondamental à l'opérationnel",
+    "outcomesEyebrow": "Ce que vous obtenez",
+    "outcomesHeading": "À la fin de cette formation, vous aurez…",
+    "formEyebrow": "En savoir plus",
+    "formHeading": {
+      "prefix": "Intéressé(e) par",
+      "highlight": "cette formation",
+      "suffix": "?"
+    },
+    "formDescription": "Remplissez le formulaire ci-dessous. Nous vous répondrons sous 24h ouvrables avec tous les détails, le planning et les modalités d'inscription.",
+    "formAltPrompt": "Préférez-vous recevoir le formulaire complet d'inscription ?",
+    "openApplicationForm": "Ouvrir le formulaire de candidature"
+  },
+  "pricing": {
+    "eyebrow": "Transparence tarifaire",
+    "heading": {
+      "prefix": "Nos",
+      "highlight": "Tarifs",
+      "suffix": "& Options de Paiement"
+    },
+    "description": "Chaque formation est accessible selon votre budget. Sélectionnez votre mode de paiement préféré et contactez-nous directement via WhatsApp pour confirmer.",
+    "promoActive": "{{label}} — Tarif réduit",
+    "promoBody": "Inscrivez-vous maintenant pour bénéficier de <em>-{{discount}}%</em> sur toutes les formations.",
+    "formationLabel": "Formation {{number}}",
+    "perParticipant": "par participant",
+    "paymentMethods": {
+      "mobileMoney": {
+        "label": "Mobile Money",
+        "detail": "M-Pesa · Airtel Money · Orange Money"
+      },
+      "cashUsd": {
+        "label": "Cash USD",
+        "detail": "Paiement en espèces USD"
+      },
+      "bankTransfer": {
+        "label": "Virement bancaire",
+        "detail": "Sur demande — coordonnées fournies"
+      },
+      "westernUnion": {
+        "label": "Western Union / MoneyGram",
+        "detail": "Pour clients internationaux"
+      }
+    },
+    "payVia": "Payer par {{method}}",
+    "paymentInquiryMessage": "Bonjour Benjamin, je souhaite m'inscrire à la formation \"{{title}}\" et payer par {{method}}. Pouvez-vous me donner les modalités ?",
+    "paymentSection": {
+      "heading": "Modes de Paiement Acceptés",
+      "description": "Choisissez la méthode la plus adaptée à votre situation"
+    },
+    "financingCta": "Discuter de mon financement",
+    "financingMessage": "Bonjour Benjamin, je souhaite avoir des informations sur les tarifs et les options de paiement pour vos formations.",
+    "financingNote": "Facilités de paiement disponibles · Réponse sous 24h"
+  }
+}

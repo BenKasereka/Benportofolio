@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { CheckCircle2, ClipboardCheck, HeartPulse, Package, Syringe, TrendingUp, Users } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 import { missions } from '../../data/missions'
@@ -15,14 +16,17 @@ const itemVariants = {
 }
 
 export default function HumanitarianGallery() {
+  const { t, i18n } = useTranslation('humanitarianGallery')
+  const lang = i18n.resolvedLanguage
+
   return (
     <section id="supply-chain" className="section-padding relative bg-surface-white">
       <div className="section-container flex flex-col gap-16">
         <SectionHeading
-          eyebrow="Pôle 01 — Humanitarian Supply Chain"
-          title="Des opérations complexes, sur des"
-          highlight="terrains à haut risque"
-          description="Huit missions, huit contextes de crise différents — de la réponse aux épidémies aux déplacements de populations. Chronologie exacte des postes occupés et des résultats obtenus, tels que documentés au CV."
+          eyebrow={t('eyebrow')}
+          title={t('title')}
+          highlight={t('highlight')}
+          description={t('description')}
         />
 
         <div className="relative mx-auto w-full max-w-3xl">
@@ -48,28 +52,28 @@ export default function HumanitarianGallery() {
                   <div className="card-executive flex-1 p-5">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <span className="rounded-full bg-primary/15 px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide text-primary-dark">
-                        {item.context}
+                        {item.context[lang]}
                       </span>
-                      <span className="text-xs font-medium text-muted">{item.period}</span>
+                      <span className="text-xs font-medium text-muted">{item.period[lang]}</span>
                     </div>
 
-                    <h3 className="mt-2 text-base font-semibold text-ink">{item.mission}</h3>
+                    <h3 className="mt-2 text-base font-semibold text-ink">{item.mission[lang]}</h3>
                     <p className="text-sm text-muted">
-                      {item.role} — {item.country}
+                      {item.role[lang]} — {item.country[lang]}
                     </p>
 
                     <ul className="mt-3 flex flex-col gap-1.5 border-t border-primary-100 pt-3">
                       {item.highlights.map((point) => (
-                        <li key={point} className="flex items-start gap-2 text-sm leading-snug text-muted">
+                        <li key={point[lang]} className="flex items-start gap-2 text-sm leading-snug text-muted">
                           <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
-                          <span>{point}</span>
+                          <span>{point[lang]}</span>
                         </li>
                       ))}
                     </ul>
 
                     <p className="mt-3 flex items-center gap-2 text-sm font-medium text-primary-dark">
                       <TrendingUp className="h-4 w-4" aria-hidden="true" />
-                      {item.impact}
+                      {item.impact[lang]}
                     </p>
                   </div>
                 </motion.div>
@@ -77,6 +81,10 @@ export default function HumanitarianGallery() {
             })}
           </div>
         </div>
+
+        <a href="#contact" className="btn-primary mx-auto w-fit">
+          {t('cta')}
+        </a>
       </div>
     </section>
   )

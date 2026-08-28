@@ -65,13 +65,12 @@ export function getSessionStatus(now = new Date()) {
   }
 }
 
-const DATE_FORMAT = new Intl.DateTimeFormat('fr-FR', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-})
+const DATE_FORMATS = {
+  fr: new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }),
+  en: new Intl.DateTimeFormat('en-US', { day: 'numeric', month: 'long', year: 'numeric' }),
+}
 
-export const formatDate = (date) => (date ? DATE_FORMAT.format(date) : '')
+export const formatDate = (date, lang = 'fr') => (date ? (DATE_FORMATS[lang] ?? DATE_FORMATS.fr).format(date) : '')
 
 // ── Période promotionnelle ───────────────────────────────────────────────
 //

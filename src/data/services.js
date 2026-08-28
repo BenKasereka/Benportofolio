@@ -1,114 +1,239 @@
 // Les 5 pôles d'expertise de Benjamin KASEREKA VINYATSI.
 // Contenu ancré sur le CV, le Manuel Financier UDC et le flyer BK-BOOST.
+// Chaque champ textuel porte { fr, en } : les composants lisent field[lang].
 export const services = [
   {
     id: 'humanitarian-supply-chain',
     number: '01',
     icon: 'Truck',
-    title: 'Humanitarian Supply Chain & Logistics',
-    subtitle: 'Senior Emergency Supply Expert',
-    description:
-      "Pilotage de chaînes d'approvisionnement d'urgence pour MSF, ACF, ACTED et Mercy Corps sur des terrains à haute volatilité : Tchad, Soudan du Sud, Haïti, Nigeria, RDC. Conception de stratégies logistiques agiles, gestion cold chain et conformité GDP/GSP.",
+    title: {
+      fr: 'Humanitarian Supply Chain & Logistics',
+      en: 'Humanitarian Supply Chain & Logistics',
+    },
+    subtitle: {
+      fr: 'Senior Emergency Supply Expert',
+      en: 'Senior Emergency Supply Expert',
+    },
+    description: {
+      fr: "Pilotage de chaînes d'approvisionnement d'urgence pour MSF, ACF, ACTED et Mercy Corps sur des terrains à haute volatilité : Tchad, Soudan du Sud, Haïti, Nigeria, RDC. Conception de stratégies logistiques agiles, gestion cold chain et conformité GDP/GSP.",
+      en: 'Leading emergency supply chains for MSF, ACF, ACTED and Mercy Corps in high-volatility settings: Chad, South Sudan, Haiti, Nigeria, DR Congo. Designing agile logistics strategies, cold chain management and GDP/GSP compliance.',
+    },
     highlights: [
-      'Préparation aux urgences et déploiement rapide sur crises réfugiés',
-      'Cycle achats complet : RFQ, RFP, ITB, gestion des POs et conformité CPC',
-      'Supervision entrepôt, chaîne du froid et stocks médicaux critiques',
-      'Coaching et montée en compétence des équipes logistiques nationales',
+      {
+        fr: 'Préparation aux urgences et déploiement rapide sur crises réfugiés',
+        en: 'Emergency preparedness and rapid deployment for refugee crises',
+      },
+      {
+        fr: 'Cycle achats complet : RFQ, RFP, ITB, gestion des POs et conformité CPC',
+        en: 'Full procurement cycle: RFQ, RFP, ITB, PO management and CPC compliance',
+      },
+      {
+        fr: 'Supervision entrepôt, chaîne du froid et stocks médicaux critiques',
+        en: 'Oversight of warehousing, cold chain and critical medical stock',
+      },
+      {
+        fr: 'Coaching et montée en compétence des équipes logistiques nationales',
+        en: 'Coaching and upskilling national logistics teams',
+      },
     ],
     metrics: [
-      { value: '7+', label: 'ans en Supply Chain terrain' },
-      { value: '85%', label: 'de réduction des délais' },
-      { value: '5', label: 'pays d’intervention' },
+      { value: '7+', label: { fr: 'ans en Supply Chain terrain', en: 'years in field Supply Chain' } },
+      { value: '85%', label: { fr: 'de réduction des délais', en: 'reduction in lead times' } },
+      { value: '5', label: { fr: 'pays d’intervention', en: 'countries of operation' } },
     ],
-    tags: ['MSF-OCB', 'Cold Chain', 'RFQ / RFP / ITB', 'UNIFIELD & SAP'],
+    tags: [
+      { fr: 'MSF-OCB', en: 'MSF-OCB' },
+      { fr: 'Cold Chain', en: 'Cold Chain' },
+      { fr: 'RFQ / RFP / ITB', en: 'RFQ / RFP / ITB' },
+      { fr: 'UNIFIELD & SAP', en: 'UNIFIELD & SAP' },
+    ],
     anchor: '#supply-chain',
   },
   {
     id: 'bk-boost',
     number: '02',
     icon: 'Rocket',
-    title: 'BK-BOOST Ltd.',
-    subtitle: 'Career Coaching & Recruitment Accelerator',
-    description:
-      "Accompagnement expert des candidats vers des postes nationaux et internationaux : diagnostic de carrière, repositionnement CV/LinkedIn, simulations d'entretiens et stratégie de candidature. « Passez du CV ignoré au candidat recherché. »",
+    title: {
+      fr: 'BK-BOOST Ltd.',
+      en: 'BK-BOOST Ltd.',
+    },
+    subtitle: {
+      fr: 'Career Coaching & Recruitment Accelerator',
+      en: 'Career Coaching & Recruitment Accelerator',
+    },
+    description: {
+      fr: "Accompagnement expert des candidats vers des postes nationaux et internationaux : diagnostic de carrière, repositionnement CV/LinkedIn, simulations d'entretiens et stratégie de candidature. « Passez du CV ignoré au candidat recherché. »",
+      en: 'Expert coaching of candidates toward national and international positions: career diagnostics, CV/LinkedIn repositioning, interview simulations and application strategy. "Go from an overlooked resume to a sought-after candidate."',
+    },
     highlights: [
-      'Diagnostic de carrière et repositionnement CV/LinkedIn au format ATS',
-      "Simulation d'entretiens comportementaux (méthode STAR)",
-      'Décryptage des cycles de recrutement des ONG, entreprises et agences onusiennes',
-      'Stratégies de networking et de candidature ciblée, à l’échelle nationale comme internationale',
+      {
+        fr: 'Diagnostic de carrière et repositionnement CV/LinkedIn au format ATS',
+        en: 'Career diagnostics and CV/LinkedIn repositioning in ATS format',
+      },
+      {
+        fr: "Simulation d'entretiens comportementaux (méthode STAR)",
+        en: 'Behavioral interview simulations (STAR method)',
+      },
+      {
+        fr: 'Décryptage des cycles de recrutement des ONG, entreprises et agences onusiennes',
+        en: 'Decoding recruitment cycles at NGOs, companies and UN agencies',
+      },
+      {
+        fr: 'Stratégies de networking et de candidature ciblée, à l’échelle nationale comme internationale',
+        en: 'Networking and targeted application strategies, both nationally and internationally',
+      },
     ],
     metrics: [
-      { value: '4', label: 'packs d’accompagnement' },
-      { value: '6', label: 'mois de suivi (Pack Ultimate)' },
-      { value: '100%', label: 'approche pratique, terrain' },
+      { value: '4', label: { fr: 'packs d’accompagnement', en: 'coaching packages' } },
+      { value: '6', label: { fr: 'mois de suivi (Pack Ultimate)', en: 'months of follow-up (Ultimate Pack)' } },
+      { value: '100%', label: { fr: 'approche pratique, terrain', en: 'hands-on, field-based approach' } },
     ],
-    tags: ['CV & Lettre de motivation', 'Prep. entretiens', 'Coaching carrière'],
+    tags: [
+      { fr: 'CV & Lettre de motivation', en: 'CV & Cover Letter' },
+      { fr: 'Prep. entretiens', en: 'Interview Prep' },
+      { fr: 'Coaching carrière', en: 'Career Coaching' },
+    ],
     anchor: '#bk-boost',
   },
   {
     id: 'audit',
     number: '03',
     icon: 'ShieldCheck',
-    title: 'Audit Interne & Contrôles',
-    subtitle: 'Compliance, Contrôles & Manuels de Procédures',
-    description:
-      "Audits internes Supply Chain, Finance, RH et programmes (ACTED / BHA) et rédaction de manuels de procédures Admin, Finances et Logistique pour organisations de terrain.",
+    title: {
+      fr: 'Audit Interne & Contrôles',
+      en: 'Internal Audit & Controls',
+    },
+    subtitle: {
+      fr: 'Compliance, Contrôles & Manuels de Procédures',
+      en: 'Compliance, Controls & Procedure Manuals',
+    },
+    description: {
+      fr: "Audits internes Supply Chain, Finance, RH et programmes (ACTED / BHA) et rédaction de manuels de procédures Admin, Finances et Logistique pour organisations de terrain.",
+      en: 'Internal audits across Supply Chain, Finance, HR and Programs (ACTED / BHA) and drafting of Admin, Finance and Logistics procedure manuals for field organizations.',
+    },
     highlights: [
-      'Rédaction de manuels de procédures Admin, Finances, Logistique, Supply Chain',
-      "Contrôles internes : séparation des tâches, matrices d'autorisation",
-      'Audits internes multi-programmes et dossiers pour bailleurs (BHA)',
-      'Plans d’action correctifs et suivi des recommandations',
+      {
+        fr: 'Rédaction de manuels de procédures Admin, Finances, Logistique, Supply Chain',
+        en: 'Drafting Admin, Finance, Logistics and Supply Chain procedure manuals',
+      },
+      {
+        fr: "Contrôles internes : séparation des tâches, matrices d'autorisation",
+        en: 'Internal controls: segregation of duties, authorization matrices',
+      },
+      {
+        fr: 'Audits internes multi-programmes et dossiers pour bailleurs (BHA)',
+        en: 'Multi-program internal audits and donor files (BHA)',
+      },
+      {
+        fr: 'Plans d’action correctifs et suivi des recommandations',
+        en: 'Corrective action plans and follow-up on recommendations',
+      },
     ],
     metrics: [
-      { value: '87%', label: 'gain de conformité' },
-      { value: '87.2%', label: 'réduction du risque (ACTED)' },
-      { value: '4', label: 'domaines de contrôle interne' },
+      { value: '87%', label: { fr: 'gain de conformité', en: 'compliance gain' } },
+      { value: '87.2%', label: { fr: 'réduction du risque (ACTED)', en: 'risk reduction (ACTED)' } },
+      { value: '4', label: { fr: 'domaines de contrôle interne', en: 'internal control domains' } },
     ],
-    tags: ['Manuels de procédures', 'Contrôle interne', 'Audit bailleurs'],
+    tags: [
+      { fr: 'Manuels de procédures', en: 'Procedure Manuals' },
+      { fr: 'Contrôle interne', en: 'Internal Control' },
+      { fr: 'Audit bailleurs', en: 'Donor Audit' },
+    ],
     anchor: '#audit',
   },
   {
     id: 'data-analysis',
     number: '04',
     icon: 'BarChart3',
-    title: 'Data Analysis & Business Intelligence',
-    subtitle: 'Bases de Données, Interprétation & Aide à la Décision',
-    description:
-      "Analyse de bases de données et de la data pour la prise de décision : collecte, nettoyage, modélisation et visualisation, avec les outils et langages professionnels les plus puissants du marché.",
+    title: {
+      fr: 'Data Analysis & Business Intelligence',
+      en: 'Data Analysis & Business Intelligence',
+    },
+    subtitle: {
+      fr: 'Bases de Données, Interprétation & Aide à la Décision',
+      en: 'Databases, Interpretation & Decision Support',
+    },
+    description: {
+      fr: "Analyse de bases de données et de la data pour la prise de décision : collecte, nettoyage, modélisation et visualisation, avec les outils et langages professionnels les plus puissants du marché.",
+      en: 'Database and data analysis for decision-making: collection, cleaning, modeling and visualization, using the most powerful professional tools and languages on the market.',
+    },
     highlights: [
-      'Collecte et intégration de données terrain (ERP, bases SQL)',
-      'Nettoyage, modélisation et analyse statistique avancée',
-      'Visualisation et tableaux de bord pour la prise de décision',
-      'Reporting KPI en temps réel pour PME et grands groupes',
+      {
+        fr: 'Collecte et intégration de données terrain (ERP, bases SQL)',
+        en: 'Collection and integration of field data (ERP, SQL databases)',
+      },
+      {
+        fr: 'Nettoyage, modélisation et analyse statistique avancée',
+        en: 'Cleaning, modeling and advanced statistical analysis',
+      },
+      {
+        fr: 'Visualisation et tableaux de bord pour la prise de décision',
+        en: 'Visualization and dashboards for decision-making',
+      },
+      {
+        fr: 'Reporting KPI en temps réel pour PME et grands groupes',
+        en: 'Real-time KPI reporting for SMEs and large groups',
+      },
     ],
     metrics: [
-      { value: '20+', label: 'outils & langages maîtrisés' },
-      { value: '5', label: 'phases de pipeline data' },
-      { value: 'Power BI', label: '/ Python / R / SQL' },
+      { value: '20+', label: { fr: 'outils & langages maîtrisés', en: 'tools & languages mastered' } },
+      { value: '5', label: { fr: 'phases de pipeline data', en: 'data pipeline phases' } },
+      { value: 'Power BI', label: { fr: '/ Python / R / SQL', en: '/ Python / R / SQL' } },
     ],
-    tags: ['Power BI & DAX', 'Python & R', 'SQL'],
+    tags: [
+      { fr: 'Power BI & DAX', en: 'Power BI & DAX' },
+      { fr: 'Python & R', en: 'Python & R' },
+      { fr: 'SQL', en: 'SQL' },
+    ],
     anchor: '#data',
   },
   {
     id: 'languages',
     number: '05',
     icon: 'Languages',
-    title: 'Interprétation & Traduction Multilingue',
-    subtitle: '6 langues au service du terrain',
-    description:
-      "Interprétation et traduction pour équipes multiculturelles et opérations internationales : Français, Anglais, Swahili, Kinande, Lingala, Kinyarwanda.",
+    title: {
+      fr: 'Interprétation & Traduction Multilingue',
+      en: 'Interpretation & Multilingual Translation',
+    },
+    subtitle: {
+      fr: '6 langues au service du terrain',
+      en: '6 languages in service of the field',
+    },
+    description: {
+      fr: "Interprétation et traduction pour équipes multiculturelles et opérations internationales : Français, Anglais, Swahili, Kinande, Lingala, Kinyarwanda.",
+      en: 'Interpretation and translation for multicultural teams and international operations: French, English, Swahili, Kinande, Lingala, Kinyarwanda.',
+    },
     highlights: [
-      "Interprétation terrain FR/EN/Swahili en contexte d'urgence",
-      'Médiation communautaire en Kinande, Lingala et Kinyarwanda',
-      'Rédaction de rapports bilingues pour bailleurs et sièges',
-      'Facilitation de formations pour équipes multiculturelles',
+      {
+        fr: "Interprétation terrain FR/EN/Swahili en contexte d'urgence",
+        en: 'Field interpretation in FR/EN/Swahili in emergency contexts',
+      },
+      {
+        fr: 'Médiation communautaire en Kinande, Lingala et Kinyarwanda',
+        en: 'Community mediation in Kinande, Lingala and Kinyarwanda',
+      },
+      {
+        fr: 'Rédaction de rapports bilingues pour bailleurs et sièges',
+        en: 'Drafting bilingual reports for donors and headquarters',
+      },
+      {
+        fr: 'Facilitation de formations pour équipes multiculturelles',
+        en: 'Facilitating training sessions for multicultural teams',
+      },
     ],
     metrics: [
-      { value: '6', label: 'langues maîtrisées' },
-      { value: 'C1/C2', label: 'Français & Anglais' },
-      { value: 'Natif', label: 'Swahili' },
+      { value: '6', label: { fr: 'langues maîtrisées', en: 'languages mastered' } },
+      { value: 'C1/C2', label: { fr: 'Français & Anglais', en: 'French & English' } },
+      { value: { fr: 'Natif', en: 'Native' }, label: { fr: 'Swahili', en: 'Native Swahili' } },
     ],
-    tags: ['Français', 'Anglais', 'Swahili', 'Kinande', 'Lingala', 'Kinyarwanda'],
+    tags: [
+      { fr: 'Français', en: 'French' },
+      { fr: 'Anglais', en: 'English' },
+      { fr: 'Swahili', en: 'Swahili' },
+      { fr: 'Kinande', en: 'Kinande' },
+      { fr: 'Lingala', en: 'Lingala' },
+      { fr: 'Kinyarwanda', en: 'Kinyarwanda' },
+    ],
     anchor: '#languages',
   },
 ]

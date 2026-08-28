@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { CalendarDays, MapPin, Users } from 'lucide-react'
 import { formatDate, getSessionStatus } from '../../data/sessions'
 
@@ -11,6 +12,8 @@ import { formatDate, getSessionStatus } from '../../data/sessions'
  * section tarifs.
  */
 export default function SessionNotice({ compact = false }) {
+  const { t, i18n } = useTranslation('common')
+  const lang = i18n.resolvedLanguage
   const status = getSessionStatus()
   if (!status) return null
 
@@ -22,12 +25,12 @@ export default function SessionNotice({ compact = false }) {
         {label && <span>{label}</span>}
         {deadline && (
           <span className="text-white/85">
-            · inscriptions jusqu&apos;au {formatDate(deadline)}
+            · {t('session.enrollUntil')} {formatDate(deadline, lang)}
           </span>
         )}
         {seatsLeft !== null && (
           <span className="rounded-full bg-white/20 px-2 py-0.5">
-            {seatsLeft} place{seatsLeft > 1 ? 's' : ''} restante{seatsLeft > 1 ? 's' : ''}
+            {seatsLeft} {t(seatsLeft > 1 ? 'session.seatsLeft' : 'session.seatLeft')}
           </span>
         )}
       </span>
@@ -44,7 +47,7 @@ export default function SessionNotice({ compact = false }) {
         {startDate && (
           <span className="chip-on-dark inline-flex items-center gap-2 !px-4 !py-2 !text-sm">
             <CalendarDays className="h-4 w-4" aria-hidden="true" />
-            Début le {formatDate(startDate)}
+            {t('session.startsOn')} {formatDate(startDate, lang)}
           </span>
         )}
         {format && (
@@ -57,23 +60,22 @@ export default function SessionNotice({ compact = false }) {
           <span className="chip-on-dark inline-flex items-center gap-2 !px-4 !py-2 !text-sm">
             <Users className="h-4 w-4" aria-hidden="true" />
             {seatsLeft}
-            {seatsTotal ? ` / ${seatsTotal}` : ''} place{seatsLeft > 1 ? 's' : ''} restante
-            {seatsLeft > 1 ? 's' : ''}
+            {seatsTotal ? ` / ${seatsTotal}` : ''} {t(seatsLeft > 1 ? 'session.seatsLeft' : 'session.seatLeft')}
           </span>
         )}
       </div>
 
       {deadline && (
         <p className="max-w-lg text-sm leading-relaxed text-white/85">
-          Les inscriptions sont ouvertes jusqu&apos;au{' '}
-          <span className="font-semibold text-white">{formatDate(deadline)}</span>
+          {t('session.enrollOpenUntil')}{' '}
+          <span className="font-semibold text-white">{formatDate(deadline, lang)}</span>
           {daysLeft !== null && daysLeft <= 30 && (
             <>
               {' '}
-              — soit {daysLeft} jour{daysLeft > 1 ? 's' : ''}
+              — {t('session.daysLeft', { count: daysLeft })}
             </>
           )}
-          . Passé cette date, la prochaine session sera annoncée ici.
+          . {t('session.nextSessionNotice')}
         </p>
       )}
     </div>

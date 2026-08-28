@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { ArrowRight, Database, FlaskConical, Filter, PieChart, Target } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 import { dataPipeline, dataStats } from '../../data/dataTools'
@@ -25,23 +26,26 @@ const PHASE_PALETTE = {
 }
 
 export default function DataAnalysisSection() {
+  const { t, i18n } = useTranslation('data')
+  const lang = i18n.resolvedLanguage
+
   return (
     <section id="data" className="section-padding relative overflow-hidden bg-surface-white">
       <div className="pointer-events-none absolute right-[-10%] top-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
 
       <div className="section-container flex flex-col gap-14">
         <SectionHeading
-          eyebrow="Pôle 04 — Data Analysis & Business Intelligence"
-          title="De la base de données brute à la"
-          highlight="décision"
-          description="Analyse de bases de données, interprétation et visualisation — avec les outils et langages professionnels les plus puissants du marché, à chaque étape du pipeline."
+          eyebrow={t('eyebrow')}
+          title={t('title')}
+          highlight={t('highlight')}
+          description={t('description')}
         />
 
         <div className="mx-auto grid w-full max-w-2xl grid-cols-3 gap-4">
           {dataStats.map((stat) => (
-            <div key={stat.label} className="card-executive p-5 text-center">
+            <div key={stat.value} className="card-executive p-5 text-center">
               <p className="font-heading text-xl font-extrabold text-primary sm:text-2xl">{stat.value}</p>
-              <p className="mt-1 text-xs leading-snug text-muted">{stat.label}</p>
+              <p className="mt-1 text-xs leading-snug text-muted">{stat.label[lang]}</p>
             </div>
           ))}
         </div>
@@ -67,18 +71,21 @@ export default function DataAnalysisSection() {
                     <Icon className="h-5 w-5" strokeWidth={1.75} />
                   </span>
                   <div>
-                    <h3 className="font-semibold text-white">{phase.title}</h3>
-                    <p className={`mt-1 text-xs leading-relaxed ${p.desc}`}>{phase.description}</p>
+                    <h3 className="font-semibold text-white">{phase.title[lang]}</h3>
+                    <p className={`mt-1 text-xs leading-relaxed ${p.desc}`}>{phase.description[lang]}</p>
                   </div>
                   <ul className="mt-auto flex flex-col gap-1.5 border-t border-white/15 pt-4">
-                    {phase.tools.map((tool) => (
-                      <li
-                        key={tool}
-                        className={`rounded-full px-2.5 py-1 text-center text-[0.7rem] font-medium ${p.badge}`}
-                      >
-                        {tool}
-                      </li>
-                    ))}
+                    {phase.tools.map((tool) => {
+                      const label = typeof tool === 'object' ? tool[lang] : tool
+                      return (
+                        <li
+                          key={label}
+                          className={`rounded-full px-2.5 py-1 text-center text-[0.7rem] font-medium ${p.badge}`}
+                        >
+                          {label}
+                        </li>
+                      )
+                    })}
                   </ul>
                 </motion.div>
 

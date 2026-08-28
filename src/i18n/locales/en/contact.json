@@ -1,0 +1,72 @@
+{
+  "section": {
+    "eyebrow": "Let's talk about your needs",
+    "title": "Book a",
+    "highlight": "consultation",
+    "description": "Field mission, internal audit, procedures manual, data dashboard or career coaching — describe your needs in a couple of lines. I reply within 24 business hours.",
+    "formSubject": "Consultation",
+    "formContextLabel": "Home page — consultation",
+    "orDirectly": "Or directly",
+    "channels": {
+      "whatsapp": {
+        "label": "WhatsApp",
+        "note": "Fastest",
+        "message": "Hello Benjamin, I would like to discuss an assignment with you."
+      },
+      "email": {
+        "label": "Email"
+      },
+      "phone": {
+        "label": "Phone"
+      }
+    },
+    "location": "{{city}} — available for international deployment",
+    "responseTime": "Response within 24 business hours"
+  },
+  "form": {
+    "defaultTopic": "Consultation request",
+    "subjectPrefix": "Request",
+    "labels": {
+      "name": "Full name",
+      "email": "Email address",
+      "phone": "Phone / WhatsApp",
+      "org": "Organization",
+      "message": "Your message"
+    },
+    "optional": "(optional)",
+    "placeholders": {
+      "name": "John Smith",
+      "email": "you@example.com",
+      "phone": "+243 9XX XXX XXX",
+      "org": "MSF, ACTED, freelance…",
+      "message": "In a sentence or two: your situation and what you're looking for."
+    },
+    "summary": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "org": "Organization",
+      "empty": "—",
+      "messageLabel": "Message:"
+    },
+    "success": {
+      "title": "Message received",
+      "body": "Your request about <b>{{topic}}</b> has arrived. I'll reply within 24 business hours at <b>{{email}}</b>.",
+      "whatsappCta": "Continue on WhatsApp",
+      "whatsappMessage": "Hello Benjamin, I just wrote to you from the website about: {{topic}}."
+    },
+    "error": {
+      "notConfigured": "Automatic sending is not yet enabled on this site.",
+      "failed": "The message could not be sent — your connection may have been interrupted.",
+      "helper": "Use one of these two options instead — your message is ready, nothing is lost.",
+      "whatsappCta": "Send via WhatsApp",
+      "emailCta": "Open my email client",
+      "whatsappMessage": "Hello Benjamin, regarding: {{topic}}."
+    },
+    "devNotice": "Development: EmailJS is not configured yet (see <code>.env.example</code>). In production, sending will automatically fall back to WhatsApp and email.",
+    "submitting": "Sending…",
+    "submit": "Send my request",
+    "srSubmitting": "Sending the form",
+    "footerNote": "Response within 24 business hours · Your data is only used to reply to you — <a>learn more</a>."
+  }
+}

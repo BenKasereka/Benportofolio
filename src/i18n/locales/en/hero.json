@@ -1,0 +1,24 @@
+{
+  "eyebrow": "Certified Professional in Sourcing & Procurement — CPSP (USA)",
+  "heading": {
+    "firstName": "Benjamin",
+    "lastName": "Kasereka Vinyatsi"
+  },
+  "subheading": {
+    "title": "Expert Certified Professional in Sourcing & Procurement (ISCEA-USA)",
+    "body": "— Expert in Humanitarian Supply Chain & Logistics, Finance, HR, Internal Audit and Data Analysis — founder of",
+    "company": "BK-BOOST Ltd."
+  },
+  "description": "Multilingual expert in Logistics and Supply Chain, both emergency and non-emergency, with 7+ years of field experience in highly volatile regions (DRC, Chad, South Sudan, Haiti, Nigeria) and 3+ years in Finance, Administration, HR and Audit & Compliance. Holder of a Bachelor's + 5 years in Business and Financial Sciences / Accounting track, in addition to a Master's degree in International Cooperation and Humanitarian Aid (KALU Institute). I design agile procurement and logistics strategies, reference procedure manuals/SOPs and data management and analysis tools — from epidemic response to decision support for SMEs and International Humanitarian Organizations.",
+  "cta": {
+    "book": "Book a call",
+    "downloadCv": "Download CV"
+  },
+  "location": "Based in Goma, DRC — available for rapid international deployment",
+  "floatingBadge": {
+    "label": "Lead time reduction",
+    "value": "85%"
+  },
+  "slideImageAlt": "Benjamin Kasereka Vinyatsi — {{mission}}",
+  "slideAriaLabel": "View photo {{index}} — {{mission}}"
+}

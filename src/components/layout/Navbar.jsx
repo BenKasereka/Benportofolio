@@ -1,32 +1,38 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { motion, AnimatePresence } from 'framer-motion'
-import { DollarSign, GraduationCap, Home, Menu, X } from 'lucide-react'
+import { DollarSign, GraduationCap, Menu, X } from 'lucide-react'
+import LanguageSwitcher from '../ui/LanguageSwitcher'
 
 // Absolute paths must be prefixed with BASE_URL so they still resolve correctly
 // when the app is served from a subpath (e.g. GitHub Pages' /Benportofolio/).
 const BASE = import.meta.env.BASE_URL
 
-const PORTFOLIO_LINKS = [
-  { label: 'BK-BOOST', href: `${BASE}#bk-boost` },
-  { label: 'Audit', href: `${BASE}#audit` },
-  { label: 'Data', href: `${BASE}#data` },
-  { label: 'Langues', href: `${BASE}#languages` },
-]
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
+  const { t } = useTranslation('common')
   const isFormations = pathname.startsWith('/formations')
 
-  // On the home page, scroll straight to #contact — no full reload needed.
-  // From any other page, let the href do a real navigation to home + #contact,
-  // and let the browser's native on-load anchor scroll take it from there.
-  const handleContactClick = (e) => {
+  // Parcours (À propos) et Expertise mènent chacun à leur propre ancre —
+  // le premier vers le nouveau récit de parcours, le second vers l'aperçu
+  // des pôles, d'où supply-chain/audit/data s'enchaînent dans l'ordre de page.
+  const anchorLinks = [
+    { label: t('nav.parcours'), href: `${BASE}#parcours` },
+    { label: t('nav.expertise'), href: `${BASE}#expertise` },
+    { label: t('nav.portfolio'), href: `${BASE}#portfolio` },
+  ]
+
+  // On the home page, scroll straight to the target section — no full reload
+  // needed. From any other page, let the href do a real navigation to home +
+  // the anchor, and let the browser's native on-load anchor scroll take it
+  // from there.
+  const handleAnchorClick = (hash) => (e) => {
     if (pathname === '/') {
       e.preventDefault()
-      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
@@ -42,34 +48,29 @@ export default function Navbar() {
         scrolled ? 'bg-secondary shadow-md' : 'bg-secondary/95 backdrop-blur-sm'
       }`}
     >
-      <nav className="section-container flex h-20 items-center justify-between">
+      <nav className="section-container flex h-20 items-center justify-between gap-4">
         {/* Logo — la touche d'or de la marque, réservée à ce badge */}
-        <Link to="/" className="flex min-h-tap items-center gap-2 font-heading text-lg font-bold text-white">
+        <Link to="/" className="flex min-h-tap shrink-0 items-center gap-2 font-heading text-lg font-bold text-white">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-gold text-sm font-extrabold text-white">
             BK
           </span>
           Kasereka Vinyatsi
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop nav — Parcours · Expertise · Portfolio · Formations · Tarifs */}
         <ul className="hidden items-center gap-6 lg:flex">
-          <li>
-            <Link
-              to="/"
-              className="flex items-center gap-1.5 text-sm font-medium text-white/85 transition-colors hover:text-white"
-            >
-              <Home className="h-4 w-4" />
-              Accueil
-            </Link>
-          </li>
-          {PORTFOLIO_LINKS.map((link) => (
+          {anchorLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="text-sm font-medium text-white/85 transition-colors hover:text-white">
+              <a
+                href={link.href}
+                onClick={handleAnchorClick(link.href.split('#')[1])}
+                className="text-sm font-medium text-white/85 transition-colors hover:text-white"
+              >
                 {link.label}
               </a>
             </li>
           ))}
-          {/* Bouton formations — primary (vert), action de navigation standard */}
+          {/* Formations — primary (vert), action de navigation standard */}
           <li>
             <Link
               to="/formations"
@@ -80,37 +81,45 @@ export default function Navbar() {
               }`}
             >
               <GraduationCap className="h-4 w-4" />
-              Nos Formations
+              {t('nav.formations')}
             </Link>
           </li>
-          {/* Bouton tarifs — seul bouton en or de la navbar : mis en avant comme action premium */}
+          {/* Tarifs — seul élément en or de la navbar : mis en avant comme action premium */}
           <li>
-            <Link
-              to="/formations#tarifs"
+            <a
+              href={`${BASE}#tarifs`}
+              onClick={handleAnchorClick('tarifs')}
               className="flex items-center gap-2 rounded-full bg-accent-gold px-4 py-2 text-sm font-semibold text-white shadow-gold-glow transition-all duration-300 hover:bg-accent-gold-dark"
             >
               <DollarSign className="h-4 w-4" />
-              Nos Tarifs
-            </Link>
+              {t('nav.tarifs')}
+            </a>
           </li>
         </ul>
 
-        {/* CTA desktop — une seule couleur (primary), jamais combinée à l'or sur le même bouton */}
-        <a href={`${BASE}#contact`} onClick={handleContactClick} className="hidden btn-primary !px-5 !py-2.5 !text-xs lg:inline-flex">
-          Consultation
-        </a>
+        <div className="hidden items-center gap-4 lg:flex">
+          <LanguageSwitcher />
+          {/* CTA desktop — un seul, une seule couleur (primary) */}
+          <a
+            href={`${BASE}#contact`}
+            onClick={handleAnchorClick('contact')}
+            className="btn-primary !px-5 !py-2.5 !text-xs"
+          >
+            {t('nav.cta')}
+          </a>
+        </div>
 
         {/* Hamburger mobile */}
         <button
           onClick={() => setOpen(true)}
           className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/25 bg-white/10 text-white lg:hidden"
-          aria-label="Ouvrir le menu"
+          aria-label={t('nav.openMenu')}
         >
           <Menu className="h-5 w-5" />
         </button>
       </nav>
 
-      {/* Menu mobile */}
+      {/* Menu mobile — mêmes éléments, en pleine hauteur */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -120,11 +129,11 @@ export default function Navbar() {
             className="surface-dark fixed inset-0 z-50 bg-secondary backdrop-blur-lg lg:hidden"
           >
             <div className="section-container flex h-20 items-center justify-between">
-              <span className="font-heading text-lg font-bold text-white">Menu</span>
+              <span className="font-heading text-lg font-bold text-white">{t('nav.menu')}</span>
               <button
                 onClick={() => setOpen(false)}
                 className="flex min-h-tap min-w-tap items-center justify-center rounded-lg border border-white/30 text-white"
-                aria-label="Fermer le menu"
+                aria-label={t('nav.closeMenu')}
               >
                 <X className="h-5 w-5" />
               </button>
@@ -134,30 +143,16 @@ export default function Navbar() {
               animate="show"
               className="section-container flex flex-col gap-6 pt-8"
             >
-              <motion.li
-                initial={{ opacity: 0, x: -16 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0 }}
-              >
-                <Link
-                  to="/"
-                  onClick={() => setOpen(false)}
-                  className="flex items-center gap-2 text-2xl font-semibold text-white"
-                >
-                  <Home className="h-6 w-6" />
-                  Accueil
-                </Link>
-              </motion.li>
-              {PORTFOLIO_LINKS.map((link, i) => (
+              {anchorLinks.map((link, i) => (
                 <motion.li
                   key={link.href}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.06 * (i + 1) }}
+                  transition={{ delay: 0.06 * i }}
                 >
                   <a
                     href={link.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => { handleAnchorClick(link.href.split('#')[1])(e); setOpen(false) }}
                     className="text-2xl font-semibold text-white"
                   >
                     {link.label}
@@ -167,7 +162,7 @@ export default function Navbar() {
               <motion.li
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.06 * (PORTFOLIO_LINKS.length + 1) }}
+                transition={{ delay: 0.06 * (anchorLinks.length + 1) }}
               >
                 <Link
                   to="/formations"
@@ -175,29 +170,32 @@ export default function Navbar() {
                   className="flex items-center gap-2 text-2xl font-semibold text-primary-400"
                 >
                   <GraduationCap className="h-6 w-6" />
-                  Nos Formations
+                  {t('nav.formations')}
                 </Link>
               </motion.li>
               <motion.li
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.06 * (PORTFOLIO_LINKS.length + 2) }}
+                transition={{ delay: 0.06 * (anchorLinks.length + 2) }}
               >
-                <Link
-                  to="/formations#tarifs"
-                  onClick={() => setOpen(false)}
+                <a
+                  href={`${BASE}#tarifs`}
+                  onClick={(e) => { handleAnchorClick('tarifs')(e); setOpen(false) }}
                   className="flex items-center gap-2 text-2xl font-semibold text-accent-gold-light"
                 >
                   <DollarSign className="h-6 w-6" />
-                  Nos Tarifs
-                </Link>
+                  {t('nav.tarifs')}
+                </a>
               </motion.li>
+              <div className="mt-2 flex items-center gap-4">
+                <LanguageSwitcher />
+              </div>
               <a
                 href={`${BASE}#contact`}
-                onClick={(e) => { handleContactClick(e); setOpen(false) }}
-                className="btn-primary mt-4 w-fit"
+                onClick={(e) => { handleAnchorClick('contact')(e); setOpen(false) }}
+                className="btn-primary mt-2 w-fit"
               >
-                Réserver une consultation
+                {t('nav.cta')}
               </a>
             </motion.ul>
           </motion.div>

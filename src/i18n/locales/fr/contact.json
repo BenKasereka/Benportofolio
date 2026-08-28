@@ -1,0 +1,72 @@
+{
+  "section": {
+    "eyebrow": "Parlons de votre besoin",
+    "title": "Réserver une",
+    "highlight": "consultation",
+    "description": "Mission de terrain, audit interne, manuel de procédures, tableau de bord data ou accompagnement de carrière — décrivez votre besoin en deux lignes. Je réponds sous 24 h ouvrables.",
+    "formSubject": "Consultation",
+    "formContextLabel": "Page d’accueil — consultation",
+    "orDirectly": "Ou directement",
+    "channels": {
+      "whatsapp": {
+        "label": "WhatsApp",
+        "note": "Le plus rapide",
+        "message": "Bonjour Benjamin, je souhaite échanger avec vous au sujet d’une mission."
+      },
+      "email": {
+        "label": "Email"
+      },
+      "phone": {
+        "label": "Téléphone"
+      }
+    },
+    "location": "{{city}} — disponible pour déploiement international",
+    "responseTime": "Réponse sous 24 h ouvrables"
+  },
+  "form": {
+    "defaultTopic": "Demande de consultation",
+    "subjectPrefix": "Demande",
+    "labels": {
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "phone": "Téléphone / WhatsApp",
+      "org": "Organisation",
+      "message": "Votre message"
+    },
+    "optional": "(optionnel)",
+    "placeholders": {
+      "name": "Jean Dupont",
+      "email": "vous@exemple.com",
+      "phone": "+243 9XX XXX XXX",
+      "org": "MSF, ACTED, indépendant…",
+      "message": "En une ou deux phrases : votre situation et ce que vous cherchez."
+    },
+    "summary": {
+      "name": "Nom",
+      "email": "Email",
+      "phone": "Téléphone",
+      "org": "Organisation",
+      "empty": "—",
+      "messageLabel": "Message :"
+    },
+    "success": {
+      "title": "Message bien reçu",
+      "body": "Votre demande concernant <b>{{topic}}</b> est arrivée. Je vous réponds sous 24 h ouvrables à l'adresse <b>{{email}}</b>.",
+      "whatsappCta": "Poursuivre sur WhatsApp",
+      "whatsappMessage": "Bonjour Benjamin, je viens de vous écrire depuis le site au sujet de : {{topic}}."
+    },
+    "error": {
+      "notConfigured": "L'envoi automatique n'est pas encore activé sur ce site.",
+      "failed": "L'envoi n'a pas abouti — votre connexion a peut-être été interrompue.",
+      "helper": "Passez par l'une de ces deux voies — votre message est prêt, rien n'est perdu.",
+      "whatsappCta": "Envoyer via WhatsApp",
+      "emailCta": "Ouvrir ma messagerie",
+      "whatsappMessage": "Bonjour Benjamin, au sujet de : {{topic}}."
+    },
+    "devNotice": "Développement : EmailJS n'est pas configuré (voir <code>.env.example</code>). En production, l'envoi basculera automatiquement sur WhatsApp et e-mail.",
+    "submitting": "Envoi en cours…",
+    "submit": "Envoyer ma demande",
+    "srSubmitting": "Envoi du formulaire en cours",
+    "footerNote": "Réponse sous 24 h ouvrables · Vos données servent uniquement à vous répondre — <a>en savoir plus</a>."
+  }
+}

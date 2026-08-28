@@ -1,33 +1,7 @@
 import { Link } from 'react-router-dom'
+import { Trans, useTranslation } from 'react-i18next'
 import { Linkedin, Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { site, waLink } from '../../config/site'
-
-const QUICK_LINKS = [
-  { label: 'Accueil', to: '/' },
-  { label: "Pôles d'expertise", to: '/#expertise' },
-  { label: 'Nos Formations', to: '/formations' },
-  { label: 'Nos Tarifs', to: '/formations#tarifs' },
-  { label: 'Mentions légales', to: '/mentions-legales' },
-]
-
-const CONTACT_LINKS = [
-  {
-    icon: Mail,
-    label: site.email,
-    href: `mailto:${site.email}`,
-  },
-  {
-    icon: Phone,
-    label: site.phoneDisplay,
-    href: `tel:${site.phoneRaw}`,
-  },
-  {
-    icon: MessageCircle,
-    label: 'Discuter sur WhatsApp',
-    href: waLink('Bonjour Benjamin, je souhaite vous contacter depuis votre site.'),
-    external: true,
-  },
-]
 
 /**
  * Pied de page — coordonnées de repli pour qui a fait défiler toute la page.
@@ -37,7 +11,38 @@ const CONTACT_LINKS = [
  * rendaient la cible de `#contact` ambiguë.
  */
 export default function Footer() {
+  const { t, i18n } = useTranslation('footer')
   const year = new Date().getFullYear()
+  const waMessage = i18n.resolvedLanguage === 'en'
+    ? 'Hello Benjamin, I would like to contact you from your website.'
+    : 'Bonjour Benjamin, je souhaite vous contacter depuis votre site.'
+
+  const QUICK_LINKS = [
+    { label: t('links.home'), to: '/' },
+    { label: t('links.expertise'), to: '/#expertise' },
+    { label: t('links.formations'), to: '/formations' },
+    { label: t('links.tarifs'), to: '/formations#tarifs' },
+    { label: t('links.mentionsLegales'), to: '/mentions-legales' },
+  ]
+
+  const CONTACT_LINKS = [
+    {
+      icon: Mail,
+      label: site.email,
+      href: `mailto:${site.email}`,
+    },
+    {
+      icon: Phone,
+      label: site.phoneDisplay,
+      href: `tel:${site.phoneRaw}`,
+    },
+    {
+      icon: MessageCircle,
+      label: t('whatsapp'),
+      href: waLink(waMessage),
+      external: true,
+    },
+  ]
 
   return (
     <footer className="surface-dark border-t-4 border-primary bg-ink text-white">
@@ -46,10 +51,7 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <span className="font-heading text-xl font-bold text-white">{site.name}</span>
           <p className="max-w-sm text-sm leading-relaxed text-slate-400">
-            Expert Certified Professional in Sourcing &amp; Procurement (ISCEA-USA). Expert en Supply
-            Chain &amp; Logistique Humanitaire, Finance, RH, Audit Interne et Data Analysis — fondateur
-            de {site.company} Disponible pour mandats, audits et partenariats nationaux et
-            internationaux.
+            <Trans i18nKey="footer:tagline" values={{ company: site.company }} />
           </p>
           <div className="mt-2 flex flex-wrap gap-2 text-xs">
             <span className="rounded-full border border-slate-600 bg-slate-800 px-3 py-1 text-slate-300">FR · C2</span>
@@ -67,14 +69,14 @@ export default function Footer() {
               className="mt-1 flex min-h-tap w-fit items-center gap-2 text-sm text-slate-300 transition-colors hover:text-white"
             >
               <Linkedin className="h-4 w-4 text-primary-400" aria-hidden="true" />
-              Profil LinkedIn
+              {t('linkedin')}
             </a>
           )}
         </div>
 
         {/* Navigation rapide */}
         <div className="flex flex-col gap-1">
-          <span className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-400">Navigation</span>
+          <span className="mb-3 text-xs font-semibold uppercase tracking-widest text-primary-400">{t('navigation')}</span>
           <ul className="flex flex-col">
             {QUICK_LINKS.map((link) => (
               <li key={link.label}>
@@ -91,7 +93,7 @@ export default function Footer() {
 
         {/* Contact */}
         <div className="flex flex-col gap-4">
-          <span className="text-xs font-semibold uppercase tracking-widest text-primary-400">Contact</span>
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary-400">{t('contact')}</span>
           <div className="flex flex-col gap-2.5">
             {CONTACT_LINKS.map(({ icon: Icon, label, href, external }) => (
               <a
@@ -111,7 +113,7 @@ export default function Footer() {
               <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-700/60 text-primary-400">
                 <MapPin className="h-4 w-4" aria-hidden="true" />
               </span>
-              {site.city}
+              {i18n.resolvedLanguage === 'en' ? site.cityEn : site.city}
             </div>
           </div>
         </div>
@@ -119,8 +121,8 @@ export default function Footer() {
 
       <div className="border-t border-slate-700">
         <div className="section-container flex flex-col items-center justify-between gap-2 py-6 text-xs text-slate-400 sm:flex-row">
-          <span>© {year} {site.name}. Tous droits réservés.</span>
-          <span>{site.company} — Excellence in Achievement</span>
+          <span>© {year} {site.name}. {t('rights')}</span>
+          <span>{site.company} — {t('companyMotto')}</span>
         </div>
       </div>
     </footer>

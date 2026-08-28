@@ -5,11 +5,15 @@ import Footer from './components/layout/Footer'
 import SEO from './components/ui/SEO'
 import WhatsAppFab from './components/ui/WhatsAppFab'
 import HeroSection from './components/sections/HeroSection'
+import TrustedBySection from './components/sections/TrustedBySection'
 import ServicesHub from './components/sections/ServicesHub'
 import HumanitarianGallery from './components/sections/HumanitarianGallery'
-import BkBoost from './components/sections/BkBoost'
 import AuditSection from './components/sections/AuditDataSection'
 import DataAnalysisSection from './components/sections/DataAnalysisSection'
+import ParcoursSection from './components/sections/ParcoursSection'
+import BkBoost from './components/sections/BkBoost'
+import PortfolioSection from './components/sections/PortfolioSection'
+import PricingSection from './components/sections/PricingSection'
 import LanguagesSection from './components/sections/LanguagesSection'
 import ContactSection from './components/sections/ContactSection'
 
@@ -20,6 +24,7 @@ const FormationsPage = lazy(() => import('./pages/FormationsPage'))
 const FormationDetailPage = lazy(() => import('./pages/FormationDetailPage'))
 const PrintableFormPage = lazy(() => import('./pages/PrintableFormPage'))
 const MentionsLegalesPage = lazy(() => import('./pages/MentionsLegalesPage'))
+const CaseStudyActedPage = lazy(() => import('./pages/CaseStudyActedPage'))
 
 function PortfolioPage() {
   return (
@@ -28,11 +33,15 @@ function PortfolioPage() {
       <Navbar />
       <main id="main-content">
         <HeroSection />
+        <TrustedBySection />
         <ServicesHub />
         <HumanitarianGallery />
-        <BkBoost />
         <AuditSection />
         <DataAnalysisSection />
+        <ParcoursSection />
+        <BkBoost />
+        <PricingSection />
+        <PortfolioSection />
         <LanguagesSection />
         <ContactSection />
       </main>
@@ -81,6 +90,7 @@ export default function App() {
           <Route path="/formations/:id" element={<FormationDetailPage />} />
           <Route path="/formations/:id/formulaire" element={<PrintableFormPage />} />
           <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
+          <Route path="/etudes-de-cas/acted" element={<CaseStudyActedPage />} />
         </Routes>
       </Suspense>
     </>
