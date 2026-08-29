@@ -70,7 +70,7 @@ export default function ServicesHub() {
 
                 <ul className="flex flex-col gap-1.5">
                   {service.highlights.map((point) => (
-                    <li key={point[lang]} className="flex items-start gap-2 text-sm leading-snug text-muted">
+                    <li key={point[lang]} className="flex items-start gap-2 text-justify text-sm leading-snug text-muted">
                       <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
                       <span>{point[lang]}</span>
                     </li>

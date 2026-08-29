@@ -115,13 +115,13 @@ export default function CaseStudyActedPage() {
               <motion.section initial="hidden" whileInView="show" viewport={{ once: true }} custom={0.05} variants={fadeUp} className="flex flex-col gap-4">
                 <h2 className="text-2xl font-bold text-ink">{t('scope.heading')}</h2>
                 <ul className="flex flex-col gap-3">
-                  <li className="flex items-start gap-3 text-muted">
+                  <li className="flex items-start gap-3 text-justify text-muted">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                     <span>
                       <Trans i18nKey="caseStudyActed:scope.item1" components={{ strong: <strong className="text-ink" /> }} />
                     </span>
                   </li>
-                  <li className="flex items-start gap-3 text-muted">
+                  <li className="flex items-start gap-3 text-justify text-muted">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                     <span>
                       <Trans i18nKey="caseStudyActed:scope.item2" components={{ strong: <strong className="text-ink" /> }} />

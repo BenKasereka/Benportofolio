@@ -160,7 +160,7 @@ export default function FormationDetailPage() {
                 </div>
                 <ul className="flex flex-col gap-2 border-t border-white/10 pt-4">
                   {formation.objectives.slice(0, 4).map((obj) => (
-                    <li key={obj[lang]} className="flex items-start gap-2 text-sm text-muted">
+                    <li key={obj[lang]} className="flex items-start gap-2 text-justify text-sm text-muted">
                       <CheckCircle2 className={`mt-0.5 h-4 w-4 shrink-0 ${a.text}`} />
                       {obj[lang]}
                     </li>
@@ -248,7 +248,7 @@ export default function FormationDetailPage() {
 
                       <ul className="flex flex-col gap-1.5 border-t border-white/10 pt-3">
                         {mod.points.map((point) => (
-                          <li key={point[lang]} className="flex items-start gap-2 text-sm leading-snug text-muted">
+                          <li key={point[lang]} className="flex items-start gap-2 text-justify text-sm leading-snug text-muted">
                             <CheckCircle2 className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${a.text}`} />
                             <span>{point[lang]}</span>
                           </li>

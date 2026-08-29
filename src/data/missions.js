@@ -75,8 +75,14 @@ export const missions = [
     period: { fr: 'Mars — Décembre 2024', en: 'March — December 2024' },
     context: { fr: 'Urgence Fièvre de Lassa', en: 'Lassa Fever Emergency' },
     impact: {
-      fr: "Chaîne du froid et stocks médicaux sécurisés durant l'épidémie",
-      en: 'Cold chain and medical stock secured through the outbreak',
+      fr: [
+        'Plan et stratégie de sortie Log & Supply Chain (Lassa Fever) conçus et déployés avec succès',
+        'Achats et stocks médicaux/non médicaux sécurisés avec succès',
+      ],
+      en: [
+        'Log & Supply Chain exit plan and strategy (Lassa Fever) designed and successfully deployed',
+        'Medical and non-medical procurement and stock successfully secured',
+      ],
     },
     highlights: [
       {
@@ -94,14 +100,6 @@ export const missions = [
       {
         fr: "Conception du plan d'intervention d'urgence Choléra à Izziogo (Nigeria)",
         en: 'Designed the Cholera emergency response plan in Izziogo, Nigeria',
-      },
-      {
-        fr: 'Stratégie et plan de sortie Log & Supply Chain du projet Fièvre de Lassa déployés avec succès',
-        en: 'Log & Supply Chain exit strategy and plan for the Lassa Fever project successfully deployed',
-      },
-      {
-        fr: 'Achats et stocks médicaux et non médicaux sécurisés avec succès',
-        en: 'Medical and non-medical procurement and stock successfully secured',
       },
     ],
   },

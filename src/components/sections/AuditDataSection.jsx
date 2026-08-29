@@ -67,7 +67,7 @@ export default function AuditSection() {
                 <p className="text-justify text-sm leading-relaxed text-muted">{capability.description[lang]}</p>
                 <ul className="mt-2 flex flex-col gap-1.5 border-t border-border pt-3">
                   {capability.points.map((point) => (
-                    <li key={point[lang]} className="flex items-start gap-2 text-sm leading-snug text-muted">
+                    <li key={point[lang]} className="flex items-start gap-2 text-justify text-sm leading-snug text-muted">
                       <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
                       <span>{point[lang]}</span>
                     </li>

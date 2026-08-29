@@ -64,17 +64,21 @@ export default function HumanitarianGallery() {
 
                     <ul className="mt-3 flex flex-col gap-1.5 border-t border-primary-100 pt-3">
                       {item.highlights.map((point) => (
-                        <li key={point[lang]} className="flex items-start gap-2 text-sm leading-snug text-muted">
+                        <li key={point[lang]} className="flex items-start gap-2 text-justify text-sm leading-snug text-muted">
                           <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" aria-hidden="true" />
                           <span>{point[lang]}</span>
                         </li>
                       ))}
                     </ul>
 
-                    <p className="mt-3 flex items-center gap-2 text-sm font-medium text-primary-dark">
-                      <TrendingUp className="h-4 w-4" aria-hidden="true" />
-                      {item.impact[lang]}
-                    </p>
+                    {/* impact peut être une seule ligne (string) ou plusieurs
+                        résultats phares (array) selon la mission */}
+                    {(Array.isArray(item.impact[lang]) ? item.impact[lang] : [item.impact[lang]]).map((line) => (
+                      <p key={line} className="mt-3 flex items-center gap-2 text-justify text-sm font-medium text-primary-dark">
+                        <TrendingUp className="h-4 w-4 shrink-0" aria-hidden="true" />
+                        {line}
+                      </p>
+                    ))}
                   </div>
                 </motion.div>
               )

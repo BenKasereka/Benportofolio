@@ -208,7 +208,7 @@ export default function FormationsPage() {
 
                       <ul className="flex flex-col gap-1.5">
                         {formation.objectives.slice(0, 3).map((obj) => (
-                          <li key={obj[lang]} className={`flex items-start gap-2 text-xs leading-snug ${a.meta}`}>
+                          <li key={obj[lang]} className={`flex items-start gap-2 text-justify text-xs leading-snug ${a.meta}`}>
                             <CheckCircle2 className={`mt-0.5 h-3 w-3 shrink-0 ${a.link}`} />
                             <span>{obj[lang]}</span>
                           </li>
