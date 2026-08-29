@@ -286,7 +286,7 @@ export default function HeroSection() {
 
       <Modal open={cvModalOpen} onClose={() => setCvModalOpen(false)} title={t('cvModal.title')}>
         <p className="mb-5 text-justify text-sm leading-relaxed text-muted">{t('cvModal.description')}</p>
-        <InquiryForm subject={t('cvModal.subject')} contextLabel={t('cvModal.subject')} />
+        <InquiryForm subject={t('cvModal.subject')} contextLabel={t('cvModal.subject')} includeCvLink />
       </Modal>
     </section>
   )

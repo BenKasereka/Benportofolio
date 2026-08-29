@@ -5,6 +5,10 @@ import { AlertTriangle, ArrowRight, CheckCircle2, Loader2, Mail, MessageCircle, 
 import { isMailConfigured, sendMail } from '../../lib/sendMail'
 import { mailLink, site, waLink } from '../../config/site'
 
+// URL publique du CV — le même fichier que sert le site, donc toujours à
+// jour sans rien à maintenir en plus ici.
+const CV_URL = `${site.url}/cv-benjamin-kasereka-vinyatsi.pdf`
+
 const FIELD_CLASS =
   'w-full rounded-xl border border-border bg-surface-white py-3 pl-11 pr-4 text-sm text-ink placeholder-slate-400 transition focus:border-primary focus:ring-2 focus:ring-primary/[0.3]'
 
@@ -19,7 +23,7 @@ const FIELD_CLASS =
  * formulaire bascule sur WhatsApp et e-mail plutôt que de perdre le prospect
  * en silence.
  */
-export default function InquiryForm({ subject, contextLabel }) {
+export default function InquiryForm({ subject, contextLabel, includeCvLink = false }) {
   const { t } = useTranslation('contact')
   const uid = useId()
   const [fields, setFields] = useState({ name: '', email: '', phone: '', org: '', message: '' })
@@ -31,6 +35,15 @@ export default function InquiryForm({ subject, contextLabel }) {
   const topic = subject || t('form.defaultTopic')
   const emptyValue = t('form.summary.empty')
 
+  // Demande de CV : le lien du PDF (toujours le fichier en ligne, donc
+  // toujours à jour) part avec la notification pour que Benjamin n'ait qu'à
+  // l'ouvrir et le transférer après avoir vérifié la demande — au lieu de
+  // devoir retrouver le fichier de son côté.
+  const messageBody = [fields.message || emptyValue]
+  if (includeCvLink) {
+    messageBody.push('', t('form.summary.cvLinkLabel'), CV_URL)
+  }
+
   const summary = [
     `${t('form.summary.name')} : ${fields.name}`,
     `${t('form.summary.email')} : ${fields.email}`,
@@ -38,7 +51,7 @@ export default function InquiryForm({ subject, contextLabel }) {
     `${t('form.summary.org')} : ${fields.org || emptyValue}`,
     '',
     t('form.summary.messageLabel'),
-    fields.message || emptyValue,
+    ...messageBody,
   ].join('\n')
 
   const handleSubmit = async (e) => {
@@ -54,7 +67,7 @@ export default function InquiryForm({ subject, contextLabel }) {
       email_candidat: fields.email,
       telephone: fields.phone,
       organisation: fields.org || emptyValue,
-      message: fields.message || emptyValue,
+      message: messageBody.join('\n'),
       reply_to: fields.email,
     })
 

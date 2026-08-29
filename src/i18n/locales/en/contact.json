@@ -47,7 +47,8 @@
       "phone": "Phone",
       "org": "Organization",
       "empty": "—",
-      "messageLabel": "Message:"
+      "messageLabel": "Message:",
+      "cvLinkLabel": "Up-to-date CV link:"
     },
     "success": {
       "title": "Message received",
