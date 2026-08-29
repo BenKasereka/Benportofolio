@@ -74,7 +74,10 @@ export const missions = [
     role: { fr: 'Project’s Logistics and Supply Chain Manager', en: 'Project’s Logistics and Supply Chain Manager' },
     period: { fr: 'Mars — Décembre 2024', en: 'March — December 2024' },
     context: { fr: 'Urgence Fièvre de Lassa', en: 'Lassa Fever Emergency' },
-    impact: { fr: '87% de conformité documentaire', en: '87% documentary compliance' },
+    impact: {
+      fr: "Chaîne du froid et stocks médicaux sécurisés durant l'épidémie",
+      en: 'Cold chain and medical stock secured through the outbreak',
+    },
     highlights: [
       {
         fr: "Supervision de l'entrepôt, de la chaîne du froid et des stocks médicaux critiques durant l'épidémie de Fièvre de Lassa",
