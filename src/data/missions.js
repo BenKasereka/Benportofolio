@@ -84,6 +84,14 @@ export const missions = [
         fr: "Amélioration du taux de conformité documentaire à 87% lors des audits internes",
         en: 'Improved the documentary compliance rate to 87% across internal audits',
       },
+      {
+        fr: 'Conception du plan de clôture du projet Fièvre de Lassa et supervision rigoureuse de son application',
+        en: "Designed the Lassa Fever project's closure plan and rigorously oversaw its implementation",
+      },
+      {
+        fr: "Conception du plan d'intervention d'urgence Choléra à Izziogo (Nigeria)",
+        en: 'Designed the Cholera emergency response plan in Izziogo, Nigeria',
+      },
     ],
   },
   {
