@@ -95,6 +95,14 @@ export const missions = [
         fr: "Conception du plan d'intervention d'urgence Choléra à Izziogo (Nigeria)",
         en: 'Designed the Cholera emergency response plan in Izziogo, Nigeria',
       },
+      {
+        fr: 'Stratégie et plan de sortie Log & Supply Chain du projet Fièvre de Lassa déployés avec succès',
+        en: 'Log & Supply Chain exit strategy and plan for the Lassa Fever project successfully deployed',
+      },
+      {
+        fr: 'Achats et stocks médicaux et non médicaux sécurisés avec succès',
+        en: 'Medical and non-medical procurement and stock successfully secured',
+      },
     ],
   },
   {
