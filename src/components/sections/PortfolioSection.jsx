@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Target, ExternalLink, Download } from 'lucide-react'
+import { BookOpen, ExternalLink, Download } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 
 // Absolute paths must be prefixed with BASE_URL so they still resolve correctly
@@ -23,10 +23,29 @@ export default function PortfolioSection() {
         />
 
         <div className="card-executive mx-auto flex w-full max-w-3xl flex-col gap-6 p-8 sm:p-10">
-          <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:text-left">
-            <span className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-              <Target className="h-7 w-7" strokeWidth={1.75} aria-hidden="true" />
-            </span>
+          <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-start sm:text-left">
+            <a
+              href={`${BASE}full-guideline-bk-boost-ipf.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={project.ctaReadManual}
+              className="group relative block flex-shrink-0 overflow-hidden rounded-lg border border-border shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
+              <img
+                src={`${BASE}full-guideline-bk-boost-ipf-cover.jpg`}
+                alt={project.coverAlt}
+                width={112}
+                height={158}
+                loading="lazy"
+                className="block h-[158px] w-[112px] object-cover sm:h-[178px] sm:w-[126px]"
+              />
+              <span className="absolute inset-0 flex flex-col items-center justify-center gap-1.5 bg-primary/85 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <BookOpen className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
+                <span className="px-2 text-center text-[11px] font-semibold uppercase tracking-wide leading-tight">
+                  {project.ctaReadManual}
+                </span>
+              </span>
+            </a>
             <div className="flex flex-col gap-1">
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
                 {project.eyebrow}
@@ -60,7 +79,7 @@ export default function PortfolioSection() {
               rel="noopener noreferrer"
               className="btn-primary"
             >
-              {project.ctaRead}
+              {project.ctaDiscover}
               <ExternalLink className="h-4 w-4" />
             </a>
             <a

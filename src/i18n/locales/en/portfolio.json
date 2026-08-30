@@ -8,13 +8,15 @@
     "title": "Precision Hunter",
     "subtitle": "I-P-F Methodology — Institutional intraday trading, Gold XAU/USD",
     "description": "A 48-page reference manual and a complete decision framework: IPDA, Price Action, Fractal Model. Eleven verifiable conditions, never decorative, turning every market setup into a clear verdict — GO, IN PROGRESS, or NO TRADE.",
+    "coverAlt": "Cover page of the Full-Guideline BK-BOOST Ltd. manual — Version 1",
+    "ctaReadManual": "Read the manual",
     "stat1Value": "48",
     "stat1Label": "manual pages",
     "stat2Value": "11",
     "stat2Label": "verified conditions",
     "stat3Value": "1.5",
     "stat3Label": "minimum RRR",
-    "ctaRead": "Read online",
+    "ctaDiscover": "Discover the methodology",
     "ctaDownload": "Download the PDF"
   }
 }
