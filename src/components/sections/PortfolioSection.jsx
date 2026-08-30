@@ -2,6 +2,10 @@ import { useTranslation } from 'react-i18next'
 import { Target, ExternalLink, Download } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 
+// Absolute paths must be prefixed with BASE_URL so they still resolve correctly
+// when the app is served from a subpath (e.g. GitHub Pages' /Benportofolio/).
+const BASE = import.meta.env.BASE_URL
+
 // Premier projet concret publié dans cette section : le manuel de référence
 // et la méthodologie de trading institutionnel I-P-F de BK-BOOST Ltd.
 export default function PortfolioSection() {
@@ -51,7 +55,7 @@ export default function PortfolioSection() {
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2 sm:justify-start">
             <a
-              href="/precision-hunter.html"
+              href={`${BASE}precision-hunter.html`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary"
@@ -60,7 +64,7 @@ export default function PortfolioSection() {
               <ExternalLink className="h-4 w-4" />
             </a>
             <a
-              href="/full-guideline-bk-boost-ipf.pdf"
+              href={`${BASE}full-guideline-bk-boost-ipf.pdf`}
               download
               className="btn-secondary"
             >
