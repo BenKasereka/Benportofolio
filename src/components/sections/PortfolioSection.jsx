@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { BookOpen, ExternalLink, Download } from 'lucide-react'
+import { BookOpen, ExternalLink } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 
 // Absolute paths must be prefixed with BASE_URL so they still resolve correctly
@@ -81,14 +81,6 @@ export default function PortfolioSection() {
             >
               {project.ctaDiscover}
               <ExternalLink className="h-4 w-4" />
-            </a>
-            <a
-              href={`${BASE}full-guideline-bk-boost-ipf.pdf`}
-              download
-              className="btn-secondary"
-            >
-              <Download className="h-4 w-4" />
-              {project.ctaDownload}
             </a>
           </div>
         </div>
