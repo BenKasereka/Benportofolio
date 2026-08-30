@@ -307,7 +307,11 @@
   function render(n){
     var target = Math.max(1, Math.min(TOTAL, n));
     current = target;
-    setZoomed(false);
+    // Keep the current zoom level across page turns (like paging through a
+    // presentation) — only reset the scroll position, not the zoom itself.
+    sheetWrap.scrollTop = 0;
+    sheetWrap.scrollLeft = 0;
+    if (!stage.classList.contains('zoomed')) layoutFit();
     sheet.classList.remove('loaded');
     skeleton.classList.remove('hidden');
 
