@@ -80,17 +80,20 @@
 
   .sheet-wrap{
     position: relative;
+    width: 100%;
     height: 100%;
-    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    scrollbar-color: var(--gold) rgba(244,240,230,0.08);
   }
+  .sheet-wrap::-webkit-scrollbar{ width: 12px; height: 12px; }
+  .sheet-wrap::-webkit-scrollbar-track{ background: rgba(244,240,230,0.06); }
+  .sheet-wrap::-webkit-scrollbar-thumb{ background: var(--gold); border-radius: 999px; border: 2px solid var(--navy-deep); }
 
   .sheet{
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
+    display: block;
     border-radius: 3px;
     box-shadow: 0 30px 70px -20px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06);
     background: var(--cream);
@@ -99,9 +102,29 @@
     user-select: none;
     -webkit-user-drag: none;
     opacity: 0;
+    cursor: zoom-in;
     transition: opacity 0.25s ease;
   }
   .sheet.loaded{ opacity: 1; }
+
+  #stage.zoomed .zone{ pointer-events: none; }
+  #stage.zoomed .sheet-wrap{
+    overflow: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+    cursor: auto;
+  }
+  #stage.zoomed .sheet{
+    cursor: zoom-out;
+  }
+
+  .zoom-hint{
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(169,183,194,0.55);
+    white-space: nowrap;
+  }
 
   .skeleton{
     position: absolute;
@@ -190,6 +213,9 @@
     white-space: nowrap;
   }
 
+  @media (max-width: 780px){
+    .zoom-hint{ display: none; }
+  }
   @media (max-width: 640px){
     .notice{ display: none; }
     .zone{ width: 24%; }
@@ -200,12 +226,13 @@
   <div class="reader">
     <header class="bar">
       <a class="brand" href="./#portfolio" aria-label="Retour au portfolio">← BK-BOOST Ltd.</a>
+      <span class="zoom-hint">Cliquer la page pour zoomer · Molette pour défiler</span>
       <div class="counter"><b id="pageNow">1</b> / <span id="pageTotal">48</span></div>
     </header>
 
     <main class="stage" id="stage">
       <button class="zone zone-prev" id="prevZone" aria-label="Page précédente"></button>
-      <div class="sheet-wrap">
+      <div class="sheet-wrap" id="sheetWrap">
         <div class="skeleton" id="skeleton"></div>
         <img id="sheet" class="sheet" alt="" draggable="false">
       </div>
@@ -224,6 +251,8 @@
 (function(){
   var TOTAL = 48;
   var current = 1;
+  var stage = document.getElementById('stage');
+  var sheetWrap = document.getElementById('sheetWrap');
   var sheet = document.getElementById('sheet');
   var skeleton = document.getElementById('skeleton');
   var pageNow = document.getElementById('pageNow');
@@ -248,9 +277,37 @@
     cache[n] = img;
   }
 
+  var PAGE_RATIO = 1400 / 1980; // width / height of every rendered page image
+
+  function layoutFit(){
+    if (stage.classList.contains('zoomed')) return;
+    var availW = sheetWrap.clientWidth;
+    var availH = sheetWrap.clientHeight;
+    if (!availW || !availH) return;
+    var w = availW, h = w / PAGE_RATIO;
+    if (h > availH) { h = availH; w = h * PAGE_RATIO; }
+    sheet.style.width = Math.round(w) + 'px';
+    sheet.style.height = Math.round(h) + 'px';
+  }
+
+  function setZoomed(on){
+    stage.classList.toggle('zoomed', on);
+    if (on) {
+      sheet.style.width = '1400px';
+      sheet.style.height = 'auto';
+    } else {
+      sheetWrap.scrollTop = 0;
+      sheetWrap.scrollLeft = 0;
+      layoutFit();
+    }
+  }
+
+  window.addEventListener('resize', layoutFit);
+
   function render(n){
     var target = Math.max(1, Math.min(TOTAL, n));
     current = target;
+    setZoomed(false);
     sheet.classList.remove('loaded');
     skeleton.classList.remove('hidden');
 
@@ -278,6 +335,10 @@
 
   function go(delta){ render(current + delta); }
 
+  sheet.addEventListener('click', function(){
+    setZoomed(!stage.classList.contains('zoomed'));
+  });
+
   prevBtn.addEventListener('click', function(){ go(-1); });
   nextBtn.addEventListener('click', function(){ go(1); });
   prevZone.addEventListener('click', function(){ go(-1); });
@@ -298,7 +359,7 @@
     touchStartX = e.changedTouches[0].clientX;
   }, { passive: true });
   document.addEventListener('touchend', function(e){
-    if (touchStartX === null) return;
+    if (touchStartX === null || stage.classList.contains('zoomed')) { touchStartX = null; return; }
     var dx = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(dx) > 40) go(dx > 0 ? -1 : 1);
     touchStartX = null;
