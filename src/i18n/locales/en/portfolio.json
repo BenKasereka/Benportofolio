@@ -1,7 +1,20 @@
 {
   "eyebrow": "Realizations",
-  "title": "Concrete projects,",
-  "highlight": "coming soon",
-  "description": "This section will soon showcase concrete realizations — deliverables, dashboards and completed projects. Currently in preparation.",
-  "cta": "Get notified when it's live"
+  "title": "A concrete project,",
+  "highlight": "ready to explore",
+  "description": "BK-BOOST Ltd. is not limited to career coaching: it is also a complete institutional trading methodology, documented end to end.",
+  "project": {
+    "eyebrow": "BK-BOOST Ltd. — Institutional Trading",
+    "title": "Precision Hunter",
+    "subtitle": "I-P-F Methodology — Institutional intraday trading, Gold XAU/USD",
+    "description": "A 48-page reference manual and a complete decision framework: IPDA, Price Action, Fractal Model. Eleven verifiable conditions, never decorative, turning every market setup into a clear verdict — GO, IN PROGRESS, or NO TRADE.",
+    "stat1Value": "48",
+    "stat1Label": "manual pages",
+    "stat2Value": "11",
+    "stat2Label": "verified conditions",
+    "stat3Value": "1.5",
+    "stat3Label": "minimum RRR",
+    "ctaRead": "Read online",
+    "ctaDownload": "Download the PDF"
+  }
 }
