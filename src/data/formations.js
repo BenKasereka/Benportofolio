@@ -818,8 +818,8 @@ export const formations = [
         en: 'Manage goods flow from procurement to final distribution',
       },
       {
-        fr: 'Utiliser les ERP humanitaires (UNIFIELD, SAP, LINK) pour la gestion opérationnelle',
-        en: 'Use humanitarian ERPs (UNIFIELD, SAP, LINK) for operational management',
+        fr: 'Utiliser les ERP humanitaires (SAP, LINK) et Power Query pour la gestion opérationnelle',
+        en: 'Use humanitarian ERPs (SAP, LINK) and Power Query for operational management',
       },
       {
         fr: 'Produire des KPIs et rapports supply chain de qualité internationale',
@@ -971,19 +971,19 @@ export const formations = [
       },
       {
         number: '07',
-        title: { fr: 'Systèmes ERP Humanitaires — UNIFIELD, SAP & LINK', en: 'Humanitarian ERP Systems — UNIFIELD, SAP & LINK' },
+        title: { fr: 'Systèmes ERP Humanitaires — SAP, LINK & Power Query', en: 'Humanitarian ERP Systems — SAP, LINK & Power Query' },
         description: {
           fr: "Prise en main opérationnelle des ERP utilisés par les grandes ONG pour la gestion des achats, stocks, actifs et reporting financier de la supply chain.",
           en: 'Hands-on operation of the ERPs used by major NGOs for managing procurement, stock, assets and supply chain financial reporting.',
         },
         points: [
           {
-            fr: 'UNIFIELD : saisie des POs, réceptions, transferts et inventaires',
-            en: 'UNIFIELD: entering POs, receipts, transfers and inventories',
-          },
-          {
             fr: "SAP et LINK : procédures d'achat, gestion des actifs et workflow d'approbation",
             en: 'SAP and LINK: procurement procedures, asset management and approval workflow',
+          },
+          {
+            fr: 'Power Query : extraction et nettoyage des données ERP pour un reporting fiable',
+            en: 'Power Query: extracting and cleaning ERP data for reliable reporting',
           },
           {
             fr: 'Extraction de données et génération de rapports SCM depuis l\'ERP',
@@ -1023,8 +1023,8 @@ export const formations = [
         en: 'Mastery of the full humanitarian procurement cycle: from RFQ to PO through to distribution',
       },
       {
-        fr: 'Compétence opérationnelle sur UNIFIELD, SAP et LINK',
-        en: 'Operational proficiency in UNIFIELD, SAP and LINK',
+        fr: 'Compétence opérationnelle sur SAP, LINK et Power Query',
+        en: 'Operational proficiency in SAP, LINK and Power Query',
       },
       {
         fr: 'Attestation de formation en Supply Chain Management Humanitaire',

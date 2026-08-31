@@ -85,6 +85,85 @@ export const formationsContent = {
       },
     ],
   },
+
+  'supply-chain-humanitaire': {
+    role: { fr: 'Supply Chain Manager Humanitaire' },
+    hasRoutine: true,
+    modules: [
+      {
+        number: '01',
+        slug: 'module-01-introduction-scm',
+        free: true,
+        templates: [
+          { file: 'cartographie-supply-chain-acteurs.xlsx', label: 'Cartographie des acteurs supply chain (.xlsx)' },
+          { file: 'note-positionnement-scm-standards-bailleurs.docx', label: 'Note de positionnement SCM & standards bailleurs (.docx)' },
+        ],
+      },
+      {
+        number: '02',
+        slug: 'module-02-cycle-achats',
+        free: false,
+        templates: [
+          { file: 'grille-rfq-comparaison-offres-cba.xlsx', label: 'Grille RFQ & analyse comparative des offres CBA (.xlsx)' },
+          { file: 'pv-comite-achats-cpc.docx', label: 'Procès-verbal de comité d\'achats CPC (.docx)' },
+        ],
+      },
+      {
+        number: '03',
+        slug: 'module-03-gestion-fournisseurs',
+        free: false,
+        templates: [
+          { file: 'fiche-qualification-evaluation-fournisseur.xlsx', label: 'Fiche de qualification & évaluation fournisseur (.xlsx)' },
+          { file: 'accord-cadre-framework-agreement-template.docx', label: 'Accord-cadre / Framework Agreement (.docx)' },
+        ],
+      },
+      {
+        number: '04',
+        slug: 'module-04-gestion-stocks-entrepots',
+        free: false,
+        templates: [
+          { file: 'bon-de-reception-controle-qualite.xlsx', label: 'Bon de réception & contrôle qualité (.xlsx)' },
+          { file: 'rapport-reconciliation-inventaire-erp.docx', label: 'Rapport de réconciliation inventaire/ERP (.docx)' },
+        ],
+      },
+      {
+        number: '05',
+        slug: 'module-05-distribution-last-mile',
+        free: false,
+        templates: [
+          { file: 'plan-logistique-distribution-pdm.xlsx', label: 'Plan logistique de distribution & PDM (.xlsx)' },
+          { file: 'registre-plaintes-feedback-communautaire.docx', label: 'Registre des plaintes & feedback communautaire (.docx)' },
+        ],
+      },
+      {
+        number: '06',
+        slug: 'module-06-transport-international-douanes',
+        free: false,
+        templates: [
+          { file: 'comparateur-fret-international-incoterms.xlsx', label: 'Comparateur fret international & Incoterms (.xlsx)' },
+          { file: 'checklist-documents-expedition-internationale.docx', label: 'Checklist documents d\'expédition internationale (.docx)' },
+        ],
+      },
+      {
+        number: '07',
+        slug: 'module-07-systemes-erp',
+        free: false,
+        templates: [
+          { file: 'guide-extraction-nettoyage-power-query.xlsx', label: 'Guide d\'extraction & nettoyage Power Query (.xlsx)' },
+          { file: 'gabarit-rapport-erp-mensuel.docx', label: 'Gabarit de rapport ERP mensuel (.docx)' },
+        ],
+      },
+      {
+        number: '08',
+        slug: 'module-08-kpis-reporting',
+        free: false,
+        templates: [
+          { file: 'tableau-de-bord-kpi-supply-chain.xlsx', label: 'Tableau de bord KPI supply chain (.xlsx)' },
+          { file: 'gabarit-rapport-bailleur-vs-rapport-siege.docx', label: 'Gabarit rapport bailleur vs. rapport siège (.docx)' },
+        ],
+      },
+    ],
+  },
 }
 
 export function formationContentById(id) {
