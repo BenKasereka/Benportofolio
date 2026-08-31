@@ -16,7 +16,7 @@ function ProjectCard({ project }) {
   const coverHref = project.type === 'manual' ? `${BASE}${project.coverHref}` : project.coverHref
 
   return (
-    <div className="card-executive mx-auto flex w-full max-w-3xl flex-col gap-6 p-8 sm:p-10">
+    <div className="card-executive flex h-full w-full flex-col gap-6 p-8 sm:p-10">
       <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-start sm:text-left">
         <a
           href={coverHref}
@@ -108,7 +108,7 @@ export default function PortfolioSection() {
           description={t('description')}
         />
 
-        <div className="flex flex-col gap-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
