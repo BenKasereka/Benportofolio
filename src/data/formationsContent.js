@@ -9,6 +9,7 @@
 export const formationsContent = {
   'logistique-humanitaire': {
     role: { fr: 'Logisticien Humanitaire Terrain' },
+    hasRoutine: true,
     modules: [
       {
         number: '01',

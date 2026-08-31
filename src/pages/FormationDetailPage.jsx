@@ -6,13 +6,14 @@ import {
   Landmark, Lock, MessageCircle, Package, Sparkles, ShieldCheck, Star, Target, Truck, Users,
 } from 'lucide-react'
 import { formationById } from '../data/formations'
-import { moduleContentByNumber } from '../data/formationsContent'
+import { formationContentById, moduleContentByNumber } from '../data/formationsContent'
 import { pricingParts } from '../lib/pricing'
 import SessionNotice from '../components/ui/SessionNotice'
 import SEO from '../components/ui/SEO'
 import InquiryForm from '../components/ui/InquiryForm'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
+import RoutineSection from '../components/formations/RoutineSection'
 import { waLink } from '../config/site'
 
 const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
@@ -284,6 +285,9 @@ export default function FormationDetailPage() {
             </div>
           </div>
         </section>
+
+        {/* ── Routine professionnelle réelle ── */}
+        {formationContentById(formation.id)?.hasRoutine && <RoutineSection formationId={formation.id} />}
 
         {/* ── Résultats obtenus ── */}
         <section className="section-padding-tight divider-gradient bg-surface">
