@@ -3,9 +3,10 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import {
   ArrowLeft, Bot, CheckCircle2, ChevronRight, Clock, FileText,
-  Landmark, MessageCircle, Package, ShieldCheck, Star, Target, Truck, Users,
+  Landmark, Lock, MessageCircle, Package, Sparkles, ShieldCheck, Star, Target, Truck, Users,
 } from 'lucide-react'
 import { formationById } from '../data/formations'
+import { moduleContentByNumber } from '../data/formationsContent'
 import { pricingParts } from '../lib/pricing'
 import SessionNotice from '../components/ui/SessionNotice'
 import SEO from '../components/ui/SEO'
@@ -226,7 +227,10 @@ export default function FormationDetailPage() {
             </div>
 
             <div className="flex flex-col gap-5">
-              {formation.modules.map((mod, index) => (
+              {formation.modules.map((mod, index) => {
+                const moduleContent = moduleContentByNumber(formation.id, mod.number)
+                const isUnlocked = moduleContent?.free === true
+                return (
                 <motion.div
                   key={mod.number}
                   custom={index * 0.06}
@@ -236,14 +240,27 @@ export default function FormationDetailPage() {
                   variants={fadeUp}
                   className={`card-executive overflow-hidden ${a.modBorder}`}
                 >
-                  <div className="flex flex-col gap-4 p-6 sm:flex-row sm:gap-6">
+                  <Link
+                    to={`/formations/${formation.id}/module/${mod.number}`}
+                    className="flex flex-col gap-4 p-6 transition hover:bg-primary/5 sm:flex-row sm:gap-6"
+                  >
                     {/* Numéro du module */}
                     <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl font-heading text-sm font-extrabold ${a.modNum}`}>
                       {mod.number}
                     </div>
 
                     <div className="flex flex-1 flex-col gap-3">
-                      <h3 className="text-base font-bold text-ink">{mod.title[lang]}</h3>
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <h3 className="text-base font-bold text-ink">{mod.title[lang]}</h3>
+                        <span className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide ${
+                          isUnlocked
+                            ? 'border-primary/30 bg-primary/10 text-primary-dark'
+                            : 'border-border bg-surface text-muted'
+                        }`}>
+                          {isUnlocked ? <Sparkles className="h-3 w-3" /> : <Lock className="h-3 w-3" />}
+                          {isUnlocked ? t('module.freeBadge') : t('module.lockedShortBadge')}
+                        </span>
+                      </div>
                       <p className="text-justify text-sm leading-relaxed text-muted">{mod.description[lang]}</p>
 
                       <ul className="flex flex-col gap-1.5 border-t border-white/10 pt-3">
@@ -254,10 +271,16 @@ export default function FormationDetailPage() {
                           </li>
                         ))}
                       </ul>
+
+                      <span className={`mt-1 inline-flex items-center gap-1.5 text-xs font-semibold ${a.text}`}>
+                        {isUnlocked ? 'Consulter le module complet' : 'Voir l’aperçu du module'}
+                        <ChevronRight className="h-3.5 w-3.5" />
+                      </span>
                     </div>
-                  </div>
+                  </Link>
                 </motion.div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </section>

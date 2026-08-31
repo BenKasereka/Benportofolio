@@ -22,6 +22,7 @@ import ContactSection from './components/sections/ContactSection'
 // le chargement initial de tout le monde (FIN-08 de l'audit).
 const FormationsPage = lazy(() => import('./pages/FormationsPage'))
 const FormationDetailPage = lazy(() => import('./pages/FormationDetailPage'))
+const ModuleDetailPage = lazy(() => import('./pages/ModuleDetailPage'))
 const PrintableFormPage = lazy(() => import('./pages/PrintableFormPage'))
 const MentionsLegalesPage = lazy(() => import('./pages/MentionsLegalesPage'))
 const CaseStudyActedPage = lazy(() => import('./pages/CaseStudyActedPage'))
@@ -89,6 +90,7 @@ export default function App() {
           <Route path="/" element={<PortfolioPage />} />
           <Route path="/formations" element={<FormationsPage />} />
           <Route path="/formations/:id" element={<FormationDetailPage />} />
+          <Route path="/formations/:id/module/:moduleNumber" element={<ModuleDetailPage />} />
           <Route path="/formations/:id/formulaire" element={<PrintableFormPage />} />
           <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
           <Route path="/etudes-de-cas/acted" element={<CaseStudyActedPage />} />

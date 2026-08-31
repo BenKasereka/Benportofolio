@@ -63,6 +63,16 @@
     "formAltPrompt": "Would you rather receive the full application form?",
     "openApplicationForm": "Open the application form"
   },
+  "module": {
+    "badge": "Module {{number}}",
+    "freeBadge": "Free preview",
+    "lockedShortBadge": "Enrolled members only",
+    "lockedBadge": "Content reserved for enrolled members",
+    "lockedBody": "This module's full content (detailed theory, step-by-step practical guide and ready-to-use real templates) unlocks after enrollment. Each training's Module 01 is fully readable for free so you can see the actual quality bar before enrolling.",
+    "lockedEnrollCta": "Enroll to unlock this module",
+    "lockedWhatsappCta": "Chat via WhatsApp",
+    "lockedWhatsappMessage": "Hello Benjamin, I'd like to unlock the full content of module \"{{module}}\" in the \"{{title}}\" training. Can you tell me about enrollment?"
+  },
   "pricing": {
     "eyebrow": "Transparent pricing",
     "heading": {

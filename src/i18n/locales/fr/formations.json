@@ -63,6 +63,16 @@
     "formAltPrompt": "Préférez-vous recevoir le formulaire complet d'inscription ?",
     "openApplicationForm": "Ouvrir le formulaire de candidature"
   },
+  "module": {
+    "badge": "Module {{number}}",
+    "freeBadge": "Aperçu gratuit",
+    "lockedShortBadge": "Réservé aux inscrits",
+    "lockedBadge": "Contenu réservé aux inscrits",
+    "lockedBody": "Le contenu complet de ce module (théorie détaillée, guide pratique pas-à-pas et templates réels prêts à l'emploi) est débloqué après inscription. Le Module 01 de chaque formation est consultable gratuitement en intégralité pour vous donner un aperçu fidèle du niveau d'exigence.",
+    "lockedEnrollCta": "Je m'inscris pour débloquer ce module",
+    "lockedWhatsappCta": "Discuter via WhatsApp",
+    "lockedWhatsappMessage": "Bonjour Benjamin, je souhaite débloquer le contenu complet du module \"{{module}}\" de la formation \"{{title}}\". Pouvez-vous me renseigner sur l'inscription ?"
+  },
   "pricing": {
     "eyebrow": "Transparence tarifaire",
     "heading": {
