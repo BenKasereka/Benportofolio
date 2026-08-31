@@ -25,6 +25,7 @@ const FormationDetailPage = lazy(() => import('./pages/FormationDetailPage'))
 const PrintableFormPage = lazy(() => import('./pages/PrintableFormPage'))
 const MentionsLegalesPage = lazy(() => import('./pages/MentionsLegalesPage'))
 const CaseStudyActedPage = lazy(() => import('./pages/CaseStudyActedPage'))
+const CaseStudyBoostDukaPage = lazy(() => import('./pages/CaseStudyBoostDukaPage'))
 
 function PortfolioPage() {
   return (
@@ -91,6 +92,7 @@ export default function App() {
           <Route path="/formations/:id/formulaire" element={<PrintableFormPage />} />
           <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
           <Route path="/etudes-de-cas/acted" element={<CaseStudyActedPage />} />
+          <Route path="/etudes-de-cas/boostduka" element={<CaseStudyBoostDukaPage />} />
         </Routes>
       </Suspense>
     </>

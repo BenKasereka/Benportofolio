@@ -37,6 +37,8 @@ import mentionsLegalesFr from './locales/fr/mentionsLegales.json'
 import mentionsLegalesEn from './locales/en/mentionsLegales.json'
 import caseStudyActedFr from './locales/fr/caseStudyActed.json'
 import caseStudyActedEn from './locales/en/caseStudyActed.json'
+import caseStudyBoostdukaFr from './locales/fr/caseStudyBoostduka.json'
+import caseStudyBoostdukaEn from './locales/en/caseStudyBoostduka.json'
 
 const STORAGE_KEY = 'bk-lang'
 
@@ -71,6 +73,7 @@ i18n.use(initReactI18next).init({
       printableForm: printableFormFr,
       mentionsLegales: mentionsLegalesFr,
       caseStudyActed: caseStudyActedFr,
+      caseStudyBoostduka: caseStudyBoostdukaFr,
     },
     en: {
       common: commonEn,
@@ -91,6 +94,7 @@ i18n.use(initReactI18next).init({
       printableForm: printableFormEn,
       mentionsLegales: mentionsLegalesEn,
       caseStudyActed: caseStudyActedEn,
+      caseStudyBoostduka: caseStudyBoostdukaEn,
     },
   },
   lng: getInitialLanguage(),
