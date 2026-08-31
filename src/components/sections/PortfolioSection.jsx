@@ -25,7 +25,7 @@ export default function PortfolioSection() {
         <div className="card-executive mx-auto flex w-full max-w-3xl flex-col gap-6 p-8 sm:p-10">
           <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-start sm:text-left">
             <a
-              href={`${BASE}manual-reader.html`}
+              href={`${BASE}full-guideline-bk-boost-ipf.html`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={project.ctaReadManual}
