@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "Étude de cas — BoostDuka",
+    "description": "BoostDuka : un outil de Business Intelligence procurement multi-sites, du sourcing au bon de commande — étude de cas VISIBA Logistics Group."
+  },
+  "breadcrumb": "Retour au portfolio",
+  "eyebrow": "Étude de cas — Portfolio technique",
+  "heading": {
+    "prefix": "Un cycle procurement complet, du sourcing à la commande, en",
+    "stat": "10 modules",
+    "suffix": "interconnectés"
+  },
+  "chips": {
+    "stack": "Stack : React · Vite · Supabase · Power BI",
+    "context": "Étude de cas : VISIBA Logistics Group — 6 bases RDC (fictif)",
+    "purpose": "Candidature : Procurement Manager — Intersection"
+  },
+  "keyStat": {
+    "value": "10 modules",
+    "caption": "du sourcing (Liste de Prix, RFQ) jusqu'à l'exécution (CBA, Bon de Commande, Dashboard KPI) — un seul outil, un seul modèle de données."
+  },
+  "context": {
+    "heading": "Contexte",
+    "body": "BoostDuka est un outil de Business Intelligence conçu et développé de bout en bout par Benjamin, à partir d'une étude de cas fictive — <strong>VISIBA Logistics Group</strong>, 6 bases opérationnelles en République Démocratique du Congo — pour démontrer, sur un cas concret, la maîtrise de l'intersection entre <strong>procurement, supply chain et data/BI</strong> propre au poste de Procurement Manager Intersection dans une organisation humanitaire multi-sites."
+  },
+  "problem": {
+    "heading": "Le problème résolu",
+    "intro": "Sans outil transversal, une organisation multi-sites répète les mêmes travers :",
+    "item1": "<strong>Prix non comparables</strong> entre sections, faute de base de prix partagée.",
+    "item2": "<strong>Sélection de fournisseurs non tracée</strong> — aucune preuve d'audit sur pourquoi tel fournisseur a été retenu plutôt qu'un autre.",
+    "item3": "<strong>Contrats-cadres sous-exploités</strong>, faute de visibilité sur leur taux d'utilisation et leurs échéances.",
+    "item4": "<strong>KPIs procurement dispersés</strong> (délais, taux de livraison à temps, exposition budgétaire), sans dashboard consolidé."
+  },
+  "solution": {
+    "heading": "La solution — 10 modules, un seul modèle de données",
+    "intro": "Chaque module s'appuie sur le même modèle relationnel, pensé dès le départ pour un usage BI en aval : un devis importé alimente aussitôt la synthèse comparative, le CBA, le bon de commande, puis le dashboard."
+  },
+  "skills": {
+    "heading": "Compétences démontrées",
+    "item1": "<strong>Analyse procurement</strong> — méthodologie de scoring pondéré multicritères transparente et documentée, plutôt qu'un jugement arbitraire.",
+    "item2": "<strong>Modélisation de données</strong> — schéma relationnel normalisé, pensé pour un usage BI en aval (schéma en étoile, tables de pont N-N).",
+    "item3": "<strong>Conseil multi-sites</strong> — dashboard structuré autour des vrais points de décision d'un analyste intersection.",
+    "item4": "<strong>Rigueur méthodologique</strong> — les KPIs sans source de données dédiée sont remplacés par un proxy explicitement étiqueté comme tel, plutôt que fabriqués.",
+    "item5": "<strong>BI / reporting</strong> — export Power BI complet (modèle relationnel + mesures DAX), dashboard interactif avec filtres croisés."
+  },
+  "importance": {
+    "heading": "Pourquoi cet outil compte",
+    "body": "Un Procurement Manager Intersection ne se limite pas à négocier des prix : il doit prouver, à chaque bailleur et à chaque audit, que le fournisseur retenu l'a été pour de bonnes raisons — documentées, reproductibles, défendables. BoostDuka opérationnalise exactement ce réflexe : chaque attribution de marché produit un CBA archivable, chaque contrat-cadre affiche son taux d'utilisation réel, chaque devis importé alimente un dashboard consolidé plutôt qu'un tableur isolé par section. C'est la même discipline que celle appliquée au <link>pôle Audit Interne & Contrôles</link> de ce site — appliquée cette fois à l'outil, pas seulement à la mission."
+  },
+  "sidebar": {
+    "label": "Voir le projet",
+    "cta1": "Voir la démo en ligne",
+    "cta2": "Voir le code source",
+    "body": "Un besoin similaire — dashboard KPI, modèle de données procurement, export Power BI ? Décrivez-le en deux lignes.",
+    "cta3": "Discuter d'un projet Data/BI"
+  },
+  "whatsappMessage": "Bonjour Benjamin, votre étude de cas BoostDuka m'intéresse — je souhaite discuter d'un projet Data/BI ou procurement."
+}

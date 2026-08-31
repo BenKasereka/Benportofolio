@@ -1,22 +1,48 @@
 {
   "eyebrow": "Réalisations",
-  "title": "Un projet concret,",
-  "highlight": "prêt à consulter",
-  "description": "BK-BOOST Ltd. ne se limite pas au coaching de carrière : c'est aussi une méthodologie de trading institutionnel complète, documentée de bout en bout.",
-  "project": {
-    "eyebrow": "BK-BOOST Ltd. — Trading Institutionnel",
-    "title": "Precision Hunter",
-    "subtitle": "Méthodologie I-P-F — Trading intraday institutionnel, Gold XAU/USD",
-    "description": "Un manuel de référence de 48 pages et une méthode de décision complète : IPDA, Price Action, Fractal Model. Onze conditions vérifiables, jamais décoratives, qui transforment chaque configuration de marché en un verdict clair — GO, EN COURS, ou NO TRADE.",
-    "coverAlt": "Page de couverture du manuel Full-Guideline BK-BOOST Ltd. — Version 1",
-    "ctaReadManual": "Lire le manuel",
-    "stat1Value": "48",
-    "stat1Label": "pages du manuel",
-    "stat2Value": "11",
-    "stat2Label": "conditions vérifiées",
-    "stat3Value": "1,5",
-    "stat3Label": "RRR minimum",
-    "ctaDiscover": "Découvrir la méthodologie",
-    "ctaDownload": "Télécharger le PDF"
-  }
+  "title": "Deux projets concrets,",
+  "highlight": "prêts à consulter",
+  "description": "Au-delà du conseil : des méthodologies et des outils complets, documentés de bout en bout et prêts à être audités.",
+  "projects": [
+    {
+      "type": "manual",
+      "eyebrow": "BK-BOOST Ltd. — Trading Institutionnel",
+      "title": "Precision Hunter",
+      "subtitle": "Méthodologie I-P-F — Trading intraday institutionnel, Gold XAU/USD",
+      "description": "Un manuel de référence de 48 pages et une méthode de décision complète : IPDA, Price Action, Fractal Model. Onze conditions vérifiables, jamais décoratives, qui transforment chaque configuration de marché en un verdict clair — GO, EN COURS, ou NO TRADE.",
+      "coverAlt": "Page de couverture du manuel Full-Guideline BK-BOOST Ltd. — Version 1",
+      "coverImage": "full-guideline-bk-boost-ipf-cover.jpg",
+      "coverHref": "full-guideline-bk-boost-ipf.html",
+      "coverHoverLabel": "Lire le manuel",
+      "stat1Value": "48",
+      "stat1Label": "pages du manuel",
+      "stat2Value": "11",
+      "stat2Label": "conditions vérifiées",
+      "stat3Value": "1,5",
+      "stat3Label": "RRR minimum",
+      "ctaDiscoverHref": "precision-hunter.html",
+      "ctaDiscoverExternal": true,
+      "ctaDiscover": "Découvrir la méthodologie"
+    },
+    {
+      "type": "app",
+      "eyebrow": "Portfolio technique — Procurement & Data",
+      "title": "BoostDuka",
+      "subtitle": "BI procurement multi-sites — étude de cas VISIBA Logistics Group (RDC)",
+      "description": "Une application complète de bout en bout — sourcing, comparaison pondérée des offres, CBA, bon de commande et dashboard KPI — pour donner à un procurement multi-sites la traçabilité et la visibilité qui lui manquent. Construite pour démontrer, sur un cas concret, la maîtrise du cycle achat humanitaire.",
+      "coverAlt": "Aperçu du tableau de bord KPI de BoostDuka",
+      "coverImage": "boostduka-cover.svg",
+      "coverHref": "https://visiba-procurement-hub.vercel.app/",
+      "coverHoverLabel": "Voir la démo",
+      "stat1Value": "10",
+      "stat1Label": "modules du cycle achat",
+      "stat2Value": "3",
+      "stat2Label": "devises gérées",
+      "stat3Value": "1",
+      "stat3Label": "export Power BI prêt",
+      "ctaDiscoverHref": "/etudes-de-cas/boostduka",
+      "ctaDiscoverExternal": false,
+      "ctaDiscover": "Lire l'étude de cas"
+    }
+  ]
 }

@@ -1,0 +1,58 @@
+{
+  "seo": {
+    "title": "Case Study — BoostDuka",
+    "description": "BoostDuka: a multi-site procurement Business Intelligence tool, from sourcing to purchase order — VISIBA Logistics Group case study."
+  },
+  "breadcrumb": "Back to portfolio",
+  "eyebrow": "Case study — Technical portfolio",
+  "heading": {
+    "prefix": "A complete procurement cycle, from sourcing to order, in",
+    "stat": "10 modules",
+    "suffix": "interconnected"
+  },
+  "chips": {
+    "stack": "Stack: React · Vite · Supabase · Power BI",
+    "context": "Case study: VISIBA Logistics Group — 6 DRC bases (fictional)",
+    "purpose": "Application: Procurement Manager — Intersection"
+  },
+  "keyStat": {
+    "value": "10 modules",
+    "caption": "from sourcing (Price List, RFQ) to execution (CBA, Purchase Order, KPI Dashboard) — one tool, one data model."
+  },
+  "context": {
+    "heading": "Context",
+    "body": "BoostDuka is a Business Intelligence tool designed and built end to end by Benjamin, based on a fictional case study — <strong>VISIBA Logistics Group</strong>, 6 operational bases in the Democratic Republic of Congo — to demonstrate, on a concrete case, command of the intersection between <strong>procurement, supply chain and data/BI</strong> that defines the Procurement Manager Intersection role in a multi-site humanitarian organization."
+  },
+  "problem": {
+    "heading": "The problem it solves",
+    "intro": "Without a cross-cutting tool, a multi-site organization repeats the same pitfalls:",
+    "item1": "<strong>Prices that can't be compared</strong> across sections, for lack of a shared price base.",
+    "item2": "<strong>Untraceable supplier selection</strong> — no audit trail on why a given supplier was chosen over another.",
+    "item3": "<strong>Underused framework agreements</strong>, for lack of visibility into their utilization rate and deadlines.",
+    "item4": "<strong>Scattered procurement KPIs</strong> (lead times, on-time delivery rate, budget exposure), with no consolidated dashboard."
+  },
+  "solution": {
+    "heading": "The solution — 10 modules, one data model",
+    "intro": "Every module relies on the same relational model, designed from the start for downstream BI use: an imported quote instantly feeds the comparative bid sheet, the CBA, the purchase order, and then the dashboard."
+  },
+  "skills": {
+    "heading": "Skills demonstrated",
+    "item1": "<strong>Procurement analysis</strong> — a transparent, documented weighted multi-criteria scoring methodology, rather than arbitrary judgment.",
+    "item2": "<strong>Data modeling</strong> — a normalized relational schema, designed for downstream BI use (star schema, N-N bridge tables).",
+    "item3": "<strong>Multi-site advisory</strong> — a dashboard structured around the real decision points of an intersection analyst.",
+    "item4": "<strong>Methodological rigor</strong> — KPIs without a dedicated data source are replaced by an explicitly labeled proxy, rather than fabricated.",
+    "item5": "<strong>BI / reporting</strong> — a complete Power BI export (relational model + DAX measures), an interactive dashboard with cross-filters."
+  },
+  "importance": {
+    "heading": "Why this tool matters",
+    "body": "A Procurement Manager Intersection doesn't just negotiate prices: at every donor review and every audit, they must prove that the chosen supplier was selected for good, documented, reproducible, defensible reasons. BoostDuka operationalizes exactly that discipline: every award produces an archivable CBA, every framework agreement shows its real utilization rate, every imported quote feeds a consolidated dashboard instead of a spreadsheet siloed per section. It's the same discipline applied in the <link>Internal Audit & Controls</link> pillar of this site — applied here to the tool itself, not only to the assignment."
+  },
+  "sidebar": {
+    "label": "See the project",
+    "cta1": "View the live demo",
+    "cta2": "View the source code",
+    "body": "A similar need — KPI dashboard, procurement data model, Power BI export? Describe it in two lines.",
+    "cta3": "Discuss a Data/BI project"
+  },
+  "whatsappMessage": "Hello Benjamin, I'm interested in your BoostDuka case study — I'd like to discuss a Data/BI or procurement project."
+}

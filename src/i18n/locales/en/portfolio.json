@@ -1,22 +1,48 @@
 {
   "eyebrow": "Realizations",
-  "title": "A concrete project,",
+  "title": "Two concrete projects,",
   "highlight": "ready to explore",
-  "description": "BK-BOOST Ltd. is not limited to career coaching: it is also a complete institutional trading methodology, documented end to end.",
-  "project": {
-    "eyebrow": "BK-BOOST Ltd. — Institutional Trading",
-    "title": "Precision Hunter",
-    "subtitle": "I-P-F Methodology — Institutional intraday trading, Gold XAU/USD",
-    "description": "A 48-page reference manual and a complete decision framework: IPDA, Price Action, Fractal Model. Eleven verifiable conditions, never decorative, turning every market setup into a clear verdict — GO, IN PROGRESS, or NO TRADE.",
-    "coverAlt": "Cover page of the Full-Guideline BK-BOOST Ltd. manual — Version 1",
-    "ctaReadManual": "Read the manual",
-    "stat1Value": "48",
-    "stat1Label": "manual pages",
-    "stat2Value": "11",
-    "stat2Label": "verified conditions",
-    "stat3Value": "1.5",
-    "stat3Label": "minimum RRR",
-    "ctaDiscover": "Discover the methodology",
-    "ctaDownload": "Download the PDF"
-  }
+  "description": "Beyond consulting: complete methodologies and tools, documented end to end and ready to be audited.",
+  "projects": [
+    {
+      "type": "manual",
+      "eyebrow": "BK-BOOST Ltd. — Institutional Trading",
+      "title": "Precision Hunter",
+      "subtitle": "I-P-F Methodology — Institutional intraday trading, Gold XAU/USD",
+      "description": "A 48-page reference manual and a complete decision framework: IPDA, Price Action, Fractal Model. Eleven verifiable conditions, never decorative, turning every market setup into a clear verdict — GO, IN PROGRESS, or NO TRADE.",
+      "coverAlt": "Cover page of the Full-Guideline BK-BOOST Ltd. manual — Version 1",
+      "coverImage": "full-guideline-bk-boost-ipf-cover.jpg",
+      "coverHref": "full-guideline-bk-boost-ipf.html",
+      "coverHoverLabel": "Read the manual",
+      "stat1Value": "48",
+      "stat1Label": "manual pages",
+      "stat2Value": "11",
+      "stat2Label": "verified conditions",
+      "stat3Value": "1.5",
+      "stat3Label": "minimum RRR",
+      "ctaDiscoverHref": "precision-hunter.html",
+      "ctaDiscoverExternal": true,
+      "ctaDiscover": "Discover the methodology"
+    },
+    {
+      "type": "app",
+      "eyebrow": "Technical portfolio — Procurement & Data",
+      "title": "BoostDuka",
+      "subtitle": "Multi-site procurement BI — VISIBA Logistics Group case study (DRC)",
+      "description": "A complete end-to-end application — sourcing, weighted bid comparison, CBA, purchase orders and a KPI dashboard — bringing traceability and visibility to a multi-site procurement operation. Built to demonstrate, on a concrete case, command of the humanitarian purchasing cycle.",
+      "coverAlt": "Preview of the BoostDuka KPI dashboard",
+      "coverImage": "boostduka-cover.svg",
+      "coverHref": "https://visiba-procurement-hub.vercel.app/",
+      "coverHoverLabel": "View the demo",
+      "stat1Value": "10",
+      "stat1Label": "procurement-cycle modules",
+      "stat2Value": "3",
+      "stat2Label": "currencies handled",
+      "stat3Value": "1",
+      "stat3Label": "Power BI export ready",
+      "ctaDiscoverHref": "/etudes-de-cas/boostduka",
+      "ctaDiscoverExternal": false,
+      "ctaDiscover": "Read the case study"
+    }
+  ]
 }
