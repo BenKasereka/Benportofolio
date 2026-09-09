@@ -1,0 +1,34 @@
+# Module 07 — Protection, Bien-Être & Prévention du Burnout
+## 02. Outils & Guide Pratique
+
+### Outils utilisés dans ce module
+
+**Le Code de Conduite de votre organisation** — le document contractuel de référence. Ne partez jamais du principe qu'il est "générique" ou "déjà connu" : chaque organisation a ses propres seuils de tolérance zéro (contact sexuel avec un bénéficiaire, quel que soit l'âge et le consentement apparent, en est un exemple universel), et c'est au RH de s'assurer que le document utilisé sur le terrain est bien la version à jour du siège.
+
+**La grille d'identification précoce du burnout** — le template `grille-identification-precoce-burnout.xlsx` fourni avec ce module. C'est un outil de suivi périodique par membre d'équipe, construit autour d'indicateurs observables (irritabilité, tendance de l'absentéisme, baisse d'engagement, taux d'erreurs), avec un score de risque cumulé calculé automatiquement et un signal visuel dès qu'un seuil d'alerte est franchi. Ce n'est pas un outil de diagnostic médical — c'est un outil de vigilance managériale structurée, à faire vivre en réunion RH-management, pas à remplir seul dans un coin.
+
+**Le protocole de signalement PSEA et de protection du personnel** — le template `protocole-signalement-psea-protection-personnel.docx` fourni avec ce module. Il combine en un seul document la procédure de signalement (comment signaler, à qui, avec quelle garantie de confidentialité) et les étapes d'escalade en protection du personnel (mesures de sécurité immédiates, orientation vers l'enquête, soutien apporté à la personne qui signale). C'est le document que vous affichez, diffusez en briefing d'arrivée, et surtout que vous appliquez le jour où un signalement arrive réellement.
+
+### Guide pratique étape par étape — "Faire vivre la protection du personnel, du recrutement au quotidien d'équipe"
+
+Ce guide part d'une réalité de terrain : la plupart des organisations ont déjà, sur le papier, une politique PSEA et une ligne sur le bien-être du personnel dans leur manuel RH. Le problème n'est presque jamais l'absence de politique — c'est l'absence de mise en œuvre vivante. Voici comment la faire fonctionner réellement, dans l'ordre.
+
+**Étape 1 — Sensibiliser réellement à la PSEA à l'arrivée d'un nouvel employé (Jour 1, jamais reporté)**
+
+Ne vous contentez jamais de faire signer le Code de Conduite en fin de pile de documents administratifs, entre le contrat et le formulaire bancaire. Consacrez un temps dédié, même court (30 minutes suffisent), en tête-à-tête ou en petit groupe, où vous : (1) expliquez le POURQUOI de la PSEA avec un exemple concret et anonymisé plutôt qu'une lecture de texte juridique — le déséquilibre de pouvoir entre personnel et bénéficiaires ; (2) présentez les comportements strictement interdits sans ambiguïté (relations sexuelles avec des bénéficiaires, quelle que soit la situation) ; (3) montrez concrètement où et comment signaler une préoccupation, en donnant le numéro ou l'adresse réelle du canal, pas une référence vague à "voir le manuel RH" ; (4) laissez un temps de questions — un nouvel employé qui n'ose pas poser de question sur un sujet aussi sensible en session collective doit savoir qu'il peut revenir vers vous individuellement ensuite.
+
+**Étape 2 — Réactiver la sensibilisation PSEA en cours de mission, pas seulement à l'embauche (tous les 6 mois, ou à chaque changement de contexte)**
+
+Une sensibilisation faite une seule fois, un jour d'accueil souvent chargé en informations, s'oublie. Programmez un rappel PSEA a minima tous les 6 mois pour l'ensemble du personnel, et systématiquement lors de tout changement significatif de contexte (nouvelle zone d'intervention, nouveau type de population bénéficiaire, arrivée d'un nouveau responsable d'équipe). Ce rappel peut être court — 15 minutes en réunion d'équipe — mais il doit être régulier et documenté (date, participants, contenu abordé).
+
+**Étape 3 — Mettre en place un canal de signalement réellement sécurisé et anonyme (avant qu'il n'y en ait besoin, jamais après)**
+
+Un canal de signalement qui n'existe que sur le papier ("contactez votre superviseur direct" quand le superviseur direct peut être la personne mise en cause) n'est pas un canal sécurisé. Construisez un canal avec au minimum : (1) plusieurs points d'entrée possibles — jamais un seul (une seule personne, un seul numéro), pour qu'une victime ne soit jamais bloquée si le point de contact unique est justement la personne concernée par le signalement ; (2) une option réellement anonyme (boîte physique fermée à clé consultée par une personne extérieure à la ligne hiérarchique locale, ou ligne téléphonique/e-mail géré au niveau régional ou siège plutôt qu'en interne local) ; (3) un engagement écrit de non-représailles, communiqué explicitement, pas seulement supposé ; (4) un accusé de réception systématique à la personne qui signale, même de façon anonymisée, pour qu'elle sache que son signalement a été reçu et pris au sérieux. Formalisez tout cela dans le template `protocole-signalement-psea-protection-personnel.docx`, affiché dans les espaces communs et rappelé à chaque session de sensibilisation.
+
+**Étape 4 — Mettre en place un suivi périodique du bien-être de l'équipe, pas seulement un entretien annuel (mensuel ou bimensuel selon le contexte)**
+
+Ouvrez le template `grille-identification-precoce-burnout.xlsx` et instaurez un rythme de mise à jour régulier — mensuel en contexte stable, bimensuel ou même hebdomadaire en contexte de forte pression (urgence, insécurité, sous-effectif prolongé). Pour chaque membre de l'équipe, notez les indicateurs observables sur la période : l'irritabilité a-t-elle été inhabituelle, la tendance d'absentéisme est-elle stable ou en hausse, l'engagement en réunion a-t-il baissé, le taux d'erreurs a-t-il augmenté. Ce suivi n'est pas un outil de surveillance punitive — c'est un outil de repérage précoce à usage RH et management, dont le but est d'ouvrir une conversation de soutien avant la crise, jamais de sanctionner.
+
+**Étape 5 — Réagir immédiatement dès qu'un indicateur franchit le seuil d'alerte ou qu'un signalement arrive (sans délai, sans improvisation)**
+
+Dès que la grille signale un score de risque élevé pour une personne, ou dès qu'un signalement PSEA est reçu par n'importe quel canal, engagez sans délai les étapes prévues dans le protocole : pour le burnout, un entretien individuel bienveillant et non jugeant, une proposition concrète de soutien (aménagement temporaire de charge, orientation vers un soutien psychosocial, congé si nécessaire) ; pour un signalement PSEA, les mesures de protection immédiate de la personne qui signale et, si pertinent, la mise à l'écart provisoire de la personne mise en cause en attendant l'enquête — jamais l'inverse, jamais de "attendre de voir" qui expose la victime potentielle à un risque de représailles pendant que l'enquête traîne.

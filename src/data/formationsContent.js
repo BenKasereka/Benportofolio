@@ -331,6 +331,85 @@ export const formationsContent = {
       },
     ],
   },
+
+  'gestion-rh-ong': {
+    role: { fr: 'HR Manager / HR Officer ONG' },
+    hasRoutine: true,
+    modules: [
+      {
+        number: '01',
+        slug: 'module-01-structure-organisationnelle-role-rh',
+        free: true,
+        templates: [
+          { file: 'organigramme-cartographie-roles-rh.xlsx', label: 'Organigramme & cartographie des rôles RH (.xlsx)' },
+          { file: 'fiche-interface-rh-finance-paie.docx', label: 'Fiche d\'interface RH-Finance pour la paie (.docx)' },
+        ],
+      },
+      {
+        number: '02',
+        slug: 'module-02-recrutement-national-international',
+        free: false,
+        templates: [
+          { file: 'grille-entretien-structure-evaluation.xlsx', label: 'Grille d\'entretien structuré & évaluation (.xlsx)' },
+          { file: 'fiche-verification-references-antecedents.docx', label: 'Fiche de vérification des références & antécédents (.docx)' },
+        ],
+      },
+      {
+        number: '03',
+        slug: 'module-03-contrats-administration-personnel',
+        free: false,
+        templates: [
+          { file: 'checklist-dossier-individuel-personnel.xlsx', label: 'Checklist du dossier individuel du personnel (.xlsx)' },
+          { file: 'gabarit-procedure-disciplinaire-avertissement.docx', label: 'Gabarit de procédure disciplinaire & avertissement (.docx)' },
+        ],
+      },
+      {
+        number: '04',
+        slug: 'module-04-remuneration-avantages-sociaux',
+        free: false,
+        templates: [
+          { file: 'grille-salariale-benchmarking-coefficients.xlsx', label: 'Grille salariale, benchmarking & coefficients (.xlsx)' },
+          { file: 'note-calcul-primes-terrain-hardship.docx', label: 'Note de calcul des primes terrain & hardship (.docx)' },
+        ],
+      },
+      {
+        number: '05',
+        slug: 'module-05-evaluation-performances-developpement',
+        free: false,
+        templates: [
+          { file: 'grille-evaluation-performance-annuelle.xlsx', label: 'Grille d\'évaluation de performance annuelle (.xlsx)' },
+          { file: 'plan-developpement-individuel-succession.docx', label: 'Plan de développement individuel & succession (.docx)' },
+        ],
+      },
+      {
+        number: '06',
+        slug: 'module-06-droit-travail-humanitaire',
+        free: false,
+        templates: [
+          { file: 'checklist-conformite-code-travail-rdc.xlsx', label: 'Checklist de conformité au Code du Travail RDC (.xlsx)' },
+          { file: 'note-suivi-resolution-conflit-travail.docx', label: 'Note de suivi de résolution de conflit du travail (.docx)' },
+        ],
+      },
+      {
+        number: '07',
+        slug: 'module-07-protection-bien-etre-burnout',
+        free: false,
+        templates: [
+          { file: 'grille-identification-precoce-burnout.xlsx', label: 'Grille d\'identification précoce du burnout (.xlsx)' },
+          { file: 'protocole-signalement-psea-protection-personnel.docx', label: 'Protocole de signalement PSEA & protection du personnel (.docx)' },
+        ],
+      },
+      {
+        number: '08',
+        slug: 'module-08-gestion-conflits-mediation',
+        free: false,
+        templates: [
+          { file: 'grille-identification-precoce-conflits-equipe.xlsx', label: 'Grille d\'identification précoce des conflits d\'équipe (.xlsx)' },
+          { file: 'protocole-mediation-conflit-equipe-multiculturelle.docx', label: 'Protocole de médiation en équipe multiculturelle (.docx)' },
+        ],
+      },
+    ],
+  },
 }
 
 export function formationContentById(id) {
