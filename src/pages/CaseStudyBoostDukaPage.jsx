@@ -17,7 +17,7 @@ const ICONS = {
 }
 
 const DEMO_URL = 'https://visiba-procurement-hub.vercel.app/'
-const REPO_URL = 'https://github.com/BenKasereka/visiba-procurement-hub'
+const REPO_URL = 'https://github.com/BenKasereka/boostduka'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -32,7 +32,7 @@ const fadeUp = {
  * Étude de cas BoostDuka — outil construit par Benjamin pour démontrer, sur
  * un cas fictif (VISIBA Logistics Group), la maîtrise de l'intersection
  * procurement/supply chain/data-BI. Contenu aligné sur le README du dépôt
- * BenKasereka/visiba-procurement-hub — aucune métrique de résultat "réel"
+ * BenKasereka/boostduka — aucune métrique de résultat "réel"
  * n'est inventée, seul le périmètre construit (10 modules) est mis en avant.
  */
 export default function CaseStudyBoostDukaPage() {
