@@ -243,6 +243,94 @@ export const formationsContent = {
       },
     ],
   },
+
+  'audit-transparence-conformite': {
+    role: { fr: 'Auditeur Interne / Compliance Officer ONG' },
+    hasRoutine: true,
+    modules: [
+      {
+        number: '01',
+        slug: 'module-01-fondamentaux-audit-interne',
+        free: true,
+        templates: [
+          { file: 'lettre-de-mission-audit-interne.docx', label: 'Lettre de mission d\'audit interne (.docx)' },
+          { file: 'grille-evaluation-composantes-coso.xlsx', label: 'Grille d\'évaluation des composantes COSO (.xlsx)' },
+        ],
+      },
+      {
+        number: '02',
+        slug: 'module-02-controles-internes-separation-taches',
+        free: false,
+        templates: [
+          { file: 'matrice-autorisation-separation-taches.xlsx', label: 'Matrice d\'autorisation & séparation des tâches (.xlsx)' },
+          { file: 'lettre-autorisation-revocation-signataire.docx', label: 'Lettre d\'autorisation/révocation de signataire (.docx)' },
+        ],
+      },
+      {
+        number: '03',
+        slug: 'module-03-audit-supply-chain-achats',
+        free: false,
+        templates: [
+          { file: 'grille-audit-echantillon-achats.xlsx', label: 'Grille d\'audit par échantillon des achats (.xlsx)' },
+          { file: 'fiche-detection-collusion-fournisseurs.docx', label: 'Fiche de détection de collusion fournisseurs (.docx)' },
+        ],
+      },
+      {
+        number: '04',
+        slug: 'module-04-audit-financier-comptable',
+        free: false,
+        templates: [
+          { file: 'grille-verification-pieces-comptables.xlsx', label: 'Grille de vérification des pièces comptables (.xlsx)' },
+          { file: 'rapport-rapprochement-bancaire-audit.docx', label: 'Rapport de rapprochement bancaire d\'audit (.docx)' },
+        ],
+      },
+      {
+        number: '05',
+        slug: 'module-05-audit-rh-programmes',
+        free: false,
+        templates: [
+          { file: 'grille-audit-paie-presences.xlsx', label: 'Grille d\'audit paie & présences (.xlsx)' },
+          { file: 'fiche-controle-programmatique-realise-planifie.docx', label: 'Fiche de contrôle programmatique réalisé/planifié (.docx)' },
+        ],
+      },
+      {
+        number: '06',
+        slug: 'module-06-prevention-fraude-anticorruption',
+        free: false,
+        templates: [
+          { file: 'grille-typologie-fraude-red-flags.xlsx', label: 'Grille des typologies de fraude & red flags (.xlsx)' },
+          { file: 'evaluation-mecanisme-signalement-culture.docx', label: 'Évaluation du mécanisme de signalement & culture (.docx)' },
+        ],
+      },
+      {
+        number: '07',
+        slug: 'module-07-conformite-bailleurs',
+        free: false,
+        templates: [
+          { file: 'checklist-conformite-bailleurs-par-type.xlsx', label: 'Checklist de conformité par bailleur (.xlsx)' },
+          { file: 'note-analyse-risque-non-conformite.docx', label: 'Note d\'analyse de risque de non-conformité (.docx)' },
+        ],
+      },
+      {
+        number: '08',
+        slug: 'module-08-redaction-rapports-audit',
+        free: false,
+        templates: [
+          { file: 'gabarit-rapport-audit-interne-ccce.docx', label: 'Gabarit de rapport d\'audit interne CCCE (.docx)' },
+          { file: 'grille-priorisation-recommandations.xlsx', label: 'Grille de priorisation des recommandations (.xlsx)' },
+        ],
+      },
+      {
+        number: '09',
+        slug: 'module-09-preparation-audits-externes',
+        free: false,
+        templates: [
+          { file: 'checklist-preparation-audit-externe-multi-domaines.xlsx', label: 'Checklist de préparation à l\'audit externe (.xlsx)' },
+          { file: 'note-reponse-point-divergence-audit.docx', label: 'Note de réponse à un point de divergence d\'audit (.docx)' },
+        ],
+      },
+    ],
+  },
 }
 
 export function formationContentById(id) {
