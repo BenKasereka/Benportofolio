@@ -164,6 +164,85 @@ export const formationsContent = {
       },
     ],
   },
+
+  'gestion-financiere-ong': {
+    role: { fr: 'Finance Manager / Finance Officer ONG' },
+    hasRoutine: true,
+    modules: [
+      {
+        number: '01',
+        slug: 'module-01-fondamentaux-comptabilite',
+        free: true,
+        templates: [
+          { file: 'plan-comptable-codification-projets.xlsx', label: 'Plan comptable & codification projets/bailleurs (.xlsx)' },
+          { file: 'note-allocation-couts-communs.docx', label: 'Note d\'allocation des coûts communs (.docx)' },
+        ],
+      },
+      {
+        number: '02',
+        slug: 'module-02-budget-multi-bailleurs',
+        free: false,
+        templates: [
+          { file: 'budget-suivi-bfu-multi-bailleurs.xlsx', label: 'Budget & suivi BFU multi-bailleurs (.xlsx)' },
+          { file: 'note-demande-virement-ligne-budgetaire.docx', label: 'Note de demande de virement de ligne budgétaire (.docx)' },
+        ],
+      },
+      {
+        number: '03',
+        slug: 'module-03-tresorerie-caisses-avances',
+        free: false,
+        templates: [
+          { file: 'livre-de-caisse-rapprochement-quotidien.xlsx', label: 'Livre de caisse & rapprochement quotidien (.xlsx)' },
+          { file: 'fiche-avance-justification-remboursement.docx', label: 'Fiche d\'avance, justification & remboursement (.docx)' },
+        ],
+      },
+      {
+        number: '04',
+        slug: 'module-04-multidevises-operations-bancaires',
+        free: false,
+        templates: [
+          { file: 'suivi-taux-change-impact-budgetaire.xlsx', label: 'Suivi taux de change & impact budgétaire (.xlsx)' },
+          { file: 'registre-signataires-procurations-bancaires.docx', label: 'Registre des signataires & procurations bancaires (.docx)' },
+        ],
+      },
+      {
+        number: '05',
+        slug: 'module-05-rapports-financiers-bailleurs',
+        free: false,
+        templates: [
+          { file: 'gabarit-rapport-financier-bailleur.xlsx', label: 'Gabarit de rapport financier bailleur (.xlsx)' },
+          { file: 'checklist-reconciliation-finance-programme.docx', label: 'Checklist de réconciliation finance/programme (.docx)' },
+        ],
+      },
+      {
+        number: '06',
+        slug: 'module-06-preparation-audits',
+        free: false,
+        templates: [
+          { file: 'checklist-preparation-dossier-audit.xlsx', label: 'Checklist de préparation du dossier d\'audit (.xlsx)' },
+          { file: 'plan-action-correctif-recommandations-audit.docx', label: 'Plan d\'action correctif suite à un audit (.docx)' },
+        ],
+      },
+      {
+        number: '07',
+        slug: 'module-07-systemes-gestion-financiere',
+        free: false,
+        templates: [
+          { file: 'tableau-de-bord-financier-tcd.xlsx', label: 'Tableau de bord financier (TCD) (.xlsx)' },
+          { file: 'gabarit-journal-cloture-mensuelle.docx', label: 'Gabarit de journal de clôture mensuelle (.docx)' },
+        ],
+      },
+      {
+        number: '08',
+        slug: 'module-08-fraude-corruption-conformite',
+        free: false,
+        templates: [
+          { file: 'checklist-red-flags-fraude-financiere.xlsx', label: 'Checklist des red flags de fraude financière (.xlsx)' },
+          { file: 'procedure-signalement-plan-action-fraude.docx', label: 'Procédure de signalement & plan d\'action fraude (.docx)' },
+        ],
+      },
+    ],
+  },
 }
 
 export function formationContentById(id) {
