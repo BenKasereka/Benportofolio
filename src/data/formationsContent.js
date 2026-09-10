@@ -471,6 +471,94 @@ export const formationsContent = {
       },
     ],
   },
+
+  'intelligence-artificielle': {
+    role: { fr: 'Professionnel intégrant l\'IA dans son travail quotidien' },
+    hasRoutine: true,
+    modules: [
+      {
+        number: '01',
+        slug: 'module-01-introduction-ia-generatives',
+        free: true,
+        templates: [
+          { file: 'grille-comparaison-5-plateformes-ia.xlsx', label: 'Grille de comparaison des 5 plateformes IA (.xlsx)' },
+          { file: 'charte-utilisation-responsable-ia-professionnelle.docx', label: 'Charte d\'utilisation responsable de l\'IA (.docx)' },
+        ],
+      },
+      {
+        number: '02',
+        slug: 'module-02-chatgpt-productivite-automatisation',
+        free: false,
+        templates: [
+          { file: 'bibliotheque-prompts-rccf-chatgpt.xlsx', label: 'Bibliothèque de prompts RCCF pour ChatGPT (.xlsx)' },
+          { file: 'guide-creation-gpt-personnalise.docx', label: 'Guide de création d\'un GPT personnalisé (.docx)' },
+        ],
+      },
+      {
+        number: '03',
+        slug: 'module-03-claude-raisonnement-analyse-redaction',
+        free: false,
+        templates: [
+          { file: 'gabarit-prompts-analyse-documents-longs.xlsx', label: 'Gabarit de prompts pour l\'analyse de documents longs (.xlsx)' },
+          { file: 'guide-redaction-rapports-procedures-claude.docx', label: 'Guide de rédaction de rapports & procédures avec Claude (.docx)' },
+        ],
+      },
+      {
+        number: '04',
+        slug: 'module-04-microsoft-copilot-office365',
+        free: false,
+        templates: [
+          { file: 'grille-prompts-copilot-office-teams.xlsx', label: 'Grille de prompts Copilot pour Office & Teams (.xlsx)' },
+          { file: 'guide-generation-rapports-presentations-copilot.docx', label: 'Guide de génération de rapports & présentations avec Copilot (.docx)' },
+        ],
+      },
+      {
+        number: '05',
+        slug: 'module-05-perplexity-recherche-veille',
+        free: false,
+        templates: [
+          { file: 'grille-veille-sectorielle-perplexity.xlsx', label: 'Grille de veille sectorielle avec Perplexity (.xlsx)' },
+          { file: 'gabarit-rapport-recherche-sourcee.docx', label: 'Gabarit de rapport de recherche sourcée (.docx)' },
+        ],
+      },
+      {
+        number: '06',
+        slug: 'module-06-google-gemini-multimodalite',
+        free: false,
+        templates: [
+          { file: 'grille-prompts-multimodaux-gemini.xlsx', label: 'Grille de prompts multimodaux pour Gemini (.xlsx)' },
+          { file: 'guide-automatisation-google-workspace.docx', label: 'Guide d\'automatisation Google Workspace (.docx)' },
+        ],
+      },
+      {
+        number: '07',
+        slug: 'module-07-prompt-engineering-avance',
+        free: false,
+        templates: [
+          { file: 'bibliotheque-prompts-organisationnelle-icio.xlsx', label: 'Bibliothèque de prompts organisationnelle ICIO (.xlsx)' },
+          { file: 'guide-construction-prompts-chain-of-thought.docx', label: 'Guide de construction de prompts Chain-of-Thought (.docx)' },
+        ],
+      },
+      {
+        number: '08',
+        slug: 'module-08-automatisation-agents-ia',
+        free: false,
+        templates: [
+          { file: 'canevas-conception-workflow-agent-ia.xlsx', label: 'Canevas de conception d\'un workflow agent IA (.xlsx)' },
+          { file: 'procedure-documentation-automatisation-ia.docx', label: 'Procédure de documentation d\'une automatisation IA (.docx)' },
+        ],
+      },
+      {
+        number: '09',
+        slug: 'module-09-atelier-pratique-mini-projet',
+        free: false,
+        templates: [
+          { file: 'gabarit-brief-mini-projet-ia-par-secteur.docx', label: 'Gabarit de brief de mini-projet IA par secteur (.docx)' },
+          { file: 'grille-evaluation-livrable-mini-projet.xlsx', label: 'Grille d\'évaluation du livrable de mini-projet (.xlsx)' },
+        ],
+      },
+    ],
+  },
 }
 
 export function formationContentById(id) {
