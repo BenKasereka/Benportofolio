@@ -55,4 +55,4 @@ Un formateur indépendant qui anime des sessions courtes de gestion de projet vo
 
 ### Vers la suite
 
-Le site ou l'application que vous avez cadrés, générés et corrigés dans ce module peuvent devenir la base d'un livrable plus large : le Module 14, mini-projet capstone de cette formation, vous demandera de produire un livrable réel à partir d'un problème réel de votre métier — une landing page ou un outil interne construit avec la méthode de ce module en est un candidat tout à fait légitime.
+Le site ou l'application que vous avez cadrés, générés et corrigés dans ce module peuvent devenir la base d'un livrable plus large : le Module 15, mini-projet capstone de cette formation, vous demandera de produire un livrable réel à partir d'un problème réel de votre métier — une landing page ou un outil interne construit avec la méthode de ce module en est un candidat tout à fait légitime.

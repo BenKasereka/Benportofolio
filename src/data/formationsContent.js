@@ -595,7 +595,16 @@ export const formationsContent = {
       },
       {
         number: '14',
-        slug: 'module-14-atelier-pratique-mini-projet',
+        slug: 'module-14-big-data-analysis-claude-code',
+        free: false,
+        templates: [
+          { file: 'checklist-passage-echelle-big-data.xlsx', label: 'Checklist de passage à l\'échelle Big Data (.xlsx)' },
+          { file: 'gabarit-brief-pipeline-donnees-automatise.docx', label: 'Gabarit de brief de pipeline de données automatisé (.docx)' },
+        ],
+      },
+      {
+        number: '15',
+        slug: 'module-15-atelier-pratique-mini-projet',
         free: false,
         templates: [
           { file: 'gabarit-brief-mini-projet-ia-par-secteur.docx', label: 'Gabarit de brief de mini-projet IA par secteur (.docx)' },

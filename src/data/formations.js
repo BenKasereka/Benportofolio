@@ -21,8 +21,8 @@ export const formations = [
     },
     tagline: { fr: "Ne subissez plus l'IA. Commandez-la.", en: 'Stop being run by AI. Start commanding it.' },
     intro: {
-      fr: "En 2026, l'IA ne remplace pas les professionnels — elle multiplie par 5 la productivité de ceux qui savent l'utiliser. Cette formation intensive vous propulse de simple utilisateur à expert opérationnel des 5 plateformes IA les plus puissantes du marché — ChatGPT, Claude, Microsoft Copilot, Perplexity et Google Gemini — puis va plus loin. En 14 modules, vous apprenez à appliquer concrètement l'IA à l'analyse de données, au développement d'outils internes, au marketing, à la structuration stratégique de votre activité et à la création de solutions numériques. Que vous soyez gestionnaire, logisticien, financier, RH, entrepreneur ou consultant, chaque module transforme une compétence IA en résultat professionnel mesurable.",
-      en: "In 2026, AI doesn't replace professionals — it multiplies by 5 the productivity of those who know how to use it. This intensive training propels you from casual user to hands-on expert across the 5 most powerful AI platforms on the market — ChatGPT, Claude, Microsoft Copilot, Perplexity and Google Gemini — then goes further. Across 14 modules, you'll learn to apply AI concretely to data analysis, internal tool development, marketing, business strategy and digital solution creation. Whether you work in management, logistics, finance, HR, entrepreneurship or consulting, every module turns an AI skill into a measurable professional result.",
+      fr: "En 2026, l'IA ne remplace pas les professionnels — elle multiplie par 5 la productivité de ceux qui savent l'utiliser. Cette formation intensive vous propulse de simple utilisateur à expert opérationnel des 5 plateformes IA les plus puissantes du marché — ChatGPT, Claude, Microsoft Copilot, Perplexity et Google Gemini — puis va plus loin. En 15 modules, vous apprenez à appliquer concrètement l'IA à l'analyse de données (jusqu'au big data avec exécution de code), au développement d'outils internes, au marketing, à la structuration stratégique de votre activité et à la création de solutions numériques. Que vous soyez gestionnaire, logisticien, financier, RH, entrepreneur ou consultant, chaque module transforme une compétence IA en résultat professionnel mesurable.",
+      en: "In 2026, AI doesn't replace professionals — it multiplies by 5 the productivity of those who know how to use it. This intensive training propels you from casual user to hands-on expert across the 5 most powerful AI platforms on the market — ChatGPT, Claude, Microsoft Copilot, Perplexity and Google Gemini — then goes further. Across 15 modules, you'll learn to apply AI concretely to data analysis (up to big data with code execution), internal tool development, marketing, business strategy and digital solution creation. Whether you work in management, logistics, finance, HR, entrepreneurship or consulting, every module turns an AI skill into a measurable professional result.",
     },
     audience: {
       fr: "Professionnels des ONG et entreprises souhaitant gagner en efficacité, cadres et managers, entrepreneurs, étudiants en fin de cycle, toute personne désireuse de prendre une longueur d'avance dans son domaine grâce à l'IA.",
@@ -378,6 +378,31 @@ export const formations = [
       },
       {
         number: '14',
+        title: {
+          fr: 'Big Data Analysis avec Claude (avec Code)',
+          en: 'Big Data Analysis with Claude (with Code)',
+        },
+        description: {
+          fr: "Analyser des jeux de données volumineux et croiser plusieurs fichiers en pilotant l'exécution de code par Claude, en langage courant, puis automatiser des pipelines de données récurrents avec Claude Code — sans jamais écrire une ligne de code soi-même.",
+          en: "Analyzing large datasets and cross-referencing multiple files by steering Claude's code execution in plain language, then automating recurring data pipelines with Claude Code — without ever writing a line of code yourself.",
+        },
+        points: [
+          {
+            fr: 'Analyse de gros volumes de données avec le code exécuté par Claude, sans écrire une ligne de code',
+            en: 'Analyzing large data volumes with Claude-executed code, without writing a line of code',
+          },
+          {
+            fr: "Croisement de plusieurs fichiers sources et calculs statistiques au-delà des limites d'Excel",
+            en: "Cross-referencing multiple source files and running statistical calculations beyond Excel's limits",
+          },
+          {
+            fr: 'Construction et supervision de pipelines de données automatisés et récurrents avec Claude Code',
+            en: 'Building and supervising automated, recurring data pipelines with Claude Code',
+          },
+        ],
+      },
+      {
+        number: '15',
         title: {
           fr: 'Atelier Pratique — Mini-projet certifiant par domaine',
           en: 'Hands-On Workshop — Certifying Mini-Project by Field',
