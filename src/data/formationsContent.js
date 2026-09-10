@@ -410,6 +410,67 @@ export const formationsContent = {
       },
     ],
   },
+
+  'coaching-carriere': {
+    role: { fr: 'Candidat en recherche active / Career Coach' },
+    hasRoutine: true,
+    modules: [
+      {
+        number: '01',
+        slug: 'module-01-audit-carriere-positionnement',
+        free: true,
+        templates: [
+          { file: 'bilan-competences-positionnement-carriere.xlsx', label: 'Bilan de compétences & positionnement carrière (.xlsx)' },
+          { file: 'feuille-de-route-carriere.docx', label: 'Feuille de route de carrière (.docx)' },
+        ],
+      },
+      {
+        number: '02',
+        slug: 'module-02-cv-normes-ats',
+        free: false,
+        templates: [
+          { file: 'gabarit-cv-ats-international.docx', label: 'Gabarit de CV ATS international (.docx)' },
+          { file: 'grille-transformation-par-realisations.xlsx', label: 'Grille de transformation PAR des réalisations (.xlsx)' },
+        ],
+      },
+      {
+        number: '03',
+        slug: 'module-03-lettre-motivation',
+        free: false,
+        templates: [
+          { file: 'gabarit-lettre-motivation-3-paragraphes.docx', label: 'Gabarit de lettre de motivation en 3 paragraphes (.docx)' },
+          { file: 'grille-personnalisation-lettre-par-organisation.xlsx', label: 'Grille de personnalisation par organisation (.xlsx)' },
+        ],
+      },
+      {
+        number: '04',
+        slug: 'module-04-preparation-tests-techniques',
+        free: false,
+        templates: [
+          { file: 'grille-entrainement-tests-techniques-chronometre.xlsx', label: 'Grille d\'entraînement aux tests techniques chronométrés (.xlsx)' },
+          { file: 'gabarit-structuration-reponse-etude-de-cas.docx', label: 'Gabarit de structuration de réponse à une étude de cas (.docx)' },
+        ],
+      },
+      {
+        number: '05',
+        slug: 'module-05-simulation-entretiens-star',
+        free: false,
+        templates: [
+          { file: 'banque-histoires-star-preparation.xlsx', label: 'Banque d\'histoires STAR de préparation (.xlsx)' },
+          { file: 'grille-auto-evaluation-simulation-entretien.docx', label: 'Grille d\'auto-évaluation de simulation d\'entretien (.docx)' },
+        ],
+      },
+      {
+        number: '06',
+        slug: 'module-06-negociation-contrat-expatriation',
+        free: false,
+        templates: [
+          { file: 'grille-benchmarking-salarial-negociation.xlsx', label: 'Grille de benchmarking salarial & négociation (.xlsx)' },
+          { file: 'checklist-lecture-contrat-expatriation.docx', label: 'Checklist de lecture d\'un contrat d\'expatriation (.docx)' },
+        ],
+      },
+    ],
+  },
 }
 
 export function formationContentById(id) {
