@@ -46,6 +46,6 @@ Cette formation ne prépare pas à un poste unique — elle prépare à une comp
 | Charte d'utilisation responsable de l'IA | Équipe / direction, dès l'intégration d'un nouvel outil | À l'adoption, puis révision périodique | Données interdites, vérifications obligatoires, référent |
 | Documentation d'automatisation | Équipe technique / responsable de la maintenance | À chaque nouvelle automatisation, revue mensuelle | Objectif, déclencheur, points de vérification humaine, dernier test |
 | Bilan d'usage IA | Responsable direct, si l'organisation suit ces indicateurs | Mensuel | Gains de temps réels, incidents évités, axes d'amélioration |
-| Livrable de mini-projet certifiant | Formateur BK-BOOST Ltd. | À l'issue du Module 09 | Projet appliqué à son secteur, preuve de compétence opérationnelle |
+| Livrable de mini-projet certifiant | Formateur BK-BOOST Ltd. | À l'issue du Module 14 | Projet appliqué à son secteur, preuve de compétence opérationnelle |
 
 Ce tableau reflète l'esprit de toute la formation : l'IA ne devient un vrai levier de productivité que lorsqu'elle est utilisée avec la même rigueur professionnelle que n'importe quel autre outil de travail — documentée, vérifiée, partagée, améliorée.

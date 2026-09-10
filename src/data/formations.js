@@ -10,19 +10,19 @@ export const formations = [
     number: '01',
     icon: 'Bot',
     badge: { fr: 'Tech & Innovation', en: 'Tech & Innovation' },
-    duration: { fr: '4 semaines · 20 heures', en: '4 weeks · 20 hours' },
+    duration: { fr: '8 semaines · 40 heures', en: '8 weeks · 40 hours' },
     level: { fr: 'Tous niveaux', en: 'All levels' },
     format: { fr: 'En ligne & Présentiel', en: 'Online & in-person' },
-    priceUsd: 100,
+    priceUsd: 150,
     title: { fr: "Maîtrise de l'Intelligence Artificielle", en: 'Artificial Intelligence Mastery' },
     subtitle: {
-      fr: 'Les 5 IA de rupture pour transformer votre productivité professionnelle en 2026',
-      en: 'The 5 breakthrough AI tools to transform your professional productivity in 2026',
+      fr: 'Des 5 IA incontournables à leur application concrète : data, développement, marketing, stratégie et création web',
+      en: 'From the 5 essential AIs to their real-world application: data, development, marketing, strategy and web creation',
     },
     tagline: { fr: "Ne subissez plus l'IA. Commandez-la.", en: 'Stop being run by AI. Start commanding it.' },
     intro: {
-      fr: "En 2026, l'IA ne remplace pas les professionnels — elle multiplie par 5 la productivité de ceux qui savent l'utiliser. Cette formation intensive vous propulse de simple utilisateur à expert opérationnel des 5 plateformes IA les plus puissantes du marché : ChatGPT, Claude, Microsoft Copilot, Perplexity et Google Gemini. En 4 semaines chrono, vous automatisez vos tâches répétitives, maîtrisez le prompting avancé, et transformez chaque outil en assistant exécutif personnel — que vous soyez gestionnaire, logisticien, financier, RH ou entrepreneur.",
-      en: "In 2026, AI doesn't replace professionals — it multiplies by 5 the productivity of those who know how to use it. This intensive training propels you from casual user to hands-on expert across the 5 most powerful AI platforms on the market: ChatGPT, Claude, Microsoft Copilot, Perplexity and Google Gemini. In 4 fast-paced weeks, you'll automate your repetitive tasks, master advanced prompting, and turn every tool into a personal executive assistant — whether you work in management, logistics, finance, HR or entrepreneurship.",
+      fr: "En 2026, l'IA ne remplace pas les professionnels — elle multiplie par 5 la productivité de ceux qui savent l'utiliser. Cette formation intensive vous propulse de simple utilisateur à expert opérationnel des 5 plateformes IA les plus puissantes du marché — ChatGPT, Claude, Microsoft Copilot, Perplexity et Google Gemini — puis va plus loin. En 14 modules, vous apprenez à appliquer concrètement l'IA à l'analyse de données, au développement d'outils internes, au marketing, à la structuration stratégique de votre activité et à la création de solutions numériques. Que vous soyez gestionnaire, logisticien, financier, RH, entrepreneur ou consultant, chaque module transforme une compétence IA en résultat professionnel mesurable.",
+      en: "In 2026, AI doesn't replace professionals — it multiplies by 5 the productivity of those who know how to use it. This intensive training propels you from casual user to hands-on expert across the 5 most powerful AI platforms on the market — ChatGPT, Claude, Microsoft Copilot, Perplexity and Google Gemini — then goes further. Across 14 modules, you'll learn to apply AI concretely to data analysis, internal tool development, marketing, business strategy and digital solution creation. Whether you work in management, logistics, finance, HR, entrepreneurship or consulting, every module turns an AI skill into a measurable professional result.",
     },
     audience: {
       fr: "Professionnels des ONG et entreprises souhaitant gagner en efficacité, cadres et managers, entrepreneurs, étudiants en fin de cycle, toute personne désireuse de prendre une longueur d'avance dans son domaine grâce à l'IA.",
@@ -34,20 +34,20 @@ export const formations = [
         en: 'Master the 5 essential AI tools of 2026 in a professional context',
       },
       {
-        fr: 'Concevoir des prompts avancés pour des résultats professionnels de haut niveau',
-        en: 'Design advanced prompts for high-level professional results',
+        fr: 'Concevoir des prompts avancés (méthodes CLARTÉ et STAR) pour des résultats de haut niveau',
+        en: 'Design advanced prompts (CLARTÉ and STAR methods) for high-level professional results',
       },
       {
-        fr: 'Automatiser des workflows complets avec des agents IA',
-        en: 'Automate complete workflows with AI agents',
+        fr: "Automatiser des workflows complets avec des agents IA et les intégrer à Office 365 et Google Workspace",
+        en: 'Automate complete workflows with AI agents and integrate them into Office 365 and Google Workspace',
       },
       {
-        fr: "Intégrer l'IA dans les outils Office 365, Google Workspace et ERP",
-        en: 'Integrate AI into Office 365, Google Workspace and ERP tools',
+        fr: "Appliquer l'IA à l'analyse de données, au développement d'outils internes, au marketing et à la stratégie d'entreprise",
+        en: "Apply AI to data analysis, internal tool development, marketing and business strategy",
       },
       {
-        fr: "Développer une stratégie personnelle d'IA au service de ses objectifs métier",
-        en: 'Develop a personal AI strategy in service of your professional goals',
+        fr: "Concevoir une solution numérique simple pilotée par l'IA et bâtir sa propre stratégie IA métier",
+        en: 'Design a simple AI-driven digital solution and build your own AI strategy for your role',
       },
     ],
     modules: [
@@ -254,6 +254,131 @@ export const formations = [
       {
         number: '09',
         title: {
+          fr: "IA pour la Data & l'Analyse — De la donnée brute à la décision",
+          en: 'AI for Data & Analysis — From Raw Data to Decision',
+        },
+        description: {
+          fr: "Transformer un jeu de données brut en rapport d'analyse actionnable avec l'aide de l'IA : diagnostic, nettoyage, calcul de KPI et visualisation orientée décision.",
+          en: 'Turning raw data into an actionable analysis report with AI: diagnostics, cleaning, KPI calculation and decision-oriented visualization.',
+        },
+        points: [
+          {
+            fr: 'Diagnostic et nettoyage de données assistés par IA (Excel, Copilot, Power Query)',
+            en: 'AI-assisted data diagnostics and cleaning (Excel, Copilot, Power Query)',
+          },
+          {
+            fr: 'Calcul de KPI, détection de tendances et analyses comparatives par IA',
+            en: 'KPI calculation, trend detection and comparative analysis with AI',
+          },
+          {
+            fr: 'Visualisation orientée décision et rédaction du rapport de gestion final',
+            en: 'Decision-oriented visualization and drafting the final management report',
+          },
+        ],
+      },
+      {
+        number: '10',
+        title: {
+          fr: 'IA pour le Développement & les Outils Techniques — Visual Studio Code & Copilot',
+          en: 'AI for Development & Technical Tools — Visual Studio Code & Copilot',
+        },
+        description: {
+          fr: "Utiliser l'IA dans un environnement de code pour automatiser des tâches internes sans être développeur : VS Code, GitHub Copilot et Claude Code au service des profils métier.",
+          en: 'Using AI in a code environment to automate internal tasks without being a developer: VS Code, GitHub Copilot and Claude Code in the service of business profiles.',
+        },
+        points: [
+          {
+            fr: 'Prise en main de Visual Studio Code et GitHub Copilot pour un profil non-développeur',
+            en: 'Getting started with Visual Studio Code and GitHub Copilot for a non-developer profile',
+          },
+          {
+            fr: 'Automatisation de tâches internes : renommage en masse, fusion de fichiers, mini-outils',
+            en: 'Automating internal tasks: bulk renaming, file merging, mini-tools',
+          },
+          {
+            fr: "Déléguer une tâche technique à l'IA en toute sécurité : description, test, vérification",
+            en: 'Safely delegating a technical task to AI: description, testing, verification',
+          },
+        ],
+      },
+      {
+        number: '11',
+        title: {
+          fr: 'IA pour le Marketing & la Communication',
+          en: 'AI for Marketing & Communication',
+        },
+        description: {
+          fr: "Transformer des documents existants en supports de communication et générer des visuels marketing avec ChatGPT, Claude, Copilot et Gemini, comparés sur les mêmes cas d'usage.",
+          en: 'Turning existing documents into communication materials and generating marketing visuals with ChatGPT, Claude, Copilot and Gemini, compared on the same use cases.',
+        },
+        points: [
+          {
+            fr: 'Transformation de documents (rapport, fiche, compte-rendu) en supports de communication',
+            en: 'Turning documents (report, fact sheet, minutes) into communication materials',
+          },
+          {
+            fr: "Génération d'images marketing : comparatif pratique ChatGPT, Claude, Copilot et Gemini",
+            en: 'Marketing image generation: a practical comparison of ChatGPT, Claude, Copilot and Gemini',
+          },
+          {
+            fr: 'Choisir le bon outil IA selon le besoin marketing (visuel rapide, infographie, post, présentation)',
+            en: 'Choosing the right AI tool for the marketing need (quick visual, infographic, post, presentation)',
+          },
+        ],
+      },
+      {
+        number: '12',
+        title: {
+          fr: 'IA pour le Business Model & le Business Plan',
+          en: 'AI for the Business Model & Business Plan',
+        },
+        description: {
+          fr: "Utiliser l'IA comme copilote de structuration stratégique — Business Model Canvas, étude de marché, plan financier simplifié et pitch — sans jamais lui déléguer le jugement final.",
+          en: 'Using AI as a strategic-structuring copilot — Business Model Canvas, market study, simplified financial plan and pitch — without ever delegating the final judgment call to it.',
+        },
+        points: [
+          {
+            fr: "Construction et test d'un Business Model Canvas assisté par IA",
+            en: 'Building and stress-testing a Business Model Canvas with AI assistance',
+          },
+          {
+            fr: 'Étude de marché synthétisée par IA, avec vérification des sources et des limites',
+            en: 'AI-synthesized market research, with source verification and known limits',
+          },
+          {
+            fr: "Structuration d'un plan financier simplifié et resserrement du pitch par IA",
+            en: 'Structuring a simplified financial plan and tightening your pitch with AI',
+          },
+        ],
+      },
+      {
+        number: '13',
+        title: {
+          fr: 'IA pour la Création de Sites Web & Solutions Numériques',
+          en: 'AI for Website & Digital Solution Creation',
+        },
+        description: {
+          fr: "Concevoir un site ou un outil numérique simple en pilotant l'IA par le prompt, avec les outils no-code IA (Claude Code, Lovable, v0, Bolt) — sans savoir coder.",
+          en: 'Designing a simple website or digital tool by steering AI through prompts, using no-code AI tools (Claude Code, Lovable, v0, Bolt) — without knowing how to code.',
+        },
+        points: [
+          {
+            fr: 'Panorama des outils no-code/IA : Claude Code, Lovable, v0, Bolt',
+            en: 'Overview of no-code/AI tools: Claude Code, Lovable, v0, Bolt',
+          },
+          {
+            fr: 'Méthode de prompt pour cadrer un site ou une app avant de la générer',
+            en: 'A prompting method to scope a site or app before generating it',
+          },
+          {
+            fr: "Itération et correction d'un site généré par l'IA en langage courant",
+            en: 'Iterating on and fixing an AI-generated site in plain language',
+          },
+        ],
+      },
+      {
+        number: '14',
+        title: {
           fr: 'Atelier Pratique — Mini-projet certifiant par domaine',
           en: 'Hands-On Workshop — Certifying Mini-Project by Field',
         },
@@ -283,20 +408,20 @@ export const formations = [
         en: 'AI skills certificate issued by BK-BOOST Ltd.',
       },
       {
-        fr: 'Bibliothèque de prompts professionnels personnalisée',
-        en: 'A personalized library of professional prompts',
+        fr: 'Bibliothèque de prompts professionnels personnalisée (CLARTÉ & STAR)',
+        en: 'A personalized library of professional prompts (CLARTÉ & STAR)',
       },
       {
-        fr: 'Autonomie totale sur les 5 plateformes IA clés de 2026',
-        en: 'Full autonomy across the 5 key AI platforms of 2026',
+        fr: 'Autonomie totale sur les 5 plateformes IA clés de 2026 — et leur application à votre métier',
+        en: 'Full autonomy across the 5 key AI platforms of 2026 — and how to apply them to your work',
       },
       {
-        fr: "Workflows d'automatisation opérationnels dès la formation terminée",
-        en: 'Operational automation workflows as soon as training ends',
+        fr: 'Portfolio de livrables IA concrets : rapport de données, visuel marketing, business model, mini-solution web',
+        en: 'A portfolio of real AI deliverables: a data report, a marketing visual, a business model, a mini web solution',
       },
       {
-        fr: "Avantage concurrentiel immédiat sur le marché de l'emploi",
-        en: 'An immediate competitive edge in the job market',
+        fr: 'Avantage concurrentiel immédiat, quel que soit votre secteur ou votre fonction',
+        en: 'An immediate competitive edge, whatever your sector or role',
       },
     ],
   },

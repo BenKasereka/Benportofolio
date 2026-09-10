@@ -1,4 +1,4 @@
-# Module 09 — Atelier Pratique — Mini-projet certifiant par domaine
+# Module 14 — Atelier Pratique — Mini-projet certifiant par domaine
 ## 03. Mini-projets, Exercice & Check-list
 
 ### Exemples de mini-projets par secteur
@@ -49,4 +49,4 @@ C'est l'exercice central de ce module et de l'ensemble de la formation. Il se d�
 
 ### Pour conclure ce parcours
 
-Le Module 01 de cette formation ouvrait sur une idée simple : ne plus subir l'IA, la commander. Huit modules plus tard, ce mini-projet est l'endroit où cette idée cesse d'être une intention et devient une preuve concrète — un livrable réel, produit par vous, à partir d'un problème réel de votre métier, en pilotant délibérément les outils plutôt qu'en les subissant au fil de l'eau. C'est aussi, très concrètement, le dernier module de cette formation et le dernier module de l'ensemble du catalogue BK-BOOST Ltd. : la revue individuelle de ce mini-projet, une fois validée, débouche sur votre attestation de compétences IA — la preuve, transmissible à votre organisation ou à un futur employeur, que vous ne vous contentez plus d'utiliser l'IA, vous savez la diriger vers un résultat professionnel réel.
+Le Module 01 de cette formation ouvrait sur une idée simple : ne plus subir l'IA, la commander. Treize modules plus tard, ce mini-projet est l'endroit où cette idée cesse d'être une intention et devient une preuve concrète — un livrable réel, produit par vous, à partir d'un problème réel de votre métier, en pilotant délibérément les outils plutôt qu'en les subissant au fil de l'eau. C'est aussi, très concrètement, le dernier module de cette formation et le dernier module de l'ensemble du catalogue BK-BOOST Ltd. : la revue individuelle de ce mini-projet, une fois validée, débouche sur votre attestation de compétences IA — la preuve, transmissible à votre organisation ou à un futur employeur, que vous ne vous contentez plus d'utiliser l'IA, vous savez la diriger vers un résultat professionnel réel.

@@ -550,7 +550,52 @@ export const formationsContent = {
       },
       {
         number: '09',
-        slug: 'module-09-atelier-pratique-mini-projet',
+        slug: 'module-09-ia-data-analyse',
+        free: false,
+        templates: [
+          { file: 'grille-diagnostic-nettoyage-donnees.xlsx', label: 'Grille de diagnostic & nettoyage de données (.xlsx)' },
+          { file: 'gabarit-rapport-analyse-donnees.docx', label: 'Gabarit de rapport d\'analyse de données (.docx)' },
+        ],
+      },
+      {
+        number: '10',
+        slug: 'module-10-developpement-outils-techniques',
+        free: false,
+        templates: [
+          { file: 'bibliotheque-prompts-delegation-technique.xlsx', label: 'Bibliothèque de prompts de délégation technique (.xlsx)' },
+          { file: 'guide-securite-verification-scripts-ia.docx', label: 'Guide de sécurité & vérification des scripts IA (.docx)' },
+        ],
+      },
+      {
+        number: '11',
+        slug: 'module-11-marketing-communication',
+        free: false,
+        templates: [
+          { file: 'comparatif-outils-generation-visuels-ia.xlsx', label: 'Comparatif des outils IA de génération de visuels (.xlsx)' },
+          { file: 'gabarit-transformation-document-communication.docx', label: 'Gabarit de transformation document → communication (.docx)' },
+        ],
+      },
+      {
+        number: '12',
+        slug: 'module-12-business-model-plan',
+        free: false,
+        templates: [
+          { file: 'canevas-business-model-canvas-ia.xlsx', label: 'Canevas Business Model Canvas assisté par IA (.xlsx)' },
+          { file: 'gabarit-plan-financier-pitch-simplifie.docx', label: 'Gabarit de plan financier & pitch simplifié (.docx)' },
+        ],
+      },
+      {
+        number: '13',
+        slug: 'module-13-creation-sites-web-solutions-numeriques',
+        free: false,
+        templates: [
+          { file: 'checklist-cahier-des-charges-site-ia.xlsx', label: 'Checklist de cahier des charges site/app IA (.xlsx)' },
+          { file: 'bibliotheque-prompts-creation-web-iteration.docx', label: 'Bibliothèque de prompts création web & itération (.docx)' },
+        ],
+      },
+      {
+        number: '14',
+        slug: 'module-14-atelier-pratique-mini-projet',
         free: false,
         templates: [
           { file: 'gabarit-brief-mini-projet-ia-par-secteur.docx', label: 'Gabarit de brief de mini-projet IA par secteur (.docx)' },
