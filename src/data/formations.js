@@ -960,8 +960,8 @@ export const formations = [
     },
     objectives: [
       {
-        fr: 'Maîtriser le cycle complet des achats humanitaires (RFQ, RFP, ITB, PO, conformité CPC)',
-        en: 'Master the full humanitarian procurement cycle (RFQ, RFP, ITB, PO, CPC compliance)',
+        fr: "Maîtriser le cycle complet des achats humanitaires (RFQ, RFP, AO, PO, conformité CPC) et les techniques de négociation fournisseur",
+        en: 'Master the full humanitarian procurement cycle (RFQ, RFP, ITB, PO, CPC compliance) and supplier negotiation techniques',
       },
       {
         fr: 'Gérer les flux de marchandises de l\'achat à la distribution finale',
@@ -1013,26 +1013,48 @@ export const formations = [
           en: 'The Full Procurement Cycle — From RFQ to PO',
         },
         description: {
-          fr: "Maîtrise du cycle d'achat selon les standards des grandes ONG : procédures concurrentielles, seuils d'autorisation, comités d'achat et conformité anti-fraude.",
-          en: 'Mastering the procurement cycle to the standards of major NGOs: competitive procedures, authorization thresholds, procurement committees and anti-fraud compliance.',
+          fr: "Maîtrise du cycle d'achat complet selon les standards des grandes ONG : procédures concurrentielles (RFQ, RFP, AO, AMI), contrats-cadres, comités d'achat, matrices d'autorisation et conformité anti-fraude.",
+          en: 'Mastering the full procurement cycle to the standards of major NGOs: competitive procedures (RFQ, RFP, ITB, EOI), framework agreements, procurement committees, authorization matrices and anti-fraud compliance.',
         },
         points: [
           {
-            fr: 'RFQ (Request for Quotation), RFP (Request for Proposal) et ITB (Invitation to Bid)',
-            en: 'RFQ (Request for Quotation), RFP (Request for Proposal) and ITB (Invitation to Bid)',
+            fr: "RFQ, RFP, Appel d'Offres (AO) et Appel à Manifestation d'Intérêt (AMI) : quand utiliser quelle procédure",
+            en: 'RFQ, RFP, Invitation to Bid (ITB) and Expression of Interest (EOI): when to use which procedure',
           },
           {
-            fr: 'Comités de validation des achats (CPC) et matrices d\'autorisation',
-            en: 'Procurement validation committees (CPC) and authorization matrices',
+            fr: "Contrats-cadres, étude de marché fournisseurs et comités de validation des achats (CPC)",
+            en: 'Framework agreements, supplier market research and procurement validation committees (CPC)',
           },
           {
-            fr: 'Gestion des Purchase Orders, bons de commande et archivage conforme',
-            en: 'Managing Purchase Orders, order forms and compliant archiving',
+            fr: "Matrices d'autorisation, gestion des Purchase Orders et PV de négociation",
+            en: 'Authorization matrices, Purchase Order management and negotiation minutes',
           },
         ],
       },
       {
         number: '03',
+        title: { fr: 'Techniques de Négociation en Profondeur', en: 'In-Depth Negotiation Techniques' },
+        description: {
+          fr: "Préparer et mener une négociation fournisseur structurée, au-delà du simple marchandage sur le prix : postures de négociation, BATNA, techniques concrètes et sécurisation de l'accord.",
+          en: 'Preparing and conducting a structured supplier negotiation, beyond simple price haggling: negotiation postures, BATNA, concrete techniques and securing the agreement.',
+        },
+        points: [
+          {
+            fr: 'Postures distributive et collaborative : quand utiliser laquelle en contexte humanitaire',
+            en: 'Distributive and collaborative postures: when to use which in a humanitarian context',
+          },
+          {
+            fr: 'Préparation de la négociation : BATNA, points de rupture et marge de manœuvre',
+            en: 'Negotiation preparation: BATNA, breaking points and room to maneuver',
+          },
+          {
+            fr: 'Techniques concrètes (ancrage, silence stratégique, gestion des concessions) et clôture sécurisée par PV',
+            en: 'Concrete techniques (anchoring, strategic silence, concession management) and closing secured with meeting minutes',
+          },
+        ],
+      },
+      {
+        number: '04',
         title: { fr: 'Gestion des Fournisseurs & Conformité', en: 'Supplier Management & Compliance' },
         description: {
           fr: "Constitution et gestion d'un portefeuille fournisseurs de qualité : qualification, évaluation, gestion des contrats-cadres et vérification d'inéligibilité.",
@@ -1054,7 +1076,7 @@ export const formations = [
         ],
       },
       {
-        number: '04',
+        number: '05',
         title: { fr: 'Gestion des Stocks & Entrepôts', en: 'Stock & Warehouse Management' },
         description: {
           fr: "Pilotage complet de l'entrepôt humanitaire : réception, contrôle qualité, stockage, gestion des périmés, inventaires et production de rapports de stock.",
@@ -1076,7 +1098,7 @@ export const formations = [
         ],
       },
       {
-        number: '05',
+        number: '06',
         title: { fr: 'Distribution & Last-Mile Delivery', en: 'Distribution & Last-Mile Delivery' },
         description: {
           fr: "Planification et exécution de distributions massives en zone de crise : ciblage des bénéficiaires, gestion des files, contrôle des distributions et gestion des réclamations.",
@@ -1098,7 +1120,7 @@ export const formations = [
         ],
       },
       {
-        number: '06',
+        number: '07',
         title: { fr: 'Transport International & Dédouanement', en: 'International Transport & Customs Clearance' },
         description: {
           fr: "Gestion des imports/exports humanitaires : Incoterms, fret aérien/maritime/terrestre, dédouanement, transit et conformité réglementaire internationale.",
@@ -1120,7 +1142,7 @@ export const formations = [
         ],
       },
       {
-        number: '07',
+        number: '08',
         title: { fr: 'Systèmes ERP Humanitaires — SAP, LINK & Power Query', en: 'Humanitarian ERP Systems — SAP, LINK & Power Query' },
         description: {
           fr: "Prise en main opérationnelle des ERP utilisés par les grandes ONG pour la gestion des achats, stocks, actifs et reporting financier de la supply chain.",
@@ -1142,7 +1164,7 @@ export const formations = [
         ],
       },
       {
-        number: '08',
+        number: '09',
         title: {
           fr: 'KPIs, Reporting & Tableau de Bord Supply Chain',
           en: 'KPIs, Reporting & Supply Chain Dashboard',

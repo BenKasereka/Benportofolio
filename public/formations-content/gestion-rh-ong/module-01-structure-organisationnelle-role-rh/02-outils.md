@@ -9,6 +9,8 @@
 
 **Excel / Google Sheets** — l'outil que vous utiliserez pour construire votre propre cartographie de l'organigramme réel et de la matrice de responsabilités, en la confrontant aux deux sources ci-dessus.
 
+**Le gabarit de narrative de planification annuelle** — `gabarit-narrative-planification-annuelle-rh.docx`, disponible dans `04-templates/`. C'est le complément narratif de l'organigramme de cartographie des rôles RH de ce module : là où celui-ci reste structurel et statique (qui rapporte à qui, à un instant donné), ce document en explique chaque année l'évolution — contexte externe, bilan des objectifs RH de l'année écoulée, priorités RH de l'année à venir, et surtout un point détaillé sur la composition de l'équipe, les profils de staff international et national, l'impact chiffré sur le budget RH, et le chronogramme des grandes échéances (recrutements, révisions de grille salariale). Il se rédige une seule fois par an, généralement en amont du cycle de planification de l'année suivante, pour que la fonction RH arrive à cette discussion avec un narratif structuré plutôt qu'un simple organigramme à jour.
+
 ### Guide pratique étape par étape — "Cartographier l'organigramme réel d'une mission dès l'arrivée"
 
 Ce guide part d'une situation réelle : vous prenez un poste RH sur une mission déjà en cours. L'organigramme qu'on vous a transmis avant votre arrivée date de plusieurs mois. Voici exactement comment vérifier ce qui est vrai, dans quel ordre, avant de vous fier à ce document pour la moindre décision.

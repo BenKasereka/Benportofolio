@@ -21,7 +21,7 @@ Votre assistant achats vous transmet trois offres reçues dans le délai imparti
 
 ### Exercice noté
 
-1. **Grille CBA** — Remplissez `grille-rfq-comparaison-offres-cba.xlsx` avec les trois offres ci-dessus. Calculez le score pondéré de chacune, identifiez le rang, puis complétez explicitement la zone de repérage de collusion en indiquant les éléments concrets qui vous alertent (prix identique, contact identique, tout autre indice que vous jugez pertinent).
+1. **Grille CBA** — En vous inspirant de la structure de `cas-pratique-analyse-comparative-offres-cba.xlsx` (colonnes Prix unitaire / Prix total / Commentaire par fournisseur), construisez votre propre analyse comparative avec les trois offres ci-dessus. Identifiez le fournisseur le moins-disant, puis complétez explicitement une colonne Commentaire par les éléments concrets qui vous alertent (prix identique, contact identique, tout autre indice que vous jugez pertinent).
 2. **Procès-verbal de CPC** — Rédigez le PV avec `pv-comite-achats-cpc.docx`, en simulant une réunion à 3 membres. Le PV doit documenter explicitement : la décision d'écarter l'une des deux offres suspectes (1 ou 2) malgré son prix plus bas, la justification de ce choix, et la recommandation de signaler ce cas à votre référent compliance/anti-fraude.
 
 **Livrable attendu** : les deux fichiers complétés. La décision documentée dans le PV ne doit jamais se limiter à "offre la moins chère retenue" — elle doit démontrer que le comité a effectivement examiné la cohérence des trois offres entre elles.

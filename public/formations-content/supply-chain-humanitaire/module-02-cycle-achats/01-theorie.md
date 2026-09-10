@@ -42,6 +42,52 @@ Sur le terrain, "on va faire un appel d'offres" est souvent utilisé pour désig
 
 **Piège classique de terrain n°2** : confondre un AMI avec une RFQ déguisée. Un AMI n'engage jamais un fournisseur sur un prix ferme — il sert uniquement à constituer une liste restreinte (shortlist) de fournisseurs qualifiés, sur laquelle on lance ensuite une RFP ou une ITB. "Retenir" directement un prix reçu en réponse à un AMI, sans procédure de mise en concurrence formelle derrière, est une non-conformité fréquente et facilement repérée en audit.
 
+### RFP — structure type d'un appel à propositions humanitaire
+
+Une RFQ compare des prix sur une spécification déjà figée ; une RFP compare des façons différentes de résoudre un même problème, quand la meilleure réponse technique n'est pas connue à l'avance (forage manuel ou motorisé, distribution directe ou cash transfert). Si vous savez écrire une spécification complète et figée sans consulter personne, c'est une RFQ ou une AO qu'il vous faut — pas une RFP.
+
+**Structure type**, reprise dans le gabarit `trame-rfp-et-contrat-cadre.docx` :
+
+1. **Contexte et objectif du besoin** — sans présupposer la solution technique.
+2. **Description de la solution recherchée** — ce que le résultat doit permettre, les contraintes non négociables, et ce qui reste ouvert à la proposition du fournisseur.
+3. **Critères d'évaluation techniques et financiers, avec pondération** — figés avant réception des offres (voir l'Étape 3 du guide pratique).
+4. **Modalités de soumission** — délai, format (souvent double enveloppe technique/financière), documents obligatoires.
+5. **Calendrier de la procédure** — de la publication à la notification.
+6. **Conditions générales** — communiquées dès la RFP pour qu'aucun soumissionnaire ne découvre après coup des conditions qu'il n'aurait pas acceptées.
+
+### Appel d'Offres (AO) — ouvert ou restreint
+
+Ce que ce module désigne par ITB correspond, en français, au terme **Appel d'Offres (AO)** : une offre ferme sous pli scellé, évaluée selon une conformité stricte aux spécifications. Un **AO ouvert** est publié largement et tout fournisseur qualifié peut soumissionner — le plus transparent, mais aussi le plus lourd à traiter. Un **AO restreint** n'invite que les fournisseurs déjà présélectionnés (via un AMI ou déjà qualifiés) — plus rapide, défendable en audit à condition que la présélection soit documentée.
+
+**Seuils** (en principe générique, les seuils exacts varient selon l'organisation et le bailleur) : un AO formel s'impose au palier 3, et devient quasi systématiquement ouvert au palier 4, où la plupart des bailleurs exigent la mise en concurrence la plus large possible.
+
+**De la publication à l'attribution** : (1) publication de l'avis ou envoi des invitations, avec le dossier complet ; (2) questions-réponses documentées et communiquées identiquement à tous ; (3) date de clôture ferme ; (4) ouverture des plis en présence d'au moins deux personnes, avec enregistrement horodaté (voir l'Étape 5 du guide pratique) ; (5) évaluation selon les critères figés avant ouverture ; (6) notification de l'attribution, avec le cas échéant un délai de suspension avant signature.
+
+### Contrat Cadre — sécuriser prix et délais sans réengager une procédure à chaque commande
+
+Un contrat-cadre fixe, avec un fournisseur qualifié, les conditions (prix, délais, spécifications) d'une série d'achats récurrents sur une période donnée — au lieu de relancer une RFQ complète à chaque besoin. C'est l'instrument à choisir au moment du sourcing quand un besoin se répète (papeterie, carburant, petit matériel médical récurrent).
+
+**Clauses essentielles**, détaillées dans `trame-rfp-et-contrat-cadre.docx` : une **durée** avec date de révision explicite ; des **volumes indicatifs** clairement non engageants (un ordre de grandeur, jamais une quantité minimale garantie) ; des **modalités de prix et de révision de prix** (grille tarifaire, mécanisme d'indexation ou de plafond) ; une **clause de sortie** précisant le préavis applicable.
+
+**Frontière avec le Module 04** : ce module montre comment structurer un contrat-cadre au moment de le choisir comme instrument d'achat. Sa gestion dans la durée — revue de performance, renouvellement, remise en concurrence partielle, screening répété — est couverte par le Module 04.
+
+### AMI — de l'expression d'intérêt à la liste restreinte qualifiée
+
+Un AO compare des offres fermes pour attribuer un marché ; un AMI (Appel à Manifestation d'Intérêt) recueille des preuves de capacité pour construire, en amont, la liste des fournisseurs autorisés à participer à la procédure formelle qui suivra — ce n'est pas une procédure d'achat.
+
+**Quand le lancer** : marché mal connu, achat complexe à venir (palier 3-4), ou en amont d'un contrat-cadre — pour que la présélection repose sur une base documentée, pas sur les seuls contacts déjà connus.
+
+**Évaluer les manifestations reçues** : pas de prix à ce stade, seulement une qualification — existence légale, capacité financière et technique déclarée, expérience démontrable sur des prestations similaires. La décision (qualifié / non qualifié pour la shortlist) se documente avec la même rigueur qu'une décision de CPC.
+
+### Tableau comparatif — choisir le bon instrument
+
+| | **RFQ** | **RFP** | **AO** | **AMI** | **Contrat Cadre** |
+|---|---|---|---|---|---|
+| **À utiliser quand** | Spécification déjà fixe, prix à comparer | Besoin à résoudre, plusieurs solutions possibles | Achat de forte valeur, spécification homogène | Marché mal connu, présélection à construire | Besoin récurrent sur une période donnée |
+| **Seuil budgétaire typique** | Palier 2 (consultation restreinte) | Palier 3 | Palier 3 à 4 | Sans seuil propre — étape de présélection | Variable — dépend du volume cumulé annuel |
+| **Niveau de formalisme** | Modéré — 3 devis écrits suffisent | Élevé — critères pondérés, double enveloppe | Très élevé — plis scellés, ouverture formelle | Faible à modéré — qualification documentée | Élevé à la mise en place, allégé ensuite |
+| **Délai moyen** | Quelques jours à 2 semaines | 2 à 4 semaines | 3 à 6 semaines (AO ouvert) | 1 à 3 semaines | Plusieurs semaines à la mise en place, puis quasi immédiat par commande |
+
 ### Gouvernance du CPC — pourquoi une seule signature est un signal d'alerte
 
 Le **CPC (Comité de Validation des Achats — Procurement Committee)** est l'organe qui examine la CBA et décide quel fournisseur retenir, au-dessus du seuil de consultation restreinte. Sa raison d'être n'est pas de ralentir l'achat : c'est de garantir qu'aucune décision d'achat significative ne repose sur le jugement d'une seule personne.
@@ -57,9 +103,12 @@ Un CPC qui fonctionne correctement respecte systématiquement trois règles :
 ### Vocabulaire clé à maîtriser dès ce module
 
 - **PR (Purchase Requisition)** : la demande d'achat initiale émise par le programme, point de départ officiel du cycle.
-- **RFQ / RFP / ITB / AMI** : les quatre familles de consultation fournisseurs, voir tableau ci-dessus.
-- **CBA (Comparative Bid Analysis)** : la grille d'analyse comparative des offres reçues, avec pondération prix/technique.
+- **RFQ / RFP / AO (ITB) / AMI** : les quatre familles de consultation fournisseurs, voir tableau ci-dessus.
+- **AO (Appel d'Offres)** : équivalent français de l'ITB — offre ferme sous pli scellé ; ouvert (publication large) ou restreint (fournisseurs présélectionnés).
+- **Contrat-cadre (Framework Agreement)** : accord fixant à l'avance prix et délais pour une série d'achats récurrents, avec volumes indicatifs non engageants.
+- **CBA (Comparative Bid Analysis)** : l'analyse comparative des offres reçues, avec pondération prix/technique.
 - **CPC (Procurement Committee)** : le comité de validation des achats au-dessus du seuil de consultation restreinte.
 - **PO (Purchase Order)** : le bon de commande, engagement contractuel formel envers le fournisseur retenu.
+- **PV de négociation** : le compte-rendu documenté des points négociés et de l'accord final obtenu avec le fournisseur retenu, avant émission de la PO.
 - **3-way match** : le rapprochement à trois entre la PO, le bon de réception des biens (GRN) et la facture fournisseur, avant tout paiement.
 - **Purchase splitting** : fractionnement frauduleux d'un achat en plusieurs commandes pour rester sous un seuil d'autorisation.

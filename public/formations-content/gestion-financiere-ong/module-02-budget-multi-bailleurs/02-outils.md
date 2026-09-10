@@ -9,6 +9,8 @@
 
 **Excel / Google Sheets** — au-delà du template fourni, c'est l'outil que vous utiliserez pour le chiffrage initial du budget (sous-détails de coûts, devis comparatifs, calculs de coût unitaire) avant consolidation dans le canevas final du bailleur.
 
+**Le gabarit de narrative de planification annuelle** — `gabarit-narrative-planification-annuelle-budgetaire.docx`, disponible dans `04-templates/`. C'est le complément narratif du tableau de suivi BFU multi-bailleurs de ce module : là où celui-ci reste chiffré (engagé, dépensé, solde, écart), ce document en explique chaque année le contexte — évolution du taux de change et des contraintes bailleurs, bilan budgétaire de l'année écoulée avec son impact chiffré sur le budget RH, priorités budgétaires de l'année à venir explicitement rattachées à des lignes budgétaires, et chronogramme des échéances clés (soumissions, révisions, clôtures bailleurs). Il se rédige une seule fois par an, en amont du cycle de planification budgétaire de l'année suivante, et alimente directement le processus de budgétisation multi-bailleurs : le narratif qualitatif qui accompagne les chiffres du BFU.
+
 ### Guide pratique étape par étape — construire et suivre un budget de projet, de A à Z
 
 Ce guide part d'une situation réelle : vous devez soumettre un budget de projet complet à un bailleur, ou vous reprenez le suivi d'un projet en cours dont le budget est déjà approuvé. Voici exactement quoi faire, dans quel ordre.

@@ -30,12 +30,12 @@ La logistique gère le mouvement physique. La Supply Chain Manager (SCM) gère l
 
 ## Routine de fin de mois
 
-1. **Extraction et nettoyage des données ERP/achats du mois** (voir Module 07) — jamais une extraction brute prise telle quelle : vérification systématique des doublons, incohérences de dates et de devises avant tout calcul de KPI.
-2. **Calcul des KPIs supply chain** (voir Module 08) — taux de rupture, délai moyen d'approvisionnement, taux de conformité achats. Calculés à partir des données réelles du mois, avec comparaison à la tendance des mois précédents, jamais en valeur isolée.
-3. **Réconciliation stocks/ERP** (voir Module 04) — confirmation que les écarts identifiés en cours de mois ont bien été documentés et clôturés, pas juste "notés".
+1. **Extraction et nettoyage des données ERP/achats du mois** (voir Module 08) — jamais une extraction brute prise telle quelle : vérification systématique des doublons, incohérences de dates et de devises avant tout calcul de KPI.
+2. **Calcul des KPIs supply chain** (voir Module 09) — taux de rupture, délai moyen d'approvisionnement, taux de conformité achats. Calculés à partir des données réelles du mois, avec comparaison à la tendance des mois précédents, jamais en valeur isolée.
+3. **Réconciliation stocks/ERP** (voir Module 05) — confirmation que les écarts identifiés en cours de mois ont bien été documentés et clôturés, pas juste "notés".
 4. **Revue du portefeuille fournisseurs** — statut de screening à jour pour tous les fournisseurs actifs, évaluations de performance dues effectuées, contrats-cadres arrivant à échéance dans les 60 jours identifiés pour anticipation.
-5. **Bilan des dossiers douaniers/transport international en cours** (voir Module 06) — statut de chaque expédition, relances effectuées pour tout document manquant.
-6. **Rédaction du double rapport mensuel** (voir Module 08) — le rapport interne siège (détail opérationnel) ET, selon le calendrier bailleur, le rapport de conformité correspondant. Deux documents distincts, jamais un seul document recyclé pour les deux audiences.
+5. **Bilan des dossiers douaniers/transport international en cours** (voir Module 07) — statut de chaque expédition, relances effectuées pour tout document manquant.
+6. **Rédaction du double rapport mensuel** (voir Module 09) — le rapport interne siège (détail opérationnel) ET, selon le calendrier bailleur, le rapport de conformité correspondant. Deux documents distincts, jamais un seul document recyclé pour les deux audiences.
 7. **Archivage complet** — chaque dossier d'achat du mois doit être défendable devant un audit surprise, avec toutes les pièces (RFQ, offres, PV de CPC, PO, bons de réception) classées et retrouvables en quelques minutes.
 
 **Piège classique** : traiter le rapport mensuel comme un exercice de mise en forme de chiffres déjà connus. Une SCM senior sait que la vraie valeur du rapport mensuel est de révéler ce que le suivi quotidien n'a pas capté — une tendance qui se dessine sur plusieurs semaines, invisible dossier par dossier.

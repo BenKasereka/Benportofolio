@@ -81,6 +81,7 @@ export const formationsContent = {
         templates: [
           { file: 'tableau-de-bord-kpi-logistique.xlsx', label: 'Tableau de bord KPI logistique (.xlsx)' },
           { file: 'gabarit-rapport-logistique-mensuel.docx', label: 'Gabarit de rapport logistique mensuel (.docx)' },
+          { file: 'gabarit-narrative-planification-annuelle-logistique.docx', label: 'Narrative de planification annuelle Logistique (.docx)' },
         ],
       },
     ],
@@ -104,13 +105,28 @@ export const formationsContent = {
         slug: 'module-02-cycle-achats',
         free: false,
         templates: [
-          { file: 'grille-rfq-comparaison-offres-cba.xlsx', label: 'Grille RFQ & analyse comparative des offres CBA (.xlsx)' },
+          { file: 'bon-demande-interne-ir.xlsx', label: 'Bon de demande interne / Internal Request (.xlsx)' },
+          { file: 'fiche-etude-marche-fournisseur.xlsx', label: 'Fiche de demande d\'information & étude de marché fournisseur (.xlsx)' },
+          { file: 'grille-rfq-demande-cotation.xlsx', label: 'Grille RFQ / demande de cotation (.xlsx)' },
+          { file: 'cas-pratique-analyse-comparative-offres-cba.xlsx', label: 'Cas pratique — analyse comparative des offres CBA (.xlsx)' },
+          { file: 'trame-rfp-et-contrat-cadre.docx', label: 'Trames RFP & Contrat-cadre (.docx)' },
+          { file: 'checklist-validation-dossier-achat.xlsx', label: 'Checklist de validation du dossier d\'achat & matrice d\'autorisation (.xlsx)' },
           { file: 'pv-comite-achats-cpc.docx', label: 'Procès-verbal de comité d\'achats CPC (.docx)' },
+          { file: 'demande-avance-terrain.xlsx', label: 'Demande d\'avance terrain & justification (.xlsx)' },
         ],
       },
       {
         number: '03',
-        slug: 'module-03-gestion-fournisseurs',
+        slug: 'module-03-negociation',
+        free: false,
+        templates: [
+          { file: 'grille-preparation-negociation-batna.xlsx', label: 'Grille de préparation de négociation (BATNA) (.xlsx)' },
+          { file: 'trame-pv-negociation.docx', label: 'Trame de PV de négociation (.docx)' },
+        ],
+      },
+      {
+        number: '04',
+        slug: 'module-04-gestion-fournisseurs',
         free: false,
         templates: [
           { file: 'fiche-qualification-evaluation-fournisseur.xlsx', label: 'Fiche de qualification & évaluation fournisseur (.xlsx)' },
@@ -118,17 +134,18 @@ export const formationsContent = {
         ],
       },
       {
-        number: '04',
-        slug: 'module-04-gestion-stocks-entrepots',
+        number: '05',
+        slug: 'module-05-gestion-stocks-entrepots',
         free: false,
         templates: [
           { file: 'bon-de-reception-controle-qualite.xlsx', label: 'Bon de réception & contrôle qualité (.xlsx)' },
+          { file: 'bons-de-sortie-entrepot-carburant.xlsx', label: 'Bons de sortie entrepôt & carburant (.xlsx)' },
           { file: 'rapport-reconciliation-inventaire-erp.docx', label: 'Rapport de réconciliation inventaire/ERP (.docx)' },
         ],
       },
       {
-        number: '05',
-        slug: 'module-05-distribution-last-mile',
+        number: '06',
+        slug: 'module-06-distribution-last-mile',
         free: false,
         templates: [
           { file: 'plan-logistique-distribution-pdm.xlsx', label: 'Plan logistique de distribution & PDM (.xlsx)' },
@@ -136,17 +153,18 @@ export const formationsContent = {
         ],
       },
       {
-        number: '06',
-        slug: 'module-06-transport-international-douanes',
+        number: '07',
+        slug: 'module-07-transport-international-douanes',
         free: false,
         templates: [
           { file: 'comparateur-fret-international-incoterms.xlsx', label: 'Comparateur fret international & Incoterms (.xlsx)' },
+          { file: 'lettre-de-voiture-waybill.xlsx', label: 'Lettre de voiture / Waybill (.xlsx)' },
           { file: 'checklist-documents-expedition-internationale.docx', label: 'Checklist documents d\'expédition internationale (.docx)' },
         ],
       },
       {
-        number: '07',
-        slug: 'module-07-systemes-erp',
+        number: '08',
+        slug: 'module-08-systemes-erp',
         free: false,
         templates: [
           { file: 'guide-extraction-nettoyage-power-query.xlsx', label: 'Guide d\'extraction & nettoyage Power Query (.xlsx)' },
@@ -154,12 +172,14 @@ export const formationsContent = {
         ],
       },
       {
-        number: '08',
-        slug: 'module-08-kpis-reporting',
+        number: '09',
+        slug: 'module-09-kpis-reporting',
         free: false,
         templates: [
           { file: 'tableau-de-bord-kpi-supply-chain.xlsx', label: 'Tableau de bord KPI supply chain (.xlsx)' },
           { file: 'gabarit-rapport-bailleur-vs-rapport-siege.docx', label: 'Gabarit rapport bailleur vs. rapport siège (.docx)' },
+          { file: 'gabarit-sitrep-mensuel-supply-chain.docx', label: 'Gabarit de SITREP mensuel supply chain (.docx)' },
+          { file: 'gabarit-narrative-planification-annuelle-supply-chain.docx', label: 'Narrative de planification annuelle Supply Chain (.docx)' },
         ],
       },
     ],
@@ -185,6 +205,7 @@ export const formationsContent = {
         templates: [
           { file: 'budget-suivi-bfu-multi-bailleurs.xlsx', label: 'Budget & suivi BFU multi-bailleurs (.xlsx)' },
           { file: 'note-demande-virement-ligne-budgetaire.docx', label: 'Note de demande de virement de ligne budgétaire (.docx)' },
+          { file: 'gabarit-narrative-planification-annuelle-budgetaire.docx', label: 'Narrative de planification budgétaire annuelle (.docx)' },
         ],
       },
       {
@@ -343,6 +364,7 @@ export const formationsContent = {
         templates: [
           { file: 'organigramme-cartographie-roles-rh.xlsx', label: 'Organigramme & cartographie des rôles RH (.xlsx)' },
           { file: 'fiche-interface-rh-finance-paie.docx', label: 'Fiche d\'interface RH-Finance pour la paie (.docx)' },
+          { file: 'gabarit-narrative-planification-annuelle-rh.docx', label: 'Narrative de planification RH annuelle (.docx)' },
         ],
       },
       {
