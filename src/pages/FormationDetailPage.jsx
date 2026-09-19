@@ -243,7 +243,9 @@ export default function FormationDetailPage() {
             <div className="flex flex-col gap-5">
               {formation.modules.map((mod, index) => {
                 const moduleContent = moduleContentByNumber(formation.id, mod.number)
-                const isUnlocked = moduleContent?.free === true || hasLocalAccess(formation.id)
+                const isFreePreview = moduleContent?.free === true
+                const isPaidUnlock = !isFreePreview && hasLocalAccess(formation.id)
+                const isUnlocked = isFreePreview || isPaidUnlock
                 return (
                 <motion.div
                   key={mod.number}
@@ -272,7 +274,7 @@ export default function FormationDetailPage() {
                             : 'border-border bg-surface text-muted'
                         }`}>
                           {isUnlocked ? <Sparkles className="h-3 w-3" /> : <Lock className="h-3 w-3" />}
-                          {isUnlocked ? t('module.freeBadge') : t('module.lockedShortBadge')}
+                          {isFreePreview ? t('module.freeBadge') : isPaidUnlock ? t('module.unlockedBadge') : t('module.lockedShortBadge')}
                         </span>
                       </div>
                       <p className="text-justify text-sm leading-relaxed text-muted">{mod.description[lang]}</p>

@@ -159,7 +159,9 @@ export default function ModuleDetailPage() {
   const formation = formationById(id)
   const mod = formation?.modules.find((m) => m.number === moduleNumber)
   const content = moduleContentByNumber(id, moduleNumber)
-  const isUnlocked = content?.free === true || hasLocalAccess(id)
+  const isFreePreview = content?.free === true
+  const isPaidUnlock = !isFreePreview && hasLocalAccess(id)
+  const isUnlocked = isFreePreview || isPaidUnlock
 
   if (!formation || !mod) {
     return (
@@ -204,7 +206,7 @@ export default function ModuleDetailPage() {
                   : 'border-border bg-surface-white text-muted'
               }`}>
                 {isUnlocked ? <Sparkles className="h-3.5 w-3.5" /> : <Lock className="h-3.5 w-3.5" />}
-                {t('module.badge', { number: mod.number })} · {isUnlocked ? t('module.freeBadge') : t('module.lockedShortBadge')}
+                {t('module.badge', { number: mod.number })} · {isFreePreview ? t('module.freeBadge') : isPaidUnlock ? t('module.unlockedBadge') : t('module.lockedShortBadge')}
               </span>
               <h1 className="text-3xl font-extrabold leading-tight text-ink sm:text-4xl">{mod.title[lang]}</h1>
             </motion.div>

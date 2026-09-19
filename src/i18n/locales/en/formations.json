@@ -66,6 +66,7 @@
   "module": {
     "badge": "Module {{number}}",
     "freeBadge": "Free preview",
+    "unlockedBadge": "Unlocked",
     "lockedShortBadge": "Enrolled members only",
     "lockedBadge": "Content reserved for enrolled members",
     "lockedBody": "This module's full content (detailed theory, step-by-step practical guide and ready-to-use real templates) unlocks after enrollment. Each training's Module 01 is fully readable for free so you can see the actual quality bar before enrolling.",
