@@ -53,13 +53,13 @@
     "programHeading": "{{count}} modules · from fundamentals to hands-on practice",
     "outcomesEyebrow": "What you'll get",
     "outcomesHeading": "By the end of this training, you will have…",
-    "formEyebrow": "Learn more",
+    "formEyebrow": "Paid enrollment",
     "formHeading": {
-      "prefix": "Interested in",
-      "highlight": "this training",
-      "suffix": "?"
+      "prefix": "Finalize your",
+      "highlight": "enrollment",
+      "suffix": ""
     },
-    "formDescription": "Fill out the form below. We'll respond within 24 business hours with all the details, the schedule and enrollment terms.",
+    "formDescription": "Choose your payment method, make the payment, then submit your proof below. Your access is activated after verification.",
     "formAltPrompt": "Would you rather receive the full application form?",
     "openApplicationForm": "Open the application form"
   },

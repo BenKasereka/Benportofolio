@@ -10,10 +10,11 @@ import { formationContentById, moduleContentByNumber } from '../data/formationsC
 import { pricingParts } from '../lib/pricing'
 import SessionNotice from '../components/ui/SessionNotice'
 import SEO from '../components/ui/SEO'
-import InquiryForm from '../components/ui/InquiryForm'
+import PaymentRegistrationForm from '../components/ui/PaymentRegistrationForm'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import RoutineSection from '../components/formations/RoutineSection'
+import { hasLocalAccess } from '../lib/formationAccessStorage'
 import { waLink } from '../config/site'
 
 const ICONS = { Bot, Target, Package, Truck, Landmark, Users, ShieldCheck }
@@ -37,6 +38,18 @@ const A = {
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   show: (d = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: d, ease: [0.16, 1, 0.3, 1] } }),
+}
+
+// Un simple `<a href="#formulaire">` natif ne scrolle pas de façon fiable
+// sur cette page (page très longue, animations Framer Motion déclenchées au
+// scroll qui font encore bouger le layout au moment du clic) — même
+// contournement que Navbar.jsx : on empêche la navigation native et on
+// scrolle nous-mêmes une fois le tick courant terminé.
+function scrollToFormulaire(e) {
+  e.preventDefault()
+  setTimeout(() => {
+    document.getElementById('formulaire')?.scrollIntoView({ block: 'start' })
+  }, 0)
 }
 
 export default function FormationDetailPage() {
@@ -168,7 +181,7 @@ export default function FormationDetailPage() {
                     </li>
                   ))}
                 </ul>
-                <a href="#formulaire" className="btn-primary w-full justify-center">
+                <a href="#formulaire" onClick={scrollToFormulaire} className="btn-primary w-full justify-center">
                   {t('detail.enrollCta')}
                   <ChevronRight className="h-4 w-4" />
                 </a>
@@ -230,7 +243,7 @@ export default function FormationDetailPage() {
             <div className="flex flex-col gap-5">
               {formation.modules.map((mod, index) => {
                 const moduleContent = moduleContentByNumber(formation.id, mod.number)
-                const isUnlocked = moduleContent?.free === true
+                const isUnlocked = moduleContent?.free === true || hasLocalAccess(formation.id)
                 return (
                 <motion.div
                   key={mod.number}
@@ -332,7 +345,7 @@ export default function FormationDetailPage() {
             </div>
 
             <div className={`card-executive mx-auto w-full max-w-2xl p-8 ${a.border}`}>
-              <InquiryForm formationTitle={formation.title[lang]} formationId={formation.id} />
+              <PaymentRegistrationForm formation={formation} lang={lang} />
             </div>
 
             <div className="flex flex-col items-center gap-4 text-center">

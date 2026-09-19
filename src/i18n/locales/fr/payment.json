@@ -1,0 +1,56 @@
+{
+  "form": {
+    "methodLabel": "Moyen de paiement",
+    "methods": {
+      "airtel": "Airtel Money",
+      "orange": "Orange Money",
+      "virement": "Virement bancaire"
+    },
+    "mobileMoneyInstructions": "Envoyez le montant de la formation ({{price}}) au numéro ci-dessous, puis conservez la confirmation de paiement (capture d'écran).",
+    "sendTo": "Envoyer à",
+    "bankTransfer": {
+      "description": "Les coordonnées bancaires ne sont pas publiées sur le site pour des raisons de sécurité. Demandez-les par email — vous les recevrez rapidement, en privé.",
+      "requestCta": "Demander les coordonnées bancaires",
+      "requestSending": "Envoi en cours…",
+      "requestSent": "Demande envoyée — vérifiez votre boîte mail dans les prochaines minutes.",
+      "requestFailed": "Échec de l'envoi. Contactez-moi directement via WhatsApp ou par email."
+    },
+    "labels": {
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "proof": "Preuve de paiement"
+    },
+    "placeholders": {
+      "name": "Jean Dupont",
+      "email": "vous@exemple.com"
+    },
+    "proofHint": "Capture d'écran de la confirmation de paiement, ou photo/scan du reçu. Formats acceptés : JPG, PNG, PDF — 5 Mo maximum.",
+    "submitCta": "Envoyer ma preuve de paiement",
+    "submitting": "Envoi en cours…",
+    "success": {
+      "title": "Preuve reçue !",
+      "body": "Votre demande d'inscription à <b>{{formation}}</b> est en attente de vérification. Vous recevrez un email avec votre lien d'accès dès validation."
+    },
+    "error": {
+      "notConfigured": "Le système d'inscription en ligne n'est pas encore activé. Contactez-moi directement ci-dessous.",
+      "missingFields": "Merci de renseigner votre nom, votre email et de joindre votre preuve de paiement.",
+      "invalidEmail": "Adresse email invalide.",
+      "fileTooLarge": "Le fichier dépasse 5 Mo. Compressez-le ou envoyez une capture d'écran plus légère.",
+      "fileWrongType": "Format non accepté. Utilisez une image (JPG, PNG) ou un PDF.",
+      "uploadFailed": "Échec de l'envoi du fichier. Réessayez, ou contactez-moi directement.",
+      "insertFailed": "Échec de l'enregistrement de la demande. Réessayez, ou contactez-moi directement.",
+      "generic": "Une erreur est survenue. Réessayez, ou contactez-moi directement."
+    },
+    "whatsappFallback": "Contacter directement via WhatsApp",
+    "whatsappMessage": "Bonjour Benjamin, je souhaite m'inscrire à la formation « {{title}} » et j'ai une question sur le paiement."
+  },
+  "access": {
+    "verifying": "Vérification de votre lien d'accès…",
+    "successTitle": "Accès débloqué",
+    "successBody": "Votre accès à la formation <b>{{formation}}</b> est activé sur cet appareil.",
+    "goToFormation": "Accéder à la formation",
+    "invalidTitle": "Lien invalide ou expiré",
+    "invalidBody": "Ce lien d'accès n'est pas reconnu. Si vous pensez qu'il s'agit d'une erreur, contactez-moi directement.",
+    "backHome": "Retour à l'accueil"
+  }
+}

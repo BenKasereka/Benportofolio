@@ -39,6 +39,8 @@ import caseStudyActedFr from './locales/fr/caseStudyActed.json'
 import caseStudyActedEn from './locales/en/caseStudyActed.json'
 import caseStudyBoostdukaFr from './locales/fr/caseStudyBoostduka.json'
 import caseStudyBoostdukaEn from './locales/en/caseStudyBoostduka.json'
+import paymentFr from './locales/fr/payment.json'
+import paymentEn from './locales/en/payment.json'
 
 const STORAGE_KEY = 'bk-lang'
 
@@ -74,6 +76,7 @@ i18n.use(initReactI18next).init({
       mentionsLegales: mentionsLegalesFr,
       caseStudyActed: caseStudyActedFr,
       caseStudyBoostduka: caseStudyBoostdukaFr,
+      payment: paymentFr,
     },
     en: {
       common: commonEn,
@@ -95,6 +98,7 @@ i18n.use(initReactI18next).init({
       mentionsLegales: mentionsLegalesEn,
       caseStudyActed: caseStudyActedEn,
       caseStudyBoostduka: caseStudyBoostdukaEn,
+      payment: paymentEn,
     },
   },
   lng: getInitialLanguage(),

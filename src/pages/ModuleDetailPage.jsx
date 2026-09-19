@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 import { formationById } from '../data/formations'
 import { moduleContentByNumber } from '../data/formationsContent'
+import { hasLocalAccess } from '../lib/formationAccessStorage'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import SEO from '../components/ui/SEO'
@@ -66,9 +67,9 @@ function LockedModulePanel({ formation, mod, lang, t }) {
         </span>
         <p className="text-sm leading-relaxed text-muted">{t('module.lockedBody')}</p>
         <div className="flex flex-wrap gap-3">
-          <a href="#formulaire" className="btn-primary">
+          <Link to={`/formations/${formation.id}#formulaire`} className="btn-primary">
             {t('module.lockedEnrollCta')}
-          </a>
+          </Link>
           <a
             href={waLink(t('module.lockedWhatsappMessage', { title: formation.title[lang], module: mod.title[lang] }))}
             target="_blank"
@@ -158,7 +159,7 @@ export default function ModuleDetailPage() {
   const formation = formationById(id)
   const mod = formation?.modules.find((m) => m.number === moduleNumber)
   const content = moduleContentByNumber(id, moduleNumber)
-  const isUnlocked = content?.free === true
+  const isUnlocked = content?.free === true || hasLocalAccess(id)
 
   if (!formation || !mod) {
     return (

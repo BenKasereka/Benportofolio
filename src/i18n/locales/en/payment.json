@@ -1,0 +1,56 @@
+{
+  "form": {
+    "methodLabel": "Payment method",
+    "methods": {
+      "airtel": "Airtel Money",
+      "orange": "Orange Money",
+      "virement": "Bank transfer"
+    },
+    "mobileMoneyInstructions": "Send the formation fee ({{price}}) to the number below, then keep the payment confirmation (screenshot).",
+    "sendTo": "Send to",
+    "bankTransfer": {
+      "description": "Bank details are not published on the site for security reasons. Request them by email — you'll receive them quickly, privately.",
+      "requestCta": "Request bank details",
+      "requestSending": "Sending…",
+      "requestSent": "Request sent — check your inbox in the next few minutes.",
+      "requestFailed": "Sending failed. Contact me directly via WhatsApp or email."
+    },
+    "labels": {
+      "name": "Full name",
+      "email": "Email address",
+      "proof": "Proof of payment"
+    },
+    "placeholders": {
+      "name": "John Doe",
+      "email": "you@example.com"
+    },
+    "proofHint": "Screenshot of the payment confirmation, or a photo/scan of the receipt. Accepted formats: JPG, PNG, PDF — 5 MB max.",
+    "submitCta": "Send my proof of payment",
+    "submitting": "Sending…",
+    "success": {
+      "title": "Proof received!",
+      "body": "Your enrollment request for <b>{{formation}}</b> is pending verification. You'll receive an email with your access link once approved."
+    },
+    "error": {
+      "notConfigured": "The online enrollment system isn't activated yet. Contact me directly below.",
+      "missingFields": "Please provide your name, your email, and attach your proof of payment.",
+      "invalidEmail": "Invalid email address.",
+      "fileTooLarge": "The file exceeds 5 MB. Compress it or send a lighter screenshot.",
+      "fileWrongType": "Unsupported format. Use an image (JPG, PNG) or a PDF.",
+      "uploadFailed": "File upload failed. Try again, or contact me directly.",
+      "insertFailed": "Failed to save the request. Try again, or contact me directly.",
+      "generic": "Something went wrong. Try again, or contact me directly."
+    },
+    "whatsappFallback": "Contact directly via WhatsApp",
+    "whatsappMessage": "Hi Benjamin, I'd like to enroll in the \"{{title}}\" training and have a question about payment."
+  },
+  "access": {
+    "verifying": "Verifying your access link…",
+    "successTitle": "Access unlocked",
+    "successBody": "Your access to <b>{{formation}}</b> is now active on this device.",
+    "goToFormation": "Go to the training",
+    "invalidTitle": "Invalid or expired link",
+    "invalidBody": "This access link isn't recognized. If you think this is a mistake, contact me directly.",
+    "backHome": "Back to home"
+  }
+}

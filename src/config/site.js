@@ -17,6 +17,14 @@ export const site = {
 
   // URL canonique de production (utilisée pour les balises Open Graph et le sitemap)
   url: 'https://benkasereka.github.io/Benportofolio',
+
+  // Moyens de paiement Mobile Money pour l'inscription aux formations —
+  // affichables publiquement (comme n'importe quel numéro de commerce).
+  // Le RIB/IBAN, lui, ne figure jamais ici : voir PaymentRegistrationForm.
+  mobileMoney: [
+    { provider: 'airtel', label: 'Airtel Money', number: '+243 990 260 711' },
+    { provider: 'orange', label: 'Orange Money', number: '+243 851 963 303' },
+  ],
 }
 
 export const waLink = (message) =>

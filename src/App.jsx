@@ -27,6 +27,7 @@ const PrintableFormPage = lazy(() => import('./pages/PrintableFormPage'))
 const MentionsLegalesPage = lazy(() => import('./pages/MentionsLegalesPage'))
 const CaseStudyActedPage = lazy(() => import('./pages/CaseStudyActedPage'))
 const CaseStudyBoostDukaPage = lazy(() => import('./pages/CaseStudyBoostDukaPage'))
+const AccessVerificationPage = lazy(() => import('./pages/AccessVerificationPage'))
 
 function PortfolioPage() {
   return (
@@ -95,6 +96,7 @@ export default function App() {
           <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
           <Route path="/etudes-de-cas/acted" element={<CaseStudyActedPage />} />
           <Route path="/etudes-de-cas/boostduka" element={<CaseStudyBoostDukaPage />} />
+          <Route path="/acces/:token" element={<AccessVerificationPage />} />
         </Routes>
       </Suspense>
     </>

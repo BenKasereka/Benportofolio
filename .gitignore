@@ -18,3 +18,16 @@ Logo de BK-BOOSTLtd..png
 # secrets). .env.local reste ignoré pour d'éventuelles surcharges locales
 # qui ne devraient jamais être partagées.
 .env.local
+
+# Secrets des Edge Functions Supabase (ex. clé service_role pour du test
+# local via `supabase functions serve --env-file`) — ne doivent JAMAIS être
+# committés. En production, ces valeurs sont injectées automatiquement par
+# Supabase, pas lues depuis un fichier de ce dépôt.
+supabase/.env
+supabase/.env.local
+supabase/functions/.env
+
+# État local du CLI Supabase (cache de `supabase link`) — contient entre
+# autres l'URL de connexion PostgreSQL AVEC mot de passe (pooler-url) :
+# ne doit jamais être committé, se régénère avec `supabase link`.
+supabase/.temp/
