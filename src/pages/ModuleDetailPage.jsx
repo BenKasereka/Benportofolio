@@ -10,12 +10,16 @@ import {
 } from 'lucide-react'
 import { formationById } from '../data/formations'
 import { moduleContentByNumber } from '../data/formationsContent'
+import { moduleSlidesFor } from '../data/moduleSlides'
 import { hasLocalAccess } from '../lib/formationAccessStorage'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import SEO from '../components/ui/SEO'
 import { waLink } from '../config/site'
 import { markdownComponents } from '../lib/markdownComponents'
+import SlideViewer from '../components/module-slides/SlideViewer'
+import ModuleNavBar from '../components/module-slides/ModuleNavBar'
+import DownloadPresentationSection from '../components/module-slides/DownloadPresentationSection'
 
 const ASSET_BASE = import.meta.env.BASE_URL
 
@@ -162,6 +166,8 @@ export default function ModuleDetailPage() {
   const isFreePreview = content?.free === true
   const isPaidUnlock = !isFreePreview && hasLocalAccess(id)
   const isUnlocked = isFreePreview || isPaidUnlock
+  const slides = content ? moduleSlidesFor(id, content.slug) : null
+  const useSlideExperience = isUnlocked && Boolean(slides)
 
   if (!formation || !mod) {
     return (
@@ -215,19 +221,33 @@ export default function ModuleDetailPage() {
 
         <section className="section-padding-tight divider-gradient bg-surface">
           <div className="section-container">
-            <motion.div
-              initial="hidden"
-              animate="show"
-              custom={0.1}
-              variants={fadeUp}
-              className="card-executive mx-auto max-w-3xl p-7 sm:p-10"
-            >
-              {isUnlocked ? (
-                <UnlockedModuleContent formationId={formation.id} moduleSlug={content.slug} templates={content.templates} />
-              ) : (
-                <LockedModulePanel formation={formation} mod={mod} lang={lang} t={t} />
-              )}
-            </motion.div>
+            {useSlideExperience ? (
+              <motion.div initial="hidden" animate="show" custom={0.1} variants={fadeUp} className="flex flex-col gap-8">
+                <SlideViewer slides={slides} moduleLabel={`${formation.title[lang]} · Module ${mod.number}`} />
+                <DownloadPresentationSection
+                  slides={slides}
+                  moduleTitle={mod.title[lang]}
+                  formationTitle={formation.title[lang]}
+                  moduleLabel={`${formation.title[lang]} · Module ${mod.number}`}
+                  fileBaseName={`bk-boost-${formation.id}-module-${mod.number}`}
+                />
+                <ModuleNavBar formation={formation} currentNumber={mod.number} lang={lang} />
+              </motion.div>
+            ) : (
+              <motion.div
+                initial="hidden"
+                animate="show"
+                custom={0.1}
+                variants={fadeUp}
+                className="card-executive mx-auto max-w-3xl p-7 sm:p-10"
+              >
+                {isUnlocked ? (
+                  <UnlockedModuleContent formationId={formation.id} moduleSlug={content.slug} templates={content.templates} />
+                ) : (
+                  <LockedModulePanel formation={formation} mod={mod} lang={lang} t={t} />
+                )}
+              </motion.div>
+            )}
           </div>
         </section>
       </main>

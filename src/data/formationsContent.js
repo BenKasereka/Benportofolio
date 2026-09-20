@@ -595,6 +595,7 @@ export const formationsContent = {
         templates: [
           { file: 'comparatif-outils-generation-visuels-ia.xlsx', label: 'Comparatif des outils IA de génération de visuels (.xlsx)' },
           { file: 'gabarit-transformation-document-communication.docx', label: 'Gabarit de transformation document → communication (.docx)' },
+          { file: 'bibliotheque-prompts-visuels-marketing-multi-ia.docx', label: 'Bibliothèque de prompts visuels marketing multi-IA (.docx)' },
         ],
       },
       {
