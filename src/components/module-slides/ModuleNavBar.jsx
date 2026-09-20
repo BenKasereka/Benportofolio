@@ -15,7 +15,7 @@ export default function ModuleNavBar({ formation, currentNumber, lang }) {
   const nextMod = idx >= 0 && idx < modules.length - 1 ? modules[idx + 1] : null
 
   return (
-    <div className="mx-auto flex w-full max-w-4xl items-center justify-between gap-3 rounded-2xl border border-border bg-surface-white px-3 py-2.5 shadow-card">
+    <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-3 rounded-2xl border border-border bg-surface-white px-3 py-2.5 shadow-card">
       {prevMod ? (
         <Link
           to={`/formations/${formation.id}/module/${prevMod.number}`}

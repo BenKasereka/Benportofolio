@@ -228,7 +228,7 @@ export default function ModuleDetailPage() {
         </section>
 
         <section className="section-padding-tight divider-gradient bg-surface">
-          <div className="section-container">
+          <div className={useSlideExperience ? 'mx-auto w-full max-w-[1800px] px-6 sm:px-10 lg:px-16' : 'section-container'}>
             {useSlideExperience ? (
               <motion.div
                 initial="hidden"

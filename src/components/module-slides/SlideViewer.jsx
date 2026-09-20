@@ -44,6 +44,16 @@ export default function SlideViewer({ slides, moduleLabel, isCompleted, onComple
     }
   }
 
+  // Largeur calculée pour occuper le maximum d'espace disponible en
+  // respectant à la fois la largeur ET la hauteur de l'écran (ratio 16:9
+  // conservé) : la plus petite valeur entre "toute la largeur disponible"
+  // et "la largeur d'une boîte 16:9 dont la hauteur ferait 82 % (90 % en
+  // plein écran) de la hauteur de la fenêtre" — équivalent CSS pur d'un
+  // object-fit: contain, sans mesure JS ni recalcul au resize.
+  const widthClass = isFullscreen
+    ? 'w-[min(100%,calc(90vh_*_16_/_9))]'
+    : 'w-[min(100%,calc(82vh_*_16_/_9))]'
+
   return (
     <div
       ref={containerRef}
@@ -53,7 +63,7 @@ export default function SlideViewer({ slides, moduleLabel, isCompleted, onComple
           : 'flex flex-col items-center gap-5'
       }
     >
-      <div className={`relative w-auto max-w-full aspect-video ${isFullscreen ? 'h-[82vh]' : 'h-[min(58vh,560px)]'}`}>
+      <div className={`relative mx-auto aspect-video max-w-full ${widthClass}`}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={index}
@@ -77,7 +87,7 @@ export default function SlideViewer({ slides, moduleLabel, isCompleted, onComple
         </button>
       </div>
 
-      <div className="mx-auto flex w-full max-w-4xl items-center justify-between gap-4">
+      <div className={`mx-auto flex items-center justify-between gap-4 ${widthClass}`}>
         <button
           type="button"
           onClick={prev}

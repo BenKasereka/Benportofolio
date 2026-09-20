@@ -51,7 +51,7 @@ export default function DownloadPresentationSection({ slides, moduleTitle, forma
   }
 
   return (
-    <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-4 rounded-2xl border border-primary/20 bg-primary/5 px-6 py-8 text-center">
+    <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4 rounded-2xl border border-primary/20 bg-primary/5 px-6 py-8 text-center">
       <h3 className="font-heading text-lg font-bold text-ink">Emportez cette présentation avec vous</h3>
       <p className="max-w-md text-sm leading-relaxed text-muted">
         Téléchargez ce module en présentation complète — pour réviser hors ligne, l'imprimer ou la partager.

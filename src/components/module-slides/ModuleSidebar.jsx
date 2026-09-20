@@ -20,11 +20,11 @@ export default function ModuleSidebar({ formation, currentNumber, lang, progress
   return (
     <nav
       aria-label="Sommaire de la formation"
-      className="flex w-full flex-col gap-4 rounded-2xl border border-border bg-surface-white p-5 lg:w-72 lg:shrink-0 lg:self-start"
+      className="flex w-full flex-col gap-4 rounded-2xl border border-border bg-surface-white p-5 lg:w-96 lg:shrink-0 lg:self-start"
       key={progressVersion}
     >
       <div className="flex flex-col gap-2">
-        <p className="truncate text-xs font-semibold uppercase tracking-widest text-muted">{formation.title[lang]}</p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-muted">{formation.title[lang]}</p>
         <div className="flex items-center justify-between text-sm font-semibold text-ink">
           <span>Progression</span>
           <span>{percent}%</span>
@@ -57,18 +57,18 @@ export default function ModuleSidebar({ formation, currentNumber, lang, progress
             <li key={m.number}>
               <Link
                 to={`/formations/${formation.id}/module/${m.number}`}
-                className={`flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm transition ${
+                className={`flex items-start gap-2.5 rounded-xl px-3 py-2.5 text-sm leading-snug transition ${
                   isCurrent ? 'bg-primary/10 font-semibold text-primary-dark' : 'text-muted hover:bg-surface hover:text-ink'
                 }`}
               >
                 {complete ? (
-                  <CheckCircle2 className="h-4 w-4 shrink-0 text-primary" />
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 ) : isUnlocked ? (
-                  <Circle className="h-4 w-4 shrink-0 text-border" />
+                  <Circle className="mt-0.5 h-4 w-4 shrink-0 text-border" />
                 ) : (
-                  <Lock className="h-4 w-4 shrink-0 text-border" />
+                  <Lock className="mt-0.5 h-4 w-4 shrink-0 text-border" />
                 )}
-                <span className="flex-1 truncate">{m.number} · {m.title[lang]}</span>
+                <span className="flex-1">{m.number} · {m.title[lang]}</span>
               </Link>
             </li>
           )

@@ -14,38 +14,38 @@ export default function SlideCanvas({ kicker, moduleLabel, index, total, variant
       }`}
     >
       <div
-        className={`flex items-center justify-between border-b px-8 py-4 sm:px-14 ${
+        className={`flex items-center justify-between border-b px-8 py-4 sm:px-16 sm:py-5 ${
           isDark ? 'border-white/15' : 'border-border/70'
         }`}
       >
         <span
-          className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[0.65rem] font-bold uppercase tracking-widest ${
+          className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest ${
             isDark ? 'border-white/25 bg-white/10 text-white' : 'border-primary/25 bg-primary/10 text-primary-dark'
           }`}
         >
           {kicker}
         </span>
-        <span className={`text-xs font-semibold uppercase tracking-widest ${isDark ? 'text-white/70' : 'text-muted'}`}>
+        <span className={`text-sm font-semibold uppercase tracking-widest ${isDark ? 'text-white/70' : 'text-muted'}`}>
           {moduleLabel}
         </span>
       </div>
 
-      <div className="flex flex-1 flex-col justify-start gap-5 overflow-y-auto px-8 py-8 sm:px-14 sm:py-10">
+      <div className="flex flex-1 flex-col justify-start gap-6 overflow-y-auto px-8 py-8 sm:px-16 sm:py-12">
         {children}
       </div>
 
       <div
-        className={`flex items-center justify-between border-t px-8 py-3 sm:px-14 ${
+        className={`flex items-center justify-between border-t px-8 py-3.5 sm:px-16 ${
           isDark ? 'border-white/15' : 'border-border/70'
         }`}
       >
         <div className="flex items-center gap-2">
           <img src={`${ASSET_BASE}images/brand/bk-boost-logo.png`} alt="" className="h-5 w-5 rounded" />
-          <span className={`text-[0.65rem] font-bold uppercase tracking-widest ${isDark ? 'text-white/70' : 'text-muted'}`}>
+          <span className={`text-xs font-bold uppercase tracking-widest ${isDark ? 'text-white/70' : 'text-muted'}`}>
             BK-BOOST Ltd.
           </span>
         </div>
-        <span className={`text-[0.65rem] font-semibold ${isDark ? 'text-white/70' : 'text-muted'}`}>
+        <span className={`text-xs font-semibold ${isDark ? 'text-white/70' : 'text-muted'}`}>
           {index}/{total}
         </span>
       </div>
