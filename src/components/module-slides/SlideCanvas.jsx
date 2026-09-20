@@ -30,7 +30,7 @@ export default function SlideCanvas({ kicker, moduleLabel, index, total, variant
         </span>
       </div>
 
-      <div className="flex flex-1 flex-col justify-center gap-5 overflow-hidden px-8 py-8 sm:px-14 sm:py-10">
+      <div className="flex flex-1 flex-col justify-start gap-5 overflow-y-auto px-8 py-8 sm:px-14 sm:py-10">
         {children}
       </div>
 

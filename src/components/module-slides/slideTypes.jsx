@@ -25,11 +25,11 @@ export function CoverSlide({ title, hook }) {
 
 export function ObjectivesSlide({ title = 'Objectifs de ce module', items = [] }) {
   return (
-    <div className="flex h-full flex-col justify-center gap-6">
+    <div className="flex h-full flex-col justify-start gap-6">
       <SlideTitle icon={Target}>{title}</SlideTitle>
       <ul className="flex flex-col gap-4">
         {items.map((item, i) => (
-          <li key={i} className="flex items-start gap-3 text-base leading-relaxed text-ink sm:text-lg">
+          <li key={i} className="flex items-start gap-3 text-justify text-base leading-relaxed text-ink sm:text-lg">
             <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
             <span>{item}</span>
           </li>
@@ -42,7 +42,7 @@ export function ObjectivesSlide({ title = 'Objectifs de ce module', items = [] }
 export function ConceptSlide({ title, body, highlight }) {
   const paragraphs = Array.isArray(body) ? body : [body]
   return (
-    <div className="flex h-full flex-col justify-center gap-5">
+    <div className="flex h-full flex-col justify-start gap-5">
       <SlideTitle icon={Lightbulb}>{title}</SlideTitle>
       <div className="flex flex-col gap-3">
         {paragraphs.map((p, i) => (
@@ -72,7 +72,7 @@ export function StatCalloutSlide({ stat, caption, context }) {
 
 export function ComparisonTableSlide({ title, columns = [], rows = [] }) {
   return (
-    <div className="flex h-full flex-col justify-center gap-5">
+    <div className="flex h-full flex-col justify-start gap-5">
       {title && <SlideTitle icon={TrendingUp}>{title}</SlideTitle>}
       <div className="overflow-hidden rounded-xl border border-border">
         <table className="w-full border-collapse text-left text-sm">
@@ -104,7 +104,7 @@ export function ComparisonTableSlide({ title, columns = [], rows = [] }) {
 
 export function ProcessSlide({ title, steps = [] }) {
   return (
-    <div className="flex h-full flex-col justify-center gap-5">
+    <div className="flex h-full flex-col justify-start gap-5">
       {title && <SlideTitle icon={ArrowRight}>{title}</SlideTitle>}
       <div className="flex flex-col gap-4">
         {steps.map((step, i) => (
@@ -114,7 +114,7 @@ export function ProcessSlide({ title, steps = [] }) {
             </span>
             <div className="flex flex-col gap-0.5">
               <p className="font-semibold text-ink">{step.title}</p>
-              {step.body && <p className="text-sm leading-relaxed text-muted">{step.body}</p>}
+              {step.body && <p className="text-justify text-sm leading-relaxed text-muted">{step.body}</p>}
             </div>
           </div>
         ))}
@@ -125,13 +125,13 @@ export function ProcessSlide({ title, steps = [] }) {
 
 export function ChecklistSlide({ title, items = [] }) {
   return (
-    <div className="flex h-full flex-col justify-center gap-5">
+    <div className="flex h-full flex-col justify-start gap-5">
       {title && <SlideTitle icon={ListChecks}>{title}</SlideTitle>}
       <ul className="flex flex-col gap-3">
         {items.map((item, i) => (
           <li key={i} className="flex items-start gap-3 rounded-xl border border-border bg-surface px-4 py-3">
             <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded border-2 border-primary" />
-            <span className="text-sm leading-relaxed text-ink sm:text-base">{item}</span>
+            <span className="text-justify text-sm leading-relaxed text-ink sm:text-base">{item}</span>
           </li>
         ))}
       </ul>
@@ -141,7 +141,7 @@ export function ChecklistSlide({ title, items = [] }) {
 
 export function WarningSlide({ title, items = [] }) {
   return (
-    <div className="flex h-full flex-col justify-center gap-5">
+    <div className="flex h-full flex-col justify-start gap-5">
       <div className="flex items-center gap-2.5 border-l-4 border-accent-gold pl-3">
         <AlertTriangle className="h-5 w-5 shrink-0 text-accent-gold-dark" />
         <h3 className="font-heading text-xl font-bold text-ink sm:text-2xl">{title}</h3>
@@ -150,7 +150,7 @@ export function WarningSlide({ title, items = [] }) {
         {items.map((item, i) => (
           <li key={i} className="flex items-start gap-3 rounded-xl border border-accent-gold/30 bg-accent-gold/5 px-4 py-3">
             <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-gold-dark" />
-            <span className="text-sm leading-relaxed text-ink sm:text-base">{item}</span>
+            <span className="text-justify text-sm leading-relaxed text-ink sm:text-base">{item}</span>
           </li>
         ))}
       </ul>
@@ -160,18 +160,18 @@ export function WarningSlide({ title, items = [] }) {
 
 export function CaseStudySlide({ title, scenario, steps = [] }) {
   return (
-    <div className="flex h-full flex-col justify-center gap-5">
+    <div className="flex h-full flex-col justify-start gap-5">
       {title && <SlideTitle icon={BookOpen}>{title}</SlideTitle>}
       {scenario && (
         <blockquote className="flex gap-3 border-l-4 border-accent-gold/60 bg-accent-gold/5 px-4 py-3">
           <Quote className="mt-0.5 h-4 w-4 shrink-0 text-accent-gold-dark" />
-          <p className="text-sm italic leading-relaxed text-muted sm:text-base">{scenario}</p>
+          <p className="text-justify text-sm italic leading-relaxed text-muted sm:text-base">{scenario}</p>
         </blockquote>
       )}
       {steps.length > 0 && (
         <ul className="flex flex-col gap-2.5">
           {steps.map((step, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-sm leading-relaxed text-ink sm:text-base">
+            <li key={i} className="flex items-start gap-2.5 text-justify text-sm leading-relaxed text-ink sm:text-base">
               <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
               <span>{step}</span>
             </li>
@@ -184,13 +184,13 @@ export function CaseStudySlide({ title, scenario, steps = [] }) {
 
 export function VocabularySlide({ title = 'Vocabulaire clé', terms = [] }) {
   return (
-    <div className="flex h-full flex-col justify-center gap-5">
+    <div className="flex h-full flex-col justify-start gap-5">
       <SlideTitle icon={BookOpen}>{title}</SlideTitle>
       <dl className="grid gap-4 sm:grid-cols-2">
         {terms.map((t, i) => (
           <div key={i} className="rounded-xl border border-border bg-surface px-4 py-3">
             <dt className="font-heading text-sm font-bold text-primary-dark">{t.term}</dt>
-            <dd className="mt-1 text-sm leading-relaxed text-muted">{t.definition}</dd>
+            <dd className="mt-1 text-justify text-sm leading-relaxed text-muted">{t.definition}</dd>
           </div>
         ))}
       </dl>
@@ -200,11 +200,11 @@ export function VocabularySlide({ title = 'Vocabulaire clé', terms = [] }) {
 
 export function RecapSlide({ title = 'Ce qu\'il faut retenir', items = [] }) {
   return (
-    <div className="flex h-full flex-col justify-center gap-6">
+    <div className="flex h-full flex-col justify-start gap-6">
       <SlideTitle icon={GraduationCap}>{title}</SlideTitle>
       <ul className="flex flex-col gap-4">
         {items.map((item, i) => (
-          <li key={i} className="flex items-start gap-3 text-base font-medium leading-relaxed text-ink sm:text-lg">
+          <li key={i} className="flex items-start gap-3 text-justify text-base font-medium leading-relaxed text-ink sm:text-lg">
             <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
             <span>{item}</span>
           </li>
@@ -216,7 +216,7 @@ export function RecapSlide({ title = 'Ce qu\'il faut retenir', items = [] }) {
 
 export function ExerciseSlide({ title, instructions, deliverable }) {
   return (
-    <div className="flex h-full flex-col justify-center gap-5">
+    <div className="flex h-full flex-col justify-start gap-5">
       <SlideTitle icon={ClipboardCheck}>{title}</SlideTitle>
       <div className="rounded-2xl border border-primary/25 bg-primary/5 px-5 py-5">
         <p className="text-justify text-base leading-relaxed text-ink">{instructions}</p>

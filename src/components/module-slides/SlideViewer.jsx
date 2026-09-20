@@ -1,15 +1,18 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { Check, CheckCircle2, ChevronLeft, ChevronRight, Maximize, Minimize } from 'lucide-react'
 import SlideRenderer from './SlideRenderer'
 
 // Visionneuse en diapositives : une diapositive affichée à la fois (au lieu
 // du long scroll précédent), navigation clavier/boutons/points de
-// progression. Composant entièrement contrôlé par son propre état — le
-// conteneur d'export (ExportSlideStage) monte les mêmes SlideRenderer
-// indépendamment, sans dépendre de cet état.
-export default function SlideViewer({ slides, moduleLabel }) {
+// progression, plein écran, et confirmation de fin de module (fait avancer
+// la barre de progression du sommaire). Composant entièrement contrôlé par
+// son propre état — le conteneur d'export (ExportSlideStage) monte les
+// mêmes SlideRenderer indépendamment, sans dépendre de cet état.
+export default function SlideViewer({ slides, moduleLabel, isCompleted, onComplete }) {
   const [index, setIndex] = useState(0)
+  const [isFullscreen, setIsFullscreen] = useState(false)
+  const containerRef = useRef(null)
   const total = slides.length
 
   const goTo = useCallback((i) => setIndex(Math.max(0, Math.min(total - 1, i))), [total])
@@ -25,9 +28,32 @@ export default function SlideViewer({ slides, moduleLabel }) {
     return () => window.removeEventListener('keydown', onKey)
   }, [next, prev])
 
+  useEffect(() => {
+    function onFullscreenChange() {
+      setIsFullscreen(document.fullscreenElement === containerRef.current)
+    }
+    document.addEventListener('fullscreenchange', onFullscreenChange)
+    return () => document.removeEventListener('fullscreenchange', onFullscreenChange)
+  }, [])
+
+  const toggleFullscreen = () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen()
+    } else {
+      containerRef.current?.requestFullscreen?.()
+    }
+  }
+
   return (
-    <div className="flex flex-col items-center gap-5">
-      <div className="relative aspect-video h-[min(58vh,560px)] w-auto max-w-full">
+    <div
+      ref={containerRef}
+      className={
+        isFullscreen
+          ? 'flex h-screen w-screen flex-col items-center justify-center gap-5 bg-surface p-6'
+          : 'flex flex-col items-center gap-5'
+      }
+    >
+      <div className={`relative w-auto max-w-full aspect-video ${isFullscreen ? 'h-[82vh]' : 'h-[min(58vh,560px)]'}`}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={index}
@@ -40,6 +66,15 @@ export default function SlideViewer({ slides, moduleLabel }) {
             <SlideRenderer slide={slides[index]} index={index} total={total} moduleLabel={moduleLabel} />
           </motion.div>
         </AnimatePresence>
+
+        <button
+          type="button"
+          onClick={toggleFullscreen}
+          aria-label={isFullscreen ? 'Quitter le plein écran' : 'Passer en plein écran'}
+          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-ink/40 text-white backdrop-blur transition hover:bg-ink/60"
+        >
+          {isFullscreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
+        </button>
       </div>
 
       <div className="mx-auto flex w-full max-w-4xl items-center justify-between gap-4">
@@ -67,15 +102,22 @@ export default function SlideViewer({ slides, moduleLabel }) {
           ))}
         </div>
 
-        <button
-          type="button"
-          onClick={next}
-          disabled={index === total - 1}
-          className="btn-primary !py-2.5 disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          Suivant
-          <ChevronRight className="h-4 w-4" />
-        </button>
+        {index === total - 1 ? (
+          <button
+            type="button"
+            onClick={onComplete}
+            disabled={isCompleted}
+            className="btn-primary !py-2.5 disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            {isCompleted ? <CheckCircle2 className="h-4 w-4" /> : <Check className="h-4 w-4" />}
+            {isCompleted ? 'Module terminé' : 'Marquer comme terminé'}
+          </button>
+        ) : (
+          <button type="button" onClick={next} className="btn-primary !py-2.5">
+            Suivant
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        )}
       </div>
     </div>
   )

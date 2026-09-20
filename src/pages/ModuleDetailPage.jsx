@@ -12,6 +12,7 @@ import { formationById } from '../data/formations'
 import { moduleContentByNumber } from '../data/formationsContent'
 import { moduleSlidesFor } from '../data/moduleSlides'
 import { hasLocalAccess } from '../lib/formationAccessStorage'
+import { isModuleComplete, markModuleComplete } from '../lib/moduleProgressStorage'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import SEO from '../components/ui/SEO'
@@ -19,6 +20,7 @@ import { waLink } from '../config/site'
 import { markdownComponents } from '../lib/markdownComponents'
 import SlideViewer from '../components/module-slides/SlideViewer'
 import ModuleNavBar from '../components/module-slides/ModuleNavBar'
+import ModuleSidebar from '../components/module-slides/ModuleSidebar'
 import DownloadPresentationSection from '../components/module-slides/DownloadPresentationSection'
 
 const ASSET_BASE = import.meta.env.BASE_URL
@@ -168,6 +170,12 @@ export default function ModuleDetailPage() {
   const isUnlocked = isFreePreview || isPaidUnlock
   const slides = content ? moduleSlidesFor(id, content.slug) : null
   const useSlideExperience = isUnlocked && Boolean(slides)
+  const [progressVersion, setProgressVersion] = useState(0)
+  const isCurrentModuleComplete = useSlideExperience && isModuleComplete(id, mod?.number)
+  const handleModuleComplete = () => {
+    markModuleComplete(id, mod.number)
+    setProgressVersion((v) => v + 1)
+  }
 
   if (!formation || !mod) {
     return (
@@ -222,16 +230,31 @@ export default function ModuleDetailPage() {
         <section className="section-padding-tight divider-gradient bg-surface">
           <div className="section-container">
             {useSlideExperience ? (
-              <motion.div initial="hidden" animate="show" custom={0.1} variants={fadeUp} className="flex flex-col gap-8">
-                <SlideViewer slides={slides} moduleLabel={`${formation.title[lang]} · Module ${mod.number}`} />
-                <DownloadPresentationSection
-                  slides={slides}
-                  moduleTitle={mod.title[lang]}
-                  formationTitle={formation.title[lang]}
-                  moduleLabel={`${formation.title[lang]} · Module ${mod.number}`}
-                  fileBaseName={`bk-boost-${formation.id}-module-${mod.number}`}
-                />
-                <ModuleNavBar formation={formation} currentNumber={mod.number} lang={lang} />
+              <motion.div
+                initial="hidden"
+                animate="show"
+                custom={0.1}
+                variants={fadeUp}
+                className="flex flex-col gap-6 lg:flex-row lg:items-start"
+              >
+                <ModuleSidebar formation={formation} currentNumber={mod.number} lang={lang} progressVersion={progressVersion} />
+
+                <div className="flex min-w-0 flex-1 flex-col gap-8">
+                  <SlideViewer
+                    slides={slides}
+                    moduleLabel={`${formation.title[lang]} · Module ${mod.number}`}
+                    isCompleted={isCurrentModuleComplete}
+                    onComplete={handleModuleComplete}
+                  />
+                  <DownloadPresentationSection
+                    slides={slides}
+                    moduleTitle={mod.title[lang]}
+                    formationTitle={formation.title[lang]}
+                    moduleLabel={`${formation.title[lang]} · Module ${mod.number}`}
+                    fileBaseName={`bk-boost-${formation.id}-module-${mod.number}`}
+                  />
+                  <ModuleNavBar formation={formation} currentNumber={mod.number} lang={lang} />
+                </div>
               </motion.div>
             ) : (
               <motion.div

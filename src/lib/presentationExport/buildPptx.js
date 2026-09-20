@@ -37,8 +37,8 @@ function addTitle(slide, title, dark, y = 1.05) {
 
 function bulletBlock(slide, items, y, opts = {}) {
   slide.addText(
-    items.map((text) => ({ text, options: { bullet: { code: opts.bulletCode || '2022' }, breakLine: true, paraSpaceAfter: 10 } })),
-    { x: MARGIN, y, w: W - MARGIN * 2, h: H - y - 0.6, fontSize: opts.fontSize || 14, color: opts.color || BRAND.ink, valign: 'top' }
+    items.map((text) => ({ text, options: { bullet: { code: opts.bulletCode || '2022' }, breakLine: true, paraSpaceAfter: 10, align: 'justify' } })),
+    { x: MARGIN, y, w: W - MARGIN * 2, h: H - y - 0.6, fontSize: opts.fontSize || 14, color: opts.color || BRAND.ink, valign: 'top', align: 'justify' }
   )
 }
 
@@ -62,8 +62,8 @@ function buildConcept(pSlide, slide) {
   addTitle(pSlide, slide.title)
   const paragraphs = Array.isArray(slide.body) ? slide.body : [slide.body]
   pSlide.addText(
-    paragraphs.map((text) => ({ text, options: { breakLine: true, paraSpaceAfter: 10 } })),
-    { x: MARGIN, y: 2.0, w: W - MARGIN * 2, h: slide.highlight ? 2.1 : 2.9, fontSize: 13, color: BRAND.muted, valign: 'top' }
+    paragraphs.map((text) => ({ text, options: { breakLine: true, paraSpaceAfter: 10, align: 'justify' } })),
+    { x: MARGIN, y: 2.0, w: W - MARGIN * 2, h: slide.highlight ? 2.1 : 2.9, fontSize: 13, color: BRAND.muted, valign: 'top', align: 'justify' }
   )
   if (slide.highlight) {
     pSlide.addShape('roundRect', { x: MARGIN, y: 4.25, w: W - MARGIN * 2, h: 0.75, fill: { color: BRAND.primaryLight }, line: { color: BRAND.primary, width: 0.75 }, rectRadius: 0.08 })
@@ -101,7 +101,7 @@ function buildProcess(pSlide, slide) {
     pSlide.addShape('ellipse', { x: MARGIN, y: y + 0.05, w: 0.4, h: 0.4, fill: { color: BRAND.primaryLight }, line: { type: 'none' } })
     pSlide.addText(String(i + 1), { x: MARGIN, y: y + 0.05, w: 0.4, h: 0.4, align: 'center', valign: 'middle', fontSize: 13, bold: true, color: BRAND.primaryDark })
     pSlide.addText(
-      [{ text: step.title, options: { bold: true, breakLine: true, color: BRAND.ink } }, ...(step.body ? [{ text: step.body, options: { color: BRAND.muted, fontSize: 10 } }] : [])],
+      [{ text: step.title, options: { bold: true, breakLine: true, color: BRAND.ink } }, ...(step.body ? [{ text: step.body, options: { color: BRAND.muted, fontSize: 10, align: 'justify' } }] : [])],
       { x: MARGIN + 0.55, y, w: W - MARGIN * 2 - 0.55, h: rowH, fontSize: 12, valign: 'top' }
     )
   })
@@ -123,7 +123,7 @@ function buildCaseStudy(pSlide, slide) {
   let y = slide.title ? 2.0 : 1.1
   if (slide.scenario) {
     pSlide.addShape('rect', { x: MARGIN, y, w: 0.06, h: 1.1, fill: { color: BRAND.accentGold }, line: { type: 'none' } })
-    pSlide.addText(slide.scenario, { x: MARGIN + 0.2, y, w: W - MARGIN * 2 - 0.2, h: 1.1, fontSize: 12, italic: true, color: BRAND.muted, valign: 'top' })
+    pSlide.addText(slide.scenario, { x: MARGIN + 0.2, y, w: W - MARGIN * 2 - 0.2, h: 1.1, fontSize: 12, italic: true, color: BRAND.muted, valign: 'top', align: 'justify' })
     y += 1.3
   }
   if (slide.steps?.length) bulletBlock(pSlide, slide.steps, y, { bulletCode: '2192', fontSize: 12 })
@@ -137,8 +137,8 @@ function buildVocabulary(pSlide, slide) {
     terms.map((t) => ({
       text: `${t.term} — `,
       options: { bold: true, color: BRAND.primaryDark, breakLine: false },
-    })).flatMap((run, i) => [run, { text: `${terms[i].definition}\n\n`, options: { color: BRAND.muted, breakLine: true } }]),
-    { x: MARGIN, y: 2.0, w: W - MARGIN * 2, h: 2.9, fontSize: 12, valign: 'top' }
+    })).flatMap((run, i) => [run, { text: `${terms[i].definition}\n\n`, options: { color: BRAND.muted, breakLine: true, align: 'justify' } }]),
+    { x: MARGIN, y: 2.0, w: W - MARGIN * 2, h: 2.9, fontSize: 12, valign: 'top', align: 'justify' }
   )
 }
 
@@ -152,7 +152,7 @@ function buildExercise(pSlide, slide) {
   addKicker(pSlide, 'Exercice')
   addTitle(pSlide, slide.title)
   pSlide.addShape('roundRect', { x: MARGIN, y: 2.0, w: W - MARGIN * 2, h: 2.2, fill: { color: BRAND.primaryLight }, line: { type: 'none' }, rectRadius: 0.1 })
-  pSlide.addText(slide.instructions, { x: MARGIN + 0.25, y: 2.15, w: W - MARGIN * 2 - 0.5, h: 1.9, fontSize: 13, color: BRAND.ink, valign: 'top' })
+  pSlide.addText(slide.instructions, { x: MARGIN + 0.25, y: 2.15, w: W - MARGIN * 2 - 0.5, h: 1.9, fontSize: 13, color: BRAND.ink, valign: 'top', align: 'justify' })
   if (slide.deliverable) {
     pSlide.addText(`Livrable attendu — ${slide.deliverable}`, { x: MARGIN, y: 4.35, w: W - MARGIN * 2, h: 0.5, fontSize: 11, bold: true, color: BRAND.primaryDark })
   }
