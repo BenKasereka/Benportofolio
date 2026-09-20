@@ -11,7 +11,7 @@ export default [
   {
     type: 'objectives',
     items: [
-      'Distinguer un agent IA d\'une simple conversation avec un chatbot, et savoir en 30 secondes si une tâche mérite l\'un ou l\'autre.',
+      'Distinguer un agent IA — un système qui utilise des outils et enchaîne lui-même plusieurs étapes, sans que vous pilotiez chaque échange — d\'une simple conversation avec un chatbot, et savoir en 30 secondes si une tâche mérite l\'un ou l\'autre.',
       'Concevoir un agent IA multi-étapes qui utilise des outils externes et conserve un état entre les étapes.',
       'Construire un workflow d\'automatisation complet (déclencheur → traitement IA → action de sortie) sur une plateforme comme Make, Zapier ou N8N.',
       'Automatiser un rapport, un email ou une tâche récurrente de votre organisation sans écrire une ligne de code.',
@@ -27,7 +27,7 @@ export default [
     type: 'checklist',
     title: 'Les trois caractéristiques d\'un agent IA',
     items: [
-      'Il utilise des outils externes — interroger une API, lire un fichier, envoyer un email, écrire dans un tableur, chercher sur le web. Le modèle décide quel outil appeler, avec quels paramètres, à quel moment.',
+      'Il utilise des outils externes — interroger une API (le canal technique par lequel un logiciel envoie une demande à un autre et récupère sa réponse, sans passer par un chat), lire un fichier, envoyer un email, écrire dans un tableur, chercher sur le web. Le modèle décide quel outil appeler, avec quels paramètres, à quel moment.',
       'Il enchaîne plusieurs étapes de façon autonome — vous donnez un objectif final, pas une suite de micro-instructions ; l\'agent décompose lui-même la tâche.',
       'Il conserve un état entre les étapes — ce qui s\'est passé à l\'étape 2 est disponible et exploitable à l\'étape 4, sans retransmission manuelle.',
     ],

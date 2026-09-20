@@ -6,13 +6,13 @@ export default [
   {
     type: 'cover',
     title: 'IA pour la Création de Sites Web & Solutions Numériques',
-    hook: "Du cahier des charges au site généré : choisir le bon outil no-code/IA, cadrer avant de générer, itérer précisément, et tester soi-même avant toute diffusion.",
+    hook: "Décrivez votre site en langage courant et voyez-le prendre forme en quelques minutes, sans écrire une ligne de code — à condition de cadrer le besoin avant de générer, pour ne pas passer plus de temps à corriger qu'à créer.",
   },
   {
     type: 'objectives',
     items: [
-      "Identifier l'outil no-code/IA adapté à son besoin réel (site vitrine, application avec logique métier, prototype rapide) plutôt que le premier outil connu.",
-      "Rédiger un cahier des charges complet — objectif, pages, fonctionnalités indispensables, style visuel, public cible — avant de générer quoi que ce soit.",
+      "Identifier l'outil no-code/IA (un outil qui génère un site ou une application à partir d'une simple description, sans écrire de code) adapté à son besoin réel (site vitrine, application avec logique métier, prototype rapide) plutôt que le premier outil connu.",
+      "Rédiger un cahier des charges (le document qui fixe précisément ce que l'on veut avant de commencer) complet — objectif, pages, fonctionnalités indispensables, style visuel, public cible — avant de générer quoi que ce soit.",
       "Construire un prompt de génération complet qui reprend ce cahier des charges, pour un résultat exploitable dès la première version.",
       "Itérer en langage courant sur un résultat déjà généré, avec des demandes de correction précises plutôt que des jugements vagues.",
       "Tester soi-même le résultat produit par l'IA avant toute diffusion, sans déléguer cette vérification à l'outil.",

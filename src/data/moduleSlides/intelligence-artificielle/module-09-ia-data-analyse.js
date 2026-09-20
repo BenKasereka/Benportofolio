@@ -6,15 +6,15 @@ export default [
   {
     type: 'cover',
     title: "IA pour la Data & l'Analyse — De la donnée brute à la décision",
-    hook: "Un fichier brut n'est jamais prêt à être analysé — et \"résume-moi ce fichier\" n'est jamais la bonne question à poser à une IA.",
+    hook: "Un fichier brut n'est jamais prêt à être analysé, et \"résume-moi ce fichier\" n'est jamais la bonne question à poser à une IA : apprenez à repérer ses défauts en quelques secondes et à poser la question de gestion qui transforme des chiffres en décision.",
   },
   {
     type: 'objectives',
     items: [
       'Diagnostiquer avec l\'IA les défauts d\'un jeu de données brut (doublons, valeurs manquantes, formats incohérents, colonnes inutiles) avant toute exploitation.',
       'Formuler une demande d\'analyse orientée décision plutôt qu\'une demande de résumé générique, en précisant la question de gestion en amont.',
-      'Générer avec l\'IA des formules Excel, des règles de validation et des étapes Power Query pour nettoyer un jeu de données.',
-      'Produire des KPI, des comparatifs et des recommandations de visualisation pertinents pour un message de gestion précis.',
+      'Générer avec l\'IA des formules Excel, des règles de validation et des étapes Power Query (fonctionnalité d\'Excel qui enregistre une suite d\'étapes de nettoyage reproductibles) pour nettoyer un jeu de données.',
+      'Produire des KPI (indicateurs chiffrés reliés directement à une décision de gestion, par exemple un coût moyen par commande), des comparatifs et des recommandations de visualisation pertinents pour un message de gestion précis.',
       'Transformer un résultat d\'analyse en rapport de gestion structuré, avec synthèse exécutive et recommandation actionnable.',
     ],
   },

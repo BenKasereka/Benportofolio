@@ -12,7 +12,7 @@ export default [
     type: 'objectives',
     items: [
       'Structurer n\'importe quelle demande à ChatGPT selon la méthode RCCF (Rôle, Contexte, Contraintes, Format) pour obtenir un résultat exploitable sans reformuler cinq fois.',
-      'Distinguer les situations où reprompter suffit de celles où construire un GPT personnalisé est le choix rentable.',
+      'Distinguer les situations où reprompter suffit de celles où construire un GPT personnalisé (une version de ChatGPT préconfigurée avec vos propres instructions, pour une tâche qui revient souvent) est le choix rentable.',
       'Créer un GPT personnalisé complet (instructions, base de connaissances, tests) pour une tâche récurrente de votre organisation.',
       'Utiliser ChatGPT pour analyser un document long en obtenant une réponse ciblée, pas un résumé générique.',
       'Itérer efficacement sur une réponse insatisfaisante au lieu de tout relancer depuis zéro.',

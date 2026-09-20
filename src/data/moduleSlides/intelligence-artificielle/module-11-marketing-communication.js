@@ -6,7 +6,7 @@ export default [
   {
     type: 'cover',
     title: 'IA pour le Marketing & la Communication',
-    hook: "Du document existant au support diffusable : transformer ce qui existe déjà plutôt que repartir d'une page blanche, et choisir le bon outil pour chaque visuel marketing.",
+    hook: "Le rapport que personne ne lit en dehors de votre équipe contient déjà toute la matière d'un bon post : ce module vous apprend à le transformer en quelques minutes, et à choisir le bon outil pour l'image qui l'accompagne.",
   },
   {
     type: 'objectives',

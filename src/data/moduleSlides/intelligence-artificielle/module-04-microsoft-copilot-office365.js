@@ -6,7 +6,7 @@ export default [
   {
     type: 'cover',
     title: "Microsoft Copilot — L'IA native dans Office 365 & Teams",
-    hook: "Copilot n'est pas un chat à côté de votre travail : c'est un assistant intégré dans le document, la feuille de calcul ou la réunion en cours — avec un vrai réflexe à prendre avant de lui faire confiance.",
+    hook: "Générez une présentation à partir d'un rapport Word, une formule Excel ou un résumé de réunion en quelques minutes : Copilot travaille directement dans vos documents Microsoft, sans jamais recopier quoi que ce soit. Ce module vous donne aussi le réflexe indispensable avant de lui faire confiance les yeux fermés.",
   },
   {
     type: 'objectives',
@@ -26,7 +26,7 @@ export default [
   {
     type: 'concept',
     title: "Copilot peut chercher au-delà du document ouvert",
-    body: "Dans sa configuration Microsoft 365, via Microsoft Graph, Copilot peut interroger vos emails Outlook, vos fichiers OneDrive et SharePoint, vos conversations Teams — tout ce à quoi votre compte a accès. C'est ce qui permet une demande comme \"résume les échanges de la semaine avec ce partenaire\" sans rassembler les emails à la main.",
+    body: "Dans sa configuration Microsoft 365, via Microsoft Graph (l'API qui relie Copilot à vos données Microsoft 365 selon vos permissions d'accès existantes), Copilot peut interroger vos emails Outlook, vos fichiers OneDrive et SharePoint, vos conversations Teams — tout ce à quoi votre compte a accès. C'est ce qui permet une demande comme \"résume les échanges de la semaine avec ce partenaire\" sans rassembler les emails à la main.",
     highlight: "Si un dossier SharePoint mal configuré est visible par toute l'organisation, Copilot peut le faire remonter dans une synthèse — pour le meilleur comme pour le pire. À l'inverse, des droits d'accès trop restreints peuvent produire une analyse qui a l'air complète mais ignore silencieusement des données pertinentes.",
   },
   {

@@ -11,10 +11,10 @@ export default [
   {
     type: 'objectives',
     items: [
-      "Reconnaître qu'un besoin d'analyse dépasse les limites pratiques d'Excel et de Power Query, plutôt que de forcer un fichier qui rame ou plante.",
+      "Reconnaître qu'un besoin d'analyse dépasse les limites pratiques d'Excel et de Power Query (l'outil d'Excel qui automatise les étapes de nettoyage, vu au Module 09), plutôt que de forcer un fichier qui rame ou plante.",
       "Obtenir de Claude une analyse de données volumineuses ou croisées en décrivant le besoin en langage courant, sans écrire une seule ligne de code.",
       "Lire et vérifier un résultat produit par du code exécuté par l'IA, sans avoir besoin de savoir le lire ligne par ligne.",
-      "Faire construire par Claude Code un pipeline de données automatisé et récurrent, capable de tourner chaque mois sans intervention manuelle.",
+      "Faire construire par Claude Code un pipeline de données automatisé et récurrent (l'enchaînement automatisé des étapes qui transforme des fichiers bruts en résultat exploitable), capable de tourner chaque mois sans intervention manuelle.",
       "Superviser dans la durée une automatisation de données pour éviter qu'elle ne devienne une boîte noire non vérifiée.",
     ],
   },
@@ -37,7 +37,7 @@ export default [
     type: 'concept',
     title: "Ce qu'est concrètement l'exécution de code par Claude",
     body: [
-      "Claude.ai dispose d'un outil d'analyse qui va au-delà de la conversation : quand vous déposez un fichier volumineux ou posez une question qui demande un calcul complexe, Claude peut écrire du code — le plus souvent en Python avec pandas — et l'exécuter réellement en arrière-plan sur le fichier fourni.",
+      "Claude.ai dispose d'un outil d'analyse qui va au-delà de la conversation : quand vous déposez un fichier volumineux ou posez une question qui demande un calcul complexe, Claude peut écrire du code — le plus souvent en Python, avec la bibliothèque pandas pour manipuler des tableaux de données — et l'exécuter réellement en arrière-plan sur le fichier fourni.",
       "Le résultat reçu n'est pas une estimation ou une explication générale : c'est la sortie réelle d'un calcul qui a effectivement tourné sur vos données. Cette capacité permet de traiter des fichiers de plusieurs centaines de milliers de lignes, de croiser plusieurs sources, et de produire des statistiques qu'aucune formule Excel ne calcule proprement — en décrivant le besoin en français.",
     ],
   },

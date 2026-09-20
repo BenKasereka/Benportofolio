@@ -38,7 +38,7 @@ export default [
     title: 'Cadrer, produire, faire valider votre mini-projet',
     steps: [
       { title: 'Choisir un problème réel, pas un thème', body: 'Une tâche répétitive, un document mal produit, une information obtenue trop lentement — pas un thème général abstrait.' },
-      { title: 'Remplir le brief avant de produire quoi que ce soit', body: 'Secteur, problème exact, outils combinés et rôle de chacun, livrable attendu, critères de succès, calendrier et date de point d\'étape.' },
+      { title: 'Remplir le brief avant de produire quoi que ce soit', body: 'Le brief est le document qui cadre le projet avant toute production : secteur, problème exact, outils combinés et rôle de chacun, livrable attendu, critères de succès, calendrier et date de point d\'étape.' },
       { title: 'Dimensionner le périmètre au temps disponible', body: 'Si la livraison est incertaine, réduire le périmètre maintenant — pas à mi-parcours en panique.' },
       { title: 'Tester les outils à petite échelle', body: 'Un seul prompt sur un extrait, un seul brouillon de section, avant de s\'engager sur la version complète.' },
       { title: 'Produire une première version complète', body: 'Viser une version complète, même imparfaite, sur laquelle un retour est possible — pas la perfection immédiate.' },

@@ -26,7 +26,7 @@ export function CoverSlide({ title, hook }) {
   )
 }
 
-export function ObjectivesSlide({ title = 'Objectifs de ce module', items = [] }) {
+export function ObjectivesSlide({ title = 'À la fin de ce module, vous serez capable de :', items = [] }) {
   return (
     <div className="flex h-full flex-col justify-start gap-6">
       <SlideTitle icon={Target}>{title}</SlideTitle>

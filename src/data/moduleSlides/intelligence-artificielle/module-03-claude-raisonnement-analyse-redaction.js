@@ -21,7 +21,7 @@ export default [
   {
     type: 'concept',
     title: 'Une fenêtre de contexte pensée pour un document entier',
-    body: "Vous pouvez déposer un rapport d'audit de 120 pages, un contrat de subvention complet ou une politique institutionnelle de bout en bout dans une même conversation : Claude traite l'ensemble comme un seul objet cohérent — il peut croiser une clause de la page 8 avec une annexe de la page 95 sans que vous ayez à le lui rappeler. Pour un travail qui s'étale sur plusieurs sessions, la fonction Projects conserve les documents de référence et l'historique dans un espace persistant, sans tout retéléverser à chaque conversation.",
+    body: "Claude dispose d'une fenêtre de contexte large — la quantité de texte qu'il peut lire en une seule fois, documents déposés inclus. Vous pouvez ainsi déposer un rapport d'audit de 120 pages, un contrat de subvention complet ou une politique institutionnelle de bout en bout dans une même conversation : Claude traite l'ensemble comme un seul objet cohérent — il peut croiser une clause de la page 8 avec une annexe de la page 95 sans que vous ayez à le lui rappeler. Pour un travail qui s'étale sur plusieurs sessions, la fonction Projects conserve les documents de référence et l'historique dans un espace persistant, sans tout retéléverser à chaque conversation.",
   },
   {
     type: 'stat-callout',

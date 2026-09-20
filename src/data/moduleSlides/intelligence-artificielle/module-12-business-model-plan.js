@@ -11,10 +11,10 @@ export default [
   {
     type: 'objectives',
     items: [
-      "Construire et challenger un Business Model Canvas (les 9 blocs) en utilisant l'IA comme partenaire de brainstorming, puis comme contradicteur systématique.",
+      "Construire et challenger un Business Model Canvas (BMC — le schéma en 9 blocs qui résume un modèle économique sur une page) en utilisant l'IA comme partenaire de brainstorming, puis comme contradicteur systématique.",
       "Faire produire une étude de marché synthétisée, en sachant tracer et vérifier chaque chiffre cité contre sa source réelle.",
       "Structurer un plan financier prévisionnel simplifié avec des hypothèses explicites, sans déléguer à l'IA la fiabilité des calculs.",
-      "Resserrer un pitch et un executive summary en utilisant l'IA comme lecteur critique, plutôt que comme rédacteur final.",
+      "Resserrer un pitch et un executive summary (la synthèse d'une page qui ouvre un business plan) en utilisant l'IA comme lecteur critique, plutôt que comme rédacteur final.",
       "Distinguer, à chaque étape, ce qui relève du jugement stratégique (à trancher soi-même) de ce qui relève de la structuration (délégable à l'IA).",
     ],
   },

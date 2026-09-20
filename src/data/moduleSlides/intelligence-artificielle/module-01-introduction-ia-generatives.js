@@ -11,7 +11,7 @@ export default [
   {
     type: 'objectives',
     items: [
-      "Expliquer simplement comment un LLM génère du texte, et pourquoi ce mécanisme explique à la fois sa puissance et ses erreurs.",
+      "Expliquer simplement comment un LLM (Large Language Model, le modèle derrière ChatGPT, Claude, etc.) génère du texte, et pourquoi ce mécanisme explique à la fois sa puissance et ses erreurs.",
       "Distinguer les 5 plateformes de cette formation (ChatGPT, Claude, Copilot, Perplexity, Gemini) et savoir laquelle choisir selon la tâche.",
       "Identifier, avant de coller un texte dans une IA, les catégories de données qui ne doivent jamais y être soumises sans validation.",
       "Appliquer une politique personnelle de confidentialité et d'éthique avant toute utilisation professionnelle de l'IA.",

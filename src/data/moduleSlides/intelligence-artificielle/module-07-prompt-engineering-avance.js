@@ -11,8 +11,8 @@ export default [
   {
     type: 'objectives',
     items: [
-      'Appliquer la technique du chain-of-thought (CoT) pour fiabiliser le raisonnement d\'une IA sur une tâche d\'analyse complexe.',
-      'Reconnaître les situations où le tree-of-thought (ToT) est justifié — et celles, majoritaires, où il ne fait qu\'ajouter du coût et de la latence.',
+      'Appliquer la technique du chain-of-thought (CoT — faire dérouler explicitement à l\'IA les étapes de son raisonnement avant sa conclusion) pour fiabiliser le raisonnement d\'une IA sur une tâche d\'analyse complexe.',
+      'Reconnaître les situations où le tree-of-thought (ToT — explorer plusieurs pistes de raisonnement en parallèle avant de choisir la meilleure) est justifié — et celles, majoritaires, où il ne fait qu\'ajouter du coût et de la latence.',
       'Structurer n\'importe quel prompt professionnel récurrent avec la méthode ICIO (Instruction / Contexte / Input / Output).',
       'Diagnostiquer pourquoi un prompt produit des résultats différents d\'une exécution à l\'autre, et le réécrire pour le rendre reproductible.',
       'Construire et faire vivre une bibliothèque de prompts d\'organisation, avec versioning et tests de non-régression.',
@@ -23,7 +23,7 @@ export default [
     title: 'Le problème que ce module règle',
     body: [
       "Demander la même analyse deux fois, à un jour d'intervalle, et obtenir deux structures différentes, deux niveaux de profondeur, parfois deux conclusions contradictoires : ce n'est pas un bug du modèle. C'est un symptôme de prompt mal conçu — un prompt qui laisse le modèle deviner ce que vous attendez au lieu de le contraindre à un raisonnement explicite.",
-      "Un modèle génère sa réponse token par token, dans l'ordre. Face à une question demandant un raisonnement en plusieurs étapes, s'il doit produire directement la conclusion, il improvise un raccourci en une seule passe — sans étape intermédiaire visible. Ce raccourci est instable : il change légèrement à chaque génération, ce qui explique l'inconsistance observée.",
+      "Un modèle génère sa réponse token (fragment de mot, vu au Module 01) par token, dans l'ordre. Face à une question demandant un raisonnement en plusieurs étapes, s'il doit produire directement la conclusion, il improvise un raccourci en une seule passe — sans étape intermédiaire visible. Ce raccourci est instable : il change légèrement à chaque génération, ce qui explique l'inconsistance observée.",
     ],
     highlight: "Deux outils complémentaires règlent ce problème : le chain-of-thought pour le raisonnement, la méthode ICIO pour l'enrobage du prompt.",
   },

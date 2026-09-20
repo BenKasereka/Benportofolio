@@ -13,7 +13,7 @@ const MARGIN = 0.6
 function addFooter(slide, index, total, dark) {
   slide.addText('BK-BOOST Ltd.', {
     x: MARGIN, y: H - 0.42, w: 3, h: 0.3,
-    fontSize: 9, bold: true, color: dark ? 'FFFFFF' : BRAND.muted, charSpacing: 1,
+    fontSize: 9, bold: true, color: dark ? 'FFFFFF' : BRAND.muted, charSpacing: 1, align: 'left',
   })
   slide.addText(`${index}/${total}`, {
     x: W - MARGIN - 1.5, y: H - 0.42, w: 1.5, h: 0.3,
@@ -24,14 +24,14 @@ function addFooter(slide, index, total, dark) {
 function addKicker(slide, text, dark) {
   slide.addText(text.toUpperCase(), {
     x: MARGIN, y: 0.35, w: 6, h: 0.35,
-    fontSize: 10, bold: true, charSpacing: 1.5, color: dark ? 'FFFFFF' : BRAND.primaryDark,
+    fontSize: 10, bold: true, charSpacing: 1.5, color: dark ? 'FFFFFF' : BRAND.primaryDark, align: 'left',
   })
 }
 
 function addTitle(slide, title, dark, y = 1.05) {
   slide.addText(title, {
     x: MARGIN, y, w: W - MARGIN * 2, h: 0.9,
-    fontSize: 24, bold: true, color: dark ? 'FFFFFF' : BRAND.ink, fontFace: 'Arial',
+    fontSize: 24, bold: true, color: dark ? 'FFFFFF' : BRAND.ink, fontFace: 'Arial', align: 'left',
   })
 }
 
@@ -47,7 +47,7 @@ function buildCover(pSlide, slide) {
   addKicker(pSlide, 'Nouveau module', true)
   addTitle(pSlide, slide.title, true, 1.8)
   if (slide.hook) {
-    pSlide.addText(slide.hook, { x: MARGIN, y: 3.0, w: W - MARGIN * 2, h: 1.5, fontSize: 15, color: 'FFFFFF', valign: 'top' })
+    pSlide.addText(slide.hook, { x: MARGIN, y: 3.0, w: W - MARGIN * 2, h: 1.5, fontSize: 15, color: 'FFFFFF', valign: 'top', align: 'left' })
   }
 }
 
@@ -81,9 +81,9 @@ function buildStatCallout(pSlide, slide) {
 
 function buildComparisonTable(pSlide, slide) {
   if (slide.title) { addKicker(pSlide, 'Comparatif'); addTitle(pSlide, slide.title) }
-  const headerRow = (slide.columns || []).map((c) => ({ text: c, options: { bold: true, color: 'FFFFFF', fill: { color: BRAND.secondary }, fontSize: 11 } }))
+  const headerRow = (slide.columns || []).map((c) => ({ text: c, options: { bold: true, color: 'FFFFFF', fill: { color: BRAND.secondary }, fontSize: 11, align: 'left' } }))
   const bodyRows = (slide.rows || []).map((row, i) =>
-    row.map((cell) => ({ text: String(cell), options: { fontSize: 10, color: BRAND.ink, fill: { color: i % 2 === 1 ? BRAND.surface : 'FFFFFF' } } }))
+    row.map((cell) => ({ text: String(cell), options: { fontSize: 10, color: BRAND.ink, fill: { color: i % 2 === 1 ? BRAND.surface : 'FFFFFF' }, align: 'left' } }))
   )
   pSlide.addTable([headerRow, ...bodyRows], {
     x: MARGIN, y: slide.title ? 2.0 : 1.1, w: W - MARGIN * 2, h: 2.9,
@@ -101,8 +101,11 @@ function buildProcess(pSlide, slide) {
     pSlide.addShape('ellipse', { x: MARGIN, y: y + 0.05, w: 0.4, h: 0.4, fill: { color: BRAND.primaryLight }, line: { type: 'none' } })
     pSlide.addText(String(i + 1), { x: MARGIN, y: y + 0.05, w: 0.4, h: 0.4, align: 'center', valign: 'middle', fontSize: 13, bold: true, color: BRAND.primaryDark })
     pSlide.addText(
-      [{ text: step.title, options: { bold: true, breakLine: true, color: BRAND.ink } }, ...(step.body ? [{ text: step.body, options: { color: BRAND.muted, fontSize: 10, align: 'justify' } }] : [])],
-      { x: MARGIN + 0.55, y, w: W - MARGIN * 2 - 0.55, h: rowH, fontSize: 12, valign: 'top' }
+      [
+        { text: step.title, options: { bold: true, breakLine: true, color: BRAND.ink, align: 'left' } },
+        ...(step.body ? [{ text: step.body, options: { color: BRAND.muted, fontSize: 10, align: 'justify' } }] : []),
+      ],
+      { x: MARGIN + 0.55, y, w: W - MARGIN * 2 - 0.55, h: rowH, fontSize: 12, valign: 'top', align: 'left' }
     )
   })
 }
@@ -114,7 +117,7 @@ function buildChecklist(pSlide, slide) {
 
 function buildWarning(pSlide, slide) {
   pSlide.addShape('rect', { x: MARGIN, y: 0.6, w: 0.08, h: 0.7, fill: { color: BRAND.accentGold }, line: { type: 'none' } })
-  pSlide.addText(slide.title, { x: MARGIN + 0.25, y: 0.55, w: W - MARGIN * 2 - 0.25, h: 0.8, fontSize: 20, bold: true, color: BRAND.ink, valign: 'middle' })
+  pSlide.addText(slide.title, { x: MARGIN + 0.25, y: 0.55, w: W - MARGIN * 2 - 0.25, h: 0.8, fontSize: 20, bold: true, color: BRAND.ink, valign: 'middle', align: 'left' })
   bulletBlock(pSlide, slide.items || [], 1.7, { bulletCode: '25CF', fontSize: 13, color: BRAND.ink })
 }
 
@@ -136,7 +139,7 @@ function buildVocabulary(pSlide, slide) {
   pSlide.addText(
     terms.map((t) => ({
       text: `${t.term} — `,
-      options: { bold: true, color: BRAND.primaryDark, breakLine: false },
+      options: { bold: true, color: BRAND.primaryDark, breakLine: false, align: 'justify' },
     })).flatMap((run, i) => [run, { text: `${terms[i].definition}\n\n`, options: { color: BRAND.muted, breakLine: true, align: 'justify' } }]),
     { x: MARGIN, y: 2.0, w: W - MARGIN * 2, h: 2.9, fontSize: 12, valign: 'top', align: 'justify' }
   )
@@ -154,7 +157,7 @@ function buildExercise(pSlide, slide) {
   pSlide.addShape('roundRect', { x: MARGIN, y: 2.0, w: W - MARGIN * 2, h: 2.2, fill: { color: BRAND.primaryLight }, line: { type: 'none' }, rectRadius: 0.1 })
   pSlide.addText(slide.instructions, { x: MARGIN + 0.25, y: 2.15, w: W - MARGIN * 2 - 0.5, h: 1.9, fontSize: 13, color: BRAND.ink, valign: 'top', align: 'justify' })
   if (slide.deliverable) {
-    pSlide.addText(`Livrable attendu — ${slide.deliverable}`, { x: MARGIN, y: 4.35, w: W - MARGIN * 2, h: 0.5, fontSize: 11, bold: true, color: BRAND.primaryDark })
+    pSlide.addText(`Livrable attendu — ${slide.deliverable}`, { x: MARGIN, y: 4.35, w: W - MARGIN * 2, h: 0.5, fontSize: 11, bold: true, color: BRAND.primaryDark, align: 'left' })
   }
 }
 
@@ -163,7 +166,7 @@ function buildClosing(pSlide, slide) {
   addKicker(pSlide, 'Module terminé', true)
   addTitle(pSlide, 'Bravo, vous avez fini ce module !', true, 1.8)
   if (slide.nextModuleHint) {
-    pSlide.addText(slide.nextModuleHint, { x: MARGIN, y: 3.0, w: W - MARGIN * 2, h: 1.5, fontSize: 14, color: 'FFFFFF', valign: 'top' })
+    pSlide.addText(slide.nextModuleHint, { x: MARGIN, y: 3.0, w: W - MARGIN * 2, h: 1.5, fontSize: 14, color: 'FFFFFF', valign: 'top', align: 'left' })
   }
 }
 
