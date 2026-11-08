@@ -21,6 +21,8 @@ export default function SlideViewer({ slides, moduleLabel, isCompleted, onComple
 
   useEffect(() => {
     function onKey(e) {
+      // Le curseur de progression gère déjà ses propres flèches.
+      if (e.target instanceof HTMLInputElement) return
       if (e.key === 'ArrowRight') next()
       if (e.key === 'ArrowLeft') prev()
     }
@@ -98,18 +100,22 @@ export default function SlideViewer({ slides, moduleLabel, isCompleted, onComple
           Précédent
         </button>
 
-        <div className="flex items-center gap-1.5" role="tablist" aria-label="Progression du module">
-          {slides.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              role="tab"
-              aria-selected={i === index}
-              onClick={() => goTo(i)}
-              aria-label={`Diapositive ${i + 1} sur ${total}`}
-              className={`h-1.5 rounded-full transition-all ${i === index ? 'w-6 bg-primary' : 'w-1.5 bg-border hover:bg-primary/40'}`}
-            />
-          ))}
+        {/* Curseur plutôt qu'un point par diapositive : les modules pas à pas
+            dépassent 150 diapositives, une rangée de points débordait de l'écran. */}
+        <div className="flex min-w-0 flex-1 items-center gap-3 px-2">
+          <input
+            type="range"
+            min={1}
+            max={total}
+            value={index + 1}
+            onChange={(e) => goTo(Number(e.target.value) - 1)}
+            aria-label="Progression du module"
+            aria-valuetext={`Diapositive ${index + 1} sur ${total}`}
+            className="h-1.5 min-w-0 flex-1 cursor-pointer accent-primary"
+          />
+          <span className="shrink-0 text-xs font-semibold tabular-nums text-muted">
+            {index + 1} / {total}
+          </span>
         </div>
 
         {index === total - 1 ? (

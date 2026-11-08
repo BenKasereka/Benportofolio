@@ -57,18 +57,70 @@ function buildObjectives(pSlide, slide) {
   bulletBlock(pSlide, slide.items || [], 2.0, { bulletCode: '2713', fontSize: 15 })
 }
 
+// Diapositives riches (pas-à-pas, exemples, résultats attendus) : tout le
+// contenu passe dans une seule zone de texte qui s'écoule de haut en bas,
+// plus un tableau éventuel. expandSlides a déjà découpé les contenus trop
+// longs, et `fit: 'shrink'` absorbe le reste à l'ouverture dans PowerPoint.
+function stepRuns(step, number) {
+  if (typeof step === 'string') {
+    return [{ text: `→ ${step}`, options: { breakLine: true, paraSpaceAfter: 4, color: BRAND.ink } }]
+  }
+  const runs = [{ text: `${number}. ${step.title}`, options: { bold: true, breakLine: true, color: BRAND.ink, paraSpaceAfter: 2 } }]
+  if (step.body) runs.push({ text: step.body, options: { breakLine: true, color: BRAND.muted, paraSpaceAfter: 2 } })
+  ;(step.actions || []).forEach((a, j) => runs.push({ text: `   ${number}.${j + 1}  ${a}`, options: { breakLine: true, color: BRAND.ink, paraSpaceAfter: 2 } }))
+  if (step.result) runs.push({ text: `✓ ${step.result}`, options: { breakLine: true, color: BRAND.primaryDark, paraSpaceAfter: 2 } })
+  runs[runs.length - 1].options.paraSpaceAfter = 8
+  return runs
+}
+
+function extraRuns(slide) {
+  const runs = []
+  if (slide.example) {
+    runs.push({ text: (slide.example.title || 'Exemple concret').toUpperCase(), options: { bold: true, breakLine: true, color: BRAND.secondary, paraSpaceAfter: 2 } })
+    const lines = Array.isArray(slide.example.lines) ? slide.example.lines : [slide.example.body]
+    lines.forEach((l) => runs.push({ text: l, options: { breakLine: true, color: BRAND.ink, fontFace: 'Consolas', paraSpaceAfter: 2 } }))
+    runs[runs.length - 1].options.paraSpaceAfter = 8
+  }
+  const callouts = [
+    ['result', 'Résultat attendu', BRAND.primaryDark],
+    ['tip', 'Astuce de terrain', BRAND.secondary],
+    ['pitfall', 'Erreur à éviter', BRAND.accentGold],
+    ['highlight', 'À retenir', BRAND.primaryDark],
+  ]
+  callouts.forEach(([key, label, color]) => {
+    if (slide[key]) {
+      runs.push({ text: `${label} — `, options: { bold: true, color } })
+      runs.push({ text: slide[key], options: { breakLine: true, color: BRAND.ink, paraSpaceAfter: 6 } })
+    }
+  })
+  return runs
+}
+
+function richBody(pSlide, slide, runs, startY) {
+  let bottom = H - 0.6
+  if (slide.table) {
+    const rows = slide.table.rows || []
+    const tableH = Math.min(1.9, 0.3 * (rows.length + 1))
+    const headerRow = (slide.table.columns || []).map((c) => ({ text: c, options: { bold: true, color: 'FFFFFF', fill: { color: BRAND.secondary }, fontSize: 9 } }))
+    const bodyRows = rows.map((row, i) => row.map((cell) => ({ text: String(cell), options: { fontSize: 9, color: BRAND.ink, fill: { color: i % 2 ? BRAND.surface : 'FFFFFF' } } })))
+    bottom -= tableH + 0.1
+    pSlide.addTable([headerRow, ...bodyRows], { x: MARGIN, y: bottom + 0.1, w: W - MARGIN * 2, h: tableH, border: { type: 'solid', color: BRAND.border, pt: 0.5 }, autoPage: false, valign: 'top' })
+  }
+  if (runs.length) {
+    pSlide.addText(runs, { x: MARGIN, y: startY, w: W - MARGIN * 2, h: bottom - startY, fontSize: 11, valign: 'top', align: 'left', fit: 'shrink' })
+  }
+}
+
 function buildConcept(pSlide, slide) {
   addKicker(pSlide, 'Concept clé')
   addTitle(pSlide, slide.title)
-  const paragraphs = Array.isArray(slide.body) ? slide.body : [slide.body]
-  pSlide.addText(
-    paragraphs.map((text) => ({ text, options: { breakLine: true, paraSpaceAfter: 10, align: 'justify' } })),
-    { x: MARGIN, y: 2.0, w: W - MARGIN * 2, h: slide.highlight ? 2.1 : 2.9, fontSize: 13, color: BRAND.muted, valign: 'top', align: 'justify' }
-  )
-  if (slide.highlight) {
-    pSlide.addShape('roundRect', { x: MARGIN, y: 4.25, w: W - MARGIN * 2, h: 0.75, fill: { color: BRAND.primaryLight }, line: { color: BRAND.primary, width: 0.75 }, rectRadius: 0.08 })
-    pSlide.addText(slide.highlight, { x: MARGIN + 0.15, y: 4.3, w: W - MARGIN * 2 - 0.3, h: 0.65, fontSize: 11, bold: true, color: BRAND.primaryDark, valign: 'middle' })
-  }
+  const paragraphs = Array.isArray(slide.body) ? slide.body : slide.body ? [slide.body] : []
+  const runs = [
+    ...paragraphs.map((text) => ({ text, options: { breakLine: true, paraSpaceAfter: 8, color: BRAND.muted, align: 'justify' } })),
+    ...(slide.bullets || []).map((b) => ({ text: `•  ${b}`, options: { breakLine: true, paraSpaceAfter: 4, color: BRAND.ink } })),
+    ...extraRuns(slide),
+  ]
+  richBody(pSlide, slide, runs, 2.0)
 }
 
 function buildStatCallout(pSlide, slide) {
@@ -92,22 +144,15 @@ function buildComparisonTable(pSlide, slide) {
 }
 
 function buildProcess(pSlide, slide) {
-  if (slide.title) { addKicker(pSlide, 'Méthode'); addTitle(pSlide, slide.title) }
-  const steps = slide.steps || []
-  const startY = slide.title ? 2.0 : 1.1
-  const rowH = Math.min(0.85, (H - startY - 0.6) / Math.max(steps.length, 1))
-  steps.forEach((step, i) => {
-    const y = startY + i * rowH
-    pSlide.addShape('ellipse', { x: MARGIN, y: y + 0.05, w: 0.4, h: 0.4, fill: { color: BRAND.primaryLight }, line: { type: 'none' } })
-    pSlide.addText(String(i + 1), { x: MARGIN, y: y + 0.05, w: 0.4, h: 0.4, align: 'center', valign: 'middle', fontSize: 13, bold: true, color: BRAND.primaryDark })
-    pSlide.addText(
-      [
-        { text: step.title, options: { bold: true, breakLine: true, color: BRAND.ink, align: 'left' } },
-        ...(step.body ? [{ text: step.body, options: { color: BRAND.muted, fontSize: 10, align: 'justify' } }] : []),
-      ],
-      { x: MARGIN + 0.55, y, w: W - MARGIN * 2 - 0.55, h: rowH, fontSize: 12, valign: 'top', align: 'left' }
-    )
-  })
+  addKicker(pSlide, slide.stepLabel || 'Méthode')
+  if (slide.title) addTitle(pSlide, slide.title)
+  const offset = slide.stepOffset || 0
+  const runs = [
+    ...(slide.intro ? [{ text: slide.intro, options: { breakLine: true, paraSpaceAfter: 8, color: BRAND.muted } }] : []),
+    ...(slide.steps || []).flatMap((step, i) => stepRuns(step, offset + i + 1)),
+    ...extraRuns(slide),
+  ]
+  richBody(pSlide, slide, runs, slide.title ? 2.0 : 1.1)
 }
 
 function buildChecklist(pSlide, slide) {
@@ -129,7 +174,8 @@ function buildCaseStudy(pSlide, slide) {
     pSlide.addText(slide.scenario, { x: MARGIN + 0.2, y, w: W - MARGIN * 2 - 0.2, h: 1.1, fontSize: 12, italic: true, color: BRAND.muted, valign: 'top', align: 'justify' })
     y += 1.3
   }
-  if (slide.steps?.length) bulletBlock(pSlide, slide.steps, y, { bulletCode: '2192', fontSize: 12 })
+  const runs = [...(slide.steps || []).flatMap((step, i) => stepRuns(step, i + 1)), ...extraRuns(slide)]
+  richBody(pSlide, slide, runs, y)
 }
 
 function buildVocabulary(pSlide, slide) {
@@ -154,11 +200,15 @@ function buildRecap(pSlide, slide) {
 function buildExercise(pSlide, slide) {
   addKicker(pSlide, 'Exercice')
   addTitle(pSlide, slide.title)
-  pSlide.addShape('roundRect', { x: MARGIN, y: 2.0, w: W - MARGIN * 2, h: 2.2, fill: { color: BRAND.primaryLight }, line: { type: 'none' }, rectRadius: 0.1 })
-  pSlide.addText(slide.instructions, { x: MARGIN + 0.25, y: 2.15, w: W - MARGIN * 2 - 0.5, h: 1.9, fontSize: 13, color: BRAND.ink, valign: 'top', align: 'justify' })
-  if (slide.deliverable) {
-    pSlide.addText(`Livrable attendu — ${slide.deliverable}`, { x: MARGIN, y: 4.35, w: W - MARGIN * 2, h: 0.5, fontSize: 11, bold: true, color: BRAND.primaryDark, align: 'left' })
-  }
+  const runs = [
+    ...(slide.instructions ? [{ text: slide.instructions, options: { breakLine: true, paraSpaceAfter: 8, color: BRAND.ink } }] : []),
+    ...(slide.steps || []).flatMap((step, i) => stepRuns(step, i + 1)),
+    ...extraRuns(slide),
+    ...(slide.deliverable
+      ? [{ text: 'Livrable attendu — ', options: { bold: true, color: BRAND.primaryDark } }, { text: slide.deliverable, options: { breakLine: true, color: BRAND.ink } }]
+      : []),
+  ]
+  richBody(pSlide, slide, runs, 2.0)
 }
 
 function buildClosing(pSlide, slide) {

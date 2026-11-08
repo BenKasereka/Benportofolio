@@ -1,3 +1,4 @@
+import { expandSlides } from '../../lib/expandSlides'
 import m_intelligence_artificielle_01 from './intelligence-artificielle/module-01-introduction-ia-generatives'
 import m_intelligence_artificielle_02 from './intelligence-artificielle/module-02-chatgpt-productivite-automatisation'
 import m_intelligence_artificielle_03 from './intelligence-artificielle/module-03-claude-raisonnement-analyse-redaction'
@@ -143,6 +144,12 @@ const REGISTRY = {
   },
 }
 
+const expandedCache = new Map()
+
 export function moduleSlidesFor(formationId, moduleSlug) {
-  return REGISTRY[formationId]?.[moduleSlug] ?? null
+  const deck = REGISTRY[formationId]?.[moduleSlug]
+  if (!deck) return null
+  const key = formationId + '/' + moduleSlug
+  if (!expandedCache.has(key)) expandedCache.set(key, expandSlides(deck))
+  return expandedCache.get(key)
 }

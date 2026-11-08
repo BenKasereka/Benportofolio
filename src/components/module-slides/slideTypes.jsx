@@ -1,5 +1,5 @@
 import {
-  AlertTriangle, ArrowRight, BookOpen, CheckCircle2, ClipboardCheck,
+  AlertTriangle, ArrowRight, BookOpen, CheckCircle2, ClipboardCheck, FileText,
   GraduationCap, Lightbulb, ListChecks, Quote, Rocket, Sparkles, Target, TrendingUp,
 } from 'lucide-react'
 
@@ -42,23 +42,113 @@ export function ObjectivesSlide({ title = 'À la fin de ce module, vous serez ca
   )
 }
 
-export function ConceptSlide({ title, body, highlight }) {
-  const paragraphs = Array.isArray(body) ? body : [body]
+// Blocs complémentaires partagés par concept / process / case-study /
+// exercise : exemple concret rempli, tableau d'exemple, résultat attendu,
+// astuce, erreur à éviter, encadré clé. Tous optionnels.
+function RichExtras({ example, table, result, tip, pitfall, highlight }) {
   return (
-    <div className="flex h-full flex-col justify-start gap-6">
-      <SlideTitle icon={Lightbulb}>{title}</SlideTitle>
-      <div className="flex flex-col gap-4">
-        {paragraphs.map((p, i) => (
-          <p key={i} className="text-justify text-lg leading-relaxed text-muted sm:text-xl">
-            {p}
+    <>
+      {example && (
+        <div className="rounded-xl border border-secondary/20 bg-secondary/5 px-5 py-4">
+          <p className="mb-2 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-secondary">
+            <FileText className="h-4 w-4" />
+            {example.title || 'Exemple concret'}
           </p>
-        ))}
-      </div>
+          {Array.isArray(example.lines) ? (
+            <ul className="flex flex-col gap-1.5">
+              {example.lines.map((line, i) => (
+                <li key={i} className="font-mono text-sm leading-relaxed text-ink sm:text-base">
+                  {line}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="whitespace-pre-line text-base leading-relaxed text-ink">{example.body}</p>
+          )}
+        </div>
+      )}
+      {table && (
+        <div className="overflow-hidden rounded-xl border border-border">
+          <table className="w-full border-collapse text-left text-sm sm:text-base">
+            <thead className="bg-secondary text-white">
+              <tr>
+                {(table.columns || []).map((col, i) => (
+                  <th key={i} className="px-4 py-2 text-xs font-bold uppercase tracking-wide">
+                    {col}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {(table.rows || []).map((row, i) => (
+                <tr key={i} className={i % 2 === 1 ? 'bg-surface' : 'bg-surface-white'}>
+                  {row.map((cell, j) => (
+                    <td key={j} className="border-t border-border px-4 py-2 align-top text-ink">
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+      {result && <Callout icon={CheckCircle2} label="Résultat attendu" tone="primary" text={result} />}
+      {tip && <Callout icon={Lightbulb} label="Astuce de terrain" tone="secondary" text={tip} />}
+      {pitfall && <Callout icon={AlertTriangle} label="Erreur à éviter" tone="gold" text={pitfall} />}
       {highlight && (
         <div className="rounded-2xl border border-primary/25 bg-primary/5 px-6 py-5">
           <p className="text-base font-medium leading-relaxed text-primary-dark sm:text-lg">{highlight}</p>
         </div>
       )}
+    </>
+  )
+}
+
+const CALLOUT_TONES = {
+  primary: 'border-primary/30 bg-primary/5 text-primary-dark',
+  secondary: 'border-secondary/25 bg-secondary/5 text-secondary',
+  gold: 'border-accent-gold/40 bg-accent-gold/5 text-accent-gold-dark',
+}
+
+function Callout({ icon: Icon, label, tone, text }) {
+  return (
+    <div className={`flex items-start gap-3 rounded-xl border px-5 py-3.5 ${CALLOUT_TONES[tone]}`}>
+      <Icon className="mt-0.5 h-5 w-5 shrink-0" />
+      <p className="text-base leading-relaxed text-ink">
+        <span className="font-bold">{label} — </span>
+        {text}
+      </p>
+    </div>
+  )
+}
+
+export function ConceptSlide({ title, body, bullets, ...extras }) {
+  const paragraphs = Array.isArray(body) ? body : body ? [body] : []
+  const dense = Boolean(extras.example || extras.table || extras.result || extras.tip || extras.pitfall || bullets?.length)
+  return (
+    <div className="flex h-full flex-col justify-start gap-5">
+      <SlideTitle icon={Lightbulb}>{title}</SlideTitle>
+      {paragraphs.length > 0 && (
+        <div className="flex flex-col gap-4">
+          {paragraphs.map((p, i) => (
+            <p key={i} className={`text-justify leading-relaxed text-muted ${dense ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'}`}>
+              {p}
+            </p>
+          ))}
+        </div>
+      )}
+      {bullets?.length > 0 && (
+        <ul className="flex flex-col gap-2">
+          {bullets.map((b, i) => (
+            <li key={i} className="flex items-start gap-2.5 text-justify text-base leading-relaxed text-ink sm:text-lg">
+              <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      <RichExtras {...extras} />
     </div>
   )
 }
@@ -105,22 +195,59 @@ export function ComparisonTableSlide({ title, columns = [], rows = [] }) {
   )
 }
 
-export function ProcessSlide({ title, steps = [] }) {
+export function ProcessSlide({ title, stepLabel, intro, steps = [], stepOffset = 0, ...extras }) {
   return (
-    <div className="flex h-full flex-col justify-start gap-6">
+    <div className="flex h-full flex-col justify-start gap-5">
+      {stepLabel && (
+        <span className="w-fit rounded-full bg-secondary/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-secondary">
+          {stepLabel}
+        </span>
+      )}
       {title && <SlideTitle icon={ArrowRight}>{title}</SlideTitle>}
-      <div className="flex flex-col gap-5">
+      {intro && <p className="text-justify text-base leading-relaxed text-muted sm:text-lg">{intro}</p>}
+      <div className="flex flex-col gap-4">
         {steps.map((step, i) => (
-          <div key={i} className="flex items-start gap-4">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 font-heading text-base font-extrabold text-primary-dark">
-              {i + 1}
-            </span>
-            <div className="flex flex-col gap-1">
-              <p className="text-lg font-semibold text-ink sm:text-xl">{step.title}</p>
-              {step.body && <p className="text-justify text-base leading-relaxed text-muted sm:text-lg">{step.body}</p>}
-            </div>
-          </div>
+          <StepItem key={i} step={step} number={stepOffset + i + 1} />
         ))}
+      </div>
+      <RichExtras {...extras} />
+    </div>
+  )
+}
+
+function StepItem({ step, number }) {
+  if (typeof step === 'string') {
+    return (
+      <div className="flex items-start gap-2.5 text-justify text-base leading-relaxed text-ink sm:text-lg">
+        <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-primary" />
+        <span>{step}</span>
+      </div>
+    )
+  }
+  return (
+    <div className="flex items-start gap-4">
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 font-heading text-base font-extrabold text-primary-dark">
+        {number}
+      </span>
+      <div className="flex flex-1 flex-col gap-1.5">
+        <p className="text-lg font-semibold text-ink sm:text-xl">{step.title}</p>
+        {step.body && <p className="text-justify text-base leading-relaxed text-muted sm:text-lg">{step.body}</p>}
+        {step.actions?.length > 0 && (
+          <ol className="mt-1 flex flex-col gap-1.5">
+            {step.actions.map((action, j) => (
+              <li key={j} className="flex items-start gap-2.5 text-justify text-base leading-relaxed text-ink">
+                <span className="mt-0.5 w-6 shrink-0 font-heading text-sm font-bold text-secondary">{number}.{j + 1}</span>
+                <span>{action}</span>
+              </li>
+            ))}
+          </ol>
+        )}
+        {step.result && (
+          <p className="mt-1 flex items-start gap-2 text-base leading-relaxed text-primary-dark">
+            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0" />
+            <span>{step.result}</span>
+          </p>
+        )}
       </div>
     </div>
   )
@@ -161,9 +288,9 @@ export function WarningSlide({ title, items = [] }) {
   )
 }
 
-export function CaseStudySlide({ title, scenario, steps = [] }) {
+export function CaseStudySlide({ title, scenario, steps = [], ...extras }) {
   return (
-    <div className="flex h-full flex-col justify-start gap-6">
+    <div className="flex h-full flex-col justify-start gap-5">
       {title && <SlideTitle icon={BookOpen}>{title}</SlideTitle>}
       {scenario && (
         <blockquote className="flex gap-3 border-l-4 border-accent-gold/60 bg-accent-gold/5 px-5 py-4">
@@ -172,15 +299,13 @@ export function CaseStudySlide({ title, scenario, steps = [] }) {
         </blockquote>
       )}
       {steps.length > 0 && (
-        <ul className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3">
           {steps.map((step, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-justify text-base leading-relaxed text-ink sm:text-lg">
-              <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-primary" />
-              <span>{step}</span>
-            </li>
+            <StepItem key={i} step={step} number={i + 1} />
           ))}
-        </ul>
+        </div>
       )}
+      <RichExtras {...extras} />
     </div>
   )
 }
@@ -217,13 +342,23 @@ export function RecapSlide({ title = 'Ce qu\'il faut retenir', items = [] }) {
   )
 }
 
-export function ExerciseSlide({ title, instructions, deliverable }) {
+export function ExerciseSlide({ title, instructions, steps = [], deliverable, ...extras }) {
   return (
-    <div className="flex h-full flex-col justify-start gap-6">
+    <div className="flex h-full flex-col justify-start gap-5">
       <SlideTitle icon={ClipboardCheck}>{title}</SlideTitle>
-      <div className="rounded-2xl border border-primary/25 bg-primary/5 px-6 py-6">
-        <p className="text-justify text-lg leading-relaxed text-ink">{instructions}</p>
-      </div>
+      {instructions && (
+        <div className="rounded-2xl border border-primary/25 bg-primary/5 px-6 py-5">
+          <p className="text-justify text-base leading-relaxed text-ink sm:text-lg">{instructions}</p>
+        </div>
+      )}
+      {steps.length > 0 && (
+        <div className="flex flex-col gap-3">
+          {steps.map((step, i) => (
+            <StepItem key={i} step={step} number={i + 1} />
+          ))}
+        </div>
+      )}
+      <RichExtras {...extras} />
       {deliverable && (
         <p className="text-base font-semibold text-primary-dark">
           Livrable attendu — <span className="font-normal text-muted">{deliverable}</span>
