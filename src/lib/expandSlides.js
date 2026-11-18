@@ -22,10 +22,19 @@ function exampleCost(example) {
   return body + (example.title ? 1 : 0) + 1.5
 }
 
+// Une colonne de tableau est étroite : ~22 caractères par ligne à 5 colonnes,
+// ~60 à 2 colonnes (largeur utile ~1100 px, 40 px de marge par cellule, ~8 px
+// par caractère). Une ligne de tableau coûte ~0,85 unité + 0,9 de marge.
+function tableRowCost(row, columnCount) {
+  const perLine = Math.max(10, Math.floor((1100 - 40 * columnCount) / columnCount / 8.2))
+  const maxLines = Math.max(1, ...row.map((c) => Math.ceil(String(c).length / perLine)))
+  return maxLines * 0.85 + 0.9
+}
+
 function tableCost(table) {
   if (!table) return 0
-  const rowCost = (row) => Math.max(1, ...row.map((c) => Math.ceil(String(c).length / 40)))
-  return 1.5 + (table.rows || []).reduce((s, r) => s + rowCost(r), 0)
+  const columnCount = (table.columns || []).length || 1
+  return 1.6 + (table.rows || []).reduce((s, r) => s + tableRowCost(r, columnCount), 0)
 }
 
 function stepCost(step) {
@@ -169,6 +178,20 @@ function splitVocabulary(slide) {
   })
 }
 
+// Tableaux comparatifs : découpés par rangées, titre et en-têtes répétés sur
+// chaque diapositive "(suite)".
+function splitComparisonTable(slide) {
+  const rows = slide.rows || []
+  const units = rows.map((row) => ({ kind: 'row', value: row, cost: tableRowCost(row, (slide.columns || []).length || row.length) }))
+  const pages = paginate(units, 2 + 1.6)
+  if (pages.length === 1) return [slide]
+  return pages.map((page, p) => {
+    const next = { ...slide, continued: p > 0, rows: page.map((u) => u.value) }
+    if (p > 0 && slide.title) next.title = `${slide.title} (suite)`
+    return next
+  })
+}
+
 function splitExercise(slide) {
   const units = [
     ...(slide.instructions ? [{ kind: 'instructions', value: slide.instructions, cost: lines(slide.instructions) + 1.2 }] : []),
@@ -190,6 +213,7 @@ function splitExercise(slide) {
 }
 
 const SPLITTERS = {
+  'comparison-table': splitComparisonTable,
   process: splitProcess,
   concept: splitConcept,
   'case-study': splitCaseStudy,

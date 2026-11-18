@@ -1,7 +1,9 @@
 import { useLayoutEffect, useRef } from 'react'
 
 const ASSET_BASE = import.meta.env.BASE_URL
-const MIN_SCALE = 0.7
+// En dessous de ce facteur le texte devient illisible : la diapositive
+// défile alors verticalement plutôt que d'être réduite davantage.
+const MIN_SCALE = 0.75
 
 // Filet de sécurité derrière expandSlides : si une diapositive reste plus
 // haute que son cadre (étape dense impossible à couper, police chargée plus
@@ -21,6 +23,7 @@ function FitToFrame({ children }) {
       inner.style.transform = ''
       inner.style.width = '100%'
       inner.style.height = '100%'
+      outer.style.overflowY = 'hidden'
       const cs = getComputedStyle(outer)
       const available = outer.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom)
       const content = inner.firstElementChild
@@ -29,7 +32,14 @@ function FitToFrame({ children }) {
       const scale = Math.max(MIN_SCALE, available / natural)
       inner.style.transform = `scale(${scale})`
       inner.style.width = `${100 / scale}%`
-      inner.style.height = `${100 / scale}%`
+      // Même réduite au minimum, une diapositive qui dépasse reste lisible en
+      // entier grâce au défilement vertical (jamais de texte coupé).
+      if (natural * scale > available + 1) {
+        inner.style.height = 'auto'
+        outer.style.overflowY = 'auto'
+      } else {
+        inner.style.height = `${100 / scale}%`
+      }
     }
 
     fit()
