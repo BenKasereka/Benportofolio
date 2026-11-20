@@ -72,18 +72,18 @@ export default function SlideCanvas({ kicker, moduleLabel, index, total, variant
       }`}
     >
       <div
-        className={`flex items-center justify-between border-b px-8 py-4 sm:px-16 sm:py-5 ${
+        className={`flex items-center justify-between gap-4 border-b py-4 pl-8 pr-20 sm:py-5 sm:pl-16 sm:pr-24 ${
           isDark ? 'border-white/15' : 'border-border/70'
         }`}
       >
         <span
-          className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest ${
+          className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-bold uppercase tracking-widest ${
             isDark ? 'border-white/25 bg-white/10 text-white' : 'border-primary/25 bg-primary/10 text-primary-dark'
           }`}
         >
           {kicker}
         </span>
-        <span className={`text-sm font-semibold uppercase tracking-widest ${isDark ? 'text-white/70' : 'text-muted'}`}>
+        <span className={`min-w-0 truncate text-sm font-semibold uppercase tracking-widest ${isDark ? 'text-white/70' : 'text-muted'}`}>
           {moduleLabel}
         </span>
       </div>

@@ -16,10 +16,48 @@ function boxCost(text) {
   return text ? lines(text) + 1.2 : 0
 }
 
+// Les exemples s'affichent en police à chasse fixe dans un cadre : ~108
+// caractères par ligne, ~0,9 unité par ligne, plus un espacement entre lignes.
+function exampleLineCost(line) {
+  return Math.ceil(String(line).length / 108) * 0.9 + 0.3
+}
+
 function exampleCost(example) {
   if (!example) return 0
-  const body = Array.isArray(example.lines) ? example.lines.reduce((s, l) => s + lines(l), 0) : lines(example.body)
-  return body + (example.title ? 1 : 0) + 1.5
+  const body = Array.isArray(example.lines)
+    ? example.lines.reduce((s, l) => s + exampleLineCost(l), 0)
+    : Math.ceil(String(example.body || '').length / 108) * 0.9
+  return body + (example.title ? 1 : 0) + 1.6
+}
+
+// Un exemple plus grand qu'une diapositive est réparti ligne par ligne sur
+// plusieurs diapositives ("(suite)"), le titre de l'exemple étant répété.
+function exampleUnits(example) {
+  const total = exampleCost(example)
+  if (!Array.isArray(example.lines) || total <= BUDGET - 4) {
+    return [{ kind: 'extra', key: 'example', value: example, cost: total }]
+  }
+  const chunks = []
+  let current = []
+  let used = 0
+  for (const line of example.lines) {
+    const cost = exampleLineCost(line)
+    if (current.length > 0 && used + cost > BUDGET - 5) {
+      chunks.push(current)
+      current = []
+      used = 0
+    }
+    current.push(line)
+    used += cost
+  }
+  if (current.length) chunks.push(current)
+  const baseTitle = example.title || 'Exemple concret'
+  return chunks.map((chunkLines, i) => ({
+    kind: 'extra',
+    key: 'example',
+    value: { ...example, title: i === 0 ? example.title : `${baseTitle} (suite)`, lines: chunkLines },
+    cost: chunkLines.reduce((s, l) => s + exampleLineCost(l), 0) + 2.6,
+  }))
 }
 
 // Une colonne de tableau est étroite : ~22 caractères par ligne à 5 colonnes,
@@ -70,7 +108,9 @@ function paginate(units, firstPageReserved) {
 }
 
 function extraUnits(slide) {
-  return EXTRA_KEYS.filter((k) => slide[k]).map((k) => ({ kind: 'extra', key: k, value: slide[k], cost: extraCost(k, slide[k]) }))
+  return EXTRA_KEYS.filter((k) => slide[k]).flatMap((k) =>
+    k === 'example' ? exampleUnits(slide[k]) : [{ kind: 'extra', key: k, value: slide[k], cost: extraCost(k, slide[k]) }]
+  )
 }
 
 function rebuild(slide, page, pageIndex, baseFields) {
@@ -80,7 +120,12 @@ function rebuild(slide, page, pageIndex, baseFields) {
     next.continued = true
   }
   for (const unit of page) {
-    if (unit.kind === 'extra') next[unit.key] = unit.value
+    if (unit.kind !== 'extra') continue
+    if (unit.key === 'example' && next.example?.lines && unit.value.lines) {
+      next.example = { ...next.example, lines: [...next.example.lines, ...unit.value.lines] }
+    } else {
+      next[unit.key] = unit.value
+    }
   }
   return next
 }

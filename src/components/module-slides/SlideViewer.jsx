@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Check, CheckCircle2, ChevronLeft, ChevronRight, Maximize, Minimize } from 'lucide-react'
 import SlideRenderer from './SlideRenderer'
@@ -9,6 +9,47 @@ import SlideRenderer from './SlideRenderer'
 // la barre de progression du sommaire). Composant entièrement contrôlé par
 // son propre état — le conteneur d'export (ExportSlideStage) monte les
 // mêmes SlideRenderer indépendamment, sans dépendre de cet état.
+const DESIGN_WIDTH = 1280
+const DESIGN_HEIGHT = 720
+const MIN_DESIGN_FRAME = 640
+
+// La diapositive est composée sur un cadre fixe 1280x720 — le même que celui
+// des exports PDF/PPTX et que celui sur lequel expandSlides mesure le
+// contenu — puis réduite d'un seul bloc à la largeur disponible. Résultat :
+// à l'écran comme à l'export, la mise en page est identique et rien n'est
+// coupé quelle que soit la taille de la fenêtre. Sur un cadre étroit
+// (téléphone), le texte réduit serait illisible : on garde alors la mise en
+// page fluide d'origine.
+function ScaledSlide({ children }) {
+  const boxRef = useRef(null)
+  const [scale, setScale] = useState(null)
+
+  useLayoutEffect(() => {
+    const box = boxRef.current
+    if (!box) return undefined
+    const measure = () => {
+      const width = box.clientWidth
+      setScale(width >= MIN_DESIGN_FRAME ? width / DESIGN_WIDTH : null)
+    }
+    measure()
+    const observer = new ResizeObserver(measure)
+    observer.observe(box)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div ref={boxRef} className="absolute inset-0 overflow-hidden rounded-3xl">
+      {scale ? (
+        <div style={{ width: DESIGN_WIDTH, height: DESIGN_HEIGHT, transform: `scale(${scale})`, transformOrigin: 'top left' }}>
+          {children}
+        </div>
+      ) : (
+        children
+      )}
+    </div>
+  )
+}
+
 export default function SlideViewer({ slides, moduleLabel, isCompleted, onComplete }) {
   const [index, setIndex] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
@@ -75,7 +116,9 @@ export default function SlideViewer({ slides, moduleLabel, isCompleted, onComple
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="absolute inset-0"
           >
-            <SlideRenderer slide={slides[index]} index={index} total={total} moduleLabel={moduleLabel} />
+            <ScaledSlide>
+              <SlideRenderer slide={slides[index]} index={index} total={total} moduleLabel={moduleLabel} />
+            </ScaledSlide>
           </motion.div>
         </AnimatePresence>
 
