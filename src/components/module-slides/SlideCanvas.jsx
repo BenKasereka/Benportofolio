@@ -67,12 +67,14 @@ export default function SlideCanvas({ kicker, moduleLabel, index, total, variant
 
   return (
     <div
+      lang="fr"
+      style={{ hyphens: 'auto', WebkitHyphens: 'auto' }}
       className={`flex h-full w-full flex-col overflow-hidden rounded-3xl border shadow-card ${
         isDark ? 'border-transparent bg-primary-secondary text-white' : 'border-border bg-surface-white text-ink'
       }`}
     >
       <div
-        className={`flex items-center justify-between gap-4 border-b py-4 pl-8 pr-20 sm:py-5 sm:pl-16 sm:pr-24 ${
+        className={`flex items-center justify-between gap-4 border-b px-8 py-4 sm:px-16 sm:py-5 ${
           isDark ? 'border-white/15' : 'border-border/70'
         }`}
       >

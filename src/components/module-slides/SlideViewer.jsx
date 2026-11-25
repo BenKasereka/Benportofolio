@@ -121,15 +121,6 @@ export default function SlideViewer({ slides, moduleLabel, isCompleted, onComple
             </ScaledSlide>
           </motion.div>
         </AnimatePresence>
-
-        <button
-          type="button"
-          onClick={toggleFullscreen}
-          aria-label={isFullscreen ? 'Quitter le plein écran' : 'Passer en plein écran'}
-          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-ink/40 text-white backdrop-blur transition hover:bg-ink/60"
-        >
-          {isFullscreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
-        </button>
       </div>
 
       <div className={`mx-auto flex items-center justify-between gap-4 ${widthClass}`}>
@@ -159,6 +150,15 @@ export default function SlideViewer({ slides, moduleLabel, isCompleted, onComple
           <span className="shrink-0 text-xs font-semibold tabular-nums text-muted">
             {index + 1} / {total}
           </span>
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            aria-label={isFullscreen ? 'Quitter le plein écran' : 'Passer en plein écran'}
+            title={isFullscreen ? 'Quitter le plein écran' : 'Plein écran'}
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border bg-surface-white text-ink transition hover:border-primary hover:text-primary"
+          >
+            {isFullscreen ? <Minimize className="h-4 w-4" /> : <Maximize className="h-4 w-4" />}
+          </button>
         </div>
 
         {index === total - 1 ? (

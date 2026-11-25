@@ -20,8 +20,8 @@ export function CoverSlide({ title, hook }) {
         <Sparkles className="h-3.5 w-3.5" />
         Nouveau module
       </span>
-      <h2 className="font-heading text-4xl font-extrabold leading-tight sm:text-5xl">{title}</h2>
-      {hook && <p className="max-w-3xl text-xl leading-relaxed text-white/90 sm:text-2xl">{hook}</p>}
+      <h2 className="font-heading text-4xl font-extrabold leading-tight text-white sm:text-5xl">{title}</h2>
+      {hook && <p className="w-full text-justify text-xl leading-relaxed text-white/90 sm:text-2xl">{hook}</p>}
     </div>
   )
 }
@@ -63,7 +63,7 @@ function RichExtras({ example, table, result, tip, pitfall, highlight }) {
               ))}
             </ul>
           ) : (
-            <p className="whitespace-pre-line text-base leading-relaxed text-ink">{example.body}</p>
+            <p className="whitespace-pre-line text-justify text-base leading-relaxed text-ink">{example.body}</p>
           )}
         </div>
       )}
@@ -98,7 +98,7 @@ function RichExtras({ example, table, result, tip, pitfall, highlight }) {
       {pitfall && <Callout icon={AlertTriangle} label="Erreur à éviter" tone="gold" text={pitfall} />}
       {highlight && (
         <div className="rounded-2xl border border-primary/25 bg-primary/5 px-6 py-5">
-          <p className="text-base font-medium leading-relaxed text-primary-dark sm:text-lg">{highlight}</p>
+          <p className="text-justify text-base font-medium leading-relaxed text-primary-dark sm:text-lg">{highlight}</p>
         </div>
       )}
     </>
@@ -115,7 +115,7 @@ function Callout({ icon: Icon, label, tone, text }) {
   return (
     <div className={`flex items-start gap-3 rounded-xl border px-5 py-3.5 ${CALLOUT_TONES[tone]}`}>
       <Icon className="mt-0.5 h-5 w-5 shrink-0" />
-      <p className="text-base leading-relaxed text-ink">
+      <p className="text-justify text-base leading-relaxed text-ink">
         <span className="font-bold">{label} — </span>
         {text}
       </p>
@@ -250,7 +250,7 @@ function StepItem({ step, number }) {
           </ol>
         )}
         {step.result && (
-          <p className="mt-1 flex items-start gap-2 text-base leading-relaxed text-primary-dark">
+          <p className="mt-1 flex items-start gap-2 text-justify text-base leading-relaxed text-primary-dark">
             <CheckCircle2 className="mt-1 h-4 w-4 shrink-0" />
             <span>{step.result}</span>
           </p>
@@ -367,7 +367,7 @@ export function ExerciseSlide({ title, instructions, steps = [], deliverable, ..
       )}
       <RichExtras {...extras} />
       {deliverable && (
-        <p className="text-base font-semibold text-primary-dark">
+        <p className="text-justify text-base font-semibold text-primary-dark">
           Livrable attendu — <span className="font-normal text-muted">{deliverable}</span>
         </p>
       )}
@@ -382,8 +382,8 @@ export function ClosingSlide({ nextModuleHint }) {
         <Rocket className="h-3.5 w-3.5" />
         Module terminé
       </span>
-      <h2 className="font-heading text-4xl font-extrabold leading-tight sm:text-5xl">Bravo, vous avez fini ce module !</h2>
-      {nextModuleHint && <p className="max-w-3xl text-xl leading-relaxed text-white/90 sm:text-2xl">{nextModuleHint}</p>}
+      <h2 className="font-heading text-4xl font-extrabold leading-tight text-white sm:text-5xl">Bravo, vous avez fini ce module !</h2>
+      {nextModuleHint && <p className="w-full text-justify text-xl leading-relaxed text-white/90 sm:text-2xl">{nextModuleHint}</p>}
     </div>
   )
 }
