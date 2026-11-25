@@ -67,7 +67,7 @@ function stepRuns(step, number) {
   }
   const runs = [{ text: `${number}. ${step.title}`, options: { bold: true, breakLine: true, color: BRAND.ink, paraSpaceAfter: 2 } }]
   if (step.body) runs.push({ text: step.body, options: { breakLine: true, color: BRAND.muted, paraSpaceAfter: 2 } })
-  ;(step.actions || []).forEach((a, j) => runs.push({ text: `   ${number}.${j + 1}  ${a}`, options: { breakLine: true, color: BRAND.ink, paraSpaceAfter: 2 } }))
+  ;(step.actions || []).forEach((a, j) => runs.push({ text: `   ${number}.${j + 1}  ${String(a).replace(/^\s*\d+(?:\.\d+)?\s*[.)]\s+/, '')}`, options: { breakLine: true, color: BRAND.ink, paraSpaceAfter: 2 } }))
   if (step.result) runs.push({ text: `✓ ${step.result}`, options: { breakLine: true, color: BRAND.primaryDark, paraSpaceAfter: 2 } })
   runs[runs.length - 1].options.paraSpaceAfter = 8
   return runs

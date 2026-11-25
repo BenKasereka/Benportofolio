@@ -57,7 +57,7 @@ function RichExtras({ example, table, result, tip, pitfall, highlight }) {
           {Array.isArray(example.lines) ? (
             <ul className="flex flex-col gap-1.5">
               {example.lines.map((line, i) => (
-                <li key={i} className="font-mono text-sm leading-relaxed text-ink sm:text-base">
+                <li key={i} className="min-h-[1em] whitespace-pre-wrap break-words font-mono text-sm leading-relaxed text-ink sm:text-base">
                   {line}
                 </li>
               ))}
@@ -215,6 +215,13 @@ export function ProcessSlide({ title, stepLabel, intro, steps = [], stepOffset =
   )
 }
 
+// Le visionneur numérote lui-même les sous-actions (2.1, 2.2…) : on retire un
+// éventuel numéro déjà présent dans le texte ("1. ", "2) ", "3.2 ") pour ne pas
+// afficher une double numérotation.
+export function stripActionNumber(text) {
+  return String(text).replace(/^\s*\d+(?:\.\d+)?\s*[.)]\s+/, '')
+}
+
 function StepItem({ step, number }) {
   if (typeof step === 'string') {
     return (
@@ -236,8 +243,8 @@ function StepItem({ step, number }) {
           <ol className="mt-1 flex flex-col gap-1.5">
             {step.actions.map((action, j) => (
               <li key={j} className="flex items-start gap-2.5 text-justify text-base leading-relaxed text-ink">
-                <span className="mt-0.5 w-6 shrink-0 font-heading text-sm font-bold text-secondary">{number}.{j + 1}</span>
-                <span>{action}</span>
+                <span className="mt-0.5 w-9 shrink-0 font-heading text-sm font-bold text-secondary">{number}.{j + 1}</span>
+                <span>{stripActionNumber(action)}</span>
               </li>
             ))}
           </ol>
