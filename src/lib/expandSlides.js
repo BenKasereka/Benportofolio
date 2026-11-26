@@ -3,8 +3,15 @@
 // format) : sans ce découpage, un pas-à-pas détaillé serait coupé à l'export.
 // Le coût est une estimation en "lignes" de texte, volontairement prudente.
 
-// Calibré en mesurant le rendu réel 1280x720 : ~19-20 unités = cadre plein.
-const BUDGET = 17
+// Calibré en mesurant le rendu réel 1280x720 (modules IA 01, 06, 07 et 08, plus
+// de 500 pages) : une page de pas-à-pas remplit son cadre à ~19,5 unités
+// estimées. À 17 unités, les pages n'étaient remplies qu'à ~88 % ; à 22, elles
+// débordaient de 13 % et étaient réduites. 19 unités = cadre plein à ~97 %,
+// FitToFrame réduisant ou agrandissant très légèrement pour finir de caler.
+const BUDGET = 19
+// Listes, tableaux et vocabulaire : l'estimation est moins fiable (cartes à
+// bordures, cellules de tableau) ; le budget d'origine reste sans débordement.
+const LIST_BUDGET = 17
 const CHARS_PER_LINE = 92
 
 function lines(text) {
@@ -91,17 +98,41 @@ function extraCost(key, value) {
 
 // Répartit des unités (chacune avec un coût) dans des pages sous le budget.
 // Une unité seule plus grande que le budget reste seule sur sa page.
-function paginate(units, firstPageReserved) {
+function paginate(units, firstPageReserved, budget = BUDGET) {
   const pages = [[]]
   let used = firstPageReserved
   for (const unit of units) {
     const current = pages[pages.length - 1]
-    if (current.length > 0 && used + unit.cost > BUDGET) {
+    if (current.length > 0 && used + unit.cost > budget) {
       pages.push([unit])
       used = 2 + unit.cost
     } else {
       current.push(unit)
       used += unit.cost
+    }
+  }
+  return absorbShortTail(pages, firstPageReserved, budget)
+}
+
+// Une page "(suite)" qui ne porte qu'un encadré ou deux lignes (une astuce
+// seule en haut d'une page vide) est inutile : si le dépassement reste faible,
+// on la rattache à la page précédente — FitToFrame réduit alors le texte de
+// quelques pour cent pour que tout tienne.
+// Un simple encadré (astuce, erreur à éviter) seul sur une page est rattaché
+// même avec un dépassement plus marqué ; un bloc plus gros reste prudent.
+const TAIL_TOLERANCE = 1.05
+const CALLOUT_TAIL = 4.5
+const CALLOUT_TOLERANCE = 1.18
+const SHORT_TAIL = 7
+
+function absorbShortTail(pages, firstPageReserved, budget) {
+  const cost = (page, index) => (index === 0 ? firstPageReserved : 2) + page.reduce((s, u) => s + u.cost, 0)
+  for (let i = pages.length - 1; i > 0; i--) {
+    const tail = pages[i].reduce((s, u) => s + u.cost, 0)
+    const tolerance = tail <= CALLOUT_TAIL ? CALLOUT_TOLERANCE : TAIL_TOLERANCE
+    if (tail <= SHORT_TAIL && cost(pages[i - 1], i - 1) + tail <= budget * tolerance) {
+      pages[i - 1] = [...pages[i - 1], ...pages[i]]
+      pages.splice(i, 1)
     }
   }
   return pages
@@ -195,7 +226,7 @@ function itemCost(item, itemPadding) {
 function splitList(slide, key, itemPadding = 0.6) {
   const items = slide[key] || []
   const units = items.map((item) => ({ kind: 'item', value: item, cost: itemCost(item, itemPadding) }))
-  const pages = paginate(units, 2)
+  const pages = paginate(units, 2, LIST_BUDGET)
   if (pages.length === 1) return [slide]
   return pages.map((page, p) => {
     const next = { ...slide, continued: p > 0, [key]: page.map((u) => u.value) }
@@ -214,7 +245,7 @@ function splitVocabulary(slide) {
     const pair = terms.slice(i, i + 2)
     units.push({ kind: 'row', value: pair, cost: Math.max(...pair.map(termLines)) * 0.85 })
   }
-  const pages = paginate(units, 2)
+  const pages = paginate(units, 2, LIST_BUDGET)
   if (pages.length === 1) return [slide]
   return pages.map((page, p) => {
     const next = { ...slide, continued: p > 0, terms: page.flatMap((u) => u.value) }
@@ -228,7 +259,7 @@ function splitVocabulary(slide) {
 function splitComparisonTable(slide) {
   const rows = slide.rows || []
   const units = rows.map((row) => ({ kind: 'row', value: row, cost: tableRowCost(row, (slide.columns || []).length || row.length) }))
-  const pages = paginate(units, 2 + 1.6)
+  const pages = paginate(units, 2 + 1.6, LIST_BUDGET)
   if (pages.length === 1) return [slide]
   return pages.map((page, p) => {
     const next = { ...slide, continued: p > 0, rows: page.map((u) => u.value) }
@@ -272,4 +303,24 @@ const SPLITTERS = {
 
 export function expandSlides(slides) {
   return slides.flatMap((slide) => (SPLITTERS[slide.type] ? SPLITTERS[slide.type](slide) : [slide]))
+}
+
+// Coût estimé d'une diapositive déjà découpée (même unité que BUDGET) : sert à
+// fusionner les petites diapositives voisines et à étalonner l'estimation.
+export function estimateCost(slide) {
+  const extras = extraUnits(slide).reduce((s, u) => s + u.cost, 0)
+  switch (slide.type) {
+    case 'process':
+      return 2 + lines(slide.intro) + (slide.steps || []).reduce((s, st) => s + stepCost(st), 0) + extras
+    case 'concept': {
+      const paragraphs = Array.isArray(slide.body) ? slide.body : slide.body ? [slide.body] : []
+      return 2 + paragraphs.reduce((s, p) => s + lines(p) + 0.4, 0) + (slide.bullets || []).reduce((s, b) => s + lines(b) + 0.3, 0) + extras
+    }
+    case 'case-study':
+      return 2 + (slide.scenario ? lines(slide.scenario) + 1 : 0) + (slide.steps || []).reduce((s, st) => s + stepCost(st), 0) + extras
+    case 'exercise':
+      return 2 + (slide.instructions ? lines(slide.instructions) + 1.2 : 0) + (slide.steps || []).reduce((s, st) => s + stepCost(st), 0) + extras + (slide.deliverable ? lines(slide.deliverable) + 0.5 : 0)
+    default:
+      return 0
+  }
 }

@@ -4,6 +4,13 @@ const ASSET_BASE = import.meta.env.BASE_URL
 // En dessous de ce facteur le texte devient illisible : la diapositive
 // défile alors verticalement plutôt que d'être réduite davantage.
 const MIN_SCALE = 0.75
+// À l'inverse, une diapositive peu remplie est agrandie (jamais au-delà de ce
+// facteur) pour occuper la page au lieu de laisser un grand vide en bas.
+const MAX_GROW = 1.2
+// Seuil de remplissage en dessous duquel on essaie d'agrandir.
+const GROW_BELOW = 0.84
+// Marge gardée sous le contenu agrandi pour absorber les écarts de mesure.
+const GROW_FILL = 0.95
 
 // Filet de sécurité derrière expandSlides : si une diapositive reste plus
 // haute que son cadre (étape dense impossible à couper, police chargée plus
@@ -19,6 +26,41 @@ function FitToFrame({ children }) {
     const inner = innerRef.current
     if (!outer || !inner) return undefined
 
+    // Hauteur réellement occupée par le contenu, en pixels de mise en page
+    // (indépendante du facteur d'échelle déjà appliqué).
+    const intrinsicHeight = (content, factor) => {
+      // getBoundingClientRect() renvoie des pixels d'écran : on retire aussi
+      // l'échelle de la visionneuse (cadre 1280x720 réduit à la fenêtre).
+      const screen = outer.getBoundingClientRect().height / outer.clientHeight || 1
+      const top = content.getBoundingClientRect().top
+      let bottom = top
+      content.querySelectorAll('*').forEach((el) => {
+        const r = el.getBoundingClientRect()
+        if (r.height > 0) bottom = Math.max(bottom, r.bottom)
+      })
+      return (bottom - top) / screen / factor
+    }
+
+    const grow = (content, available) => {
+      // Seulement sur le cadre de composition 1280x720 (pas en mise en page
+      // fluide d'un petit écran, où l'agrandissement n'aurait pas de sens).
+      if (outer.clientWidth < 900) return
+      const base = intrinsicHeight(content, 1)
+      if (!base || base >= available * GROW_BELOW) return
+      let scale = Math.min(MAX_GROW, (available * GROW_FILL) / base)
+      for (let attempt = 0; attempt < 6 && scale > 1.02; attempt++) {
+        inner.style.transform = `scale(${scale})`
+        inner.style.width = `${100 / scale}%`
+        inner.style.height = `${100 / scale}%`
+        const height = intrinsicHeight(content, scale) * scale
+        if (height <= available * GROW_FILL) return
+        scale -= 0.04
+      }
+      inner.style.transform = ''
+      inner.style.width = '100%'
+      inner.style.height = '100%'
+    }
+
     const fit = () => {
       inner.style.transform = ''
       inner.style.width = '100%'
@@ -28,7 +70,11 @@ function FitToFrame({ children }) {
       const available = outer.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom)
       const content = inner.firstElementChild
       const natural = content ? content.scrollHeight : 0
-      if (!available || !natural || natural <= available) return
+      if (available && natural && natural <= available) {
+        grow(content, available)
+        return
+      }
+      if (!available || !natural) return
       const scale = Math.max(MIN_SCALE, available / natural)
       inner.style.transform = `scale(${scale})`
       inner.style.width = `${100 / scale}%`
