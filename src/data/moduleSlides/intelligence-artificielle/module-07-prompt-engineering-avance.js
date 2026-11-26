@@ -248,6 +248,364 @@ export default [
     ],
   },
 
+  // ───────────── Catalogue des 16 types de prompts, un exemple à copier-coller chacun ─────────────
+  {
+    type: 'concept',
+    title: `Catalogue des types de prompts : comment utiliser les exemples`,
+    body: [
+      `Les 16 diapositives qui suivent présentent chacune un type de prompt, avec sa définition, le moment où l'utiliser et un exemple complet à copier-coller. Chaque exemple est écrit pour être adapté en trois gestes, sans rien réinventer.`,
+    ],
+    bullets: [
+      `Geste 1 — Copiez le bloc de l'exemple tel quel dans votre outil d'IA (ChatGPT, Claude, Copilot, Gemini…).`,
+      `Geste 2 — Remplacez chaque [CROCHET EN MAJUSCULES] par votre situation : le texte après « ex. » montre une valeur possible, supprimez-le une fois remplacé.`,
+      `Geste 3 — Collez vos données réelles à la place de la zone « COLLEZ… ICI », lancez, puis comparez avec le résultat attendu avant de réutiliser.`,
+      `Les exemples sont écrits pour des situations de terrain humanitaire (budgets, achats, rapports, formation) mais fonctionnent dans tout autre métier : changez seulement les mots entre crochets.`,
+    ],
+    tip: `Un bon prompt se construit en combinant les types : un rôle (type 2) + un format imposé (type 6) + des étapes de raisonnement (type 9) donnent déjà un prompt professionnel.`,
+  },
+  {
+    type: 'comparison-table',
+    title: `Les 16 types de prompts : lequel choisir selon votre besoin`,
+    columns: [`Famille`, `Type de prompt`, `À utiliser quand…`],
+    rows: [
+      [`1. Cadrer`, `1 — Zéro-shot (instruction directe)`, `La tâche est courte, claire et sans enjeu : première version à tester.`],
+      [`1. Cadrer`, `2 — Prompt à rôle`, `Le ton et le niveau d'expertise changent la qualité de la réponse.`],
+      [`1. Cadrer`, `3 — ICIO structuré`, `Vous comptez réutiliser le prompt : Instruction, Contexte, Input, Output.`],
+      [`1. Cadrer`, `4 — Contraintes et garde-fous`, `Vous devez éviter les inventions, imposer des limites ou une conduite en cas de doute.`],
+      [`2. Produire`, `5 — Few-shot (exemples)`, `Le format, le ton ou la classification doivent imiter un modèle précis.`],
+      [`2. Produire`, `6 — Format imposé (tableau, JSON)`, `La sortie sera collée telle quelle dans Excel, un email ou un workflow.`],
+      [`2. Produire`, `7 — Transformation (réécriture)`, `Un texte existe déjà : il faut changer sa forme, pas son fond.`],
+      [`2. Produire`, `8 — Extraction`, `Vous devez sortir des champs précis d'un texte libre (email, rapport).`],
+      [`3. Raisonner`, `9 — Chain-of-thought`, `Calcul, comparaison ou diagnostic : chaque étape doit être vérifiable.`],
+      [`3. Raisonner`, `10 — Tree-of-thought`, `Une décision à enjeu demande de comparer plusieurs pistes.`],
+      [`3. Raisonner`, `11 — Analyse critique`, `Vous voulez qu'on attaque votre document avant son lecteur.`],
+      [`3. Raisonner`, `12 — Évaluation à grille`, `Vous devez noter un texte ou comparer deux versions de façon objective.`],
+      [`4. Orchestrer`, `13 — Synthèse multi-sources`, `Plusieurs documents doivent devenir une seule note de décision.`],
+      [`4. Orchestrer`, `14 — Interrogatif`, `Votre demande est floue : l'IA doit vous questionner avant de produire.`],
+      [`4. Orchestrer`, `15 — Chaîné`, `La tâche est longue : un résultat intermédiaire doit être contrôlé.`],
+      [`4. Orchestrer`, `16 — Méta-prompt`, `Votre prompt est instable : l'IA le réécrit selon la méthode ICIO.`],
+    ],
+  },
+  {
+    type: 'concept',
+    title: `Type 1/16 — Zéro-shot : l'instruction directe`,
+    body: [
+      `Le prompt zéro-shot donne une consigne directe, sans exemple ni cadre. Il convient aux tâches courtes et à faible enjeu, et c'est toujours le point de départ : vous le testez d'abord et ne le structurez que s'il échoue.`,
+      `Limite : le modèle choisit seul le format, la longueur et le ton, donc deux exécutions peuvent donner deux résultats différents.`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Résume en [NOMBRE : ex. 5] puces maximum le texte ci-dessous pour [LECTEUR : ex. quelqu'un qui n'a que 2 minutes].`,
+        `Chaque puce : une seule idée, une seule phrase, sans jargon.`,
+        `Texte : [COLLEZ LE TEXTE ICI]`,
+      ],
+    },
+    tip: `Pour l'adapter : changez le nombre de puces, le lecteur (directrice pays, bailleur, équipe) et le critère de tri (« les décisions », « les risques »).`,
+  },
+  {
+    type: 'concept',
+    title: `Type 2/16 — Prompt à rôle : faire endosser un métier au modèle`,
+    body: [
+      `Le prompt à rôle fait prendre au modèle un métier précis, avec son niveau d'exigence et son vocabulaire. Il oriente le ton, la profondeur et ce que le modèle juge important ; il ne remplace jamais les consignes.`,
+      `Utilisez un rôle qui change vraiment le résultat (« responsable achats humanitaires », « contrôleur de gestion »), pas un superlatif (« le meilleur expert du monde »).`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Tu es [RÔLE : ex. responsable achats humanitaires avec 10 ans d'expérience terrain].`,
+        `Ton lecteur est [DESTINATAIRE : ex. la directrice pays, qui décide sans lire les annexes].`,
+        `Mission : [TÂCHE : ex. relire ce plan d'approvisionnement et signaler les 3 risques majeurs].`,
+        `Ton : [TON : ex. direct, factuel, sans formule de politesse].`,
+        `Si une information manque, dis-le au lieu de l'inventer.`,
+        `Document : [COLLEZ LE DOCUMENT ICI]`,
+      ],
+    },
+    tip: `Pour l'adapter : écrivez le rôle comme une fiche de poste en une ligne (métier + expérience + ce que cette personne contrôle en priorité).`,
+  },
+  {
+    type: 'concept',
+    title: `Type 3/16 — ICIO : le prompt structuré et réutilisable`,
+    body: [
+      `La méthode ICIO découpe un prompt en quatre blocs : Instruction (le verbe et la tâche), Contexte (rôle, destinataire, contraintes), Input (les données, délimitées par des balises) et Output (le format exact attendu).`,
+      `Seul l'Input change d'un usage à l'autre : le reste forme le prompt que vous rangez dans votre bibliothèque.`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `INSTRUCTION : [VERBE + TÂCHE : ex. Analyse l'écart budget/réel et propose une action par poste.]`,
+        `CONTEXTE : [ORGANISATION, RÔLE, LECTEUR, LIMITES : ex. ONG de 3 sites ; lecteur : comité de direction ; 1 page maximum.]`,
+        `INPUT : <donnees> [COLLEZ LE TABLEAU OU LE TEXTE ICI] </donnees>`,
+        `OUTPUT : [FORMAT : ex. tableau Poste | Écart (USD et %) | Cause probable | Action, puis 3 lignes de conclusion.]`,
+        `Ne produis rien en dehors de ce format.`,
+      ],
+    },
+    tip: `Pour l'adapter : remplissez d'abord Output (ce que vous voulez recevoir), puis Instruction, puis Contexte ; l'Input se colle en dernier.`,
+  },
+  {
+    type: 'concept',
+    title: `Type 4/16 — Contraintes et garde-fous : dire ce qu'il ne faut pas faire`,
+    body: [
+      `Le prompt à contraintes fixe ce que le modèle doit faire et surtout ne pas faire : sources autorisées, longueur, mots interdits, informations à ne pas inventer, conduite en cas de doute. Il réduit les hallucinations et les écarts de ton.`,
+      `Écrivez chaque interdit comme une action vérifiable (« n'invente aucun chiffre ») plutôt que comme un souhait (« sois précis »).`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Rédige [LIVRABLE : ex. une note de 150 mots sur le retard de livraison du site de Bukavu].`,
+        `Contraintes :`,
+        `1. Utilise uniquement les faits du texte fourni ; n'ajoute aucun chiffre, nom ou date de ton côté.`,
+        `2. Si une information nécessaire est absente, écris « Information manquante : [laquelle] ».`,
+        `3. Maximum [NOMBRE] mots ; pas de superlatifs ; pas de mots en anglais.`,
+        `4. Termine par « Niveau de certitude : élevé, moyen ou faible » et justifie en une phrase.`,
+        `Texte source : [COLLEZ LE TEXTE ICI]`,
+      ],
+    },
+    tip: `Pour l'adapter : gardez les contraintes 1, 2 et 4 dans tous vos prompts à enjeu ; ajustez seulement la 3 selon le livrable.`,
+  },
+  {
+    type: 'concept',
+    title: `Type 5/16 — Few-shot : montrer des exemples à imiter`,
+    body: [
+      `Le prompt few-shot place un à trois exemples complets du résultat attendu ; le modèle imite la forme plutôt que d'en inventer une. Il est idéal pour un format précis, un ton maison ou une classification.`,
+      `Les valeurs de l'exemple doivent être fictives et signalées comme telles, sinon le modèle risque de les recopier dans sa réponse.`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Classe chaque [ÉLÉMENT : ex. demande reçue] dans une catégorie : [CATÉGORIES : ex. URGENT, STANDARD ou À CLARIFIER].`,
+        `Exemples (valeurs fictives, à ne pas réutiliser) :`,
+        `Demande : « Le groupe électrogène du site B est en panne, la chaîne du froid s'arrête » → URGENT`,
+        `Demande : « Pouvez-vous commander 20 cartons de papier pour le mois prochain ? » → STANDARD`,
+        `Demande : « Il nous faudrait un peu plus de matériel » → À CLARIFIER`,
+        `Réponds uniquement par la catégorie, sans phrase.`,
+        `Demande à classer : [COLLEZ LA DEMANDE ICI]`,
+      ],
+    },
+    tip: `Pour l'adapter : choisissez des exemples qui couvrent chaque catégorie, dont un cas limite, et gardez-les courts.`,
+  },
+  {
+    type: 'concept',
+    title: `Type 6/16 — Format imposé : un tableau ou un JSON directement exploitable`,
+    body: [
+      `Le prompt à format imposé décrit la structure exacte de la réponse : tableau, liste numérotée, JSON, plan en sections. La sortie est exploitable telle quelle (collée dans Excel, un email, un workflow) et comparable d'une exécution à l'autre.`,
+      `Nommez les colonnes ou les champs, leur ordre et leurs valeurs possibles ; ajoutez « aucun texte avant ou après ».`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `À partir du texte ci-dessous, réponds UNIQUEMENT avec un tableau Markdown à 4 colonnes :`,
+        `| [COLONNE 1 : ex. Action] | [COLONNE 2 : ex. Responsable] | [COLONNE 3 : ex. Échéance JJ/MM/AAAA] | [COLONNE 4 : ex. Priorité] |`,
+        `Règles : une ligne par [ÉLÉMENT : ex. action décidée] ; priorité = Haute, Moyenne ou Basse ; si une donnée est absente, écris « à définir ».`,
+        `Variante JSON : {"action": "", "responsable": "", "echeance": "", "priorite": ""}`,
+        `Aucun texte avant ou après le tableau.`,
+        `Texte : [COLLEZ LE COMPTE RENDU ICI]`,
+      ],
+    },
+    tip: `Pour l'adapter : listez d'abord les colonnes dont vous avez besoin dans Excel, puis copiez cet ordre dans le prompt.`,
+  },
+  {
+    type: 'concept',
+    title: `Type 7/16 — Transformation : changer la forme sans changer le fond`,
+    body: [
+      `Le prompt de transformation modifie un contenu existant : reformuler, raccourcir, adapter à un autre lecteur, traduire, changer de style. L'IA part d'un texte réel, donc le risque d'invention est faible.`,
+      `Précisez ce qui doit rester identique (faits, chiffres, noms) et ce qui change (ton, longueur, niveau de langue).`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Réécris le texte ci-dessous pour [NOUVEAU LECTEUR : ex. des chefs d'équipe sans formation financière].`,
+        `À conserver strictement : tous les chiffres, les noms propres et les dates.`,
+        `À changer : [CE QUI CHANGE : ex. ton simple, phrases de 20 mots maximum, aucun sigle non expliqué].`,
+        `Longueur cible : [NOMBRE] mots.`,
+        `Après la réécriture, liste en deux lignes ce que tu as supprimé.`,
+        `Texte original : [COLLEZ LE TEXTE ICI]`,
+      ],
+    },
+    tip: `Pour l'adapter : la phrase « ce que tu as supprimé » vous permet de vérifier qu'aucune information importante n'a disparu.`,
+  },
+  {
+    type: 'concept',
+    title: `Type 8/16 — Extraction : sortir des champs précis d'un texte libre`,
+    body: [
+      `Le prompt d'extraction fait ressortir d'un texte libre des informations précises : dates, montants, noms, décisions, risques. Il transforme un email ou un rapport en données prêtes à classer ou à saisir dans un tableau.`,
+      `Listez les champs à extraire, donnez la règle pour une valeur absente et interdisez toute déduction.`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Extrais du texte ci-dessous les informations suivantes, sans rien déduire ni inventer :`,
+        `- [CHAMP 1 : ex. nom de l'équipe]`,
+        `- [CHAMP 2 : ex. nombre de bénéficiaires servis, en chiffres]`,
+        `- [CHAMP 3 : ex. blocage signalé, en une phrase]`,
+        `Si un champ n'est pas dans le texte, écris « non précisé ».`,
+        `Format : une ligne par champ, sous la forme « Champ : valeur ».`,
+        `Texte : <texte> [COLLEZ LE RAPPORT ICI] </texte>`,
+      ],
+    },
+    tip: `Pour l'adapter : pour traiter 20 rapports, gardez le même prompt et changez seulement le texte entre les balises.`,
+  },
+  {
+    type: 'concept',
+    title: `Type 9/16 — Chain-of-thought : le raisonnement en étapes vérifiables`,
+    body: [
+      `Le chain-of-thought demande au modèle de dérouler son raisonnement étape par étape avant sa conclusion. Utilisez-le pour tout calcul, comparaison ou diagnostic : vous vérifiez chaque étape et corrigez celle qui déraille.`,
+      `Les étapes doivent être celles de votre métier, numérotées et mesurables, pas la formule générique « réfléchis étape par étape ».`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Analyse l'écart du poste [POSTE : ex. transport] entre le budget et le réel. Raisonne dans cet ordre :`,
+        `1) Calcule l'écart en valeur et en pourcentage : (réel − budget) et (réel − budget) / budget.`,
+        `2) Calcule l'effet volume : (quantité réelle − quantité prévue) × prix prévu.`,
+        `3) Calcule l'effet prix : (prix réel − prix prévu) × quantité réelle.`,
+        `4) Conclus en deux phrases : l'écart vient-il du volume, du prix, ou des deux ?`,
+        `Montre chaque calcul, puis termine par « Conclusion : ».`,
+        `Données : budget [MONTANT] ; réel [MONTANT] ; quantités [PRÉVUE / RÉELLE] ; prix [PRÉVU / RÉEL].`,
+      ],
+    },
+    tip: `Pour l'adapter : écrivez d'abord comment vous raisonneriez sans IA, puis numérotez chaque geste : ce sont vos étapes.`,
+  },
+  {
+    type: 'concept',
+    title: `Type 10/16 — Tree-of-thought : comparer plusieurs pistes avant de trancher`,
+    body: [
+      `Le tree-of-thought fait explorer deux ou trois pistes différentes, les évalue selon des critères posés à l'avance, puis recommande la meilleure. Réservez-le aux décisions à enjeu réel : choix d'un fournisseur, d'un plan d'action, d'une stratégie.`,
+      `Vous pilotez la décision : exigez les critères, le score de chaque piste et le risque principal, puis tranchez vous-même.`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Problème : [PROBLÈME : ex. le dédouanement dépasse son budget de 104 % ; il faut réduire l'écart le mois prochain].`,
+        `Étape 1 — Propose trois pistes réellement différentes (A, B, C), en deux lignes chacune.`,
+        `Étape 2 — Note chaque piste de 1 à 5 sur : [CRITÈRES : ex. économie attendue, délai, risque, effort].`,
+        `Étape 3 — Compare dans un tableau : Piste | Score par critère | Total | Risque principal.`,
+        `Étape 4 — Recommande une piste et dis ce qui te ferait changer d'avis.`,
+        `Contexte et contraintes : [CONTEXTE : ex. budget fixe, un seul transitaire agréé, validation sous 10 jours].`,
+      ],
+    },
+    tip: `Pour l'adapter : fixez les critères avant de lire les pistes, sinon le modèle choisit ceux qui avantagent sa première idée.`,
+  },
+  {
+    type: 'concept',
+    title: `Type 11/16 — Analyse critique : faire attaquer son propre document`,
+    body: [
+      `Le prompt d'analyse critique (avocat du diable) demande à l'IA d'attaquer votre document au lieu de le polir : failles de logique, chiffres douteux, objections probables du lecteur. Il remplace une relecture par un collègue sceptique.`,
+      `Fixez le nombre d'objections et exigez, pour chacune, la partie du texte visée et une correction proposée.`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Tu es [LECTEUR SCEPTIQUE : ex. un bailleur de fonds qui lit 30 propositions par semaine].`,
+        `Lis le document ci-dessous et formule les [NOMBRE : ex. 5] objections les plus dangereuses pour son acceptation.`,
+        `Pour chaque objection, donne : 1) la phrase ou le chiffre visé ; 2) pourquoi il pose problème ; 3) une correction concrète.`,
+        `Classe les objections de la plus grave à la moins grave. Ne fais aucun compliment.`,
+        `Document : [COLLEZ LE DOCUMENT ICI]`,
+      ],
+    },
+    tip: `Pour l'adapter : changez le lecteur (auditeur, directeur financier, bénéficiaire) pour obtenir des objections différentes sur le même document.`,
+  },
+  {
+    type: 'concept',
+    title: `Type 12/16 — Évaluation à grille : noter avec des critères explicites`,
+    body: [
+      `Le prompt d'évaluation fait noter un texte ou une sortie d'IA selon une grille de critères explicites. Il sert à comparer deux versions d'un prompt ou à contrôler une production avant envoi.`,
+      `Une grille utile compte 3 à 5 critères, une échelle définie (par exemple 0 à 2) et exige une preuve extraite du texte pour chaque note.`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Évalue le texte ci-dessous avec cette grille. Note chaque critère de 0 (absent) à 2 (pleinement atteint) :`,
+        `1. [CRITÈRE 1 : ex. Exactitude — les chiffres correspondent aux données fournies]`,
+        `2. [CRITÈRE 2 : ex. Clarté — un lecteur pressé comprend l'essentiel en 30 secondes]`,
+        `3. [CRITÈRE 3 : ex. Actionnable — chaque constat est suivi d'une action]`,
+        `Pour chaque note, cite la phrase du texte qui la justifie. Additionne, puis conclus : « prêt à envoyer » (au moins [SEUIL : ex. 5/6]) ou « à corriger ».`,
+        `Texte à évaluer : [COLLEZ LE TEXTE ICI]`,
+        `Données de référence : [COLLEZ LES CHIFFRES ICI]`,
+      ],
+    },
+    tip: `Pour l'adapter : utilisez la même grille avant et après chaque modification de prompt pour mesurer si la nouvelle version progresse vraiment.`,
+  },
+  {
+    type: 'concept',
+    title: `Type 13/16 — Synthèse multi-sources : plusieurs documents, une seule note`,
+    body: [
+      `Le prompt de synthèse condense plusieurs documents en un seul texte utile à une décision. Il précise le lecteur, la longueur, les angles à traiter et la manière de gérer les contradictions entre sources.`,
+      `Demandez que chaque information soit rattachée à sa source (« Source 2 ») pour pouvoir la vérifier.`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Synthétise les [NOMBRE : ex. 3] documents ci-dessous pour [LECTEUR : ex. la direction pays] en [LONGUEUR : ex. 200 mots maximum].`,
+        `Structure : 1) Faits clés ; 2) Points de désaccord entre les sources ; 3) Risques ; 4) Décision attendue.`,
+        `Rattache chaque fait à sa source entre parenthèses, par exemple (Source 2).`,
+        `Si deux sources se contredisent, présente les deux versions sans trancher.`,
+        `Source 1 : [COLLEZ LE DOCUMENT 1]`,
+        `Source 2 : [COLLEZ LE DOCUMENT 2]`,
+        `Source 3 : [COLLEZ LE DOCUMENT 3]`,
+      ],
+    },
+    tip: `Pour l'adapter : changez la structure en 4 rubriques selon la décision à prendre (par exemple Constat, Cause, Option, Recommandation).`,
+  },
+  {
+    type: 'concept',
+    title: `Type 14/16 — Prompt interrogatif : laisser l'IA vous poser les questions`,
+    body: [
+      `Le prompt interrogatif retourne la situation : avant de produire, l'IA vous pose des questions pour combler ce qu'elle ignore. Il évite les réponses génériques quand votre demande est floue ou complexe.`,
+      `Limitez le nombre de questions et interdisez à l'IA de produire avant vos réponses.`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Je veux [OBJECTIF : ex. un plan de formation pour 12 nouveaux logisticiens].`,
+        `Avant de répondre, pose-moi au maximum [NOMBRE : ex. 7] questions, une à la fois, pour comprendre : le contexte, le public, les contraintes et le résultat attendu.`,
+        `N'écris aucune proposition tant que je n'ai pas répondu à toutes tes questions.`,
+        `Quand tu as tout, résume ta compréhension en 3 lignes et demande-moi « Je produis ? ».`,
+      ],
+    },
+    tip: `Pour l'adapter : répondez court et chiffré à chaque question ; ajoutez « si tu hésites entre deux options, demande-moi » pour garder la main.`,
+  },
+  {
+    type: 'concept',
+    title: `Type 15/16 — Prompt chaîné : deux prompts, un contrôle entre les deux`,
+    body: [
+      `Le chaînage découpe une tâche longue en deux ou trois prompts successifs : la sortie du premier devient l'Input du suivant. Vous contrôlez le résultat intermédiaire (un calcul, une extraction) avant de laisser l'IA rédiger.`,
+      `Chaque prompt a un seul rôle et un format de sortie précis, pour pouvoir être collé directement dans le suivant.`,
+    ],
+    example: {
+      title: `Prompts à copier-coller, l'un après l'autre — remplacez les [crochets]`,
+      lines: [
+        `PROMPT 1 (calcul) : À partir du tableau ci-dessous, calcule pour chaque poste l'écart en USD et en %.`,
+        `Réponds par un tableau Poste | Budget | Réel | Écart USD | Écart %, sans commentaire. Tableau : [COLLEZ LES CHIFFRES]`,
+        `→ Vérifiez le tableau dans Excel avant de continuer.`,
+        `PROMPT 2 (rédaction) : Voici le tableau d'écarts validé : [COLLEZ LA SORTIE DU PROMPT 1].`,
+        `Pour les [NOMBRE : ex. 3] plus gros écarts, rédige : Constat (1 phrase) — Cause probable (1 phrase) — Action (1 phrase).`,
+        `N'utilise que les chiffres du tableau.`,
+      ],
+    },
+    tip: `Pour l'adapter : placez le point de contrôle là où une erreur coûterait le plus cher (calcul, extraction de montants, tri de cas).`,
+  },
+  {
+    type: 'concept',
+    title: `Type 16/16 — Méta-prompt : demander à l'IA d'améliorer le prompt`,
+    body: [
+      `Le méta-prompt demande à l'IA de réécrire ou de construire un prompt à votre place : vous lui donnez votre version actuelle, le défaut observé et le résultat voulu. C'est le moyen le plus rapide de passer d'un prompt flou à un prompt ICIO.`,
+      `L'IA propose, vous validez : testez toujours le prompt amélioré sur de vrais cas avant de l'adopter.`,
+    ],
+    example: {
+      title: `Prompt à copier-coller — remplacez les [crochets]`,
+      lines: [
+        `Tu es expert en prompt engineering. Voici mon prompt actuel, entre balises <prompt>.`,
+        `<prompt> [COLLEZ VOTRE PROMPT ACTUEL] </prompt>`,
+        `Défaut observé : [PROBLÈME : ex. la longueur et le format changent à chaque exécution].`,
+        `Résultat voulu : [RÉSULTAT : ex. toujours un tableau de 4 colonnes suivi de 3 lignes de conclusion].`,
+        `Réécris ce prompt avec la méthode ICIO (Instruction, Contexte, Input, Output) sans changer son objectif.`,
+        `Marque les variables à remplacer entre [crochets], puis explique en 3 puces ce que tu as corrigé.`,
+      ],
+    },
+    tip: `Pour l'adapter : joignez deux sorties réelles qui vous ont déçu ; l'IA comprend mieux le défaut en le voyant qu'en le décrivant.`,
+  },
+
   // ───────────── Procédure 1 — Diagnostiquer l'instabilité ─────────────
   {
     type: 'process',
