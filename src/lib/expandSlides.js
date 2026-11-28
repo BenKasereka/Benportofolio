@@ -98,7 +98,7 @@ function extraCost(key, value) {
 
 // Répartit des unités (chacune avec un coût) dans des pages sous le budget.
 // Une unité seule plus grande que le budget reste seule sur sa page.
-function paginate(units, firstPageReserved, budget = BUDGET) {
+function paginate(units, firstPageReserved, budget = BUDGET, tolerance = {}) {
   const pages = [[]]
   let used = firstPageReserved
   for (const unit of units) {
@@ -111,7 +111,7 @@ function paginate(units, firstPageReserved, budget = BUDGET) {
       used += unit.cost
     }
   }
-  return absorbShortTail(pages, firstPageReserved, budget)
+  return absorbShortTail(pages, firstPageReserved, budget, tolerance)
 }
 
 // Une page "(suite)" qui ne porte qu'un encadré ou deux lignes (une astuce
@@ -122,15 +122,21 @@ function paginate(units, firstPageReserved, budget = BUDGET) {
 // même avec un dépassement plus marqué ; un bloc plus gros reste prudent.
 const TAIL_TOLERANCE = 1.05
 const CALLOUT_TAIL = 4.5
-const CALLOUT_TOLERANCE = 1.18
+const CALLOUT_TOLERANCE = 1.12
+// Les diapositives de concept (texte courant) sont estimées trop haut (~13 %) :
+// on y garde sur une seule page un texte suivi d'un exemple ou d'un encadré,
+// que FitToFrame réduit de quelques pour cent, plutôt que de les séparer.
+// Pas pour les concepts à tableau, dont la hauteur est moins bien estimée.
+const CONCEPT_TOLERANCE = { callout: 1.3, tail: 1.3, maxTail: 20 }
 const SHORT_TAIL = 7
 
-function absorbShortTail(pages, firstPageReserved, budget) {
+function absorbShortTail(pages, firstPageReserved, budget, tolerance) {
+  const { callout = CALLOUT_TOLERANCE, tail: tailTolerance = TAIL_TOLERANCE, maxTail = SHORT_TAIL } = tolerance
   const cost = (page, index) => (index === 0 ? firstPageReserved : 2) + page.reduce((s, u) => s + u.cost, 0)
   for (let i = pages.length - 1; i > 0; i--) {
-    const tail = pages[i].reduce((s, u) => s + u.cost, 0)
-    const tolerance = tail <= CALLOUT_TAIL ? CALLOUT_TOLERANCE : TAIL_TOLERANCE
-    if (tail <= SHORT_TAIL && cost(pages[i - 1], i - 1) + tail <= budget * tolerance) {
+    const tail = pages[i].reduce((sum, u) => sum + u.cost, 0)
+    const allowed = tail <= CALLOUT_TAIL ? Math.max(callout, tailTolerance) : tailTolerance
+    if (tail <= maxTail && cost(pages[i - 1], i - 1) + tail <= budget * allowed) {
       pages[i - 1] = [...pages[i - 1], ...pages[i]]
       pages.splice(i, 1)
     }
@@ -187,7 +193,7 @@ function splitConcept(slide) {
     ...(slide.bullets || []).map((b) => ({ kind: 'bullet', value: b, cost: lines(b) + 0.3 })),
     ...extraUnits(slide),
   ]
-  const pages = paginate(units, 2)
+  const pages = paginate(units, 2, BUDGET, slide.table ? {} : CONCEPT_TOLERANCE)
   if (pages.length === 1) return [slide]
   return pages.map((page, p) => {
     const next = rebuild(slide, page, p, {})
