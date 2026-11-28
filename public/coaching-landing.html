@@ -214,7 +214,7 @@ header.site.scrolled{border-color:var(--line);box-shadow:0 8px 24px -16px rgba(1
 /* Rejoindre */
 .join-sec{background:var(--paper-2)}
 .jsteps{display:grid;gap:18px;margin-top:46px;counter-reset:j}
-@media(min-width:860px){.jsteps{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:760px){.jsteps{grid-template-columns:repeat(2,1fr);max-width:860px}}
 .jstep{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 28px 30px;counter-increment:j}
 .jstep::before{content:counter(j);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;font:800 20px var(--font-h);margin-bottom:20px}
 .jstep h3{font-size:22px;margin-bottom:10px}
@@ -249,21 +249,6 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 footer a{text-decoration:none}
 footer a:hover{color:#fff}
 .legal{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:13.5px}
-
-/* Fenêtre d'inscription */
-dialog.join{border:0;padding:0;border-radius:28px;width:min(480px,calc(100% - 32px));box-shadow:0 40px 90px -30px rgba(7,20,51,.8);background:var(--card);color:var(--ink)}
-dialog.join::backdrop{background:rgba(7,20,51,.62);backdrop-filter:blur(3px)}
-.join-in{padding:clamp(26px,5vw,38px);position:relative}
-.join h3{font-size:clamp(24px,4vw,30px);margin:10px 0 10px;color:var(--navy)}
-.join p{margin:0 0 22px;color:var(--muted);font-size:16px}
-.join .eyebrow{font-size:12px}
-.join .btn{width:100%;justify-content:flex-start;padding:17px 22px}
-.join .btn+.btn{margin-top:12px}
-.join .btn small{display:block;font:500 13px var(--font-b);opacity:.85;margin-top:3px}
-.join .btn span{text-align:left;line-height:1.2}
-.join-x{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;border:0;background:var(--paper);color:var(--navy);font:700 22px/1 var(--font-h);cursor:pointer}
-.join-x:hover{background:var(--paper-2)}
-.join .join-note{margin:18px 0 0;font-size:13.5px}
 
 /* Floating */
 .wa-fab{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;align-items:center;gap:10px;background:#25d366;color:#06361c;text-decoration:none;font:800 15px var(--font-h);padding:15px 20px;border-radius:999px;box-shadow:0 14px 30px -10px rgba(0,0,0,.45);transition:transform .25s}
@@ -384,7 +369,7 @@ dialog.join::backdrop{background:rgba(7,20,51,.62);backdrop-filter:blur(3px)}
   <div class="wrap">
     <span class="eyebrow rv">Votre situation</span>
     <h2 class="rv d1">Deux profils, <em class="accent">deux chemins</em> différents.</h2>
-    <p class="lead rv d2">Choisissez le cas qui vous ressemble : vous voyez ce que vous travaillez en priorité. La formation est gratuite et l'inscription se fait en rejoignant la chaîne et le groupe WhatsApp BK-BOOST.</p>
+    <p class="lead rv d2">Choisissez le cas qui vous ressemble : vous voyez ce que vous travaillez en priorité. La formation est gratuite et l'inscription se fait en rejoignant la chaîne WhatsApp BK-BOOST.</p>
 
     <div class="tabs rv" role="tablist" aria-label="Choisir sa situation">
       <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">Je postule et personne ne m'appelle</button>
@@ -498,7 +483,7 @@ dialog.join::backdrop{background:rgba(7,20,51,.62);backdrop-filter:blur(3px)}
         <p id="r-text"></p>
         <a class="btn btn-primary js-magnet" id="r-btn" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
       </div>
-      <p class="note-q" id="r-hint">Répondez aux deux questions : le thème à travailler en premier apparaît automatiquement. La formation est gratuite : rejoignez ensuite la chaîne et le groupe WhatsApp.</p>
+      <p class="note-q" id="r-hint">Répondez aux deux questions : le thème à travailler en premier apparaît automatiquement. La formation est gratuite : rejoignez ensuite la chaîne WhatsApp.</p>
     </form>
   </div>
 </section>
@@ -518,11 +503,10 @@ dialog.join::backdrop{background:rgba(7,20,51,.62);backdrop-filter:blur(3px)}
   <div class="wrap">
     <span class="eyebrow rv">Rejoindre la communauté</span>
     <h2 class="rv d1">Une formation gratuite, <em class="accent">une communauté</em> qui avance ensemble.</h2>
-    <p class="lead rv d2">BK-BOOST ouvre cette formation de coaching de carrière gratuitement. Rejoignez la chaîne pour suivre les contenus, et le groupe pour échanger avec les autres candidats.</p>
+    <p class="lead rv d2">BK-BOOST ouvre cette formation de coaching de carrière gratuitement. Rejoignez la chaîne WhatsApp pour y accéder et faire partie de la communauté.</p>
     <div class="jsteps">
-      <article class="jstep rv"><h3>Rejoignez la chaîne WhatsApp</h3><p>C'est là que la formation est diffusée : informations et annonces de BK-BOOST.</p></article>
-      <article class="jstep rv d1"><h3>Rejoignez le groupe WhatsApp</h3><p>Posez vos questions et échangez avec d'autres candidats qui visent les mêmes postes.</p></article>
-      <article class="jstep rv d2"><h3>Suivez la formation et passez à l'action</h3><p>Appliquez chaque thème à votre propre dossier : CV, lettre, tests, entretiens, négociation.</p></article>
+      <article class="jstep rv"><h3>Rejoignez la chaîne WhatsApp</h3><p>C'est le point d'entrée de la formation gratuite : un clic suffit.</p></article>
+      <article class="jstep rv d1"><h3>Suivez la formation et passez à l'action</h3><p>Appliquez chaque thème à votre propre dossier : CV, lettre, tests, entretiens, négociation.</p></article>
     </div>
     <div class="join-cta rv">
       <a class="btn btn-primary js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
@@ -538,7 +522,7 @@ dialog.join::backdrop{background:rgba(7,20,51,.62);backdrop-filter:blur(3px)}
     <h2 class="rv d1">Avant de vous décider.</h2>
     <div class="faq-list rv">
       <details><summary>La formation est-elle vraiment gratuite ?</summary><p>Oui. BK-BOOST ouvre cette formation gratuitement pour aider un maximum de candidats à améliorer leur dossier et leurs chances d'être rappelés.</p></details>
-      <details><summary>Comment rejoindre ?</summary><p>Cliquez sur « Rejoindre gratuitement » : une fenêtre vous propose de rejoindre la chaîne WhatsApp BK-BOOST, puis le groupe WhatsApp. Il suffit de rejoindre les deux.</p></details>
+      <details><summary>Comment rejoindre ?</summary><p>Cliquez sur « Rejoindre » : le bouton vous amène à la chaîne WhatsApp BK-BOOST. Il suffit de la rejoindre pour accéder à la formation gratuite.</p></details>
       <details><summary>Est-ce que je serai recruté à coup sûr ?</summary><p>Non, et personne ne peut le promettre honnêtement. La formation agit sur ce qui dépend de vous : la qualité de votre CV, de votre lettre, de votre préparation et de votre négociation. Ce sont ces leviers qui font passer un dossier de « ignoré » à « convoqué ».</p></details>
       <details><summary>Je ne cherche pas dans l'humanitaire. Est-ce adapté ?</summary><p>Oui. Les conseils visent les offres d'emploi nationales dans les ONG, les entreprises privées et les institutions publiques.</p></details>
     </div>
@@ -550,7 +534,7 @@ dialog.join::backdrop{background:rgba(7,20,51,.62);backdrop-filter:blur(3px)}
   <div class="wrap">
     <span class="eyebrow rv">Votre prochaine étape</span>
     <h2 class="rv d1">Rejoignez les candidats qui <em class="accent">se font enfin rappeler</em>.</h2>
-    <p class="lead rv d2">La formation est gratuite. Rejoignez la chaîne et le groupe WhatsApp BK-BOOST en deux clics, puis passez à l'action.</p>
+    <p class="lead rv d2">La formation est gratuite. Rejoignez la chaîne WhatsApp BK-BOOST en un clic, puis passez à l'action.</p>
     <div class="cta-row rv d3">
       <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre sur WhatsApp</a>
       <a class="btn btn-ghost js-magnet" href="#comment">Revoir la méthode</a>
@@ -574,8 +558,6 @@ dialog.join::backdrop{background:rgba(7,20,51,.62);backdrop-filter:blur(3px)}
         <h4>Contact</h4>
         <ul>
           <li><a href="https://whatsapp.com/channel/0029VbBvG6LA89Mc0Y6Hwy0M" rel="noopener" target="_blank">Chaîne WhatsApp BK-BOOST</a></li>
-          <li><a href="https://chat.whatsapp.com/CSPOA8wQOtjC79GFx7RGvh" rel="noopener" target="_blank">Groupe WhatsApp BK-BOOST</a></li>
-          <li><a href="https://wa.me/243990260711" rel="noopener" target="_blank">Question directe : +243 990 260 711</a></li>
           <li><a href="mailto:kasvinyatsi7@gmail.com">kasvinyatsi7@gmail.com</a></li>
           <li><a href="https://www.linkedin.com/in/benjamin-kasereka-vinyatsi-57557b2aa/" rel="noopener" target="_blank">LinkedIn</a></li>
           <li>Goma, RD Congo</li>
@@ -586,41 +568,16 @@ dialog.join::backdrop{background:rgba(7,20,51,.62);backdrop-filter:blur(3px)}
   </div>
 </footer>
 
-<a class="wa-fab js-wa" href="#" aria-label="Rejoindre la chaîne et le groupe WhatsApp"><svg><use href="#i-wa"/></svg><span>Rejoindre</span></a>
-
-<dialog class="join" id="join" aria-labelledby="join-t">
-  <div class="join-in">
-    <button class="join-x" type="button" aria-label="Fermer" id="join-x">&times;</button>
-    <span class="eyebrow">Inscription</span>
-    <h3 id="join-t">Deux étapes pour rejoindre</h3>
-    <p>Pour accéder à la formation gratuite, rejoignez la chaîne et le groupe WhatsApp BK-BOOST. Les deux boutons s'ouvrent dans WhatsApp.</p>
-    <a class="btn btn-primary" id="join-ch" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>1. Rejoindre la chaîne WhatsApp<small>Informations et annonces</small></span></a>
-    <a class="btn btn-gold" id="join-gr" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>2. Rejoindre le groupe WhatsApp<small>Échanges avec les autres candidats</small></span></a>
-    <p class="join-note">Rejoignez les deux pour ne rien manquer de la formation.</p>
-  </div>
-</dialog>
+<a class="wa-fab js-wa" href="#" aria-label="Rejoindre la chaîne WhatsApp"><svg><use href="#i-wa"/></svg><span>Rejoindre</span></a>
 
 <script>
 (function(){
   var CHANNEL = "https://whatsapp.com/channel/0029VbBvG6LA89Mc0Y6Hwy0M";
-  var GROUP = "https://chat.whatsapp.com/CSPOA8wQOtjC79GFx7RGvh";
-  var WA = "243990260711";
 
   // Liens WhatsApp
   document.querySelectorAll(".js-wa").forEach(function(a){
     a.href = CHANNEL; a.target = "_blank"; a.rel = "noopener";
   });
-  // Chaque bouton d'inscription ouvre la fenêtre « chaîne + groupe » (repli sans JavaScript : lien vers la chaîne).
-  var dlg = document.getElementById("join");
-  document.getElementById("join-ch").href = CHANNEL;
-  document.getElementById("join-gr").href = GROUP;
-  function openJoin(e){
-    if (!dlg || typeof dlg.showModal !== "function") return;
-    e.preventDefault(); dlg.showModal();
-  }
-  document.querySelectorAll(".js-wa, #r-btn").forEach(function(a){ a.addEventListener("click", openJoin); });
-  document.getElementById("join-x").addEventListener("click", function(){ dlg.close(); });
-  dlg.addEventListener("click", function(e){ if (e.target === dlg) dlg.close(); });
   document.getElementById("yr").textContent = new Date().getFullYear();
 
   // Header
@@ -709,8 +666,8 @@ dialog.join::backdrop{background:rgba(7,20,51,.62);backdrop-filter:blur(3px)}
     box.appendChild(el); if (io) io.observe(el); else el.classList.add("in");
   });
   var more = document.createElement("article"); more.className = "person more rv";
-  more.innerHTML = '<h3>Et bien d\'autres candidats</h3><p>Chaque parcours est différent. Le vôtre commence en rejoignant la chaîne et le groupe.</p><a class="btn btn-gold js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre</a>';
-  var mb = more.querySelector("a"); mb.href = CHANNEL; mb.target="_blank"; mb.rel="noopener"; mb.addEventListener("click", openJoin);
+  more.innerHTML = '<h3>Et bien d\'autres candidats</h3><p>Chaque parcours est différent. Le vôtre commence en rejoignant la chaîne.</p><a class="btn btn-gold js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre</a>';
+  var mb = more.querySelector("a"); mb.href = CHANNEL; mb.target="_blank"; mb.rel="noopener";
   box.appendChild(more); if (io) io.observe(more); else more.classList.add("in");
 })();
 </script>
