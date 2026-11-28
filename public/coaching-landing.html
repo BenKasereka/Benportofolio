@@ -7,7 +7,7 @@
 <meta name="description" content="Formation gratuite pour construire votre carrière dans le monde humanitaire, du 7 au 11 décembre 2026 à 18h GMT : construire un CV très professionnel, comprendre le recrutement et toute offre d'emploi, préparer son dossier et se démarquer.">
 <meta name="theme-color" content="#0b1f4a">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Construisez votre carrière dans le monde humanitaire : formation gratuite du 7 au 11 décembre 2026">
+<meta property="og:title" content="Et si votre CV était la seule chose qui vous empêche d'être rappelé ? Formation gratuite du 7 au 11 décembre 2026">
 <meta property="og:description" content="Du 7 au 11 décembre 2026, 18h GMT, 1h30 par soir. Étudiant, en recherche d'emploi ou déjà en poste : construisez votre carrière humanitaire. 100 % gratuit.">
 <meta property="og:image" content="https://benkasereka.github.io/Benportofolio/images/social/og-default.png">
 <link rel="icon" href="images/brand/favicon.png">
@@ -132,6 +132,30 @@ header.site.scrolled{border-color:var(--line);box-shadow:0 8px 24px -16px rgba(1
 .who-link:hover{color:var(--navy)}
 @media(min-width:940px){.about-grid{grid-template-columns:1fr}.audience{grid-template-columns:repeat(3,1fr)}.aud{flex-direction:column}.aud:hover{transform:translateY(-6px)}}
 .hero{padding-top:clamp(30px,4vw,56px)}
+
+/* Accroche */
+.byline{display:inline-flex;align-items:center;gap:12px;margin-bottom:22px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 18px 7px 7px;box-shadow:0 8px 20px -16px rgba(11,31,74,.5)}
+.byline img{width:46px;height:46px;border-radius:50%;object-fit:cover;object-position:50% 18%}
+.byline b{display:block;font:700 15px/1.2 var(--font-h);color:var(--navy)}
+.byline small{display:block;font:500 12.5px var(--font-b);color:var(--muted);margin-top:2px}
+.why{list-style:none;margin:0 0 30px;padding:0;display:grid;gap:12px;max-width:640px}
+.why li{display:flex;gap:12px;align-items:flex-start;font:600 17px/1.4 var(--font-h);color:var(--navy)}
+.why li svg{width:22px;height:22px;color:var(--emerald);flex:none;margin-top:2px}
+.hero h1{max-width:20ch}
+.hero-grid{max-width:900px}
+
+/* Conditions */
+.cond{background:var(--paper-2)}
+.cond h2{font-size:clamp(32px,4.6vw,54px);font-weight:800;margin:16px 0 18px;max-width:22ch}
+.cond3{display:grid;gap:16px;margin-top:44px}
+@media(min-width:820px){.cond3{grid-template-columns:repeat(3,1fr)}}
+.cd{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px}
+.cd .ico{margin-bottom:18px}
+.cd h3{font-size:22px;margin-bottom:10px;color:var(--navy)}
+.cd p{margin:0;color:var(--muted);font-size:16px}
+.cd.must{background:var(--navy);border-color:var(--navy)}
+.cd.must h3{color:#fff}.cd.must p{color:#c5d0ea}.cd.must .ico{background:rgba(255,255,255,.12);color:var(--gold-l)}
+.cond-note{margin:22px 0 0;font:700 16px var(--font-h);color:var(--emerald-d)}
 
 /* Scenarios */
 .scen{background:var(--paper)}
@@ -325,7 +349,7 @@ footer a:hover{color:#fff}
       <li><a href="#probleme">Le constat</a></li>
       <li><a href="#apropos">Pour qui</a></li>
       <li><a href="#parcours">Votre cas</a></li>
-      <li><a href="#programme">Programme</a></li>
+      <li><a href="#programme">Programme</a></li><li><a href="#conditions">Conditions</a></li>
       <li><a href="#rejoindre">Rejoindre</a></li>
       <li><a href="#faq">Questions</a></li>
     </ul>
@@ -335,38 +359,19 @@ footer a:hover{color:#fff}
 
 <main id="contenu">
 
-<!-- FORMATEUR -->
-<section class="who" id="formateur">
-  <div class="wrap">
-    <div class="who-card rv">
-      <div class="who-photo"><img src="images/benjamin-kasereka.jpg" alt="Portrait de Benjamin Kasereka Vinyatsi" width="680" height="730"></div>
-      <div class="who-body">
-        <span class="who-flag"><svg><use href="#i-pin"/></svg>Aujourd'hui expatrié au Tchad · Supply Chain Manager d'urgence, MSF-OCB</span>
-        <h2>Benjamin Kasereka Vinyatsi</h2>
-        <div class="who-role">Senior Supply Chain &amp; Consulting Expert · Coach de carrière · Goma, RD Congo</div>
-        <p class="bio">Plus de dix ans à toucher à tous les métiers qui font tourner une opération humanitaire : de l'achat à l'audit, de la finance aux ressources humaines, de la chaîne du froid à la data. Ce parcours, je vous le transmets pour construire le vôtre.</p>
-        <div class="who-stats">
-          <div class="who-stat"><b>10+</b><span>ans d'expérience polyvalente</span></div>
-          <div class="who-stat"><b>9</b><span>domaines maîtrisés</span></div>
-          <div class="who-stat"><b>5</b><span>pays de terrain</span></div>
-        </div>
-        <div class="who-sub">Domaines traversés</div>
-        <div class="chips">
-          <span>Supply chain d'urgence</span><span>Achats et contrats</span><span>Audit et conformité</span><span>Finance et administration</span><span>Ressources humaines</span><span>Chaîne du froid et santé</span><span>Data, ERP et reporting</span><span>Réponse aux épidémies et crises</span><span>Coaching et formation</span>
-        </div>
-        <p class="who-orgs">Parcours au sein de MSF, ACTED, ACF, Mercy Corps et International Medical Corps · Tchad, Soudan du Sud, Haïti, Nigeria, RDC · Master en coopération internationale et aide humanitaire · <a class="who-link" href="https://www.linkedin.com/in/benjamin-kasereka-vinyatsi-57557b2aa/" target="_blank" rel="noopener">Profil LinkedIn</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HERO -->
-<section class="hero">
+<!-- HERO / ACCROCHE -->
+<section class="hero" id="accueil">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow rv">Formation gratuite · Carrière humanitaire</span>
-      <h1 class="rv d1">Construisez votre carrière dans le monde humanitaire. <em class="accent">En cinq soirées, gratuitement.</em></h1>
-      <p class="lead rv d2">Étudiant, en recherche d'emploi ou déjà en poste : du 7 au 11 décembre 2026, apprenez à construire un CV très professionnel, à comprendre le recrutement et toute offre d'emploi, et à vous démarquer.</p>
+      <div class="byline rv"><img src="images/benjamin-kasereka.jpg" alt="" width="46" height="46"><span><b>Benjamin Kasereka Vinyatsi</b><small>Aujourd'hui expatrié · 10+ ans d'expérience</small></span></div>
+      <span class="eyebrow rv" style="display:flex">Formation gratuite · Carrière humanitaire</span>
+      <h1 class="rv d1">Et si votre CV était <em class="accent">la seule chose</em> qui vous empêche d'être rappelé ?</h1>
+      <p class="lead rv d2">Du 7 au 11 décembre 2026, cinq soirées gratuites pour construire un CV très professionnel et vous démarquer face à n'importe quelle offre dans le monde humanitaire.</p>
+      <ul class="why rv d2">
+        <li><svg><use href="#i-check"/></svg>100 % gratuit, ouvert aux étudiants, aux chercheurs d'emploi et aux professionnels en poste.</li>
+        <li><svg><use href="#i-check"/></svg>Concret : vous pratiquez en direct, ordinateur en main, pour repartir avec votre CV.</li>
+        <li><svg><use href="#i-check"/></svg>Animé par un expert de terrain, aujourd'hui expatrié.</li>
+      </ul>
       <div class="when rv d2">
         <div class="when-i"><svg><use href="#i-pin"/></svg><div>7 au 11 décembre 2026<small>Du lundi au vendredi</small></div></div>
         <div class="when-i"><svg><use href="#i-target"/></svg><div>Dès 18h00 GMT<small>20h00 à Goma</small></div></div>
@@ -380,11 +385,35 @@ footer a:hover{color:#fff}
         <a class="btn btn-primary js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Je m'inscris gratuitement</a>
       </div>
       <div class="micro rv d3">
-        <span><svg><use href="#i-check"/></svg>100 % gratuit</span>
         <span><svg><use href="#i-check"/></svg>Inscription par la chaîne WhatsApp</span>
+        <span><svg><use href="#i-check"/></svg>À prévoir : connexion Internet et ordinateur</span>
       </div>
     </div>
+  </div>
+</section>
 
+<!-- FORMATEUR -->
+<section class="who" id="formateur">
+  <div class="wrap">
+    <div class="who-card rv">
+      <div class="who-photo"><img src="images/benjamin-kasereka.jpg" alt="Portrait de Benjamin Kasereka Vinyatsi" width="680" height="730"></div>
+      <div class="who-body">
+        <span class="who-flag"><svg><use href="#i-pin"/></svg>Aujourd'hui expatrié au Tchad · Supply Chain Manager d'urgence, MSF-OCB</span>
+        <h2>Benjamin Kasereka Vinyatsi</h2>
+        <div class="who-role">Senior Supply Chain &amp; Consulting Expert · Coach de carrière · Goma, RD Congo</div>
+        <p class="bio">Plus de dix ans à travailler dans tous les domaines qui font tourner une organisation humanitaire : logistique, supply chain, finance, administration, ressources humaines et audit, aujourd'hui complétés par le coaching de carrière. Ce parcours, je vous le transmets pour construire le vôtre.</p>
+        <div class="who-stats">
+          <div class="who-stat"><b>10+</b><span>ans d'expérience polyvalente</span></div>
+          <div class="who-stat"><b>7</b><span>domaines d'expertise</span></div>
+          <div class="who-stat"><b>5</b><span>pays de terrain</span></div>
+        </div>
+        <div class="who-sub">Domaines traversés</div>
+        <div class="chips">
+          <span>Logistique</span><span>Supply Chain</span><span>Finance</span><span>Administration</span><span>Ressources humaines</span><span>Audit</span><span>Coaching de carrière</span>
+        </div>
+        <p class="who-orgs">Parcours au sein de MSF, ACTED, ACF, Mercy Corps et International Medical Corps · Tchad, Soudan du Sud, Haïti, Nigeria, RDC · Master en coopération internationale et aide humanitaire · <a class="who-link" href="https://www.linkedin.com/in/benjamin-kasereka-vinyatsi-57557b2aa/" target="_blank" rel="noopener">Profil LinkedIn</a></p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -511,6 +540,20 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
+<!-- CONDITIONS -->
+<section class="cond" id="conditions">
+  <div class="wrap">
+    <span class="eyebrow rv">Conditions de participation</span>
+    <h2 class="rv d1">Ce qu'il vous faut pour <em class="accent">participer</em>.</h2>
+    <p class="lead rv d2">La formation est gratuite et pratique : on passe à l'action ensemble, directement. Deux choses sont indispensables.</p>
+    <div class="cond3">
+      <article class="cd must rv"><div class="ico"><svg><use href="#i-globe"/></svg></div><h3>Une connexion Internet</h3><p>Assez stable pour suivre les soirées en direct, du début à la fin.</p></article>
+      <article class="cd must rv d1"><div class="ico"><svg><use href="#i-doc"/></svg></div><h3>Un ordinateur</h3><p>Pour passer à la pratique ensemble, directement : vous construisez votre CV pendant la formation.</p></article>
+      <article class="cd rv d2"><div class="ico"><svg><use href="#i-target"/></svg></div><h3>De la disponibilité</h3><p>Chaque soir de 18h00 à 19h30 GMT, du lundi 7 au vendredi 11 décembre 2026.</p></article>
+    </div>
+  </div>
+</section>
+
 <!-- A EMPORTER -->
 <section class="take" id="emporter">
   <div class="wrap">
@@ -602,6 +645,7 @@ footer a:hover{color:#fff}
     <div class="faq-list rv">
       <details><summary>La formation est-elle vraiment gratuite ?</summary><p>Oui. BK-BOOST ouvre cette formation gratuitement pour aider un maximum de personnes à construire leur carrière dans le monde humanitaire.</p></details>
       <details><summary>Quand et à quelle heure ?</summary><p>Du lundi 7 au vendredi 11 décembre 2026, chaque soir à 18h00 GMT (20h00 à Goma), pendant 1h30.</p></details>
+      <details><summary>De quoi ai-je besoin pour participer ?</summary><p>D'une connexion Internet et d'un ordinateur, pour passer à la pratique ensemble, directement, pendant la formation. Prévoyez aussi de vous libérer chaque soir de 18h00 à 19h30 GMT.</p></details>
       <details><summary>Cette formation est-elle faite pour moi ?</summary><p>Oui, si vous voulez construire votre carrière dans le monde humanitaire : étudiant, chercheur d'emploi ou déjà en poste, la formation vous concerne.</p></details>
       <details><summary>Comment rejoindre ?</summary><p>Cliquez sur « Je m'inscris gratuitement » : le bouton vous amène à la chaîne WhatsApp BK-BOOST. Il suffit de la rejoindre.</p></details>
       <details><summary>Est-ce que je serai recruté à coup sûr ?</summary><p>Non, et personne ne peut le promettre honnêtement. La formation agit sur ce qui dépend de vous : la qualité de votre CV, de votre lettre, de votre préparation et de votre négociation. Ce sont ces leviers qui font passer un dossier de « ignoré » à « convoqué ».</p></details>
@@ -631,7 +675,7 @@ footer a:hover{color:#fff}
       </div>
       <div>
         <h4>Navigation</h4>
-        <ul><li><a href="#apropos">Pour qui</a></li><li><a href="#parcours">Votre situation</a></li><li><a href="#programme">Programme</a></li><li><a href="#rejoindre">Rejoindre</a></li><li><a href="#faq">Questions</a></li></ul>
+        <ul><li><a href="#apropos">Pour qui</a></li><li><a href="#parcours">Votre situation</a></li><li><a href="#programme">Programme</a></li><li><a href="#conditions">Conditions</a></li><li><a href="#rejoindre">Rejoindre</a></li><li><a href="#faq">Questions</a></li></ul>
       </div>
       <div>
         <h4>Contact</h4>
