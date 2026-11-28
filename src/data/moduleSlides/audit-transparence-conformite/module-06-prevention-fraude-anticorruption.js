@@ -329,6 +329,12 @@ export default [
       },
       {
         title: 'Terminez par la source à consulter pour confirmer ou infirmer chaque hypothèse',
+        actions: [
+          'Renseignez la colonne « Source à consulter » pour chaque typologie.',
+          'Citez le document précis à ouvrir : registre des avances, bons de réception, fichier du personnel, liste fournisseurs.',
+          "Vérifiez que chaque hypothèse de la colonne « Opportunité supposée à Bunia » a au moins une source qui peut la confirmer ou l'infirmer.",
+        ],
+        result: 'Chaque hypothèse du tableau est reliée à un document que vous pouvez ouvrir.',
       },
     ],
     table: {
@@ -359,6 +365,12 @@ export default [
       },
       {
         title: 'Pour chaque priorité, écrivez le contrôle à vérifier et le test prévu',
+        actions: [
+          'Nommez le contrôle attendu, par exemple la séparation entre commande et réception, ou la validation croisée RH / Finance.',
+          "Décrivez le test : pièces à extraire, taille de l'échantillon, écart qui sera retenu comme anomalie.",
+          'Vérifiez que le test se fait sur pièces, sans viser une personne.',
+        ],
+        result: 'Chaque priorité a un contrôle nommé et un test que vous pouvez exécuter.',
       },
       {
         title: 'Rédigez la note en quatre blocs',
@@ -369,7 +381,15 @@ export default [
           "4. Ce que vous ne ferez pas : enquêter sur des personnes.",
         ],
       },
-      { title: 'Envoyez-la à Hélène V. et archivez-la dans « 01_Cadrage »' },
+      {
+        title: 'Envoyez-la à Hélène V. et archivez-la dans « 01_Cadrage »',
+        actions: [
+          'Joignez la note à un courriel adressé à Hélène V. avant le départ sur le terrain.',
+          'Déposez une copie dans le dossier « 01_Cadrage ».',
+          "Conservez la trace de l'envoi : date, destinataire, nom du fichier.",
+        ],
+        result: 'La note est partie, datée, et son exemplaire est archivé dans le dossier de cadrage.',
+      },
     ],
     example: {
       title: "Note d'orientation envoyée le 9 septembre 2026 (extrait)",
@@ -1032,6 +1052,12 @@ export default [
       },
       {
         title: 'Ajoutez sous le tableau un constat de trois lignes sur le silence',
+        actions: [
+          'Ligne 1 : rappelez les chiffres de la section 2 (signalements reçus, délai de réponse).',
+          'Ligne 2 : dites quelles hypothèses sont les plus probables, et pourquoi, en citant votre preuve.',
+          'Ligne 3 : écrivez ce que le silence ne démontre pas, et renvoyez aux entretiens de la procédure 5.',
+        ],
+        result: 'Un constat de trois lignes, daté et sourcé, que la commanditaire peut lire sans le dossier.',
       },
     ],
     example: {
@@ -1171,6 +1197,12 @@ export default [
       },
       {
         title: 'Comptez les réponses par question',
+        actions: [
+          'Additionnez les « oui » de chaque ligne et écrivez le total sous la forme « 9 sur 12 ».',
+          'Comptez à part les « non » et les « ne sait pas ».',
+          'Vérifiez que oui + non + ne sait pas = 12 pour chaque question.',
+        ],
+        result: 'Une colonne « Réponses sur 12 » complète, sans écart de total.',
       },
       {
         title: 'Relevez les obstacles cités (réponses multiples)',
@@ -1178,6 +1210,12 @@ export default [
       },
       {
         title: 'Rapprochez chaque résultat de la grille de red flags et des deux sources du dossier',
+        actions: [
+          'Placez en face de chaque résultat le red flag correspondant de la grille.',
+          "Indiquez la source du dossier qui le confirme ou le contredit : test d'anonymat ou registre des signalements.",
+          "Marquez « indicatif » tout résultat qu'aucune source ne recoupe.",
+        ],
+        result: "Chaque résultat est rapproché d'un red flag et d'une source, ou signalé comme indicatif.",
       },
     ],
     table: {
@@ -1219,6 +1257,12 @@ export default [
       },
       {
         title: 'Vérifiez que chaque phrase est un fait chiffré ou un témoignage codé',
+        actions: [
+          'Relisez la section 3 phrase par phrase.',
+          'Remplacez toute opinion par le chiffre ou le témoignage codé qui la fonde.',
+          "Contrôlez chaque chiffre contre la table de l'étape 4.",
+        ],
+        result: 'Aucune phrase de la section 3 ne repose sur une impression.',
       },
     ],
     example: {
@@ -1291,6 +1335,13 @@ export default [
       },
       {
         title: 'Comptez les dérogations et calculez la proportion',
+        actions: [
+          'Comptez les dossiers qui présentent au moins un écart sur les cinq points.',
+          'Divisez par 25 pour obtenir la proportion de dérogations.',
+          'Additionnez les montants de ces dossiers.',
+          'Notez combien portent la mention « urgence » et combien ont été régularisés.',
+        ],
+        result: 'Le nombre de dérogations, leur proportion sur 25 dossiers et leur montant total sont chiffrés.',
       },
     ],
     table: {
@@ -1368,6 +1419,12 @@ export default [
       },
       {
         title: 'Rapprochez deux à deux le message et la décision',
+        actions: [
+          "Remplissez une ligne du tableau par promesse : la colonne « Message ou promesse (date) » à gauche, la colonne « Décision ou moyen constaté » au centre.",
+          "Dans la colonne « Écart », qualifiez en quelques mots la distance entre les deux : contredit, sans moyen, non engagé ou perçu autrement.",
+          "Écartez toute ligne dont la décision ou le moyen n'a pas de pièce datée.",
+        ],
+        result: "Un tableau où chaque promesse est face à une décision, avec son écart nommé.",
       },
     ],
     table: {
@@ -1438,6 +1495,12 @@ export default [
       },
       {
         title: 'Placez l\'organisation dans la case correspondante',
+        actions: [
+          "Croisez le verdict du canal (crédible ou non) et celui de la culture (positive ou négative) dans le tableau à quatre cases.",
+          "Repérez la case à l'intersection et reprenez son intitulé tel quel.",
+          "Écrivez sous la case un fait qui justifie chaque axe, tiré des sections 1 à 4.",
+        ],
+        result: "Une case unique, nommée, avec un fait par axe.",
       },
     ],
     table: {
@@ -1474,6 +1537,12 @@ export default [
       },
       {
         title: 'Écrivez les trois faits qui justifient le niveau retenu',
+        actions: [
+          "Choisissez trois faits issus des sections 1 à 4 et de la grille des typologies, chacun daté ou chiffré.",
+          "Placez le fait sur le canal en premier, celui sur la culture en deuxième, celui sur la grille des typologies en troisième.",
+          "Ajoutez une ligne qui dit pourquoi le niveau juste au-dessus n'est pas retenu.",
+        ],
+        result: "Trois faits et un contre-argument, lisibles sans le dossier.",
       },
     ],
     table: {
@@ -1560,6 +1629,12 @@ export default [
       },
       {
         title: 'Limitez-vous à quatre au maximum, classées par impact',
+        actions: [
+          "Classez vos recommandations de la plus forte à la plus faible : celle qui lève la cause la plus grave passe en premier.",
+          "Regroupez celles qui visent la même cause en une seule.",
+          "Supprimez au-delà de la quatrième, quitte à la mentionner dans le corps du rapport.",
+        ],
+        result: "Quatre recommandations au plus, ordonnées par impact.",
       },
     ],
     table: {

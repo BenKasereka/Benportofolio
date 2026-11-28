@@ -487,6 +487,12 @@ export default [
       },
       {
         title: 'Rédigez une phrase d\'anomalie au format fait + montant + période + source',
+        actions: [
+          "Énoncez le fait en une phrase : quoi est payé, à qui, depuis quand.",
+          "Ajoutez le montant mensuel, puis le total sur la période contrôlée (mai à juillet).",
+          "Terminez par la source : bulletins de paie, dossier RH, politique RH.",
+          "Décrivez le fait sans qualifier : pas de « fraude » ni d'« irrégulier ».",
+        ],
       },
     ],
     table: {
@@ -524,6 +530,11 @@ export default [
       },
       {
         title: 'Classez chaque rubrique : documentée ou sans base',
+        actions: [
+          "Ajoutez une colonne « Statut » au tableau croisé, une ligne par rubrique.",
+          "Inscrivez « Documentée » si la pièce justifie le principe et le montant ; « Sans base » si aucune pièce n'est trouvée.",
+          "Si la pièce existe mais ne couvre pas le montant versé, notez-le dans le statut : c'est un écart à documenter.",
+        ],
       },
       {
         title: 'Chiffrez l\'exposition de chaque rubrique sans base',
@@ -615,6 +626,11 @@ export default [
       },
       {
         title: 'Retenez une source principale et une source de secours par poste',
+        actions: [
+          "Parmi les sources indépendantes de chaque poste, prenez comme source principale celle qu'on ne peut pas remplir à l'avance.",
+          "Choisissez comme source de secours une source produite par un autre tiers que la première.",
+          "Inscrivez les deux dans votre feuille de travail avant de lancer la collecte.",
+        ],
       },
     ],
     table: {
@@ -830,6 +846,11 @@ export default [
     steps: [
       {
         title: 'Listez pour chaque personne de l\'échantillon les jours de congé et d\'absence du registre',
+        actions: [
+          "Ouvrez le registre des congés et des absences remis à l'étape 1.",
+          "Pour chaque personne de l'échantillon, relevez les dates de début et de fin de chaque congé ou absence de mai à juillet.",
+          "Reportez-les dans la feuille de travail à part, une ligne par période, avec le nombre de jours ouvrés.",
+        ],
       },
       {
         title: 'Comparez ces jours aux sources de présence et aux heures supplémentaires payées',
@@ -875,6 +896,10 @@ export default [
       },
       {
         title: 'Effacez l\'exemple de la ligne 5 (colonnes A à E uniquement)',
+        actions: [
+          "Sélectionnez A5:E5, puis appuyez sur Suppr ; ne supprimez pas la ligne elle-même.",
+          "Vérifiez que F5, G5 et H5 contiennent toujours leur formule.",
+        ],
       },
       {
         title: 'Saisissez équipe, site et heures supplémentaires de mai (C), juin (D) et juillet (E)',
@@ -986,6 +1011,11 @@ export default [
       },
       {
         title: 'Reportez les deux lignes dans le dossier et préparez leur reprise dans le rapport',
+        actions: [
+          "Collez les deux lignes dans le dossier de l'équipe concernée, avec la référence des pièces sources.",
+          "Indiquez le destinataire de chacune : direction RH pour le point RH, direction du programme pour le point programmatique.",
+          "Marquez le point programmatique comme une hypothèse à tester, avec renvoi à la procédure 5.",
+        ],
       },
     ],
     example: {
@@ -1090,6 +1120,11 @@ export default [
       },
       {
         title: 'Écrivez le tirage dans le dossier : taille, règle, date',
+        actions: [
+          "Notez la taille de l'échantillon et la part qu'elle représente, pour chaque activité.",
+          "Notez la règle de tirage : par aire de santé, =ALEA(), premières lignes retenues.",
+          "Datez la note et classez-y la liste tirée, avant de prévenir l'équipe.",
+        ],
       },
     ],
     table: {
@@ -1267,6 +1302,11 @@ export default [
       },
       {
         title: 'Marquez un ménage « conforme » uniquement si les trois critères sont remplis',
+        actions: [
+          "Dans la colonne « conforme », inscrivez « oui » si les trois critères sont remplis, « non » dès qu'un seul ne l'est pas.",
+          "Pour chaque « non », notez le critère en échec et le village concerné.",
+          "Comptez les « oui » : ce total, rapporté à 71, donne le taux de conformité.",
+        ],
       },
     ],
     table: {
@@ -1328,9 +1368,19 @@ export default [
     steps: [
       {
         title: 'Rédigez la deuxième zone : échantillon vérifié (taille, méthode de sélection)',
+        actions: [
+          "Indiquez le nombre de ménages vérifiés (71) et la raison de ce choix : visites confirmées par une preuve indépendante.",
+          "Décrivez la méthode : tirage aléatoire de 84 visites, 14 par aire de santé.",
+          "Précisez les moyens de contrôle : registre de ciblage, contre-visite ou témoignage séparé.",
+        ],
       },
       {
         title: 'Rédigez la troisième zone : déviations observées (isolées ou schéma répété) et gravité',
+        actions: [
+          "Indiquez le nombre de ménages non conformes et leur part sur 71.",
+          "Qualifiez chaque déviation : cas isolé ou schéma répété (mêmes cellule, agent, critère en échec).",
+          "Attribuez une gravité à chacune et limitez-vous aux faits, sans prêter d'intention à la personne.",
+        ],
       },
       {
         title: 'Décidez de l\'extension de la vérification',
@@ -1527,6 +1577,11 @@ export default [
       },
       {
         title: 'Testez l\'explication sur des sources que la ligne directe ne contrôle pas',
+        actions: [
+          "Pour chaque explication bénigne, listez les sources qui devraient en porter la trace en dehors de la supervision.",
+          "Consultez-les : registre du centre de santé, listes de distribution, registre des visiteurs du bureau.",
+          "Reportez dans le tableau : où vous avez cherché et ce que vous avez trouvé, y compris « rien ».",
+        ],
       },
     ],
     table: {
@@ -1604,6 +1659,11 @@ export default [
       },
       {
         title: 'Complétez « Rédigé par (nom, fonction) » et « Date »',
+        actions: [
+          "Saisissez votre nom et votre fonction dans « Rédigé par ».",
+          "Datez la fiche du jour de la rédaction (vendredi 28 août).",
+          "Relisez une dernière fois la section 5 : chaque affirmation doit renvoyer à une source croisée.",
+        ],
       },
       {
         title: 'Adressez une note confidentielle d\'une page à la présidente du comité, et à elle seule',

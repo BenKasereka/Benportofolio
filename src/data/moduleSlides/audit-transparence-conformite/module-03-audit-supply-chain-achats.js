@@ -571,6 +571,11 @@ export default [
       },
       {
         title: 'Notez à côté de chaque réponse la preuve qui la justifie',
+        actions: [
+          "Pour chaque Oui, écrivez le chiffre ou la pièce qui le démontre : part des montants, nombre de RFQ sous le seuil, référence du rapport ou du courriel.",
+          "Pour chaque Non, citez la source consultée (rapport d'audit externe, registre des alertes) afin que le Non soit aussi vérifiable que le Oui.",
+          "Si la preuve n'existe pas encore, écrivez « à rouvrir » et indiquez l'analyse qui la fournira.",
+        ],
       },
       {
         title: 'Lisez E16 : le nombre de facteurs cochés Oui',
@@ -645,6 +650,11 @@ export default [
       },
       {
         title: 'Calculez le total et triez par ordre décroissant',
+        actions: [
+          "Dans une colonne Total, additionnez les quatre points de chaque dossier (de 0 à 4) avec une formule de somme.",
+          "Triez toute la table du plus grand total au plus petit, en gardant les lignes entières ensemble.",
+          "Départagez les ex æquo par le montant le plus élevé, et notez ce critère dans votre note de méthode.",
+        ],
       },
       {
         title: 'Retenez les dossiers les mieux notés, puis stratifiez',
@@ -839,6 +849,10 @@ export default [
       },
       {
         title: 'Répondez et commentez la pièce manquante',
+        actions: [
+          "Saisissez en colonne F : Oui si offres, dates, signatures et choix sont corrects ; Partiel si une pièce manque mais que la comparaison a eu lieu ; Non si la CBA suit la commande ou n'existe pas.",
+          "Pour chaque Partiel ou Non, écrivez en colonne I la pièce manquante ou l'écart de dates, avec les deux dates concernées.",
+        ],
       },
     ],
     table: {

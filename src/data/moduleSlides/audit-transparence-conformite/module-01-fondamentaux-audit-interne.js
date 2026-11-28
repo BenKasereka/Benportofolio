@@ -309,6 +309,11 @@ export default [
       },
       {
         title: 'Écrivez pour chaque menace 2 à 3 phrases : pourquoi elle compromettrait vos conclusions',
+        actions: [
+          'Partez du fait daté de la ligne du tableau (« j\'ai validé… en septembre 2024 »).',
+          'Écrivez ce qu\'un lecteur extérieur pourrait en conclure si vous ne déclariez rien.',
+          'Terminez par la conclusion précise de la mission que la menace rendrait suspecte.',
+        ],
       },
     ],
     table: {
@@ -395,7 +400,14 @@ export default [
           "Test 3 : la note tient-elle sur une demi-page ?",
         ],
       },
-      { title: 'Envoyez-la à la présidente du comité, copie à votre responsable administratif' },
+      {
+        title: 'Envoyez-la à la présidente du comité, copie à votre responsable administratif',
+        actions: [
+          'Envoyez la note par courriel, objet clair : « Déclaration de conflit d\'intérêt — mission d\'audit achats-logistique ».',
+          'Mettez la présidente en destinataire et votre responsable administratif en copie.',
+          'Archivez le courriel envoyé : sa date et son heure sont votre preuve de déclaration.',
+        ],
+      },
     ],
     example: {
       title: 'Note envoyée le 22 avril 2026 (extrait intégral)',
@@ -535,7 +547,14 @@ export default [
         title: 'Pour la demande de conseil recevable, proposez de l\'ajouter à la lettre de mission',
         body: "Un conseil qui n'est pas écrit dans la lettre de mission n'est pas couvert par votre mandat.",
       },
-      { title: 'Archivez les échanges dans le dossier « 01_Cadrage »' },
+      {
+        title: 'Archivez les échanges dans le dossier « 01_Cadrage »',
+        actions: [
+          'Enregistrez la demande reçue et votre réponse envoyée, avec leurs dates.',
+          'Ajoutez la réponse éventuelle du commanditaire ou de la direction.',
+          'Nommez chaque fichier avec la date et l\'objet, par exemple « 2026-04-30_reponse-demandes-hors-mandat ».',
+        ],
+      },
     ],
     example: {
       title: 'Réponse au Directeur Pays et au Coordinateur — 30 avril 2026',
@@ -888,6 +907,11 @@ export default [
     steps: [
       {
         title: 'Collez les objectifs O1 à O5 et numérotez-les',
+        actions: [
+          'Ouvrez les objectifs rédigés en procédure 4, étape 4.',
+          'Collez-les dans la Section 2 du template, un objectif par ligne.',
+          'Numérotez de 1 à 5 en conservant l\'ordre de priorité.',
+        ],
       },
       {
         title: 'Vérifiez chaque objectif avec trois questions',
@@ -935,6 +959,11 @@ export default [
       },
       {
         title: 'Remplissez les deux champs de période au format jj/mm/aaaa',
+        actions: [
+          'Saisissez la date de début dans « Période couverte — début ».',
+          'Saisissez la date de fin dans « Période couverte — fin ».',
+          'Vérifiez que ces bornes correspondent à celles écrites dans la phrase de périmètre.',
+        ],
       },
     ],
     example: {
@@ -1106,7 +1135,14 @@ export default [
           "5. Questions et engagements réciproques (10 min).",
         ],
       },
-      { title: 'Imprimez la lettre de mission et la liste des documents en autant d\'exemplaires que de participants' },
+      {
+        title: 'Imprimez la lettre de mission et la liste des documents en autant d\'exemplaires que de participants',
+        actions: [
+          'Comptez les invités de la convocation, puis ajoutez un exemplaire pour vous et un pour votre binôme.',
+          'Imprimez la lettre de mission signée et la liste des documents demandés.',
+          'Agrafez chaque jeu et apportez-les en salle avant l\'arrivée des participants.',
+        ],
+      },
     ],
     example: {
       title: "Convocation envoyée le 11 mai 2026",
@@ -1177,8 +1213,22 @@ export default [
           "5. Questions posées et réponses données.",
         ],
       },
-      { title: "Envoyez-le avant 18h00 à tous les participants, copie au commanditaire" },
-      { title: 'Classez-le dans « 03_Terrain »' },
+      {
+        title: "Envoyez-le avant 18h00 à tous les participants, copie au commanditaire",
+        actions: [
+          "Envoyez le compte rendu en pièce jointe, avec la date de la réunion dans l'objet.",
+          "Ajoutez le commanditaire en copie.",
+          "Demandez par retour de courriel de signaler toute erreur avant le lendemain midi.",
+        ],
+      },
+      {
+        title: 'Classez-le dans « 03_Terrain »',
+        actions: [
+          'Enregistrez le compte rendu envoyé, en PDF, dans le dossier « 03_Terrain ».',
+          'Ajoutez à côté la liste de présence et la convocation.',
+          'Reportez dans votre suivi les engagements datés, pour relancer à l\'échéance.',
+        ],
+      },
     ],
     example: {
       title: "Rubrique « Engagements pris » du compte rendu du 18 mai 2026",
@@ -1272,6 +1322,11 @@ export default [
     steps: [
       {
         title: "Adoptez une échelle écrite et partagez-la avec la pair auditrice",
+        actions: [
+          "Rédigez en une ligne la définition de chaque niveau de 1 à 5, sur le modèle du tableau ci-dessous.",
+          "Placez cette échelle dans un onglet ou un document à côté de la grille.",
+          "Envoyez-la à Fatou S. et vérifiez qu'elle la comprend de la même façon avant que l'une de vous deux ne note.",
+        ],
       },
       {
         title: 'Notez ligne par ligne dans la colonne C',
@@ -1313,6 +1368,11 @@ export default [
     steps: [
       {
         title: 'Écrivez une phrase par sous-critère, au format fait + chiffre + source',
+        actions: [
+          "Ouvrez la colonne D en face de chaque note de la colonne C.",
+          "Écrivez le fait constaté, puis le chiffre (nombre de cas, date, montant), puis la source (fichier, extraction, entretien).",
+          "Supprimez les adjectifs et les « je pense » : ne gardez que ce que vous pouvez prouver.",
+        ],
       },
       {
         title: 'Relisez avec deux tests',
@@ -1356,6 +1416,11 @@ export default [
       },
       {
         title: 'Classez les composantes de la plus faible à la plus forte',
+        actions: [
+          "Recopiez les cinq moyennes de l'onglet « Synthèse » dans une liste.",
+          "Triez-la de la moyenne la plus basse à la plus haute.",
+          "Repérez les composantes sous 3 : ce sont celles qui recevront des tests détaillés.",
+        ],
       },
     ],
     example: {
@@ -1388,6 +1453,11 @@ export default [
       },
       {
         title: 'Informez le commanditaire de tout ajustement significatif',
+        actions: [
+          "Listez les écarts entre le cadrage signé et vos priorités de tests (zone ajoutée, temps augmenté ou réduit).",
+          "Écrivez au commanditaire un courriel court, en copie du comité d'audit : zone concernée, raison, impact sur le calendrier.",
+          "Attendez sa réponse écrite avant d'appliquer tout ajustement qui sort du périmètre signé.",
+        ],
       },
     ],
     table: {
@@ -1446,6 +1516,11 @@ export default [
     steps: [
       {
         title: 'Placez d\'abord les entretiens qui conditionnent les tests de priorité 1',
+        actions: [
+          "Repérez dans le tableau des priorités les tests de priorité 1 et les personnes dont dépendent leurs documents.",
+          "Programmez ces personnes sur les deux premiers jours de tests.",
+          "Gardez les entretiens moins critiques pour les créneaux restants.",
+        ],
       },
       {
         title: 'Séquencez documents puis entretien',
@@ -1453,9 +1528,19 @@ export default [
       },
       {
         title: "Affectez chaque entretien à un auditeur, en respectant la décision d'indépendance",
+        actions: [
+          "Reprenez la décision du comité : les entretiens des personnes liées à votre conflit reviennent à Fatou S.",
+          "Inscrivez le nom de l'auditeur dans la colonne « Auditeur » de chaque ligne.",
+          "Vérifiez qu'aucune ligne ne vous attribue un entretien interdit par la décision écrite.",
+        ],
       },
       {
         title: 'Prévoyez 1 heure par entretien et 30 minutes de mise au propre',
+        actions: [
+          "Réservez un créneau d'1 heure dans la colonne « Date et heure » pour chaque entretien.",
+          "Ajoutez 30 minutes juste après pour rédiger le compte rendu pendant que vos notes sont fraîches.",
+          "Évitez d'enchaîner plus de trois entretiens dans une même journée.",
+        ],
       },
     ],
     table: {
@@ -1527,6 +1612,11 @@ export default [
       },
       {
         title: 'Déclinez toute faveur avec courtoisie',
+        actions: [
+          "Remerciez sincèrement pour l'invitation ou le cadeau.",
+          "Refusez en une phrase, en donnant la règle (« pendant la mission, je ne peux pas l'accepter »).",
+          "Proposez de reprendre contact après la publication du rapport définitif, si c'est sincère.",
+        ],
       },
     ],
     example: {
@@ -1556,8 +1646,22 @@ export default [
           "5. Suite donnée (aucune, ou escalade).",
         ],
       },
-      { title: "Classez-la dans « 00_Indépendance », pas dans le dossier de travail partagé" },
-      { title: 'Informez la pair auditrice' },
+      {
+        title: "Classez-la dans « 00_Indépendance », pas dans le dossier de travail partagé",
+        actions: [
+          "Enregistrez la note en PDF, nommée avec la date et le sujet.",
+          "Déposez-la dans le dossier « 00_Indépendance », dont l'accès est réservé à vous et à la pair auditrice.",
+          "Vérifiez qu'aucune copie ne reste dans le dossier de travail partagé avec l'audité.",
+        ],
+      },
+      {
+        title: 'Informez la pair auditrice',
+        actions: [
+          "Parlez-en à Fatou S. le jour même, de vive voix ou par message.",
+          "Demandez-lui de confirmer ce dont elle a été témoin et de noter son nom dans la rubrique « Témoins éventuels ».",
+          "Convenez avec elle des critères qui déclencheraient une escalade au comité.",
+        ],
+      },
     ],
     example: {
       title: 'Note au dossier — 20 mai 2026',
@@ -1579,6 +1683,11 @@ export default [
     steps: [
       {
         title: 'Vérifiez si un critère d\'escalade est rempli',
+        actions: [
+          "Relisez vos notes au dossier : la pression s'est-elle répétée ?",
+          "Vérifiez si un accès à un document ou à un système vous a été refusé, ou si l'on vous a demandé de modifier un constat.",
+          "Si l'un de ces trois critères est rempli, passez à l'étape suivante ; sinon, continuez à documenter.",
+        ],
       },
       {
         title: 'Informez la présidente du comité par écrit, en joignant la note au dossier',
