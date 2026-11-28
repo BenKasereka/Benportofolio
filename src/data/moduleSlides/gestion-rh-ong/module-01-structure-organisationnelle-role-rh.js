@@ -1644,6 +1644,7 @@ export default [
   {
     type: 'exercise',
     title: "Exercice — Les étapes à suivre pour la base d'Uvira",
+    deliverable: "La fiche RH-Finance d'octobre 2026 renseignée, les écarts marqués après rapprochement, le paiement indu sécurisé et la note de rattachement de C. Riziki, à comparer à l'auto-correction qui suit.",
     steps: [
       {
         title: 'Préparez et transcrivez (Procédure 3, étapes 1 à 3)',

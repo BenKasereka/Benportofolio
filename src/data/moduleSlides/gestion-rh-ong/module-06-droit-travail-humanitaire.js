@@ -1562,6 +1562,7 @@ export default [
   {
     type: 'exercise',
     title: "Exercice — Les étapes à suivre pour la base de Bunia",
+    deliverable: "La note de suivi chiffrée, la checklist de conformité renseignée, l'accusé de réception et la conduite à tenir sur le conflit et sur l'expatrié.",
     steps: [
       {
         title: 'Ouvrez le dossier et chiffrez (Procédure 3, étapes 1 et 4)',

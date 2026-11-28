@@ -1660,6 +1660,7 @@ export default [
   {
     type: 'exercise',
     title: "Exercice 1 — Les étapes à suivre pour Uvira",
+    deliverable: "La grille d'alerte lue pour Uvira, le conflit qualifié, l'auto-diagnostic et le dispositif, le protocole de médiation rempli et la session préparée.",
     steps: [
       {
         title: 'Saisissez et lisez la grille (Procédure 1, étapes 3 et 4)',

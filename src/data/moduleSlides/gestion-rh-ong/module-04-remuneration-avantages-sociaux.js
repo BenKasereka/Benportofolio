@@ -1868,6 +1868,7 @@ export default [
   {
     type: 'exercise',
     title: "Exercice — Les étapes à suivre pour le cas de N'Djamena",
+    deliverable: "La grille de rémunération construite, le plan de transition rédigé et les deux notes de primes complétées.",
     steps: [
       {
         title: 'Construisez la grille (Procédure 1)',

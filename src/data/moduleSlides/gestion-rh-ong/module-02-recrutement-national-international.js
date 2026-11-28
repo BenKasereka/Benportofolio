@@ -1981,6 +1981,7 @@ export default [
   {
     type: 'exercise',
     title: "Exercice — Les étapes à suivre pour « Le candidat parfait, Abuja »",
+    deliverable: "La grille de notation pondérée complétée, les quatre fiches de vérification et la note d'une demi-page au comité qui tranche entre les trois candidats.",
     steps: [
       {
         title: 'Remplissez la grille (Procédure 5, étapes 1, 4 et 6)',

@@ -1974,6 +1974,7 @@ export default [
   {
     type: 'exercise',
     title: "Exercice noté — Les étapes à suivre pour le cas de Jonas",
+    deliverable: "La grille de suivi de Jonas K. renseignée (scores, statuts, tendance), la préparation de l'entretien de la semaine 4 et la note d'intervention.",
     steps: [
       {
         title: 'Préparez la grille (Procédure 4, étapes 1 à 2)',

@@ -1939,6 +1939,7 @@ export default [
   {
     type: 'exercise',
     title: "Exercice 1 — Les étapes à suivre pour Uvira",
+    deliverable: "Le test CDD tranché pour chaque situation, le contrat d'expatriation contrôlé, le registre alimenté et la note de recommandation.",
     steps: [
       {
         title: 'Passez le test CDD (Procédure 1, étapes 1 et 2)',
@@ -2006,6 +2007,7 @@ export default [
   {
     type: 'exercise',
     title: "Exercice 2 — Les étapes à suivre pour l'avertissement d'Uvira",
+    deliverable: "L'avertissement écrit rédigé, remis et signé dans les délais, et le dossier du salarié mis à jour.",
     steps: [
       {
         title: 'Décidez de l\'étape (Procédure 5)',
