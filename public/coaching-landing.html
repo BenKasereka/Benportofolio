@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Formation gratuite de coaching de carrière BK-BOOST — Du dossier ignoré à la convocation</title>
-<meta name="description" content="Votre candidature reste sans réponse, ou vous visez le niveau supérieur ? Formation gratuite de coaching de carrière BK-BOOST : CV aux normes ATS, lettre de motivation, tests, entretiens STAR et négociation de contrat. Rejoignez la communauté sur WhatsApp.">
+<title>Formation gratuite · Carrière humanitaire · 7 au 11 décembre 2026 — BK-BOOST</title>
+<meta name="description" content="Formation gratuite pour construire votre carrière dans le monde humanitaire : du 7 au 11 décembre 2026, chaque soir à 18h GMT. Apprenez à faire vous-même un bon CV, une lettre percutante et à réussir vos entretiens.">
 <meta name="theme-color" content="#0b1f4a">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Du « Votre candidature a bien été reçue » au « Quand pouvez-vous commencer ? »">
-<meta property="og:description" content="Formation gratuite BK-BOOST Ltd. : CV ATS, lettre de motivation, tests techniques, entretiens STAR, négociation. Rejoignez la communauté.">
+<meta property="og:title" content="Construisez votre carrière dans le monde humanitaire : formation gratuite du 7 au 11 décembre 2026">
+<meta property="og:description" content="Du 7 au 11 décembre 2026, 18h GMT, 1h30 par soir. Étudiant, en recherche d'emploi ou déjà en poste : construisez votre carrière humanitaire. 100 % gratuit.">
 <meta property="og:image" content="https://benkasereka.github.io/Benportofolio/images/social/og-default.png">
 <link rel="icon" href="images/brand/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -168,33 +168,53 @@ header.site.scrolled{border-color:var(--line);box-shadow:0 8px 24px -16px rgba(1
 .right .rec{font:800 28px/1.1 var(--font-h);letter-spacing:-.02em}
 .right p{margin:0;color:#c5d0ea;font-size:16px}
 
-/* Method */
-.method{background:var(--paper-2)}
-.features{display:grid;gap:18px;margin-top:46px}
-@media(min-width:700px){.features{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1040px){.features{grid-template-columns:repeat(4,1fr)}}
-.fcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .3s,box-shadow .3s}
-.fcard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-.ico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:var(--emerald-50);color:var(--emerald-d);margin-bottom:20px}
-.ico svg{width:26px;height:26px}
-.fcard h3{font-size:20px;margin-bottom:10px}
-.fcard p{margin:0;color:var(--muted);font-size:15.5px}
-.modules{margin-top:54px;display:grid;gap:0;border-top:1px solid var(--line)}
-.mod{display:grid;grid-template-columns:56px 1fr;gap:6px 18px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line)}
-.mod b{font:800 15px var(--font-h);color:var(--gold);letter-spacing:.06em}
-.mod span{font:700 18px/1.3 var(--font-h);color:var(--navy)}
-.mod em{grid-column:2;font-style:normal;color:var(--muted);font-size:15px}
-@media(min-width:860px){.modules{grid-template-columns:1fr 1fr;column-gap:56px}}
+/* Date + compte à rebours */
+.when{display:flex;flex-wrap:wrap;gap:10px 12px;margin:0 0 30px}
+.when-i{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 16px;font:700 15px/1.2 var(--font-h);color:var(--navy);box-shadow:0 8px 20px -16px rgba(11,31,74,.5)}
+.when-i svg{width:20px;height:20px;color:var(--emerald);flex:none}
+.when-i small{display:block;font:500 12.5px var(--font-b);color:var(--muted);margin-top:2px}
+.count{display:flex;gap:8px;margin:0 0 30px;flex-wrap:wrap;align-items:stretch}
+.count .u{min-width:68px;text-align:center;background:var(--navy);color:#fff;border-radius:14px;padding:12px 10px}
+.count .u b{display:block;font:800 28px/1 var(--font-h);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.count .u span{display:block;font:600 10.5px var(--font-h);letter-spacing:.12em;text-transform:uppercase;color:var(--gold-l);margin-top:6px}
+.count .msg{align-self:center;font:700 15px var(--font-h);color:var(--navy)}
+.count-lab{display:block;font:700 12px var(--font-h);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
 
-/* How */
-.how{background:var(--card)}
-.steps{display:grid;gap:22px;margin-top:50px;counter-reset:s}
-@media(min-width:900px){.steps{grid-template-columns:repeat(4,1fr);gap:26px}}
-.step{position:relative;padding-top:68px}
-.step::before{counter-increment:s;content:"0" counter(s);position:absolute;top:0;left:0;font:800 56px/1 var(--font-h);letter-spacing:-.04em;color:var(--emerald-50);-webkit-text-stroke:2px var(--emerald)}
-.step h3{font-size:21px;margin-bottom:10px}
-.step p{margin:0;color:var(--muted);font-size:16px}
-@media(min-width:900px){.step:not(:last-child)::after{content:"";position:absolute;top:28px;left:78px;right:-14px;height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 16px)}}
+/* Programme */
+.prog{background:var(--paper-2)}
+.prog h2,.take h2{font-size:clamp(32px,4.6vw,54px);font-weight:800;margin:16px 0 18px;max-width:22ch}
+.days{list-style:none;margin:46px 0 0;padding:0;display:grid;gap:14px}
+@media(min-width:900px){.days{grid-template-columns:repeat(5,1fr);gap:16px}}
+.day{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px 24px;transition:transform .3s,box-shadow .3s}
+.day:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.day .d-n{display:inline-block;font:800 12px var(--font-h);letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--emerald);border-radius:999px;padding:7px 12px}
+.day .d-date{display:block;font:700 15px var(--font-h);color:var(--gold);margin:16px 0 8px}
+.day h3{font-size:19px;line-height:1.2;margin-bottom:10px;color:var(--navy)}
+.day p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
+.day:last-child{background:var(--navy);border-color:var(--navy)}
+.day:last-child h3{color:#fff}.day:last-child p{color:#c5d0ea}.day:last-child .d-n{background:var(--gold);color:#241a05}
+.prog-bar{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between;background:var(--navy);color:#fff;border-radius:20px;padding:20px 26px;font:700 16px var(--font-h)}
+.prog-bar span{display:inline-flex;gap:10px;align-items:center}
+.prog-bar svg{width:20px;height:20px;color:var(--emerald-l)}
+.prog-note{margin:18px 0 0;color:var(--muted);font-size:15px}
+
+/* À emporter */
+.take{background:var(--paper)}
+.take-main{display:grid;gap:22px;margin-top:46px;background:linear-gradient(135deg,var(--emerald-d),var(--navy));color:#fff;border-radius:30px;padding:clamp(26px,5vw,52px);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.take-main::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(241,217,160,.28),transparent 68%)}
+@media(min-width:820px){.take-main{grid-template-columns:auto 1fr;align-items:center;gap:34px}}
+.take-main .ico{width:84px;height:84px;border-radius:24px;background:rgba(255,255,255,.12);color:var(--gold-l);margin:0}
+.take-main .ico svg{width:42px;height:42px}
+.take-main .tag{font:700 12px var(--font-h);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l)}
+.take-main h3{font-size:clamp(26px,3.6vw,40px);margin:8px 0 12px;color:#fff}
+.take-main p{margin:0;color:#d6e3f5;font-size:clamp(16px,1.6vw,19px);max-width:56ch}
+.take3{display:grid;gap:16px;margin-top:18px}
+@media(min-width:820px){.take3{grid-template-columns:repeat(3,1fr)}}
+.tk{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .3s,box-shadow .3s}
+.tk:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.tk .n{font:800 13px var(--font-h);letter-spacing:.14em;color:var(--gold)}
+.tk h3{font-size:21px;margin:12px 0 10px;color:var(--navy)}
+.tk p{margin:0;color:var(--muted);font-size:16px}
 
 /* Quiz */
 .quiz{background:linear-gradient(160deg,var(--navy),#0a1738);color:#fff;padding-block:clamp(64px,8vw,104px)}
@@ -317,7 +337,7 @@ footer a:hover{color:#fff}
       <li><a href="#probleme">Le constat</a></li>
       <li><a href="#apropos">Pour qui</a></li>
       <li><a href="#parcours">Votre cas</a></li>
-      <li><a href="#methode">Méthode</a></li>
+      <li><a href="#programme">Programme</a></li>
       <li><a href="#rejoindre">Rejoindre</a></li>
       <li><a href="#faq">Questions</a></li>
     </ul>
@@ -331,19 +351,25 @@ footer a:hover{color:#fff}
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow rv">Formation gratuite · Offres nationales · BK-BOOST Ltd.</span>
-      <h1 class="rv d1">Vous postulez. Personne ne rappelle. <em class="accent">Ce n'est pas votre niveau, c'est la stratégie.</em></h1>
-      <p class="lead rv d2">CV aux normes ATS, lettre qui se lit jusqu'au bout, tests, entretiens et négociation : un accompagnement concret pour passer de « Votre candidature a bien été reçue » à « Quand pouvez-vous commencer ? ».</p>
+      <span class="eyebrow rv">Formation gratuite · Carrière humanitaire</span>
+      <h1 class="rv d1">Construisez votre carrière dans le monde humanitaire. <em class="accent">En cinq soirées, gratuitement.</em></h1>
+      <p class="lead rv d2">Étudiant, en recherche d'emploi ou déjà en poste : du 7 au 11 décembre 2026, apprenez à faire vous-même un bon CV, à convaincre en entretien et à avancer avec un plan clair.</p>
+      <div class="when rv d2">
+        <div class="when-i"><svg><use href="#i-pin"/></svg><div>7 au 11 décembre 2026<small>Du lundi au vendredi</small></div></div>
+        <div class="when-i"><svg><use href="#i-target"/></svg><div>Dès 18h00 GMT<small>20h00 à Goma</small></div></div>
+        <div class="when-i"><svg><use href="#i-mic"/></svg><div>1h30 par soir<small>5 soirées de formation</small></div></div>
+      </div>
+      <div class="rv d3" id="countwrap">
+        <span class="count-lab">Début de la formation dans</span>
+        <div class="count" id="count" aria-live="off"></div>
+      </div>
       <div class="cta-row rv d3">
-        <a class="btn btn-primary js-wa js-magnet" href="#">
-          <svg><use href="#i-wa"/></svg>Rejoindre sur WhatsApp
-        </a>
-        <a class="btn btn-ghost js-magnet" href="#parcours">Voir le parcours qui me correspond</a>
+        <a class="btn btn-primary js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Je m'inscris gratuitement</a>
+        <a class="btn btn-ghost js-magnet" href="#programme">Voir le programme</a>
       </div>
       <div class="micro rv d3">
-        <span><svg><use href="#i-check"/></svg>5+ ans d'expérience en recrutement humanitaire</span>
-        <span><svg><use href="#i-check"/></svg>Formation 100 % gratuite</span>
-        <span><svg><use href="#i-check"/></svg>Communauté WhatsApp</span>
+        <span><svg><use href="#i-check"/></svg>100 % gratuit</span>
+        <span><svg><use href="#i-check"/></svg>Inscription par la chaîne WhatsApp</span>
       </div>
     </div>
 
@@ -384,7 +410,7 @@ footer a:hover{color:#fff}
     <h2 class="rv d1">Des candidats solides, <em class="accent">ignorés</em> sans explication.</h2>
     <p class="lead rv d2">Chaque année, des milliers de candidats compétents voient leur dossier écarté. Pas par manque de talent : par manque de méthode face à des recruteurs et à des logiciels de tri qui décident en quelques secondes.</p>
     <div class="cards3">
-      <article class="pcard rv"><span class="n">01</span><h3>Un CV que le filtre ne lit pas</h3><p>Format, mots-clés et structure ne suivent pas les standards des ONG et des entreprises. Le recruteur ne le voit même pas.</p></article>
+      <article class="pcard rv"><span class="n">01</span><h3>Un CV que le filtre ne lit pas</h3><p>Format, mots-clés et structure ne suivent pas les standards des organisations humanitaires. Le recruteur ne le voit même pas.</p></article>
       <article class="pcard rv d1"><span class="n">02</span><h3>Une lettre qui ressemble à toutes les autres</h3><p>Générique, centrée sur vous plutôt que sur le besoin du poste. Elle n'apporte aucune raison de vous appeler plutôt qu'un autre.</p></article>
       <article class="pcard rv d2"><span class="n">03</span><h3>Un entretien ou un test mal préparé</h3><p>Quand l'appel arrive enfin, des réponses sans structure et des chiffres de salaire négociés à l'aveugle font perdre l'offre.</p></article>
     </div>
@@ -396,8 +422,8 @@ footer a:hover{color:#fff}
 <section class="about" id="apropos">
   <div class="wrap">
     <span class="eyebrow rv">Pour qui · Qui suis-je</span>
-    <h2 class="rv d1" style="font-size:clamp(32px,4.6vw,54px);font-weight:800;margin:16px 0 18px">Une formation pour <em class="accent">toutes les couches</em>.</h2>
-    <p class="lead rv d2">Que vous cherchiez votre premier emploi, que vous soyez sans réponse depuis des mois ou déjà en poste, cette formation gratuite vous concerne. Quel que soit votre niveau, votre secteur ou votre parcours.</p>
+    <h2 class="rv d1" style="font-size:clamp(32px,4.6vw,54px);font-weight:800;margin:16px 0 18px">Votre carrière humanitaire <em class="accent">commence ici</em>.</h2>
+    <p class="lead rv d2">Cette formation s'adresse à toutes les couches : que vous soyez étudiant, chercheur d'emploi ou déjà en poste, si vous voulez construire votre carrière dans le monde humanitaire, elle vous concerne.</p>
 
     <div class="about-grid">
       <article class="me rv">
@@ -419,11 +445,9 @@ footer a:hover{color:#fff}
       </article>
 
       <div class="audience">
-        <article class="aud rv"><div class="ico"><svg><use href="#i-star"/></svg></div><div><h3>Étudiants et jeunes diplômés</h3><p>Construire un premier CV et une première lettre qui se démarquent, sans expérience à rallonge.</p></div></article>
-        <article class="aud rv d1"><div class="ico"><svg><use href="#i-doc"/></svg></div><div><h3>Candidats sans réponse</h3><p>Comprendre pourquoi votre dossier est ignoré et le corriger avant la prochaine candidature.</p></div></article>
-        <article class="aud rv d2"><div class="ico"><svg><use href="#i-target"/></svg></div><div><h3>Professionnels en poste</h3><p>Préparer le niveau supérieur : positionnement, entretien et négociation du salaire.</p></div></article>
-        <article class="aud rv d3"><div class="ico"><svg><use href="#i-pin"/></svg></div><div><h3>Personnes en reconversion</h3><p>Valoriser vos compétences transférables pour viser un nouveau secteur.</p></div></article>
-        <article class="aud rv"><div class="ico"><svg><use href="#i-globe"/></svg></div><div><h3>Tous niveaux, tous secteurs</h3><p>ONG, entreprises privées, institutions publiques : les méthodes s'appliquent partout.</p></div></article>
+        <article class="aud rv"><div class="ico"><svg><use href="#i-star"/></svg></div><div><h3>Vous êtes étudiant(e)</h3><p>Préparer dès maintenant votre entrée dans l'humanitaire avec un dossier clair et une direction.</p></div></article>
+        <article class="aud rv d1"><div class="ico"><svg><use href="#i-doc"/></svg></div><div><h3>Vous cherchez un emploi</h3><p>Comprendre pourquoi vos candidatures restent sans réponse et les corriger avant la prochaine.</p></div></article>
+        <article class="aud rv d2"><div class="ico"><svg><use href="#i-target"/></svg></div><div><h3>Vous êtes déjà en poste</h3><p>Préparer l'étape suivante : mieux vous positionner, passer l'entretien et négocier.</p></div></article>
       </div>
     </div>
   </div>
@@ -433,42 +457,62 @@ footer a:hover{color:#fff}
 <section class="scen" id="parcours">
   <div class="wrap">
     <span class="eyebrow rv">Votre situation</span>
-    <h2 class="rv d1">Deux profils, <em class="accent">deux chemins</em> différents.</h2>
+    <h2 class="rv d1">Trois profils, <em class="accent">un même objectif</em>.</h2>
     <p class="lead rv d2">Choisissez le cas qui vous ressemble : vous voyez ce que vous travaillez en priorité. La formation est gratuite et l'inscription se fait en rejoignant la chaîne WhatsApp BK-BOOST.</p>
 
     <div class="tabs rv" role="tablist" aria-label="Choisir sa situation">
-      <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">Je postule et personne ne m'appelle</button>
-      <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false">Je suis en poste et je vise plus haut</button>
+      <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">Je suis étudiant(e)</button>
+      <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false">Je cherche un emploi</button>
+      <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false">Je suis déjà en poste</button>
     </div>
 
     <div class="panel on rv" id="p1" role="tabpanel" aria-labelledby="t1">
       <div class="left">
-        <h3>« J'envoie des dizaines de candidatures et je n'ai jamais reçu un appel. »</h3>
-        <p class="quote">Le problème est rarement votre valeur. C'est presque toujours la façon dont elle est présentée.</p>
+        <h3>« Je veux entrer dans l'humanitaire, mais je ne sais pas par où commencer. »</h3>
+        <p class="quote">Vous n'avez pas besoin d'une longue expérience pour démarrer du bon pied : il faut un dossier clair et une direction.</p>
         <ul>
-          <li><svg><use href="#i-check"/></svg>Audit de votre dossier : où il se fait écarter, et pourquoi.</li>
-          <li><svg><use href="#i-check"/></svg>CV réécrit aux normes ATS, réalisations chiffrées avec la méthode PAR.</li>
-          <li><svg><use href="#i-check"/></svg>Lettre de motivation en 3 temps : accroche, valeur, appel à l'action.</li>
-          <li><svg><use href="#i-check"/></svg>Préparation aux tests d'embauche dès que la convocation arrive.</li>
+          <li><svg><use href="#i-check"/></svg>Comprendre le profil que les organisations humanitaires recherchent.</li>
+          <li><svg><use href="#i-check"/></svg>Construire un premier CV qui valorise vos stages, projets et engagements.</li>
+          <li><svg><use href="#i-check"/></svg>Écrire une lettre qui donne envie de vous rencontrer.</li>
+          <li><svg><use href="#i-check"/></svg>Vous préparer à votre premier entretien.</li>
         </ul>
       </div>
       <div class="right">
         <small>Votre parcours gratuit</small>
-        <div class="rec">Du dossier ignoré à la convocation</div>
-        <p>CV, lettre de motivation et préparation aux tests : les trois leviers pour obtenir enfin des appels.</p>
+        <div class="rec">Du diplôme au premier poste</div>
+        <p>Un CV, une lettre et un entretien préparés pour franchir la première porte.</p>
         <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
       </div>
     </div>
 
     <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2">
       <div class="left">
+        <h3>« J'envoie des candidatures et je n'ai jamais reçu un appel. »</h3>
+        <p class="quote">Le problème est rarement votre valeur. C'est presque toujours la façon dont elle est présentée.</p>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Comprendre où votre dossier se fait écarter, et pourquoi.</li>
+          <li><svg><use href="#i-check"/></svg>Réécrire votre CV aux normes ATS, avec des réalisations chiffrées.</li>
+          <li><svg><use href="#i-check"/></svg>Rédiger une lettre en 3 temps : accroche, valeur, appel à l'action.</li>
+          <li><svg><use href="#i-check"/></svg>Vous préparer aux tests d'embauche dès que la convocation arrive.</li>
+        </ul>
+      </div>
+      <div class="right">
+        <small>Votre parcours gratuit</small>
+        <div class="rec">Du dossier ignoré à la convocation</div>
+        <p>CV, lettre de motivation et préparation aux tests : les leviers pour obtenir enfin des appels.</p>
+        <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
+      </div>
+    </div>
+
+    <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3">
+      <div class="left">
         <h3>« Je suis en poste, mais je veux passer au niveau supérieur. »</h3>
         <p class="quote">Une promotion ne s'attend pas : elle se prépare, se démontre et se négocie.</p>
         <ul>
-          <li><svg><use href="#i-check"/></svg>Positionnement : votre valeur sur le marché et le poste visé.</li>
-          <li><svg><use href="#i-check"/></svg>Profil LinkedIn et CV recentrés sur vos résultats de responsabilité.</li>
-          <li><svg><use href="#i-check"/></svg>Simulation d'entretien de niveau supérieur, réponses STAR travaillées.</li>
-          <li><svg><use href="#i-check"/></svg>Négociation de salaire et de conditions, sans accepter la première offre.</li>
+          <li><svg><use href="#i-check"/></svg>Vous positionner : votre valeur et le poste visé dans l'humanitaire.</li>
+          <li><svg><use href="#i-check"/></svg>Recentrer CV et profil LinkedIn sur vos résultats de responsabilité.</li>
+          <li><svg><use href="#i-check"/></svg>Vous entraîner à un entretien de niveau supérieur avec la méthode STAR.</li>
+          <li><svg><use href="#i-check"/></svg>Négocier salaire et conditions, sans accepter la première offre.</li>
         </ul>
       </div>
       <div class="right">
@@ -478,43 +522,51 @@ footer a:hover{color:#fff}
         <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- METHODE -->
-<section class="method" id="methode">
+<!-- PROGRAMME -->
+<section class="prog" id="programme">
   <div class="wrap">
-    <span class="eyebrow rv">Ce que vous obtenez</span>
-    <h2 class="rv d1">Quatre livrables, <em class="accent">tous utilisables</em> dès le premier jour.</h2>
-    <div class="features">
-      <article class="fcard rv"><div class="ico"><svg><use href="#i-doc"/></svg></div><h3>Un CV aux normes ATS</h3><p>Structure, mots-clés sectoriels et réalisations quantifiées, au format attendu par les recruteurs des ONG et des entreprises.</p></article>
-      <article class="fcard rv d1"><div class="ico"><svg><use href="#i-mail"/></svg></div><h3>Une lettre qui convoque</h3><p>Une lettre centrée sur la valeur ajoutée et la différence du candidat, pas sur une liste de tâches.</p></article>
-      <article class="fcard rv d2"><div class="ico"><svg><use href="#i-mic"/></svg></div><h3>Des entretiens maîtrisés</h3><p>Tests techniques, études de cas et simulations avec retours détaillés, méthode STAR à l'appui.</p></article>
-      <article class="fcard rv d3"><div class="ico"><svg><use href="#i-handshake"/></svg></div><h3>Un contrat négocié</h3><p>Connaître votre valeur marché, contre-proposer et sécuriser salaire et avantages.</p></article>
+    <span class="eyebrow rv">Programme</span>
+    <h2 class="rv d1">Cinq soirées pour <em class="accent">changer de trajectoire</em>.</h2>
+    <p class="lead rv d2">Du lundi 7 au vendredi 11 décembre 2026, chaque soir de 18h00 à 19h30 GMT (20h00 à 21h30 à Goma).</p>
+    <ol class="days">
+      <li class="day rv"><span class="d-n">Jour 1</span><span class="d-date">Lundi 7 décembre</span><h3>Se positionner dans l'humanitaire</h3><p>Où vous en êtes, où vous voulez aller et ce que les organisations recherchent.</p></li>
+      <li class="day rv d1"><span class="d-n">Jour 2</span><span class="d-date">Mardi 8 décembre</span><h3>Le CV qui passe les filtres</h3><p>Les règles qui font lire votre dossier jusqu'au bout.</p></li>
+      <li class="day rv d2"><span class="d-n">Jour 3</span><span class="d-date">Mercredi 9 décembre</span><h3>La lettre qui donne envie</h3><p>Une lettre courte, personnelle et convaincante.</p></li>
+      <li class="day rv d3"><span class="d-n">Jour 4</span><span class="d-date">Jeudi 10 décembre</span><h3>Tests et entretien</h3><p>Se préparer à convaincre, avec la méthode STAR.</p></li>
+      <li class="day rv"><span class="d-n">Jour 5</span><span class="d-date">Vendredi 11 décembre</span><h3>Négocier et passer à l'action</h3><p>Votre plan d'action pour la suite de votre carrière.</p></li>
+    </ol>
+    <div class="prog-bar rv">
+      <span><svg><use href="#i-pin"/></svg>7 au 11 décembre 2026</span>
+      <span><svg><use href="#i-target"/></svg>18h00 à 19h30 GMT</span>
+      <span><svg><use href="#i-check"/></svg>100 % gratuit</span>
     </div>
-
-    <div class="modules rv" aria-label="Les thèmes de la formation">
-      <div class="mod"><b>01</b><span>Audit de carrière et positionnement stratégique</span><em>Forces, valeur marché, secteur cible, feuille de route.</em></div>
-      <div class="mod"><b>02</b><span>CV aux normes ATS</span><em>Structure, mots-clés, méthode PAR, format professionnel attendu par les recruteurs.</em></div>
-      <div class="mod"><b>03</b><span>Lettre de motivation percutante</span><em>Accroche, valeur, appel à l'action.</em></div>
-      <div class="mod"><b>04</b><span>Préparation aux tests techniques et études de cas</span><em>S'entraîner avant la convocation, pas après.</em></div>
-      <div class="mod"><b>05</b><span>Simulation d'entretiens, méthode STAR</span><em>Réponses structurées, retours précis.</em></div>
-      <div class="mod"><b>06</b><span>Négociation de contrat et de salaire</span><em>Ne jamais accepter la première offre sans connaître sa valeur.</em></div>
-    </div>
+    <p class="prog-note rv">Programme indicatif : le détail, les exemples et les exercices sont donnés pendant la formation.</p>
   </div>
 </section>
 
-<!-- COMMENT CA MARCHE -->
-<section class="how" id="comment">
+<!-- A EMPORTER -->
+<section class="take" id="emporter">
   <div class="wrap">
-    <span class="eyebrow rv">Comment ça marche</span>
-    <h2 class="rv d1">Quatre étapes, <em class="accent">de l'audit à la candidature</em>.</h2>
-    <div class="steps">
-      <div class="step rv"><h3>Diagnostic de carrière</h3><p>Analyse de votre parcours, de vos forces et des postes ciblés, pour viser les offres d'emploi nationales les plus adaptées à votre profil.</p></div>
-      <div class="step rv d1"><h3>Repositionnement CV et LinkedIn</h3><p>Refonte complète au format ATS et mise en récit de vos réalisations avec les bons mots-clés.</p></div>
-      <div class="step rv d2"><h3>Simulation d'entretien</h3><p>Questions comportementales, mises en situation et retours détaillés, jusqu'à ce que vos réponses soient fluides.</p></div>
-      <div class="step rv d3"><h3>Candidature et suivi</h3><p>Stratégie de candidature ciblée et networking professionnel pour viser les bonnes offres et suivre vos démarches.</p></div>
+    <span class="eyebrow rv">Ce que vous emportez</span>
+    <h2 class="rv d1">À la fin de la formation, vous serez <em class="accent">capable de…</em></h2>
+    <div class="take-main rv">
+      <div class="ico"><svg><use href="#i-doc"/></svg></div>
+      <div>
+        <span class="tag">Le livrable principal</span>
+        <h3>Faire vous-même un bon CV</h3>
+        <p>Un CV clair, structuré et aux normes ATS, que vous saurez écrire et mettre à jour seul(e), sans dépendre de personne.</p>
+      </div>
+    </div>
+    <div class="take3">
+      <article class="tk rv"><span class="n">02</span><h3>Rédiger une lettre percutante</h3><p>Accroche, valeur ajoutée et appel à l'action : une lettre qui donne envie de vous rencontrer.</p></article>
+      <article class="tk rv d1"><span class="n">03</span><h3>Réussir tests et entretiens</h3><p>Préparer les tests, structurer vos réponses avec la méthode STAR et gagner en assurance.</p></article>
+      <article class="tk rv d2"><span class="n">04</span><h3>Tracer votre plan d'action</h3><p>Vous positionner, viser les bonnes organisations humanitaires et savoir négocier votre offre.</p></article>
+    </div>
+    <div class="join-cta rv">
+      <a class="btn btn-primary js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Je veux ces 4 compétences</a>
     </div>
   </div>
 </section>
@@ -568,10 +620,10 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <span class="eyebrow rv">Rejoindre la communauté</span>
     <h2 class="rv d1">Une formation gratuite, <em class="accent">une communauté</em> qui avance ensemble.</h2>
-    <p class="lead rv d2">BK-BOOST ouvre cette formation de coaching de carrière gratuitement. Rejoignez la chaîne WhatsApp pour y accéder et faire partie de la communauté.</p>
+    <p class="lead rv d2">BK-BOOST ouvre cette formation de coaching de carrière gratuitement. Rejoignez la chaîne WhatsApp pour y accéder et faire partie de la communauté, avant le début le 7 décembre 2026.</p>
     <div class="jsteps">
       <article class="jstep rv"><h3>Rejoignez la chaîne WhatsApp</h3><p>C'est le point d'entrée de la formation gratuite : un clic suffit.</p></article>
-      <article class="jstep rv d1"><h3>Suivez la formation et passez à l'action</h3><p>Appliquez chaque thème à votre propre dossier : CV, lettre, tests, entretiens, négociation.</p></article>
+      <article class="jstep rv d1"><h3>Suivez les cinq soirées</h3><p>Du 7 au 11 décembre 2026, chaque soir à 18h00 GMT, pendant 1h30. Appliquez chaque thème à votre propre dossier.</p></article>
     </div>
     <div class="join-cta rv">
       <a class="btn btn-primary js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
@@ -586,10 +638,11 @@ footer a:hover{color:#fff}
     <span class="eyebrow rv">Questions fréquentes</span>
     <h2 class="rv d1">Avant de vous décider.</h2>
     <div class="faq-list rv">
-      <details><summary>La formation est-elle vraiment gratuite ?</summary><p>Oui. BK-BOOST ouvre cette formation gratuitement pour aider un maximum de candidats à améliorer leur dossier et leurs chances d'être rappelés.</p></details>
-      <details><summary>Comment rejoindre ?</summary><p>Cliquez sur « Rejoindre » : le bouton vous amène à la chaîne WhatsApp BK-BOOST. Il suffit de la rejoindre pour accéder à la formation gratuite.</p></details>
+      <details><summary>La formation est-elle vraiment gratuite ?</summary><p>Oui. BK-BOOST ouvre cette formation gratuitement pour aider un maximum de personnes à construire leur carrière dans le monde humanitaire.</p></details>
+      <details><summary>Quand et à quelle heure ?</summary><p>Du lundi 7 au vendredi 11 décembre 2026, chaque soir à 18h00 GMT (20h00 à Goma), pendant 1h30.</p></details>
+      <details><summary>Cette formation est-elle faite pour moi ?</summary><p>Oui, si vous voulez construire votre carrière dans le monde humanitaire : étudiant, chercheur d'emploi ou déjà en poste, la formation vous concerne.</p></details>
+      <details><summary>Comment rejoindre ?</summary><p>Cliquez sur « Je m'inscris gratuitement » : le bouton vous amène à la chaîne WhatsApp BK-BOOST. Il suffit de la rejoindre.</p></details>
       <details><summary>Est-ce que je serai recruté à coup sûr ?</summary><p>Non, et personne ne peut le promettre honnêtement. La formation agit sur ce qui dépend de vous : la qualité de votre CV, de votre lettre, de votre préparation et de votre négociation. Ce sont ces leviers qui font passer un dossier de « ignoré » à « convoqué ».</p></details>
-      <details><summary>Je ne cherche pas dans l'humanitaire. Est-ce adapté ?</summary><p>Oui. Les conseils visent les offres d'emploi nationales dans les ONG, les entreprises privées et les institutions publiques.</p></details>
     </div>
   </div>
 </section>
@@ -599,10 +652,10 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <span class="eyebrow rv">Votre prochaine étape</span>
     <h2 class="rv d1">Rejoignez les candidats qui <em class="accent">se font enfin rappeler</em>.</h2>
-    <p class="lead rv d2">La formation est gratuite. Rejoignez la chaîne WhatsApp BK-BOOST en un clic, puis passez à l'action.</p>
+    <p class="lead rv d2">La formation est gratuite et commence le 7 décembre 2026 à 18h00 GMT. Rejoignez la chaîne WhatsApp BK-BOOST en un clic.</p>
     <div class="cta-row rv d3">
-      <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre sur WhatsApp</a>
-      <a class="btn btn-ghost js-magnet" href="#comment">Revoir la méthode</a>
+      <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Je m'inscris gratuitement</a>
+      <a class="btn btn-ghost js-magnet" href="#programme">Revoir le programme</a>
     </div>
   </div>
 </section>
@@ -617,7 +670,7 @@ footer a:hover{color:#fff}
       </div>
       <div>
         <h4>Navigation</h4>
-        <ul><li><a href="#apropos">Pour qui</a></li><li><a href="#parcours">Votre situation</a></li><li><a href="#methode">Méthode</a></li><li><a href="#rejoindre">Rejoindre</a></li><li><a href="#faq">Questions</a></li></ul>
+        <ul><li><a href="#apropos">Pour qui</a></li><li><a href="#parcours">Votre situation</a></li><li><a href="#programme">Programme</a></li><li><a href="#rejoindre">Rejoindre</a></li><li><a href="#faq">Questions</a></li></ul>
       </div>
       <div>
         <h4>Contact</h4>
@@ -640,10 +693,33 @@ footer a:hover{color:#fff}
   var CHANNEL = "https://whatsapp.com/channel/0029VbBvG6LA89Mc0Y6Hwy0M";
 
   // Liens WhatsApp
-  document.querySelectorAll(".js-wa").forEach(function(a){
+  document.querySelectorAll(".js-wa, #r-btn").forEach(function(a){
     a.href = CHANNEL; a.target = "_blank"; a.rel = "noopener";
   });
   document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // Compte à rebours jusqu'au 7 décembre 2026, 18h00 GMT
+  (function(){
+    var START = Date.UTC(2026, 11, 7, 18, 0, 0), END = Date.UTC(2026, 11, 11, 19, 30, 0);
+    var box = document.getElementById("count"), wrap = document.getElementById("countwrap");
+    if (!box) return;
+    function two(n){ return (n < 10 ? "0" : "") + n; }
+    function unit(v, l){ return '<div class="u"><b>' + v + '</b><span>' + l + '</span></div>'; }
+    function tick(){
+      var now = Date.now();
+      if (now < START) {
+        var d = Math.floor((START - now) / 1000);
+        box.innerHTML = unit(Math.floor(d / 86400), "jours") + unit(two(Math.floor(d % 86400 / 3600)), "heures") + unit(two(Math.floor(d % 3600 / 60)), "min") + unit(two(d % 60), "sec");
+      } else if (now < END) {
+        wrap.querySelector(".count-lab").textContent = "La formation est en cours";
+        box.innerHTML = '<span class="msg">Rejoignez la chaîne WhatsApp maintenant.</span>';
+      } else {
+        wrap.querySelector(".count-lab").textContent = "Session terminée";
+        box.innerHTML = '<span class="msg">Merci aux participants. Rejoignez la chaîne pour la prochaine session.</span>';
+      }
+    }
+    tick(); setInterval(tick, 1000);
+  })();
 
   // Header
   var head = document.querySelector("header.site");
