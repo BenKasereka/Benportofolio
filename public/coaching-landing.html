@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Coaching de carrière BK-BOOST — Du dossier ignoré à la convocation</title>
-<meta name="description" content="Votre candidature reste sans réponse, ou vous visez le niveau supérieur ? Le coaching de carrière BK-BOOST vous accompagne : CV aux normes ATS, lettre de motivation, tests, entretiens STAR et négociation de contrat, en ligne ou en présentiel.">
+<title>Formation gratuite de coaching de carrière BK-BOOST — Du dossier ignoré à la convocation</title>
+<meta name="description" content="Votre candidature reste sans réponse, ou vous visez le niveau supérieur ? Formation gratuite de coaching de carrière BK-BOOST : CV aux normes ATS, lettre de motivation, tests, entretiens STAR et négociation de contrat. Rejoignez la communauté sur WhatsApp.">
 <meta name="theme-color" content="#0b1f4a">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Du « Votre candidature a bien été reçue » au « Quand pouvez-vous commencer ? »">
-<meta property="og:description" content="Coaching de carrière BK-BOOST Ltd. : CV ATS, lettre de motivation, tests techniques, entretiens STAR, négociation. Packs à partir de 60 USD.">
+<meta property="og:description" content="Formation gratuite BK-BOOST Ltd. : CV ATS, lettre de motivation, tests techniques, entretiens STAR, négociation. Rejoignez la communauté.">
 <meta property="og:image" content="https://benkasereka.github.io/Benportofolio/images/social/og-default.png">
 <link rel="icon" href="images/brand/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -211,27 +211,17 @@ header.site.scrolled{border-color:var(--line);box-shadow:0 8px 24px -16px rgba(1
 .person.more h3{font-size:24px;color:#fff}
 .person.more p{margin:0;color:#c5d0ea;font-size:16px}
 
-/* Pricing */
-.pricing{background:var(--paper-2)}
-.plans{display:grid;gap:18px;margin-top:50px;align-items:stretch}
-@media(min-width:700px){.plans{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1100px){.plans{grid-template-columns:repeat(4,1fr)}}
-.plan{position:relative;background:#fff;border:1px solid var(--line);border-radius:26px;padding:32px 26px 28px;display:flex;flex-direction:column}
-.plan h3{font-size:21px}
-.price{font:800 48px/1 var(--font-h);letter-spacing:-.04em;margin:18px 0 4px;color:var(--navy)}
-.price sup{font-size:20px;font-weight:700;vertical-align:top;position:relative;top:7px;margin-right:3px;letter-spacing:0}
-.price small{font:600 14px var(--font-b);color:var(--muted);letter-spacing:0}
-.plan ul{list-style:none;margin:22px 0 28px;padding:0;display:grid;gap:12px;flex:1}
-.plan li{display:flex;gap:11px;font-size:15.5px;line-height:1.45}
-.plan li svg{width:19px;height:19px;color:var(--emerald);flex:none;margin-top:2px}
-.plan .btn{width:100%;padding:16px 18px}
-.plan.hot{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-12px);box-shadow:0 30px 60px -28px rgba(11,31,74,.9)}
-.plan.hot .price{color:#fff}
-.plan.hot .price small{color:#c5d0ea}
-.plan.hot li svg{color:var(--emerald-l)}
-.flag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:#241a05;font:800 12px var(--font-h);letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:999px;white-space:nowrap}
-.plan-note{margin-top:34px;text-align:center;color:var(--muted);font-size:15px}
-@media(max-width:1099px){.plan.hot{transform:none}}
+/* Rejoindre */
+.join-sec{background:var(--paper-2)}
+.jsteps{display:grid;gap:18px;margin-top:46px;counter-reset:j}
+@media(min-width:860px){.jsteps{grid-template-columns:repeat(3,1fr)}}
+.jstep{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 28px 30px;counter-increment:j}
+.jstep::before{content:counter(j);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;font:800 20px var(--font-h);margin-bottom:20px}
+.jstep h3{font-size:22px;margin-bottom:10px}
+.jstep p{margin:0;color:var(--muted);font-size:16px}
+.free-badge{display:inline-flex;align-items:center;gap:8px;margin-top:34px;padding:12px 20px;border-radius:999px;background:var(--emerald-50);color:var(--emerald-d);font:700 15px var(--font-h);border:1px solid #a7f3d0}
+.free-badge svg{width:18px;height:18px}
+.join-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 
 /* FAQ */
 .faq{background:var(--card)}
@@ -259,6 +249,21 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 footer a{text-decoration:none}
 footer a:hover{color:#fff}
 .legal{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:13.5px}
+
+/* Fenêtre d'inscription */
+dialog.join{border:0;padding:0;border-radius:28px;width:min(480px,calc(100% - 32px));box-shadow:0 40px 90px -30px rgba(7,20,51,.8);background:var(--card);color:var(--ink)}
+dialog.join::backdrop{background:rgba(7,20,51,.62);backdrop-filter:blur(3px)}
+.join-in{padding:clamp(26px,5vw,38px);position:relative}
+.join h3{font-size:clamp(24px,4vw,30px);margin:10px 0 10px;color:var(--navy)}
+.join p{margin:0 0 22px;color:var(--muted);font-size:16px}
+.join .eyebrow{font-size:12px}
+.join .btn{width:100%;justify-content:flex-start;padding:17px 22px}
+.join .btn+.btn{margin-top:12px}
+.join .btn small{display:block;font:500 13px var(--font-b);opacity:.85;margin-top:3px}
+.join .btn span{text-align:left;line-height:1.2}
+.join-x{position:absolute;right:14px;top:14px;width:40px;height:40px;border-radius:50%;border:0;background:var(--paper);color:var(--navy);font:700 22px/1 var(--font-h);cursor:pointer}
+.join-x:hover{background:var(--paper-2)}
+.join .join-note{margin:18px 0 0;font-size:13.5px}
 
 /* Floating */
 .wa-fab{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;align-items:center;gap:10px;background:#25d366;color:#06361c;text-decoration:none;font:800 15px var(--font-h);padding:15px 20px;border-radius:999px;box-shadow:0 14px 30px -10px rgba(0,0,0,.45);transition:transform .25s}
@@ -300,10 +305,10 @@ footer a:hover{color:#fff}
       <li><a href="#probleme">Le constat</a></li>
       <li><a href="#parcours">Votre cas</a></li>
       <li><a href="#methode">Méthode</a></li>
-      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#rejoindre">Rejoindre</a></li>
       <li><a href="#faq">Questions</a></li>
     </ul>
-    <a class="btn btn-primary js-wa" href="#">Rejoindre la chaîne</a>
+    <a class="btn btn-primary js-wa" href="#">Rejoindre</a>
   </div>
 </header>
 
@@ -313,19 +318,19 @@ footer a:hover{color:#fff}
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow rv">Coaching de carrière · BK-BOOST Ltd.</span>
+      <span class="eyebrow rv">Formation gratuite · Offres nationales · BK-BOOST Ltd.</span>
       <h1 class="rv d1">Vous postulez. Personne ne rappelle. <em class="accent">Ce n'est pas votre niveau, c'est la stratégie.</em></h1>
       <p class="lead rv d2">CV aux normes ATS, lettre qui se lit jusqu'au bout, tests, entretiens et négociation : un accompagnement concret pour passer de « Votre candidature a bien été reçue » à « Quand pouvez-vous commencer ? ».</p>
       <div class="cta-row rv d3">
         <a class="btn btn-primary js-wa js-magnet" href="#">
-          <svg><use href="#i-wa"/></svg>Rejoindre la chaîne WhatsApp
+          <svg><use href="#i-wa"/></svg>Rejoindre sur WhatsApp
         </a>
         <a class="btn btn-ghost js-magnet" href="#parcours">Voir le parcours qui me correspond</a>
       </div>
       <div class="micro rv d3">
-        <span><svg><use href="#i-check"/></svg>5+ ans de recrutements humanitaires internationaux</span>
-        <span><svg><use href="#i-check"/></svg>En ligne ou en présentiel</span>
-        <span><svg><use href="#i-check"/></svg>Packs dès 60 USD</span>
+        <span><svg><use href="#i-check"/></svg>5+ ans d'expérience en recrutement humanitaire</span>
+        <span><svg><use href="#i-check"/></svg>Formation 100 % gratuite</span>
+        <span><svg><use href="#i-check"/></svg>Communauté WhatsApp</span>
       </div>
     </div>
 
@@ -366,7 +371,7 @@ footer a:hover{color:#fff}
     <h2 class="rv d1">Des candidats solides, <em class="accent">ignorés</em> sans explication.</h2>
     <p class="lead rv d2">Chaque année, des milliers de candidats compétents voient leur dossier écarté. Pas par manque de talent : par manque de méthode face à des recruteurs et à des logiciels de tri qui décident en quelques secondes.</p>
     <div class="cards3">
-      <article class="pcard rv"><span class="n">01</span><h3>Un CV que le filtre ne lit pas</h3><p>Format, mots-clés et structure ne suivent pas les standards des ONG, des agences onusiennes et des entreprises. Le recruteur ne le voit même pas.</p></article>
+      <article class="pcard rv"><span class="n">01</span><h3>Un CV que le filtre ne lit pas</h3><p>Format, mots-clés et structure ne suivent pas les standards des ONG et des entreprises. Le recruteur ne le voit même pas.</p></article>
       <article class="pcard rv d1"><span class="n">02</span><h3>Une lettre qui ressemble à toutes les autres</h3><p>Générique, centrée sur vous plutôt que sur le besoin du poste. Elle n'apporte aucune raison de vous appeler plutôt qu'un autre.</p></article>
       <article class="pcard rv d2"><span class="n">03</span><h3>Un entretien ou un test mal préparé</h3><p>Quand l'appel arrive enfin, des réponses sans structure et des chiffres de salaire négociés à l'aveugle font perdre l'offre.</p></article>
     </div>
@@ -379,12 +384,11 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <span class="eyebrow rv">Votre situation</span>
     <h2 class="rv d1">Deux profils, <em class="accent">deux chemins</em> différents.</h2>
-    <p class="lead rv d2">Choisissez le cas qui vous ressemble : vous voyez le pack conseillé et ce que vous travaillez. L'inscription se fait ensuite via la chaîne WhatsApp BK-BOOST.</p>
+    <p class="lead rv d2">Choisissez le cas qui vous ressemble : vous voyez ce que vous travaillez en priorité. La formation est gratuite et l'inscription se fait en rejoignant la chaîne et le groupe WhatsApp BK-BOOST.</p>
 
     <div class="tabs rv" role="tablist" aria-label="Choisir sa situation">
       <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">Je postule et personne ne m'appelle</button>
       <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false">Je suis en poste et je vise plus haut</button>
-      <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false">Je vise l'international ou l'ONU</button>
     </div>
 
     <div class="panel on rv" id="p1" role="tabpanel" aria-labelledby="t1">
@@ -399,10 +403,10 @@ footer a:hover{color:#fff}
         </ul>
       </div>
       <div class="right">
-        <small>Parcours conseillé</small>
-        <div class="rec">Pack Plus, dès 100 USD</div>
-        <p>CV et orientation, plus la préparation à 2 tests d'embauche et 3 mois d'accompagnement. Le Pack Essentiel (60 USD) suffit si vous ne voulez corriger que le CV.</p>
-        <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>M'inscrire au Pack Plus</a>
+        <small>Votre parcours gratuit</small>
+        <div class="rec">Du dossier ignoré à la convocation</div>
+        <p>CV, lettre de motivation et préparation aux tests : les trois leviers pour obtenir enfin des appels.</p>
+        <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
       </div>
     </div>
 
@@ -418,31 +422,13 @@ footer a:hover{color:#fff}
         </ul>
       </div>
       <div class="right">
-        <small>Parcours conseillé</small>
-        <div class="rec">Pack Premium, 200 USD</div>
-        <p>Pack Essentiel complet et accompagnement personnalisé sur 4 mois, le temps de viser, candidater, passer l'entretien et négocier.</p>
-        <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>M'inscrire au Pack Premium</a>
+        <small>Votre parcours gratuit</small>
+        <div class="rec">Du poste actuel au poste supérieur</div>
+        <p>Positionnement, entretien et négociation : préparez votre prochaine étape avant même de candidater.</p>
+        <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
       </div>
     </div>
 
-    <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3">
-      <div class="left">
-        <h3>« Je veux travailler pour une ONG internationale ou une agence onusienne. »</h3>
-        <p class="quote">Les organisations internationales ont leurs propres codes. Les connaître change tout.</p>
-        <ul>
-          <li><svg><use href="#i-check"/></svg>Codes du recrutement national et international : ONG, ONU, privé, institutions.</li>
-          <li><svg><use href="#i-check"/></svg>Stratégie de candidature ciblée et networking professionnel.</li>
-          <li><svg><use href="#i-check"/></svg>Négociation du contrat et des conditions d'expatriation.</li>
-          <li><svg><use href="#i-check"/></svg>Suivi personnalisé sur 6 mois, jusqu'à la signature.</li>
-        </ul>
-      </div>
-      <div class="right">
-        <small>Parcours conseillé</small>
-        <div class="rec">Pack Ultimate, 600 USD</div>
-        <p>Tout le Pack Plus, 6 mois d'accompagnement personnalisé et des astuces personnalisées pour devenir expatrié.</p>
-        <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>M'inscrire au Pack Ultimate</a>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -452,19 +438,19 @@ footer a:hover{color:#fff}
     <span class="eyebrow rv">Ce que vous obtenez</span>
     <h2 class="rv d1">Quatre livrables, <em class="accent">tous utilisables</em> dès le premier jour.</h2>
     <div class="features">
-      <article class="fcard rv"><div class="ico"><svg><use href="#i-doc"/></svg></div><h3>Un CV aux normes ATS</h3><p>Structure, mots-clés sectoriels et réalisations quantifiées, au format attendu par les ONG et l'ONU.</p></article>
+      <article class="fcard rv"><div class="ico"><svg><use href="#i-doc"/></svg></div><h3>Un CV aux normes ATS</h3><p>Structure, mots-clés sectoriels et réalisations quantifiées, au format attendu par les recruteurs des ONG et des entreprises.</p></article>
       <article class="fcard rv d1"><div class="ico"><svg><use href="#i-mail"/></svg></div><h3>Une lettre qui convoque</h3><p>Une lettre centrée sur la valeur ajoutée et la différence du candidat, pas sur une liste de tâches.</p></article>
       <article class="fcard rv d2"><div class="ico"><svg><use href="#i-mic"/></svg></div><h3>Des entretiens maîtrisés</h3><p>Tests techniques, études de cas et simulations avec retours détaillés, méthode STAR à l'appui.</p></article>
-      <article class="fcard rv d3"><div class="ico"><svg><use href="#i-handshake"/></svg></div><h3>Un contrat négocié</h3><p>Connaître votre valeur marché, contre-proposer et sécuriser salaire, avantages et conditions d'expatriation.</p></article>
+      <article class="fcard rv d3"><div class="ico"><svg><use href="#i-handshake"/></svg></div><h3>Un contrat négocié</h3><p>Connaître votre valeur marché, contre-proposer et sécuriser salaire et avantages.</p></article>
     </div>
 
-    <div class="modules rv" aria-label="Les 6 modules du programme">
+    <div class="modules rv" aria-label="Les thèmes de la formation">
       <div class="mod"><b>01</b><span>Audit de carrière et positionnement stratégique</span><em>Forces, valeur marché, secteur cible, feuille de route.</em></div>
-      <div class="mod"><b>02</b><span>CV aux normes ATS internationales</span><em>Structure, mots-clés, méthode PAR, format ONU et ONG.</em></div>
+      <div class="mod"><b>02</b><span>CV aux normes ATS</span><em>Structure, mots-clés, méthode PAR, format professionnel attendu par les recruteurs.</em></div>
       <div class="mod"><b>03</b><span>Lettre de motivation percutante</span><em>Accroche, valeur, appel à l'action.</em></div>
       <div class="mod"><b>04</b><span>Préparation aux tests techniques et études de cas</span><em>S'entraîner avant la convocation, pas après.</em></div>
       <div class="mod"><b>05</b><span>Simulation d'entretiens, méthode STAR</span><em>Réponses structurées, retours précis.</em></div>
-      <div class="mod"><b>06</b><span>Négociation de contrat et conditions d'expatriation</span><em>Ne jamais accepter la première offre sans connaître sa valeur.</em></div>
+      <div class="mod"><b>06</b><span>Négociation de contrat et de salaire</span><em>Ne jamais accepter la première offre sans connaître sa valeur.</em></div>
     </div>
   </div>
 </section>
@@ -473,12 +459,12 @@ footer a:hover{color:#fff}
 <section class="how" id="comment">
   <div class="wrap">
     <span class="eyebrow rv">Comment ça marche</span>
-    <h2 class="rv d1">Quatre étapes, <em class="accent">de l'audit à la signature</em>.</h2>
+    <h2 class="rv d1">Quatre étapes, <em class="accent">de l'audit à la candidature</em>.</h2>
     <div class="steps">
-      <div class="step rv"><h3>Diagnostic de carrière</h3><p>Analyse de votre parcours, de vos forces et des postes ciblés, que l'opportunité soit locale, nationale ou internationale.</p></div>
+      <div class="step rv"><h3>Diagnostic de carrière</h3><p>Analyse de votre parcours, de vos forces et des postes ciblés, pour viser les offres d'emploi nationales les plus adaptées à votre profil.</p></div>
       <div class="step rv d1"><h3>Repositionnement CV et LinkedIn</h3><p>Refonte complète au format ATS et mise en récit de vos réalisations avec les bons mots-clés.</p></div>
       <div class="step rv d2"><h3>Simulation d'entretien</h3><p>Questions comportementales, mises en situation et retours détaillés, jusqu'à ce que vos réponses soient fluides.</p></div>
-      <div class="step rv d3"><h3>Candidature et suivi</h3><p>Stratégie ciblée, networking et suivi personnalisé jusqu'à la signature du contrat, selon votre pack.</p></div>
+      <div class="step rv d3"><h3>Candidature et suivi</h3><p>Stratégie de candidature ciblée et networking professionnel pour viser les bonnes offres et suivre vos démarches.</p></div>
     </div>
   </div>
 </section>
@@ -486,8 +472,8 @@ footer a:hover{color:#fff}
 <!-- QUIZ -->
 <section class="quiz dark" id="diagnostic">
   <div class="wrap">
-    <span class="eyebrow rv">Diagnostic express · 30 secondes</span>
-    <h2 class="rv d1">Quel accompagnement <em class="accent">vous convient</em> ?</h2>
+    <span class="eyebrow rv">Diagnostic express · 20 secondes</span>
+    <h2 class="rv d1">Par quoi <em class="accent">commencer</em> ?</h2>
     <form class="quiz-box rv" id="quiz" novalidate>
       <div class="q"><fieldset>
         <legend>1. Où en êtes-vous aujourd'hui ?</legend>
@@ -495,7 +481,6 @@ footer a:hover{color:#fff}
           <label class="opt"><input type="radio" name="q1" value="cherche"><span>Je cherche un poste et j'envoie des candidatures</span></label>
           <label class="opt"><input type="radio" name="q1" value="poste"><span>Je suis en poste et je veux évoluer</span></label>
           <label class="opt"><input type="radio" name="q1" value="debut"><span>Jeune diplômé ou en reconversion</span></label>
-          <label class="opt"><input type="radio" name="q1" value="inter"><span>Je vise l'international, l'ONU ou l'expatriation</span></label>
         </div>
       </fieldset></div>
       <div class="q"><fieldset>
@@ -507,22 +492,13 @@ footer a:hover{color:#fff}
           <label class="opt"><input type="radio" name="q2" value="nego"><span>Je ne sais pas négocier mon contrat</span></label>
         </div>
       </fieldset></div>
-      <div class="q"><fieldset>
-        <legend>3. Quel rythme d'accompagnement voulez-vous ?</legend>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="q3" value="court"><span>Court et ciblé : corriger mes documents</span></label>
-          <label class="opt"><input type="radio" name="q3" value="moyen"><span>Quelques mois, avec préparation aux tests</span></label>
-          <label class="opt"><input type="radio" name="q3" value="long"><span>Un suivi complet jusqu'à la signature</span></label>
-          <label class="opt"><input type="radio" name="q3" value="nsp"><span>Je ne sais pas, conseillez-moi</span></label>
-        </div>
-      </fieldset></div>
       <div class="result" id="result" aria-live="polite" tabindex="-1">
-        <small>Votre recommandation</small>
+        <small>Commencez par</small>
         <h3 id="r-title"></h3>
         <p id="r-text"></p>
-        <a class="btn btn-primary js-magnet" id="r-btn" href="#"><svg><use href="#i-wa"/></svg>Rejoindre la chaîne pour m'inscrire</a>
+        <a class="btn btn-primary js-magnet" id="r-btn" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
       </div>
-      <p class="note-q" id="r-hint">Répondez aux trois questions : la recommandation apparaît automatiquement. Notez le pack conseillé, puis rejoignez la chaîne pour vous inscrire.</p>
+      <p class="note-q" id="r-hint">Répondez aux deux questions : le thème à travailler en premier apparaît automatiquement. La formation est gratuite : rejoignez ensuite la chaîne et le groupe WhatsApp.</p>
     </form>
   </div>
 </section>
@@ -537,54 +513,21 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
-<!-- TARIFS -->
-<section class="pricing" id="tarifs">
+<!-- REJOINDRE -->
+<section class="join-sec" id="rejoindre">
   <div class="wrap">
-    <span class="eyebrow rv">Tarifs</span>
-    <h2 class="rv d1">Quatre packs, <em class="accent">un prix clair</em> pour chacun.</h2>
-    <p class="lead rv d2">Du simple travail sur le CV à l'accompagnement complet jusqu'à la signature. Vous payez pour le niveau de soutien dont vous avez besoin, rien de plus.</p>
-    <div class="plans">
-      <article class="plan rv">
-        <h3>Pack Essentiel</h3>
-        <div class="price"><sup>$</sup>60 <small>USD</small></div>
-        <ul>
-          <li><svg><use href="#i-check"/></svg>2 séances d'orientation professionnelle</li>
-          <li><svg><use href="#i-check"/></svg>Correction complète et optimisation du CV</li>
-        </ul>
-        <a class="btn btn-ghost js-wa js-magnet" href="#">M'inscrire à l'Essentiel</a>
-      </article>
-      <article class="plan rv d1">
-        <h3>Pack Plus</h3>
-        <div class="price"><sup>$</sup>100 <small>USD</small></div>
-        <ul>
-          <li><svg><use href="#i-check"/></svg>Tout le Pack Essentiel</li>
-          <li><svg><use href="#i-check"/></svg>Préparation à 2 tests d'embauche</li>
-          <li><svg><use href="#i-check"/></svg>Bonus : accompagnement sur 3 mois</li>
-        </ul>
-        <a class="btn btn-ghost js-wa js-magnet" href="#">M'inscrire au Plus</a>
-      </article>
-      <article class="plan hot rv d2">
-        <span class="flag">Le plus choisi</span>
-        <h3>Pack Premium</h3>
-        <div class="price"><sup>$</sup>200 <small>USD</small></div>
-        <ul>
-          <li><svg><use href="#i-check"/></svg>Tout le Pack Essentiel</li>
-          <li><svg><use href="#i-check"/></svg>Accompagnement personnalisé sur 4 mois</li>
-        </ul>
-        <a class="btn btn-gold js-wa js-magnet" href="#">M'inscrire au Premium</a>
-      </article>
-      <article class="plan rv d3">
-        <h3>Pack Ultimate</h3>
-        <div class="price"><sup>$</sup>600 <small>USD</small></div>
-        <ul>
-          <li><svg><use href="#i-check"/></svg>Tout le Pack Plus</li>
-          <li><svg><use href="#i-check"/></svg>Bonus : accompagnement personnalisé sur 6 mois</li>
-          <li><svg><use href="#i-check"/></svg>Astuces personnalisées pour devenir expatrié</li>
-        </ul>
-        <a class="btn btn-ghost js-wa js-magnet" href="#">M'inscrire à l'Ultimate</a>
-      </article>
+    <span class="eyebrow rv">Rejoindre la communauté</span>
+    <h2 class="rv d1">Une formation gratuite, <em class="accent">une communauté</em> qui avance ensemble.</h2>
+    <p class="lead rv d2">BK-BOOST ouvre cette formation de coaching de carrière gratuitement. Rejoignez la chaîne pour suivre les contenus, et le groupe pour échanger avec les autres candidats.</p>
+    <div class="jsteps">
+      <article class="jstep rv"><h3>Rejoignez la chaîne WhatsApp</h3><p>C'est là que la formation est diffusée : informations et annonces de BK-BOOST.</p></article>
+      <article class="jstep rv d1"><h3>Rejoignez le groupe WhatsApp</h3><p>Posez vos questions et échangez avec d'autres candidats qui visent les mêmes postes.</p></article>
+      <article class="jstep rv d2"><h3>Suivez la formation et passez à l'action</h3><p>Appliquez chaque thème à votre propre dossier : CV, lettre, tests, entretiens, négociation.</p></article>
     </div>
-    <p class="plan-note rv">Les inscriptions se font via la chaîne WhatsApp BK-BOOST ; le paiement se fait par Mobile Money. Vous n'êtes pas sûr du pack ? <a href="#diagnostic" style="color:var(--emerald-d);font-weight:700">Faites le diagnostic express</a>.</p>
+    <div class="join-cta rv">
+      <a class="btn btn-primary js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
+      <span class="free-badge"><svg><use href="#i-check"/></svg>Formation 100 % gratuite</span>
+    </div>
   </div>
 </section>
 
@@ -594,11 +537,10 @@ footer a:hover{color:#fff}
     <span class="eyebrow rv">Questions fréquentes</span>
     <h2 class="rv d1">Avant de vous décider.</h2>
     <div class="faq-list rv">
-      <details><summary>Est-ce que je serai recruté à coup sûr ?</summary><p>Non, et personne ne peut le promettre honnêtement. Le coaching agit sur ce qui dépend de vous : la qualité de votre CV, de votre lettre, de votre préparation et de votre négociation. Ce sont ces leviers qui font passer un dossier de « ignoré » à « convoqué ».</p></details>
-      <details><summary>Le coaching se fait en ligne ou en présentiel ?</summary><p>Les deux. Les séances peuvent se tenir en ligne, où que vous soyez, ou en présentiel à Goma.</p></details>
-      <details><summary>Combien de temps dure l'accompagnement ?</summary><p>De 4 à 24 semaines selon le pack : de quelques séances pour corriger vos documents jusqu'à un suivi de 6 mois pour le Pack Ultimate.</p></details>
-      <details><summary>Je ne cherche pas dans l'humanitaire. Est-ce adapté ?</summary><p>Oui. Le programme vise les postes nationaux et internationaux dans les ONG, les agences onusiennes, les entreprises privées et les institutions publiques.</p></details>
-      <details><summary>Comment s'inscrire et payer ?</summary><p>Choisissez votre pack, puis cliquez sur le bouton d'inscription : il vous amène à la chaîne WhatsApp BK-BOOST, où se font les inscriptions. Le paiement se fait par Mobile Money.</p></details>
+      <details><summary>La formation est-elle vraiment gratuite ?</summary><p>Oui. BK-BOOST ouvre cette formation gratuitement pour aider un maximum de candidats à améliorer leur dossier et leurs chances d'être rappelés.</p></details>
+      <details><summary>Comment rejoindre ?</summary><p>Cliquez sur « Rejoindre gratuitement » : une fenêtre vous propose de rejoindre la chaîne WhatsApp BK-BOOST, puis le groupe WhatsApp. Il suffit de rejoindre les deux.</p></details>
+      <details><summary>Est-ce que je serai recruté à coup sûr ?</summary><p>Non, et personne ne peut le promettre honnêtement. La formation agit sur ce qui dépend de vous : la qualité de votre CV, de votre lettre, de votre préparation et de votre négociation. Ce sont ces leviers qui font passer un dossier de « ignoré » à « convoqué ».</p></details>
+      <details><summary>Je ne cherche pas dans l'humanitaire. Est-ce adapté ?</summary><p>Oui. Les conseils visent les offres d'emploi nationales dans les ONG, les entreprises privées et les institutions publiques.</p></details>
     </div>
   </div>
 </section>
@@ -608,10 +550,10 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <span class="eyebrow rv">Votre prochaine étape</span>
     <h2 class="rv d1">Rejoignez les candidats qui <em class="accent">se font enfin rappeler</em>.</h2>
-    <p class="lead rv d2">Rejoignez la chaîne WhatsApp BK-BOOST : c'est là que se font les inscriptions. Choisissez votre pack, rejoignez la chaîne et passez à l'action.</p>
+    <p class="lead rv d2">La formation est gratuite. Rejoignez la chaîne et le groupe WhatsApp BK-BOOST en deux clics, puis passez à l'action.</p>
     <div class="cta-row rv d3">
-      <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre la chaîne WhatsApp</a>
-      <a class="btn btn-ghost js-magnet" href="#tarifs">Revoir les tarifs</a>
+      <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre sur WhatsApp</a>
+      <a class="btn btn-ghost js-magnet" href="#comment">Revoir la méthode</a>
     </div>
   </div>
 </section>
@@ -622,16 +564,17 @@ footer a:hover{color:#fff}
     <div class="fgrid">
       <div>
         <a class="brand" href="#top"><img src="images/brand/bk-boost-logo.png" alt="" width="38" height="38"><span>BK-BOOST<small>Coaching de carrière</small></span></a>
-        <p style="max-width:34ch;margin:18px 0 0">De votre CV actuel au contrat que vous méritez, au niveau national ou international.</p>
+        <p style="max-width:34ch;margin:18px 0 0">Formation gratuite : de votre CV actuel au poste que vous méritez, sur les offres nationales.</p>
       </div>
       <div>
         <h4>Navigation</h4>
-        <ul><li><a href="#parcours">Votre situation</a></li><li><a href="#methode">Méthode</a></li><li><a href="#tarifs">Tarifs</a></li><li><a href="#faq">Questions</a></li><li><a href="https://benkasereka.github.io/Benportofolio/formations/coaching-carriere">Programme détaillé</a></li></ul>
+        <ul><li><a href="#parcours">Votre situation</a></li><li><a href="#methode">Méthode</a></li><li><a href="#rejoindre">Rejoindre</a></li><li><a href="#faq">Questions</a></li></ul>
       </div>
       <div>
         <h4>Contact</h4>
         <ul>
-          <li><a class="js-wa" href="#">Chaîne WhatsApp BK-BOOST</a></li>
+          <li><a href="https://whatsapp.com/channel/0029VbBvG6LA89Mc0Y6Hwy0M" rel="noopener" target="_blank">Chaîne WhatsApp BK-BOOST</a></li>
+          <li><a href="https://chat.whatsapp.com/CSPOA8wQOtjC79GFx7RGvh" rel="noopener" target="_blank">Groupe WhatsApp BK-BOOST</a></li>
           <li><a href="https://wa.me/243990260711" rel="noopener" target="_blank">Question directe : +243 990 260 711</a></li>
           <li><a href="mailto:kasvinyatsi7@gmail.com">kasvinyatsi7@gmail.com</a></li>
           <li><a href="https://www.linkedin.com/in/benjamin-kasereka-vinyatsi-57557b2aa/" rel="noopener" target="_blank">LinkedIn</a></li>
@@ -643,17 +586,41 @@ footer a:hover{color:#fff}
   </div>
 </footer>
 
-<a class="wa-fab js-wa" href="#" aria-label="Rejoindre la chaîne WhatsApp"><svg><use href="#i-wa"/></svg><span>Chaîne WhatsApp</span></a>
+<a class="wa-fab js-wa" href="#" aria-label="Rejoindre la chaîne et le groupe WhatsApp"><svg><use href="#i-wa"/></svg><span>Rejoindre</span></a>
+
+<dialog class="join" id="join" aria-labelledby="join-t">
+  <div class="join-in">
+    <button class="join-x" type="button" aria-label="Fermer" id="join-x">&times;</button>
+    <span class="eyebrow">Inscription</span>
+    <h3 id="join-t">Deux étapes pour rejoindre</h3>
+    <p>Pour accéder à la formation gratuite, rejoignez la chaîne et le groupe WhatsApp BK-BOOST. Les deux boutons s'ouvrent dans WhatsApp.</p>
+    <a class="btn btn-primary" id="join-ch" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>1. Rejoindre la chaîne WhatsApp<small>Informations et annonces</small></span></a>
+    <a class="btn btn-gold" id="join-gr" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span>2. Rejoindre le groupe WhatsApp<small>Échanges avec les autres candidats</small></span></a>
+    <p class="join-note">Rejoignez les deux pour ne rien manquer de la formation.</p>
+  </div>
+</dialog>
 
 <script>
 (function(){
   var CHANNEL = "https://whatsapp.com/channel/0029VbBvG6LA89Mc0Y6Hwy0M";
+  var GROUP = "https://chat.whatsapp.com/CSPOA8wQOtjC79GFx7RGvh";
   var WA = "243990260711";
 
   // Liens WhatsApp
   document.querySelectorAll(".js-wa").forEach(function(a){
     a.href = CHANNEL; a.target = "_blank"; a.rel = "noopener";
   });
+  // Chaque bouton d'inscription ouvre la fenêtre « chaîne + groupe » (repli sans JavaScript : lien vers la chaîne).
+  var dlg = document.getElementById("join");
+  document.getElementById("join-ch").href = CHANNEL;
+  document.getElementById("join-gr").href = GROUP;
+  function openJoin(e){
+    if (!dlg || typeof dlg.showModal !== "function") return;
+    e.preventDefault(); dlg.showModal();
+  }
+  document.querySelectorAll(".js-wa, #r-btn").forEach(function(a){ a.addEventListener("click", openJoin); });
+  document.getElementById("join-x").addEventListener("click", function(){ dlg.close(); });
+  dlg.addEventListener("click", function(e){ if (e.target === dlg) dlg.close(); });
   document.getElementById("yr").textContent = new Date().getFullYear();
 
   // Header
@@ -701,30 +668,23 @@ footer a:hover{color:#fff}
   });
   select(tabs[0]);
 
-  // Diagnostic express
-  var PACKS = {
-    essentiel: {n:"Pack Essentiel, 60 USD", t:"Le bon point de départ si votre problème tient surtout à vos documents : 2 séances d'orientation et une correction complète de votre CV."},
-    plus: {n:"Pack Plus, 100 USD", t:"CV corrigé, préparation à 2 tests d'embauche et 3 mois d'accompagnement : adapté si vous êtes convoqué mais que les tests ou entretiens vous bloquent."},
-    premium: {n:"Pack Premium, 200 USD", t:"Un accompagnement personnalisé sur 4 mois, idéal pour évoluer ou changer de niveau avec le temps de viser, candidater et négocier."},
-    ultimate: {n:"Pack Ultimate, 600 USD", t:"Un suivi de 6 mois jusqu'à la signature, avec des astuces personnalisées pour l'expatriation : pour viser une ONG internationale ou l'ONU."}
+  // Diagnostic express : le thème à travailler en premier
+  var FOCUS = {
+    appel: {n:"Un CV aux normes ATS", t:"C'est le premier filtre. Structure, mots-clés du secteur et réalisations chiffrées (méthode PAR) décident si un humain lira votre dossier."},
+    test: {n:"Tests techniques et entretiens STAR", t:"Préparez les tests et les études de cas avant la convocation, et structurez vos réponses avec la méthode STAR pour être convaincant dès la première question."},
+    valeur: {n:"Positionnement et valorisation du parcours", t:"Identifiez vos forces, votre valeur sur le marché et le secteur cible, puis racontez vos réalisations pour qu'elles parlent à un recruteur."},
+    nego: {n:"Négociation du contrat", t:"Ne jamais accepter la première offre sans connaître votre valeur : apprenez à négocier salaire et avantages."}
   };
   var form = document.getElementById("quiz");
-  function recommend(a){
-    if (a.q1 === "inter" || a.q3 === "long" && a.q2 === "nego") return "ultimate";
-    if (a.q1 === "poste" || a.q2 === "nego" || a.q3 === "long") return "premium";
-    if (a.q2 === "test" || a.q3 === "moyen") return "plus";
-    return "essentiel";
-  }
   form.addEventListener("change", function(){
-    var a = {};
-    ["q1","q2","q3"].forEach(function(k){ var c = form.querySelector('input[name="'+k+'"]:checked'); if(c) a[k] = c.value; });
-    if (!(a.q1 && a.q2 && a.q3)) return;
-    var key = recommend(a), p = PACKS[key];
-    document.getElementById("r-title").textContent = p.n;
-    document.getElementById("r-text").textContent = p.t;
+    var q1 = form.querySelector('input[name="q1"]:checked'), q2 = form.querySelector('input[name="q2"]:checked');
+    if (!(q1 && q2)) return;
+    var f = FOCUS[q2.value];
+    document.getElementById("r-title").textContent = f.n;
+    document.getElementById("r-text").textContent = f.t;
     document.getElementById("r-btn").href = CHANNEL;
     document.getElementById("r-btn").target = "_blank"; document.getElementById("r-btn").rel = "noopener";
-    var r = document.getElementById("result"); r.classList.add("on");
+    document.getElementById("result").classList.add("on");
     document.getElementById("r-hint").style.display = "none";
   });
   form.addEventListener("submit", function(e){ e.preventDefault(); });
@@ -749,8 +709,8 @@ footer a:hover{color:#fff}
     box.appendChild(el); if (io) io.observe(el); else el.classList.add("in");
   });
   var more = document.createElement("article"); more.className = "person more rv";
-  more.innerHTML = '<h3>Et bien d\'autres candidats</h3><p>Chaque parcours est différent. Le vôtre commence en rejoignant la chaîne.</p><a class="btn btn-gold js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre la chaîne</a>';
-  var mb = more.querySelector("a"); mb.href = CHANNEL; mb.target="_blank"; mb.rel="noopener";
+  more.innerHTML = '<h3>Et bien d\'autres candidats</h3><p>Chaque parcours est différent. Le vôtre commence en rejoignant la chaîne et le groupe.</p><a class="btn btn-gold js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre</a>';
+  var mb = more.querySelector("a"); mb.href = CHANNEL; mb.target="_blank"; mb.rel="noopener"; mb.addEventListener("click", openJoin);
   box.appendChild(more); if (io) io.observe(more); else more.classList.add("in");
 })();
 </script>
