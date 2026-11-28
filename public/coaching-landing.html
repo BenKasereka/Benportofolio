@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Formation gratuite · Carrière humanitaire · 7 au 11 décembre 2026 — BK-BOOST</title>
-<meta name="description" content="Formation gratuite pour construire votre carrière dans le monde humanitaire : du 7 au 11 décembre 2026, chaque soir à 18h GMT. Apprenez à faire vous-même un bon CV, une lettre percutante et à réussir vos entretiens.">
+<meta name="description" content="Formation gratuite pour construire votre carrière dans le monde humanitaire, du 7 au 11 décembre 2026 à 18h GMT : construire un CV très professionnel, comprendre le recrutement et toute offre d'emploi, préparer son dossier et se démarquer.">
 <meta name="theme-color" content="#0b1f4a">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Construisez votre carrière dans le monde humanitaire : formation gratuite du 7 au 11 décembre 2026">
@@ -74,38 +74,13 @@ header.site.scrolled{border-color:var(--line);box-shadow:0 8px 24px -16px rgba(1
   radial-gradient(900px 480px at 88% -10%,rgba(4,120,87,.14),transparent 62%),
   radial-gradient(700px 420px at -10% 40%,rgba(200,150,46,.13),transparent 60%),var(--paper)}
 .hero-grid{display:grid;gap:56px;align-items:center}
-@media(min-width:960px){.hero-grid{grid-template-columns:1.08fr .92fr}}
+.hero-grid{max-width:860px}
 .hero h1{font-size:clamp(38px,6.2vw,72px);font-weight:800;margin:22px 0 22px;color:var(--navy)}
 .hero .lead{margin-bottom:34px}
 .cta-row{display:flex;flex-wrap:wrap;gap:14px}
 .micro{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px;font:600 14px var(--font-h);color:var(--muted)}
 .micro span{display:inline-flex;align-items:center;gap:8px}
 .micro svg{width:17px;height:17px;color:var(--emerald)}
-
-/* Hero mockup */
-.mock{position:relative;background:var(--card);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:22px;max-width:520px;margin-inline:auto;width:100%}
-.mock-bar{display:flex;align-items:center;gap:7px;margin-bottom:18px}
-.mock-bar i{width:10px;height:10px;border-radius:50%;background:#e4dcc7}
-.mock-bar b{margin-left:auto;font:600 11px var(--font-h);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.mock-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.mock-card{border-radius:var(--radius-s);padding:16px;border:1px solid var(--line);background:var(--paper)}
-.mock-card.good{background:var(--emerald-50);border-color:#a7f3d0}
-.mock-card h4{margin:0 0 4px;font:700 11px var(--font-h);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.mock-card strong{font:800 34px/1 var(--font-h);letter-spacing:-.03em;color:var(--navy)}
-.mock-card.good strong{color:var(--emerald-d)}
-.mock-card p{margin:6px 0 0;font-size:13px;line-height:1.35;color:var(--muted)}
-.meter{height:8px;border-radius:99px;background:#e7e1cf;margin-top:12px;overflow:hidden}
-.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--emerald));border-radius:99px;transition:width 1.6s cubic-bezier(.2,.8,.2,1) .4s}
-.mock.in .meter i{width:var(--w)}
-.timeline{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:11px}
-.timeline li{display:flex;align-items:center;gap:12px;font:600 14.5px var(--font-h);color:var(--ink);opacity:0;transform:translateX(-10px);transition:opacity .5s,transform .5s}
-.mock.in .timeline li{opacity:1;transform:none}
-.mock.in .timeline li:nth-child(1){transition-delay:.3s}.mock.in .timeline li:nth-child(2){transition-delay:.55s}.mock.in .timeline li:nth-child(3){transition-delay:.8s}.mock.in .timeline li:nth-child(4){transition-delay:1.05s}
-.timeline .dot{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--emerald);color:#fff;flex:none}
-.timeline .dot svg{width:14px;height:14px}
-.timeline .dot.go{background:var(--gold);color:#241a05}
-.chip{position:absolute;right:-8px;top:-18px;background:var(--navy);color:#fff;font:700 12.5px var(--font-h);padding:10px 16px;border-radius:999px;box-shadow:var(--shadow);transform:rotate(3deg)}
-.mock figcaption,.mock .note{margin-top:16px;font-size:12px;color:var(--muted);text-align:center}
 
 /* Problem */
 .problem{background:var(--navy);color:#fff}
@@ -124,20 +99,6 @@ header.site.scrolled{border-color:var(--line);box-shadow:0 8px 24px -16px rgba(1
 .about{background:var(--paper)}
 .about-grid{display:grid;gap:44px;align-items:start;margin-top:46px}
 @media(min-width:940px){.about-grid{grid-template-columns:.9fr 1.1fr;gap:64px}}
-.me{background:#fff;border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);overflow:hidden;max-width:520px;width:100%;margin-inline:auto}
-.me-photo{position:relative;aspect-ratio:4/4.3;background:var(--navy)}
-.me-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
-.me-photo::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(0deg,rgba(11,31,74,.82),transparent)}
-.me-tag{position:absolute;left:22px;bottom:20px;z-index:1;color:#fff;font:700 13px var(--font-h);letter-spacing:.12em;text-transform:uppercase}
-.me-body{padding:28px 28px 30px}
-.me-body h3{font-size:27px;color:var(--navy)}
-.me-role{font:600 15px var(--font-h);color:var(--emerald-d);margin:6px 0 16px}
-.me-body p{margin:0 0 16px;color:var(--muted);font-size:16.5px}
-.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0 22px}
-.fact{background:var(--paper);border-radius:14px;padding:14px 10px;text-align:center}
-.fact b{display:block;font:800 26px/1 var(--font-h);letter-spacing:-.03em;color:var(--navy)}
-.fact span{display:block;margin-top:6px;font-size:12.5px;line-height:1.3;color:var(--muted)}
-.me .btn{width:100%;padding:15px 20px;font-size:15px}
 .audience{display:grid;gap:12px;margin-top:30px}
 .aud{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px;transition:transform .25s,box-shadow .25s}
 .aud:hover{transform:translateX(6px);box-shadow:var(--shadow)}
@@ -146,6 +107,31 @@ header.site.scrolled{border-color:var(--line);box-shadow:0 8px 24px -16px rgba(1
 .aud h3{font-size:18px;margin-bottom:4px}
 .aud p{margin:0;color:var(--muted);font-size:15.5px}
 .about h2{max-width:22ch}
+
+/* Formateur (en tête de page) */
+.who{background:linear-gradient(180deg,var(--paper),var(--paper-2));padding:clamp(28px,4vw,56px) 0}
+.who-card{display:grid;background:#fff;border:1px solid var(--line);border-radius:32px;box-shadow:var(--shadow);overflow:hidden}
+@media(min-width:900px){.who-card{grid-template-columns:340px 1fr}}
+.who-photo{position:relative;aspect-ratio:4/4.3;background:var(--navy)}
+.who-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+@media(min-width:900px){.who-photo{aspect-ratio:auto}}
+.who-body{padding:clamp(24px,4vw,44px)}
+.who-flag{display:inline-flex;gap:8px;align-items:center;background:var(--emerald-50);color:var(--emerald-d);border:1px solid #a7f3d0;border-radius:999px;padding:8px 14px;font:700 13px/1.25 var(--font-h)}
+.who-flag svg{width:16px;height:16px;flex:none}
+.who h2{font-size:clamp(30px,4.4vw,48px);font-weight:800;color:var(--navy);margin:16px 0 6px;max-width:none}
+.who-role{font:600 17px/1.35 var(--font-h);color:var(--emerald-d);margin-bottom:16px}
+.who p.bio{margin:0;color:var(--muted);font-size:17px;max-width:62ch}
+.who-stats{display:flex;gap:10px 30px;flex-wrap:wrap;margin:22px 0 20px}
+.who-stat b{display:block;font:800 clamp(34px,4.6vw,46px)/1 var(--font-h);letter-spacing:-.03em;color:var(--navy)}
+.who-stat span{display:block;margin-top:6px;font-size:13.5px;line-height:1.3;color:var(--muted);max-width:14ch}
+.who-sub{font:700 12px var(--font-h);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:6px 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:600 14px var(--font-h);color:var(--navy)}
+.who-orgs{margin:16px 0 0;font-size:14.5px;color:var(--muted)}
+.who-link{color:var(--emerald-d);font:700 14.5px var(--font-h);text-decoration:underline;text-underline-offset:3px}
+.who-link:hover{color:var(--navy)}
+@media(min-width:940px){.about-grid{grid-template-columns:1fr}.audience{grid-template-columns:repeat(3,1fr)}.aud{flex-direction:column}.aud:hover{transform:translateY(-6px)}}
+.hero{padding-top:clamp(30px,4vw,56px)}
 
 /* Scenarios */
 .scen{background:var(--paper)}
@@ -209,7 +195,8 @@ header.site.scrolled{border-color:var(--line);box-shadow:0 8px 24px -16px rgba(1
 .take-main h3{font-size:clamp(26px,3.6vw,40px);margin:8px 0 12px;color:#fff}
 .take-main p{margin:0;color:#d6e3f5;font-size:clamp(16px,1.6vw,19px);max-width:56ch}
 .take3{display:grid;gap:16px;margin-top:18px}
-@media(min-width:820px){.take3{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:640px){.take3{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.take3{grid-template-columns:repeat(4,1fr)}}
 .tk{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .3s,box-shadow .3s}
 .tk:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
 .tk .n{font:800 13px var(--font-h);letter-spacing:.14em;color:var(--gold)}
@@ -334,6 +321,7 @@ footer a:hover{color:#fff}
       <span>BK-BOOST<small>Coaching de carrière</small></span>
     </a>
     <ul>
+      <li><a href="#formateur">Formateur</a></li>
       <li><a href="#probleme">Le constat</a></li>
       <li><a href="#apropos">Pour qui</a></li>
       <li><a href="#parcours">Votre cas</a></li>
@@ -347,13 +335,38 @@ footer a:hover{color:#fff}
 
 <main id="contenu">
 
+<!-- FORMATEUR -->
+<section class="who" id="formateur">
+  <div class="wrap">
+    <div class="who-card rv">
+      <div class="who-photo"><img src="images/benjamin-kasereka.jpg" alt="Portrait de Benjamin Kasereka Vinyatsi" width="680" height="730"></div>
+      <div class="who-body">
+        <span class="who-flag"><svg><use href="#i-pin"/></svg>Aujourd'hui expatrié au Tchad · Supply Chain Manager d'urgence, MSF-OCB</span>
+        <h2>Benjamin Kasereka Vinyatsi</h2>
+        <div class="who-role">Senior Supply Chain &amp; Consulting Expert · Coach de carrière · Goma, RD Congo</div>
+        <p class="bio">Plus de dix ans à toucher à tous les métiers qui font tourner une opération humanitaire : de l'achat à l'audit, de la finance aux ressources humaines, de la chaîne du froid à la data. Ce parcours, je vous le transmets pour construire le vôtre.</p>
+        <div class="who-stats">
+          <div class="who-stat"><b>10+</b><span>ans d'expérience polyvalente</span></div>
+          <div class="who-stat"><b>9</b><span>domaines maîtrisés</span></div>
+          <div class="who-stat"><b>5</b><span>pays de terrain</span></div>
+        </div>
+        <div class="who-sub">Domaines traversés</div>
+        <div class="chips">
+          <span>Supply chain d'urgence</span><span>Achats et contrats</span><span>Audit et conformité</span><span>Finance et administration</span><span>Ressources humaines</span><span>Chaîne du froid et santé</span><span>Data, ERP et reporting</span><span>Réponse aux épidémies et crises</span><span>Coaching et formation</span>
+        </div>
+        <p class="who-orgs">Parcours au sein de MSF, ACTED, ACF, Mercy Corps et International Medical Corps · Tchad, Soudan du Sud, Haïti, Nigeria, RDC · Master en coopération internationale et aide humanitaire · <a class="who-link" href="https://www.linkedin.com/in/benjamin-kasereka-vinyatsi-57557b2aa/" target="_blank" rel="noopener">Profil LinkedIn</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- HERO -->
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow rv">Formation gratuite · Carrière humanitaire</span>
       <h1 class="rv d1">Construisez votre carrière dans le monde humanitaire. <em class="accent">En cinq soirées, gratuitement.</em></h1>
-      <p class="lead rv d2">Étudiant, en recherche d'emploi ou déjà en poste : du 7 au 11 décembre 2026, apprenez à faire vous-même un bon CV, à convaincre en entretien et à avancer avec un plan clair.</p>
+      <p class="lead rv d2">Étudiant, en recherche d'emploi ou déjà en poste : du 7 au 11 décembre 2026, apprenez à construire un CV très professionnel, à comprendre le recrutement et toute offre d'emploi, et à vous démarquer.</p>
       <div class="when rv d2">
         <div class="when-i"><svg><use href="#i-pin"/></svg><div>7 au 11 décembre 2026<small>Du lundi au vendredi</small></div></div>
         <div class="when-i"><svg><use href="#i-target"/></svg><div>Dès 18h00 GMT<small>20h00 à Goma</small></div></div>
@@ -365,7 +378,6 @@ footer a:hover{color:#fff}
       </div>
       <div class="cta-row rv d3">
         <a class="btn btn-primary js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Je m'inscris gratuitement</a>
-        <a class="btn btn-ghost js-magnet" href="#programme">Voir le programme</a>
       </div>
       <div class="micro rv d3">
         <span><svg><use href="#i-check"/></svg>100 % gratuit</span>
@@ -373,33 +385,6 @@ footer a:hover{color:#fff}
       </div>
     </div>
 
-    <figure class="mock rv d2" id="mock" aria-label="Illustration d'un parcours de candidature">
-      <span class="chip">Exemple illustratif</span>
-      <div class="mock-bar"><i></i><i></i><i></i><b>Mon dossier</b></div>
-      <div class="mock-row">
-        <div class="mock-card">
-          <h4>Avant</h4>
-          <strong>0</strong>
-          <p>appel pour un test, malgré les candidatures envoyées</p>
-        </div>
-        <div class="mock-card good">
-          <h4>Objectif</h4>
-          <strong>Test</strong>
-          <p>convocation, puis entretien préparé méthode STAR</p>
-        </div>
-      </div>
-      <div class="mock-card" style="margin-top:12px">
-        <h4>Dossier prêt pour les filtres ATS</h4>
-        <div class="meter"><i style="--w:92%"></i></div>
-      </div>
-      <ul class="timeline">
-        <li><span class="dot"><svg><use href="#i-check"/></svg></span>Diagnostic et positionnement</li>
-        <li><span class="dot"><svg><use href="#i-check"/></svg></span>CV et lettre réécrits</li>
-        <li><span class="dot"><svg><use href="#i-check"/></svg></span>Simulation d'entretien</li>
-        <li><span class="dot go"><svg><use href="#i-handshake"/></svg></span>Négociation du contrat</li>
-      </ul>
-      <figcaption>Illustration du parcours, sans résultat chiffré promis.</figcaption>
-    </figure>
   </div>
 </section>
 
@@ -421,29 +406,11 @@ footer a:hover{color:#fff}
 <!-- A PROPOS / POUR QUI -->
 <section class="about" id="apropos">
   <div class="wrap">
-    <span class="eyebrow rv">Pour qui · Qui suis-je</span>
+    <span class="eyebrow rv">Pour qui</span>
     <h2 class="rv d1" style="font-size:clamp(32px,4.6vw,54px);font-weight:800;margin:16px 0 18px">Votre carrière humanitaire <em class="accent">commence ici</em>.</h2>
     <p class="lead rv d2">Cette formation s'adresse à toutes les couches : que vous soyez étudiant, chercheur d'emploi ou déjà en poste, si vous voulez construire votre carrière dans le monde humanitaire, elle vous concerne.</p>
 
     <div class="about-grid">
-      <article class="me rv">
-        <div class="me-photo">
-          <img src="images/benjamin-kasereka.jpg" alt="Portrait de Benjamin Kasereka Vinyatsi" width="520" height="560" loading="lazy">
-          <span class="me-tag">Votre formateur</span>
-        </div>
-        <div class="me-body">
-          <h3>Benjamin Kasereka Vinyatsi</h3>
-          <div class="me-role">Senior Supply Chain &amp; Consulting Expert · Coach de carrière</div>
-          <p>Basé à Goma, en RD Congo, je travaille depuis plus de sept ans dans la supply chain d'urgence au sein d'ONG humanitaires, entre logistique, audit et analyse de données. Je vous accompagne avec BK-BOOST Ltd. pour transformer un dossier ignoré en candidature qui obtient des réponses.</p>
-          <div class="facts">
-            <div class="fact"><b>7+</b><span>ans en supply chain d'urgence</span></div>
-            <div class="fact"><b>5+</b><span>ans en recrutement humanitaire</span></div>
-            <div class="fact"><b>5</b><span>pôles d'expertise</span></div>
-          </div>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/benjamin-kasereka-vinyatsi-57557b2aa/" target="_blank" rel="noopener">Voir mon profil LinkedIn</a>
-        </div>
-      </article>
-
       <div class="audience">
         <article class="aud rv"><div class="ico"><svg><use href="#i-star"/></svg></div><div><h3>Vous êtes étudiant(e)</h3><p>Préparer dès maintenant votre entrée dans l'humanitaire avec un dossier clair et une direction.</p></div></article>
         <article class="aud rv d1"><div class="ico"><svg><use href="#i-doc"/></svg></div><div><h3>Vous cherchez un emploi</h3><p>Comprendre pourquoi vos candidatures restent sans réponse et les corriger avant la prochaine.</p></div></article>
@@ -481,7 +448,6 @@ footer a:hover{color:#fff}
         <small>Votre parcours gratuit</small>
         <div class="rec">Du diplôme au premier poste</div>
         <p>Un CV, une lettre et un entretien préparés pour franchir la première porte.</p>
-        <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
       </div>
     </div>
 
@@ -500,7 +466,6 @@ footer a:hover{color:#fff}
         <small>Votre parcours gratuit</small>
         <div class="rec">Du dossier ignoré à la convocation</div>
         <p>CV, lettre de motivation et préparation aux tests : les leviers pour obtenir enfin des appels.</p>
-        <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
       </div>
     </div>
 
@@ -519,7 +484,6 @@ footer a:hover{color:#fff}
         <small>Votre parcours gratuit</small>
         <div class="rec">Du poste actuel au poste supérieur</div>
         <p>Positionnement, entretien et négociation : préparez votre prochaine étape avant même de candidater.</p>
-        <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre gratuitement</a>
       </div>
     </div>
   </div>
@@ -532,11 +496,11 @@ footer a:hover{color:#fff}
     <h2 class="rv d1">Cinq soirées pour <em class="accent">changer de trajectoire</em>.</h2>
     <p class="lead rv d2">Du lundi 7 au vendredi 11 décembre 2026, chaque soir de 18h00 à 19h30 GMT (20h00 à 21h30 à Goma).</p>
     <ol class="days">
-      <li class="day rv"><span class="d-n">Jour 1</span><span class="d-date">Lundi 7 décembre</span><h3>Se positionner dans l'humanitaire</h3><p>Où vous en êtes, où vous voulez aller et ce que les organisations recherchent.</p></li>
-      <li class="day rv d1"><span class="d-n">Jour 2</span><span class="d-date">Mardi 8 décembre</span><h3>Le CV qui passe les filtres</h3><p>Les règles qui font lire votre dossier jusqu'au bout.</p></li>
-      <li class="day rv d2"><span class="d-n">Jour 3</span><span class="d-date">Mercredi 9 décembre</span><h3>La lettre qui donne envie</h3><p>Une lettre courte, personnelle et convaincante.</p></li>
-      <li class="day rv d3"><span class="d-n">Jour 4</span><span class="d-date">Jeudi 10 décembre</span><h3>Tests et entretien</h3><p>Se préparer à convaincre, avec la méthode STAR.</p></li>
-      <li class="day rv"><span class="d-n">Jour 5</span><span class="d-date">Vendredi 11 décembre</span><h3>Négocier et passer à l'action</h3><p>Votre plan d'action pour la suite de votre carrière.</p></li>
+      <li class="day rv"><span class="d-n">Jour 1</span><span class="d-date">Lundi 7 décembre</span><h3>Comprendre le recrutement</h3><p>Comment une organisation humanitaire recrute, de l'offre à la décision.</p></li>
+      <li class="day rv d1"><span class="d-n">Jour 2</span><span class="d-date">Mardi 8 décembre</span><h3>Décoder une offre d'emploi</h3><p>Lire et comprendre n'importe quelle offre avant de postuler.</p></li>
+      <li class="day rv d2"><span class="d-n">Jour 3</span><span class="d-date">Mercredi 9 décembre</span><h3>Un CV très professionnel</h3><p>Tout commence par un bon CV : les règles pour le construire.</p></li>
+      <li class="day rv d3"><span class="d-n">Jour 4</span><span class="d-date">Jeudi 10 décembre</span><h3>Préparer son dossier</h3><p>Les pièces à réunir et à soigner avant de postuler.</p></li>
+      <li class="day rv"><span class="d-n">Jour 5</span><span class="d-date">Vendredi 11 décembre</span><h3>Se démarquer</h3><p>Ce qui fait choisir votre candidature face aux autres.</p></li>
     </ol>
     <div class="prog-bar rv">
       <span><svg><use href="#i-pin"/></svg>7 au 11 décembre 2026</span>
@@ -555,18 +519,16 @@ footer a:hover{color:#fff}
     <div class="take-main rv">
       <div class="ico"><svg><use href="#i-doc"/></svg></div>
       <div>
-        <span class="tag">Le livrable principal</span>
-        <h3>Faire vous-même un bon CV</h3>
-        <p>Un CV clair, structuré et aux normes ATS, que vous saurez écrire et mettre à jour seul(e), sans dépendre de personne.</p>
+        <span class="tag">Tout commence par un bon CV</span>
+        <h3>Construire un CV très professionnel</h3>
+        <p>À la fin de la formation, chacun saura construire son CV de façon très professionnelle, clair, structuré et aux normes ATS, sans dépendre de personne.</p>
       </div>
     </div>
     <div class="take3">
-      <article class="tk rv"><span class="n">02</span><h3>Rédiger une lettre percutante</h3><p>Accroche, valeur ajoutée et appel à l'action : une lettre qui donne envie de vous rencontrer.</p></article>
-      <article class="tk rv d1"><span class="n">03</span><h3>Réussir tests et entretiens</h3><p>Préparer les tests, structurer vos réponses avec la méthode STAR et gagner en assurance.</p></article>
-      <article class="tk rv d2"><span class="n">04</span><h3>Tracer votre plan d'action</h3><p>Vous positionner, viser les bonnes organisations humanitaires et savoir négocier votre offre.</p></article>
-    </div>
-    <div class="join-cta rv">
-      <a class="btn btn-primary js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Je veux ces 4 compétences</a>
+      <article class="tk rv"><span class="n">02</span><h3>Comprendre le processus de recrutement</h3><p>Savoir comment une organisation humanitaire recrute, étape par étape, pour mieux vous placer.</p></article>
+      <article class="tk rv d1"><span class="n">03</span><h3>Préparer son dossier avant de postuler</h3><p>Réunir et soigner chaque pièce de votre candidature avant d'envoyer quoi que ce soit.</p></article>
+      <article class="tk rv d2"><span class="n">04</span><h3>Se démarquer face à une offre</h3><p>Faire ressortir ce qui fait de vous le bon choix parmi des dizaines de candidatures.</p></article>
+      <article class="tk rv d3"><span class="n">05</span><h3>Comprendre n'importe quelle offre d'emploi</h3><p>Lire une offre, repérer ce qui est vraiment demandé et décider si et comment y répondre.</p></article>
     </div>
   </div>
 </section>
@@ -655,7 +617,6 @@ footer a:hover{color:#fff}
     <p class="lead rv d2">La formation est gratuite et commence le 7 décembre 2026 à 18h00 GMT. Rejoignez la chaîne WhatsApp BK-BOOST en un clic.</p>
     <div class="cta-row rv d3">
       <a class="btn btn-gold js-wa js-magnet" href="#"><svg><use href="#i-wa"/></svg>Je m'inscris gratuitement</a>
-      <a class="btn btn-ghost js-magnet" href="#programme">Revoir le programme</a>
     </div>
   </div>
 </section>
@@ -731,8 +692,6 @@ footer a:hover{color:#fff}
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
   }, {threshold:.14, rootMargin:"0px 0px -40px 0px"}) : null;
   document.querySelectorAll(".rv").forEach(function(el){ io ? io.observe(el) : el.classList.add("in"); });
-  var mock = document.getElementById("mock");
-  if (io) { var mo = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ mock.classList.add("in"); mo.disconnect(); } }); }, {threshold:.3}); mo.observe(mock); } else { mock.classList.add("in"); }
 
   // Boutons magnétiques (souris uniquement)
   if (window.matchMedia("(hover:hover) and (pointer:fine)").matches && !window.matchMedia("(prefers-reduced-motion:reduce)").matches) {
@@ -807,8 +766,7 @@ footer a:hover{color:#fff}
     box.appendChild(el); if (io) io.observe(el); else el.classList.add("in");
   });
   var more = document.createElement("article"); more.className = "person more rv";
-  more.innerHTML = '<h3>Et bien d\'autres candidats</h3><p>Chaque parcours est différent. Le vôtre commence en rejoignant la chaîne.</p><a class="btn btn-gold js-magnet" href="#"><svg><use href="#i-wa"/></svg>Rejoindre</a>';
-  var mb = more.querySelector("a"); mb.href = CHANNEL; mb.target="_blank"; mb.rel="noopener";
+  more.innerHTML = '<h3>Et bien d\'autres candidats</h3><p>Chaque parcours est différent. Le vôtre commence en rejoignant la chaîne.</p>';
   box.appendChild(more); if (io) io.observe(more); else more.classList.add("in");
 })();
 </script>
